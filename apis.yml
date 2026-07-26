@@ -1,8 +1,26 @@
 aid: das-technology
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/das-technology.png
 name: DAS Technology
-description: 'DAS Technology is a company surfaced as a portfolio company of emergence-capital and added
-  to the API Evangelist network as a stub for enrichment. Sector: martech. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: 'DAS Technology (formerly Digital Air Strike) is an automotive-retail marketing
+  and customer-experience technology company serving more than 9,300 dealerships and
+  OEMs. Its AI-native CDXP (Customer Data and Experience Platform) unifies sales, service,
+  and retention data across three product lines: Attract (multi-channel digital advertising
+  across Google, Facebook, Microsoft, Amazon, and TikTok), Convert (AI-powered lead
+  response, instant quotes, and long-cycle nurturing), and Retain (reputation management,
+  equity mining, and service-retention campaigns). DAS Technology publishes no public
+  developer API, OpenAPI, SDK, or self-serve developer portal; this profile captures
+  its public company identity and a domain-security probe.'
 url: https://raw.githubusercontent.com/api-evangelist/das-technology/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,10 +30,16 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Martech
+- Automotive
+- Automotive Retail
+- Marketing
+- Customer Data Platform
+- Advertising
+- Reputation Management
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -25,3 +49,20 @@ maintainers:
 common:
 - type: Website
   url: https://www.dastechnology.com
+- type: Blog
+  url: https://digitalairstrike.com/blog/
+- type: Support
+  url: https://digitalairstrike.com/about-the-company/contact-digital-air-strike
+- type: Login
+  url: https://digitalairstrike.com
+- type: TermsOfService
+  url: https://digitalairstrike.com/terms-conditions/
+- type: PrivacyPolicy
+  url: https://digitalairstrike.com/privacy
+- type: DomainSecurity
+  url: security/das-technology-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
