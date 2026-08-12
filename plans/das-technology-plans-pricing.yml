@@ -1,0 +1,28 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  https://www.dastechnology.com/sitemap.xml (enumerated 2026-08-12, HTTP 200, 52 URLs) and
+  https://www.dastechnology.com/get-demo (HTTP 200)
+api: DAS Web API (DASWebAPI v1 + v2)
+plan_count: 0
+pricing_model: contact-sales
+self_serve_signup: false
+free_tier: false
+trial: false
+plans: []
+note: >-
+  DAS Technology publishes no pricing page and no API plans. The full sitemap contains no /pricing,
+  /plans or /developers path; the only commercial call to action is /get-demo, a lead-capture form
+  ("Book a demo"). The one page whose URL contains the word pricing —
+  /download/pricing-transparency — is a gated dealer-industry report about vehicle price
+  transparency, not DAS Technology's own price list. API access is bundled into the CDXP/CX
+  Platform commercial relationship with a dealership, OEM or partner, and no rate card, quota,
+  overage or per-call price is published anywhere on a public surface. This is a recorded zero,
+  not a missing measurement.
+evidence:
+- url: https://www.dastechnology.com/sitemap.xml
+  status: 200
+  finding: no pricing, plans, developer or API path in 52 enumerated URLs
+- url: https://www.dastechnology.com/get-demo
+  status: 200
+  finding: demo request form; the only commercial entry point

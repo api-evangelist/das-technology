@@ -1,0 +1,6599 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: DASWebAPI V1
+host: api.digitalairstrike.com
+schemes:
+- https
+paths:
+  /v1/account/{accountGuid}:
+    get:
+      tags:
+      - Account
+      summary: Retrieve account details by account identifer
+      operationId: Account_GetAccount
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.PortalAccountDetailed'
+  /v1/account/{accountGuid}/socialActivity:
+    get:
+      tags:
+      - Account
+      summary: Retrieve social activities by account identifier
+      operationId: Account_GetSocialActivities
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.SocialActivity'
+  /v1/account/{accountGuid}/reviewV2:
+    get:
+      tags:
+      - Account
+      summary: Retrieve reviews by account identifier, supports partial filter
+      operationId: Account_GetReviewsV2
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: categories
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: reviewType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: source
+        in: query
+        required: false
+        type: string
+      - name: siteName
+        in: query
+        required: false
+        type: string
+      - name: disputedReview
+        in: query
+        required: false
+        type: boolean
+      - name: state
+        in: query
+        required: false
+        type: string
+      - name: hasResponse
+        in: query
+        required: false
+        type: boolean
+      - name: closedLoop
+        in: query
+        required: false
+        type: boolean
+      - name: brands
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: orderBy
+        in: query
+        required: false
+        type: string
+      - name: page
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: pageSize
+        in: query
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.ReviewV2'
+  /v1/account/{accountGuid}/review:
+    get:
+      tags:
+      - Account
+      summary: Retrieve reviews by account identifier, supports partial filter
+      operationId: Account_GetReviews
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.reviewType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.source
+        in: query
+        required: false
+        type: string
+      - name: query.siteName
+        in: query
+        required: false
+        type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        type: boolean
+      - name: query.state
+        in: query
+        required: false
+        type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.orderBy
+        in: query
+        required: false
+        type: string
+      - name: query.page
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Core.EntityFramework.Review'
+  /v1/account/{accountGuid}/reviewStats:
+    get:
+      tags:
+      - Account
+      summary: Retrieve review stats by account identifier
+      operationId: Account_GetReviewStatsAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.reviewType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.source
+        in: query
+        required: false
+        type: string
+      - name: query.siteName
+        in: query
+        required: false
+        type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        type: boolean
+      - name: query.state
+        in: query
+        required: false
+        type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.orderBy
+        in: query
+        required: false
+        type: string
+      - name: query.page
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.ReviewStats'
+  /v1/account/{accountGuid}/reviewStatsByInterval:
+    get:
+      tags:
+      - Account
+      summary: Retrieve review stats for interval and limit by account identifier
+      operationId: Account_GetReviewStatsByIntervalAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      - name: interval
+        in: query
+        description: day || week || month || year
+        required: true
+        type: string
+      - name: limit
+        in: query
+        description: ''
+        required: true
+        type: integer
+        format: int32
+      - name: reviewType
+        in: query
+        description: ''
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.ReviewStatsByInterval'
+  /v1/account/{accountGuid}/surveyStatsByInterval:
+    get:
+      tags:
+      - Account
+      summary: Retrieve survey stats for interval and limit by account identifier
+      operationId: Account_GetSurveyStatsByIntervalAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: The account unique identifier.
+        required: true
+        type: string
+        format: uuid
+      - name: interval
+        in: query
+        description: day || week || month || year
+        required: true
+        type: string
+      - name: limit
+        in: query
+        description: The limit.
+        required: true
+        type: integer
+        format: int32
+      - name: surveyType
+        in: query
+        description: Type of the survey.
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.SurveyStatsByInterval'
+  /v1/account/{accountGuid}/survey:
+    get:
+      tags:
+      - Account
+      summary: Retrieve surveys by account identifier
+      operationId: Account_GetSurveys
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.surveyType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.source
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Core.EntityFramework.Survey'
+  /v1/account/{accountGuid}/survey/responsesV2:
+    get:
+      tags:
+      - Account
+      summary: Retrieve survey responses by account identifier
+      operationId: Account_GetSurveyResponsesV2Async
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      - name: page
+        in: query
+        required: true
+        type: integer
+        format: int32
+      - name: pageSize
+        in: query
+        required: true
+        type: integer
+        format: int32
+      - name: orderBy
+        in: query
+        required: false
+        type: string
+      - name: query.fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.surveyType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.source
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.SurveyV2Response'
+  /v1/account/{accountGuid}/surveyStats:
+    get:
+      tags:
+      - Account
+      summary: Retrieve survey stats by account identifier
+      operationId: Account_GetSurveyStatsAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.surveyType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.source
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.SurveyStatsV2'
+  /v1/account/{accountGuid}/survey/response:
+    get:
+      tags:
+      - Account
+      summary: Retrieve survey responses by account identifier
+      operationId: Account_GetSurveyResponsesAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      - name: startDate
+        in: query
+        description: ''
+        required: true
+        type: string
+        format: date-time
+      - name: endDate
+        in: query
+        description: ''
+        required: false
+        type: string
+        format: date-time
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.SurveyResponseLegacy'
+  /v1/account/{accountGuid}/owner:
+    get:
+      tags:
+      - Account
+      summary: Retrieve account owner by account identifier
+      operationId: Account_GetOwner
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.AccountManager'
+  /v1/account/{accountGuid}/employee:
+    get:
+      tags:
+      - Account
+      summary: Retrieve employees by account identifier
+      operationId: Account_GetEmployee
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Core.EntityFramework.Employee'
+  /v1/account/{accountGuid}/employeeStats:
+    get:
+      tags:
+      - Account
+      summary: Retrieve employee stats by account identifier
+      operationId: Account_GetEmployeeStatsAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: type
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.EmployeeStats'
+  /v1/account/{accountGuid}/enterpriseStatsV2:
+    get:
+      tags:
+      - Account
+      summary: Retrieve survey and review stats by account identifier
+      operationId: Account_GetEnterpriseStatsAsyncV2
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: type
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.EnterpriseStatsV2'
+  /v1/account/{accountGuid}/enterpriseStats:
+    get:
+      tags:
+      - Account
+      summary: Retrieve survey and review stats by account identifier
+      operationId: Account_GetEnterpriseStatsAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: type
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.EnterpriseStats'
+  /v1/account/{accountGuid}/parent:
+    get:
+      tags:
+      - Account
+      summary: Retrieves parent accounts of the referenced account
+      operationId: Account_GetParent
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.PortalAccount'
+  /v1/account/{accountGuid}/child:
+    get:
+      tags:
+      - Account
+      summary: Retrieves child accounts of the referenced account
+      operationId: Account_GetChild
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.PortalAccount'
+  /v1/account/{accountGuid}/descendant:
+    get:
+      tags:
+      - Account
+      operationId: Account_GetDescendant
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.PortalAccount'
+  /v1/account/{accountGuid}/heirarchy:
+    get:
+      tags:
+      - Account
+      operationId: Account_GetHeirarchy
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.PortalAccount'
+  /v1/account/{accountGuid}/unsubscribe:
+    get:
+      tags:
+      - Account
+      operationId: Account_GetUnsubscribe
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.Unsubscribe'
+  /v1/account/{accountGuid}/unsubscribeReport:
+    get:
+      tags:
+      - Account
+      operationId: Account_GetUnsubscribeReport
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/account/{accountGuid}/gm2016:
+    get:
+      tags:
+      - Account
+      summary: Determine if a given account has an active GM 2016 package
+      operationId: Account_GetGM2016
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+  /v1/account/{accountGuid}/activePackageList:
+    get:
+      tags:
+      - Account
+      summary: Returns a list of active packages
+      operationId: Account_GetActivePackages
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      - name: product
+        in: query
+        description: ''
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+  /v1/account/{accountGuid}/notificationsettings:
+    get:
+      tags:
+      - Account
+      operationId: Account_GetAccountNotification
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.PortalAccountNotifySettings'
+  /v1/account/{accountGuid}/toyotareputation:
+    get:
+      tags:
+      - Account
+      operationId: Account_GetToyotaReputationReport
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: year
+        in: query
+        required: true
+        type: integer
+        format: int32
+      - name: month
+        in: query
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/account/{accountGuid}/activity:
+    post:
+      tags:
+      - Account
+      operationId: Account_AddActivity
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: activity
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.ActivityModel'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/account/{dealerGuid}/surveySample/{email}:
+    post:
+      tags:
+      - Account
+      operationId: Account_SendSurveyEmail
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: dealerGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: email
+        in: path
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/account/provisionDashboard/{accountGuid}:
+    get:
+      tags:
+      - Account
+      operationId: Account_GetProvisionDashboard
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/account/smsprovisiondetails/{accountGuid}:
+    get:
+      tags:
+      - Account
+      summary: Retrieve account sms provision details by account identifer
+      operationId: Account_GetSMSProvisionDetails
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/clients:
+    get:
+      tags:
+      - Client
+      summary: Returns a paginated result set of the SL Active clients
+      operationId: Client_GetClients
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: request.apiKey
+        in: query
+        required: false
+        type: string
+      - name: request.queryKey
+        in: query
+        required: false
+        type: string
+      - name: request.pageSize
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: request.currentPage
+        in: query
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/clients/{clientId}/surveys:
+    get:
+      tags:
+      - Client
+      summary: Returns paginated result of surveys and associated information for the specified client
+      description: Removed because Overstock change of product leadership.
+      operationId: Client_GetClientSurveys
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: clientId
+        in: path
+        required: true
+        type: string
+      - name: request.clientId
+        in: query
+        required: false
+        type: string
+        format: uuid
+      - name: request.fromDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: request.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: request.rating
+        in: query
+        required: false
+        type: array
+        items:
+          type: integer
+          format: int32
+        collectionFormat: multi
+      - name: request.apiKey
+        in: query
+        required: false
+        type: string
+      - name: request.queryKey
+        in: query
+        required: false
+        type: string
+      - name: request.pageSize
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: request.currentPage
+        in: query
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+      deprecated: true
+  /v1/accounts/{clientId}/configuration/addons:
+    get:
+      tags:
+      - Configuration
+      operationId: Configuration_GetAddonConfiguration
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: clientId
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: config.optInSmsSweepstakes
+        in: query
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/accounts/{clientId}/configuration/mobile:
+    get:
+      tags:
+      - Configuration
+      operationId: Configuration_GetMobileConfiguration
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: clientId
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/employee/{employeeId}:
+    get:
+      tags:
+      - Employee
+      summary: Retrieve employee by employee identifer
+      operationId: Employee_GetEmployee
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: employeeId
+        in: path
+        description: ''
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.EmployeeModel'
+  /v1/mail/send:
+    post:
+      tags:
+      - Mail
+      operationId: Mail_PostMessageAsynchronous
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: message
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.Envelope'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/mail/sendsync:
+    post:
+      tags:
+      - Mail
+      operationId: Mail_PostMessageSynchronous
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: message
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.Envelope'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/mail/status/{token}:
+    get:
+      tags:
+      - Mail
+      operationId: Mail_GetStatus
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: token
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/mail/events/{token}:
+    get:
+      tags:
+      - Mail
+      operationId: Mail_GetEventsAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: token
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/notification/{clientId}/sms/phonenumbers/new:
+    post:
+      tags:
+      - Notification
+      operationId: Notification_ProvisionSmsNumber
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: clientId
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: requestInfo
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DASWebAPI.Controllers.SmsProvisionRequestInfo'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/notification/{clientId}/sms/phonenumbers/{smsNumber}:
+    delete:
+      tags:
+      - Notification
+      operationId: Notification_DeprovisionSmsNumber
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: clientId
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: smsNumber
+        in: path
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/accounts/{accountId}/promotions:
+    get:
+      tags:
+      - Promotions
+      summary: Used by web browsers to request a redirect while also allowing us to count the click.
+      operationId: Promotions_GetPromotionRedirect
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountId
+        in: path
+        description: The account identifier.
+        required: true
+        type: string
+        format: uuid
+      - name: promotionId
+        in: query
+        description: The promotion identifier.
+        required: true
+        type: string
+        format: uuid
+      - name: redirect
+        in: query
+        description: The redirect.
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/review/{reviewGuid}:
+    get:
+      tags:
+      - Review
+      summary: Retrieve review by identifier
+      operationId: Review_GetReview
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: reviewGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.ReviewModel'
+  /v1/review/{reviewGuid}/response:
+    get:
+      tags:
+      - Review
+      summary: Retrieve all responses for a review
+      operationId: Review_GetReviewResponses
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: reviewGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.ReviewResponseV2'
+    post:
+      tags:
+      - Review
+      summary: Create a new review response
+      operationId: Review_PostReviewResponse
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: reviewResponse
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.ReviewResponseV2'
+      - name: reviewGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.ReviewResponseV2'
+  /v1/review/{reviewGuid}/response/{responseGuid}:
+    get:
+      tags:
+      - Review
+      summary: Retrieve a single review response
+      operationId: Review_GetReviewResponse
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: reviewGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      - name: responseGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.ReviewResponseV2'
+  /v1/review:
+    post:
+      tags:
+      - Review
+      summary: Inserts or updates one or more reviews into the database
+      operationId: Review_PostReview
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: reviewModels
+        in: body
+        description: An array of review models
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/DAS.Models.ReviewModel'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.ReviewModel'
+  /v1/review/{reviewGuid}/DepartmentDisposition:
+    post:
+      tags:
+      - Review
+      summary: Records review department disposition.
+      operationId: Review_DepartmentDisposition
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: model
+        in: body
+        description: Department disposition model.
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.ReviewDepartmentDispositionModel'
+      - name: reviewGuid
+        in: path
+        description: Review GUID
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.ReviewModel'
+  /v1/review/accounts/{accountId}/sitelinks:
+    get:
+      tags:
+      - Review
+      operationId: getReviewSiteLinks
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.CustomerReviewSiteInfo'
+  /v1/review/accounts/{accountId}/sites:
+    get:
+      tags:
+      - Review
+      operationId: getReviewSiteRedirect2
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: surveyId
+        in: query
+        required: true
+        type: string
+        format: uuid
+      - name: site
+        in: query
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/review/accounts/{accountId}/configuration/reviewsites:
+    get:
+      tags:
+      - Review
+      operationId: getAllReviewSites
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/review/{accountId}/reviews/refresh:
+    get:
+      tags:
+      - Review
+      operationId: Review_RefreshReviews
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/rlcustomer/{customerGuid}/packages:
+    get:
+      tags:
+      - RLCustomer
+      operationId: RLCustomer_GetPackages
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: customerGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.PackageModel'
+  /v1/site/list:
+    get:
+      tags:
+      - Site
+      summary: Retrieve sites
+      operationId: Site_GetSites
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: isActive
+        in: query
+        description: Nullable boolean; Null returns all sites, True returns all sites that are active;
+          False returns all sites that inactive
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.Site'
+  /v1/site/{id}:
+    get:
+      tags:
+      - Site
+      summary: Retrieve single site by site identifier
+      operationId: Site_GetSite
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: id
+        in: path
+        description: The site ID of the value you want to return
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.Site'
+  /v1/smartfacts/{customerGuid}:
+    get:
+      tags:
+      - SmartFacts
+      operationId: SmartFacts_Get
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: customerGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: type
+        in: query
+        required: true
+        type: string
+      - name: initialDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: periods
+        in: query
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/SOCi/{accountGuid}/provision:
+    get:
+      tags:
+      - SOCi
+      summary: Provisions the specified account unique identifier.
+      operationId: SOCi_Provision
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: The account unique identifier.
+        required: true
+        type: string
+        format: uuid
+      - name: projectId
+        in: query
+        description: The project identifier.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/SOCi/{accountGuid}/deprovision:
+    get:
+      tags:
+      - SOCi
+      summary: Deprovisions the specified account unique identifier.
+      operationId: SOCi_Deprovision
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: path
+        description: The account unique identifier.
+        required: true
+        type: string
+        format: uuid
+      - name: projectId
+        in: query
+        description: The project identifier.
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/stats/survey:
+    get:
+      tags:
+      - Stats
+      summary: Retrieve survey stats by list of account identifiers
+      operationId: Stats_GetSurveyStatsAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        type: array
+        items:
+          type: string
+          format: uuid
+        collectionFormat: multi
+      - name: query.fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.surveyType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.source
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.SurveyStatsV2'
+  /v1/stats/review:
+    get:
+      tags:
+      - Stats
+      summary: Retrieve review stats by list of account identifiers
+      operationId: Stats_GetReviewStatsAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        type: array
+        items:
+          type: string
+          format: uuid
+        collectionFormat: multi
+      - name: query.fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.reviewType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.source
+        in: query
+        required: false
+        type: string
+      - name: query.siteName
+        in: query
+        required: false
+        type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        type: boolean
+      - name: query.state
+        in: query
+        required: false
+        type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.orderBy
+        in: query
+        required: false
+        type: string
+      - name: query.page
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.ReviewStats'
+  /v1/stats/enterprise:
+    get:
+      tags:
+      - Stats
+      summary: Retrieve survey and review stats by list of account identifiers
+      operationId: Stats_GetEnterpriseStatsAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        type: array
+        items:
+          type: string
+          format: uuid
+        collectionFormat: multi
+      - name: fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: type
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.EnterpriseStatsV2'
+  /v1/stats/employee:
+    get:
+      tags:
+      - Stats
+      summary: Retrieve employee stats by list of account identifiers
+      operationId: Stats_GetEmployeeStatsAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        type: array
+        items:
+          type: string
+          format: uuid
+        collectionFormat: multi
+      - name: fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: type
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: array
+              items:
+                $ref: '#/definitions/DAS.Models.EmployeeStats'
+  /v1/stats/ToyotaSocialInteractions:
+    get:
+      tags:
+      - Stats
+      operationId: Stats_GetToyotaSocialInteractionsReport
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: fromDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/survey/{surveyId}/response:
+    get:
+      tags:
+      - Survey
+      summary: Retrieve survey responses by survey identifier
+      operationId: Survey_GetSurveyResponsesAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: surveyId
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.SurveyResponseV2'
+  /v1/survey/maritz/{maritzSurveyId}:
+    get:
+      tags:
+      - Survey
+      operationId: Survey_GetMaritzSurveyByMaritzSurveyId
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: maritzSurveyId
+        in: path
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/survey/accounts/{clientId}/smssurveys:
+    post:
+      tags:
+      - Survey
+      summary: Calls service.surveys on the new platform and sends a Mobile Review Surge survey via SMS
+        to the given destination phone number.
+      operationId: Survey_RequestSurvey
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: clientId
+        in: path
+        description: This is the Account GUID.
+        required: true
+        type: string
+        format: uuid
+      - name: data
+        in: body
+        description: The collection of data in the Form.
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/System.Collections.Generic.KeyValuePair[System.String,System.String]'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/survey/GetMobileSurveyStats:
+    get:
+      tags:
+      - Survey
+      summary: Returns just the stats, no surveys, broken up by intervals.
+      operationId: Survey_GetMobileSurveyStatsAsync
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: token
+        in: query
+        description: The client or portal user GUID.
+        required: true
+        type: string
+        format: uuid
+      - name: type
+        in: query
+        description: Used to determine if this is client or portal user GUID.
+        required: true
+        type: string
+      - name: timespan
+        in: query
+        description: 'Acceptable timespans are: 1w, 30d, 90d, 6m, 1y, hist. These match the front end''s
+          filters.'
+        required: false
+        type: string
+      - name: interval
+        in: query
+        description: "It is ok to have a null interval as long as the front end sent us a timespan and\
+          \ not a fromDate and toDate.\r\n            Otherwise, an interval must be provided."
+        required: false
+        type: string
+      - name: fromCurrentDate
+        in: query
+        description: ''
+        required: false
+        type: boolean
+      - name: query.fromDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.type
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.brands
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.q
+        in: query
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/survey/{token}/ReviewSurgeReport:
+    get:
+      tags:
+      - Survey
+      summary: Get the ReviewSurgeReport and generate the csv file
+      operationId: Survey_GetReviewSurgeReport
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: token
+        in: path
+        description: Account guid
+        required: true
+        type: string
+        format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.reviewType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.source
+        in: query
+        required: false
+        type: string
+      - name: query.siteName
+        in: query
+        required: false
+        type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        type: boolean
+      - name: query.state
+        in: query
+        required: false
+        type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.orderBy
+        in: query
+        required: false
+        type: string
+      - name: query.page
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/survey/{token}/ReviewSurgeReportByWeek:
+    get:
+      tags:
+      - Survey
+      summary: Get the ReviewSurgeReport and generate the csv file of a week
+      operationId: Survey_ReviewSurgeReportWeek
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: token
+        in: path
+        description: Account guid
+        required: true
+        type: string
+        format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.reviewType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.source
+        in: query
+        required: false
+        type: string
+      - name: query.siteName
+        in: query
+        required: false
+        type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        type: boolean
+      - name: query.state
+        in: query
+        required: false
+        type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.orderBy
+        in: query
+        required: false
+        type: string
+      - name: query.page
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/survey/{token}/ReviewSurgeReportByMonth:
+    get:
+      tags:
+      - Survey
+      summary: Get the ReviewSurgeReport and generate the csv file of a month
+      operationId: Survey_ReviewSurgeReportMonth
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: token
+        in: path
+        description: Account guid
+        required: true
+        type: string
+        format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        type: string
+        format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        type: string
+        format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.reviewType
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.source
+        in: query
+        required: false
+        type: string
+      - name: query.siteName
+        in: query
+        required: false
+        type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        type: boolean
+      - name: query.state
+        in: query
+        required: false
+        type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        type: array
+        items:
+          type: string
+        collectionFormat: multi
+      - name: query.orderBy
+        in: query
+        required: false
+        type: string
+      - name: query.page
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/surveyResponse/{surveyResponseGuid}:
+    get:
+      tags:
+      - SurveyResponse
+      summary: Retrieve survey response by identifier
+      operationId: SurveyResponse_GetSurveyResponse
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: surveyResponseGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.SurveyResponseV2'
+  /v1/surveyResponse/{surveyResponse}/response:
+    get:
+      tags:
+      - SurveyResponse
+      summary: Retrieve all responses for a survey response
+      operationId: SurveyResponse_GetSurveyResponseResponses
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: surveyResponse
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.ProposedResponse'
+  /v1/surveyResponse/{surveyResponseGuid}/response/{responseGuid}:
+    get:
+      tags:
+      - SurveyResponse
+      summary: Retrieve a single survey response response
+      operationId: SurveyResponse_GetSurveyResponseResponse
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: surveyResponseGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      - name: responseGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.ProposedResponse'
+  /v1/surveyResponse/{surveyResponseGuid}/response:
+    post:
+      tags:
+      - SurveyResponse
+      summary: Create a new survey response response
+      operationId: SurveyResponse_PostSurveyResponseResponse
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: proposedResponse
+        in: body
+        description: ''
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.ProposedResponse'
+      - name: surveyResponseGuid
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.ProposedResponse'
+  /v1/surveyResponse/{surveyResponseGuid}/DealerResponse:
+    post:
+      tags:
+      - SurveyResponse
+      summary: Create or update a pending request for store dealer's response to survey
+      operationId: SurveyResponse_PostSurveyDealerResponse
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: surveyResponseGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: response
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.SurveyDealerComments'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.SurveyDealerComments'
+  /v1/transaction/{transactionId}:
+    get:
+      tags:
+      - Transaction
+      summary: Retrieve a transaction by identifier
+      operationId: Transaction_GetTransaction
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: transactionId
+        in: path
+        description: ''
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.Transaction'
+  /v1/user/me:
+    get:
+      tags:
+      - User
+      summary: Retrieve the user executing this request
+      operationId: User_GetUser
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.UserModel'
+  /v1/user/{userGuid}:
+    get:
+      tags:
+      - User
+      operationId: User_GetUser
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/DAS.Models.UserModel'
+  /v1/user:
+    post:
+      tags:
+      - User
+      operationId: User_PostUser
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: user
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.UserModel'
+      - name: sendWelcome
+        in: query
+        required: false
+        type: boolean
+      - name: template
+        in: query
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/user/me/settings:
+    get:
+      tags:
+      - User
+      summary: Retrieve user settings for the current user
+      operationId: User_GetUserSettings
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/definitions/DAS.Models.UserSettings'
+  /v1/user/{userGuid}/{accountGuid}/settings:
+    get:
+      tags:
+      - User
+      summary: Retrieve user settings for the current user
+      operationId: User_GetUserSettings
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/definitions/DAS.Models.UserSettings'
+  /v1/user/me/notification:
+    get:
+      tags:
+      - User
+      operationId: User_GetNotificationSettings
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/definitions/DAS.Models.NotificationSettings'
+  /v1/user/{userGuid}/{accountGuid}/notification:
+    get:
+      tags:
+      - User
+      operationId: User_GetNotificationSettings
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/definitions/DAS.Models.NotificationSettings'
+  /v1/user/me/settings/report:
+    get:
+      tags:
+      - User
+      operationId: User_GetReportSettings
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/definitions/DAS.Models.ReportSettings'
+  /v1/user/{userGuid}/{accountGuid}/report:
+    get:
+      tags:
+      - User
+      operationId: User_GetReportSettings
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: array
+              items:
+                $ref: '#/definitions/DAS.Models.ReportSettings'
+  /v1/user/me/settings/custom:
+    get:
+      tags:
+      - User
+      operationId: User_GetCustomSettings
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+    post:
+      tags:
+      - User
+      operationId: User_PostCustomSettings
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: custom
+        in: query
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/user/{userGuid}/settings/custom:
+    get:
+      tags:
+      - User
+      operationId: User_GetCustomSettings
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+    post:
+      tags:
+      - User
+      operationId: User_PostCustomSettings
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: custom
+        in: query
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/user/me/{accountGuid}/settings/notification:
+    post:
+      tags:
+      - User
+      operationId: User_PostNotificationSettings
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: settings
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.NotificationSettings'
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/user/{userGuid}/{accountGuid}/settings/notification:
+    post:
+      tags:
+      - User
+      operationId: User_PostNotificationSettings
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: settings
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.NotificationSettings'
+      - name: userGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/user/me/{accountGuid}/settings/report:
+    post:
+      tags:
+      - User
+      operationId: User_PostReportSettings
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: settings
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.ReportSettings'
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/user/{userGuid}/{accountGuid}/settings/report:
+    post:
+      tags:
+      - User
+      operationId: User_PostReportSettings
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: settings
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DAS.Models.ReportSettings'
+      - name: userGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: accountGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/user/list:
+    get:
+      tags:
+      - User
+      summary: Retrieve a list of all users
+      operationId: User_GetList
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: all
+        in: query
+        required: false
+        type: boolean
+      - name: orderBy
+        in: query
+        description: "FirstName\r\nFirstNameDESC\r\nLastName\r\nLastNameDESC\r\nEmail\r\nEmailDESC\r\n\
+          AccessLevel\r\nAccessLevelDESC\r\nUpdated\r\nUpdatedDESC"
+        required: false
+        type: string
+      - name: pageSize
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: page
+        in: query
+        required: false
+        type: integer
+        format: int32
+      - name: q
+        in: query
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.UserModel'
+  /v1/user/listForReport:
+    get:
+      tags:
+      - User
+      summary: Retrieve a list of all users with specified report settings
+      operationId: User_GetListForReport
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: type
+        in: query
+        description: ''
+        required: true
+        type: string
+        enum:
+        - Enterprise
+        - Unsubscribe
+        - Bounce
+      - name: frequency
+        in: query
+        description: ''
+        required: true
+        type: string
+        enum:
+        - Never
+        - Daily
+        - Weekly
+        - Monthly
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DAS.Models.UserModel'
+  /v1/user/test:
+    get:
+      tags:
+      - User
+      operationId: User_GetTest
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: string
+  /v1/user/resendWelcome:
+    get:
+      tags:
+      - User
+      operationId: User_GetResendWelcome
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: email
+        in: query
+        required: true
+        type: string
+      - name: template
+        in: query
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/user/resendWelcomeAllUsers:
+    get:
+      tags:
+      - User
+      operationId: User_GetResendWelcomeAllUsers
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: key
+        in: query
+        required: true
+        type: string
+      - name: template
+        in: query
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/user/findGuid:
+    get:
+      tags:
+      - User
+      operationId: User_GetFindGuid
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: email
+        in: query
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            format: uuid
+            type: string
+  /v1/user/{userGuid}/password:
+    post:
+      tags:
+      - User
+      operationId: User_PostPassword
+      consumes:
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - application/json
+      - text/json
+      - text/html
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        type: string
+        format: uuid
+      - name: password
+        in: body
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/user/forgotPassword:
+    get:
+      tags:
+      - User
+      operationId: User_GetForgotPassword
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: email
+        in: query
+        required: false
+        type: string
+      - name: template
+        in: query
+        required: false
+        type: string
+      - name: token
+        in: query
+        required: false
+        type: string
+        format: uuid
+      - name: newPassword
+        in: query
+        required: false
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/vehicles/{vin}:
+    get:
+      tags:
+      - Vehicle
+      operationId: Vehicle_GetVinDetails
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      parameters:
+      - name: vin
+        in: path
+        required: true
+        type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/vehicles/test:
+    get:
+      tags:
+      - Vehicle
+      operationId: Vehicle_GetCarDetails
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /v1/zuora/signature:
+    post:
+      tags:
+      - Zuora
+      operationId: Zuora_RequestDigitalSignature
+      consumes: []
+      produces:
+      - application/xml
+      - text/xml
+      - application/json
+      - text/json
+      - text/html
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+definitions:
+  DAS.Models.PortalAccountDetailed:
+    type: object
+    properties:
+      address:
+        $ref: '#/definitions/DAS.Models.PortalAccountAddress'
+      phone:
+        type: string
+      website:
+        type: string
+      name:
+        type: string
+      guid:
+        format: uuid
+        type: string
+      parent:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.PortalAccount'
+      child:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.PortalAccount'
+  DAS.Models.PortalAccountAddress:
+    type: object
+    properties:
+      street:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      postalCode:
+        type: string
+      country:
+        type: string
+  DAS.Models.PortalAccount:
+    type: object
+    properties:
+      name:
+        type: string
+      guid:
+        format: uuid
+        type: string
+      parent:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.PortalAccount'
+      child:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.PortalAccount'
+  DAS.Models.SocialActivity:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      clientGuid:
+        format: uuid
+        type: string
+      createdBy:
+        type: string
+      activityType:
+        type: string
+      createdDate:
+        format: date-time
+        type: string
+      activityDate:
+        format: date-time
+        type: string
+      activityDescription:
+        type: string
+  DAS.Models.ReviewQuery:
+    required:
+    - fromDate
+    type: object
+    properties:
+      fromDate:
+        format: date-time
+        type: string
+      toDate:
+        format: date-time
+        type: string
+      categories:
+        type: array
+        items:
+          type: string
+      reviewType:
+        type: array
+        items:
+          type: string
+      source:
+        type: string
+      siteName:
+        type: string
+      disputedReview:
+        type: boolean
+      state:
+        type: string
+      hasResponse:
+        type: boolean
+      closedLoop:
+        type: boolean
+      brands:
+        type: array
+        items:
+          type: string
+      orderBy:
+        type: string
+      page:
+        format: int32
+        type: integer
+      pageSize:
+        format: int32
+        type: integer
+  DAS.Models.ReviewV2:
+    type: object
+    properties:
+      id:
+        format: uuid
+        type: string
+      comment:
+        type: string
+      accountGuid:
+        format: uuid
+        type: string
+      reviewerName:
+        type: string
+      siteName:
+        type: string
+      rating:
+        type: string
+      isClosedLoopReview:
+        type: boolean
+      reviewDate:
+        format: date-time
+        type: string
+      district:
+        type: string
+      dealerName:
+        type: string
+      department:
+        type: string
+      hasResponse:
+        type: boolean
+      reviewResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ReviewResponseV2'
+      city:
+        type: string
+      state:
+        type: string
+      reviewUrl:
+        type: string
+      canRespond:
+        type: boolean
+      canRespondInline:
+        type: boolean
+      proposedResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ProposedResponse'
+      canChangeDepartment:
+        type: boolean
+  DAS.Models.ReviewResponseV2:
+    type: object
+    properties:
+      responseDate:
+        format: date-time
+        type: string
+      responderName:
+        type: string
+      responseTitle:
+        type: string
+      responseComment:
+        type: string
+      canEditResponse:
+        type: boolean
+      lastModified:
+        format: date-time
+        type: string
+      reviewResponseGuid:
+        format: uuid
+        type: string
+      proposed:
+        type: boolean
+      externalId:
+        type: string
+  DAS.Models.ProposedResponse:
+    type: object
+    properties:
+      responseDate:
+        format: date-time
+        type: string
+      responderName:
+        type: string
+      responseTitle:
+        type: string
+      responseComment:
+        type: string
+      canEditResponse:
+        type: boolean
+      accepted:
+        type: boolean
+      acceptedDate:
+        format: date-time
+        type: string
+      lastModified:
+        format: date-time
+        type: string
+      surveyResponseResponseGuid:
+        format: uuid
+        type: string
+  DAS.Core.EntityFramework.Review:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      reviewGuid:
+        format: uuid
+        type: string
+      reviewSourceId:
+        format: int32
+        type: integer
+      accountGuid:
+        format: uuid
+        type: string
+      externalId:
+        type: string
+      reviewSiteId:
+        format: int32
+        type: integer
+      created:
+        format: date-time
+        type: string
+      modified:
+        format: date-time
+        type: string
+      reviewDate:
+        format: date-time
+        type: string
+      reviewScore:
+        format: double
+        type: number
+      reviewerName:
+        type: string
+      reviewerCity:
+        type: string
+      reviewerState:
+        type: string
+      reviewerCountry:
+        type: string
+      reviewUrl:
+        type: string
+      reviewTitle:
+        type: string
+      reviewComment:
+        type: string
+      aylienException:
+        type: boolean
+      accountId:
+        format: int32
+        type: integer
+      isClosedLoop:
+        type: boolean
+      surveyResponseId:
+        format: int32
+        type: integer
+      softDeleteDateUTC:
+        format: date-time
+        type: string
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+      reviewSite:
+        $ref: '#/definitions/DAS.Core.EntityFramework.ReviewSite'
+      reviewSource:
+        $ref: '#/definitions/DAS.Core.EntityFramework.ReviewSource'
+      reviewClassifications:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.ReviewClassification'
+      reviewResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.ReviewResponse'
+      categories:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Category'
+      surveyResponse:
+        $ref: '#/definitions/DAS.Core.EntityFramework.SurveyResponse'
+      reviewCategoryDispositions:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.ReviewCategoryDisposition'
+  DAS.Core.EntityFramework.Account:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      token:
+        format: uuid
+        type: string
+      mySqlDealerId:
+        format: int32
+        type: integer
+      newSFDCId:
+        type: string
+      oldSFDCId:
+        type: string
+      bacCode:
+        type: string
+      rlCustomerId:
+        format: int32
+        type: integer
+      rlName:
+        type: string
+      slName:
+        type: string
+      ownerId:
+        format: int32
+        type: integer
+      website:
+        type: string
+      phone:
+        type: string
+      kiaCode:
+        type: string
+      kiaDistrict:
+        type: string
+      sfdcParentAccountId:
+        type: string
+      deleted:
+        type: boolean
+      slActive:
+        type: boolean
+      rsActive:
+        type: boolean
+      parentAccountId:
+        format: int32
+        type: integer
+      oemProgram:
+        type: string
+      recordType:
+        type: string
+      alternativeGuid:
+        format: uuid
+        type: string
+      customPortalProspect:
+        type: boolean
+      brands:
+        type: string
+      mcActive:
+        type: boolean
+      flexTemplate:
+        type: boolean
+      collectReviews:
+        type: boolean
+      oemPrograms:
+        type: string
+      amrsActive:
+        type: boolean
+      dynParentAccountId:
+        format: uuid
+        type: string
+      dynId:
+        format: uuid
+        type: string
+      socialActive:
+        type: boolean
+      reputationActive:
+        type: boolean
+      privacyPolicyUrl:
+        type: string
+      facebookPageId:
+        type: string
+      latitude:
+        type: string
+      longitude:
+        type: string
+      dealershipHours:
+        type: string
+      dealershipLogo:
+        type: string
+      remoteTestDriveBadge:
+        type: boolean
+      conciergeServiceBadge:
+        type: boolean
+      reviewScoreBadge:
+        type: boolean
+      buyFromHomeBadge:
+        type: boolean
+      tekionId:
+        type: string
+      accountCompetitors:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.AccountCompetitor'
+      competitorOfAccounts:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.AccountCompetitor'
+      childOfHierarchies:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.AccountHierarchy'
+      parentOfHierarchies:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.AccountHierarchy'
+      reviews:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Review'
+      childAccounts:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+      parentAccount:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+      rlCustomer:
+        $ref: '#/definitions/DAS.Core.EntityFramework.RLCustomer'
+      sfdcUser:
+        $ref: '#/definitions/DAS.Core.EntityFramework.SFDCUser'
+      hierarchies:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Hierarchy'
+      rooftops:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Rooftop'
+      packages:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Package'
+      surveys:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Survey'
+      addresses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Address'
+      dashboardClients:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.DashboardClient'
+      accountIntegration:
+        $ref: '#/definitions/DAS.Core.EntityFramework.AccountIntegration'
+      accountBrands:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.AccountBrand'
+      accountInventories:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.AccountInventory'
+      sociProject:
+        $ref: '#/definitions/DAS.Core.EntityFramework.SociProject'
+      oemCodes:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.OemCode'
+      oemPrograms1:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.OemProgram'
+      facebookAdAccounts:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.FacebookAdAccount'
+  DAS.Core.EntityFramework.ReviewSite:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      legacyId:
+        format: int32
+        type: integer
+      url:
+        type: string
+      reviews:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Review'
+      manualListings:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.ManualListing'
+  DAS.Core.EntityFramework.ReviewSource:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      reviews:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Review'
+  DAS.Core.EntityFramework.ReviewClassification:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      reviewId:
+        format: int32
+        type: integer
+      label:
+        type: string
+      score:
+        format: double
+        type: number
+      created:
+        format: date-time
+        type: string
+      review:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Review'
+  DAS.Core.EntityFramework.ReviewResponse:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      reviewId:
+        format: int32
+        type: integer
+      externalId:
+        type: string
+      created:
+        format: date-time
+        type: string
+      modified:
+        format: date-time
+        type: string
+      responseDate:
+        format: date-time
+        type: string
+      responderName:
+        type: string
+      responseTitle:
+        type: string
+      responseComment:
+        type: string
+      reviewResponseGuid:
+        format: uuid
+        type: string
+      proposed:
+        type: boolean
+      reviewSourceId:
+        format: int32
+        type: integer
+      review:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Review'
+  DAS.Core.EntityFramework.Category:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      reviews:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Review'
+      reviewCategoryDispositions:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.ReviewCategoryDisposition'
+  DAS.Core.EntityFramework.SurveyResponse:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      surveyId:
+        format: int32
+        type: integer
+      responseDate:
+        format: date-time
+        type: string
+      npsScore:
+        format: int32
+        type: integer
+      rating:
+        format: int32
+        type: integer
+      comments:
+        type: string
+      feedback:
+        type: string
+      surveyResponseGuid:
+        format: uuid
+        type: string
+      publicationDate:
+        format: date-time
+        type: string
+      publicationStatus:
+        enum:
+        - None
+        - Pending
+        - Filtered
+        - OptedOut
+        - Published
+        - NotPublished
+        - PendingUnpublish
+        - Completed
+        type: string
+      enablePartnerShare:
+        type: boolean
+      displaySurvey:
+        type: boolean
+      surveyAnsweredBy:
+        type: string
+      make:
+        type: string
+      year:
+        type: string
+      model:
+        type: string
+      publishedReviewSiteId:
+        format: int32
+        type: integer
+      publishedStatus:
+        type: string
+      thankYouPageClick:
+        type: boolean
+      survey:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Survey'
+      surveyResponseResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.SurveyResponseResponse'
+      reviews:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Review'
+  DAS.Core.EntityFramework.ReviewCategoryDisposition:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      createdDate:
+        format: date-time
+        type: string
+      createdBy:
+        type: string
+      reviewId:
+        format: int32
+        type: integer
+      categoryId:
+        format: int32
+        type: integer
+      category:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Category'
+      review:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Review'
+  DAS.Core.EntityFramework.AccountCompetitor:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      accountId:
+        format: int32
+        type: integer
+      competitorAccountId:
+        format: int32
+        type: integer
+      rank:
+        format: int32
+        type: integer
+      accountCompetitorGuid:
+        format: uuid
+        type: string
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+      competitorAccount:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.AccountHierarchy:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      parentAccountId:
+        format: int32
+        type: integer
+      childAccountId:
+        format: int32
+        type: integer
+      hierarchyId:
+        format: int32
+        type: integer
+      childAccount:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+      parentAccount:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+      hierarchy:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Hierarchy'
+  DAS.Core.EntityFramework.RLCustomer:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      customerGUID:
+        format: uuid
+        type: string
+      oltpCustomerId:
+        format: int32
+        type: integer
+      accounts:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.SFDCUser:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      sfdcId:
+        type: string
+      name:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      department:
+        type: string
+      title:
+        type: string
+      phone:
+        type: string
+      mobilePhone:
+        type: string
+      email:
+        type: string
+      dynId:
+        format: uuid
+        type: string
+      accounts:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.Hierarchy:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      accountId:
+        format: int32
+        type: integer
+      guid:
+        format: uuid
+        type: string
+      accountHierarchies:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.AccountHierarchy'
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+      hierarchyLabels:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.HierarchyLabel'
+  DAS.Core.EntityFramework.Rooftop:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      rooftopName:
+        type: string
+      rooftopId:
+        type: string
+      rlCustomerInventorySourceGuid:
+        format: uuid
+        type: string
+      accounts:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.Package:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      accountId:
+        format: int32
+        type: integer
+      sfdcId:
+        type: string
+      product:
+        type: string
+      packageName:
+        type: string
+      startDate:
+        format: date-time
+        type: string
+      cancellationDate:
+        format: date-time
+        type: string
+      status:
+        type: string
+      mrr:
+        format: double
+        type: number
+      enhanced:
+        type: boolean
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.Survey:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      txnId:
+        format: int32
+        type: integer
+      oldSurveyId:
+        format: uuid
+        type: string
+      accountToken:
+        format: uuid
+        type: string
+      sentDate:
+        format: date-time
+        type: string
+      type:
+        type: string
+      vin:
+        type: string
+      email:
+        type: string
+      accountId:
+        format: int32
+        type: integer
+      txnNumber:
+        type: string
+      txnDate:
+        format: date-time
+        type: string
+      customerFirstName:
+        type: string
+      customerLastName:
+        type: string
+      employeeFirstName:
+        type: string
+      employeeLastName:
+        type: string
+      txnTypeId:
+        format: int32
+        type: integer
+      sentViaEmail:
+        type: boolean
+      sentViaSms:
+        type: boolean
+      sentFirstVia:
+        type: string
+      isSurveyReminderEmailSent:
+        type: boolean
+      mobilePhone:
+        type: string
+      reviewSurgeConsumerId:
+        format: uuid
+        type: string
+      method:
+        type: string
+      template:
+        type: string
+      dmsFeedType:
+        type: string
+      surveyOpenDate:
+        format: date-time
+        type: string
+      surveyDealerResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.SurveyDealerResponse'
+      surveyHistories:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.SurveyHistory'
+      surveyResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.SurveyResponse'
+      txn:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Txn'
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+      surveyDealerPendingResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.SurveyDealerPendingResponse'
+      txnType:
+        $ref: '#/definitions/DAS.Core.EntityFramework.TxnType'
+  DAS.Core.EntityFramework.Address:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      street:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      country:
+        type: string
+      postalCode:
+        type: string
+      type:
+        format: int32
+        type: integer
+      accountId:
+        format: int32
+        type: integer
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.DashboardClient:
+    type: object
+    properties:
+      dashboardClientId:
+        format: int32
+        type: integer
+      createdDate:
+        format: date-time
+        type: string
+      lastUpdatedDate:
+        format: date-time
+        type: string
+      lastUpdatedBy:
+        type: string
+      token:
+        format: uuid
+        type: string
+      accountId:
+        format: int32
+        type: integer
+      klipfolioClientId:
+        type: string
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.AccountIntegration:
+    type: object
+    properties:
+      accountId:
+        format: int32
+        type: integer
+      smsPhoneNumber:
+        type: string
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.AccountBrand:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      accountId:
+        format: int32
+        type: integer
+      brandId:
+        format: int32
+        type: integer
+      dynId:
+        format: uuid
+        type: string
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+      brand:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Brand'
+  DAS.Core.EntityFramework.AccountInventory:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      accountId:
+        format: int32
+        type: integer
+      inventoryId:
+        type: string
+      active:
+        type: boolean
+      sourceId:
+        format: int32
+        type: integer
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+      inventorySource:
+        $ref: '#/definitions/DAS.Core.EntityFramework.InventorySource'
+  DAS.Core.EntityFramework.SociProject:
+    type: object
+    properties:
+      accountsId:
+        format: int32
+        type: integer
+      sociProjectId:
+        type: string
+      sociProjectActive:
+        type: boolean
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.OemCode:
+    type: object
+    properties:
+      accountsId:
+        format: int32
+        type: integer
+      codeType:
+        type: string
+      value:
+        type: string
+      dynId:
+        format: uuid
+        type: string
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.OemProgram:
+    type: object
+    properties:
+      accountsId:
+        format: int32
+        type: integer
+      dynId:
+        format: uuid
+        type: string
+      value:
+        type: string
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.FacebookAdAccount:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      accountId:
+        format: int32
+        type: integer
+      facebookAdAccountId:
+        type: string
+      offlineEventSetId:
+        type: string
+      enableConversions:
+        type: boolean
+      offlineConversionsLastUpload:
+        format: date-time
+        type: string
+      account:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Account'
+  DAS.Core.EntityFramework.ManualListing:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      customerIdentifier:
+        format: uuid
+        type: string
+      externalId:
+        type: string
+      url:
+        type: string
+      siteId:
+        format: int32
+        type: integer
+      reviewSite:
+        $ref: '#/definitions/DAS.Core.EntityFramework.ReviewSite'
+  DAS.Core.EntityFramework.SurveyResponseResponse:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      surveyResponseId:
+        format: int32
+        type: integer
+      surveyResponseResponseGuid:
+        format: uuid
+        type: string
+      responseDate:
+        format: date-time
+        type: string
+      responderName:
+        type: string
+      responseTitle:
+        type: string
+      responseComment:
+        type: string
+      created:
+        format: date-time
+        type: string
+      modified:
+        format: date-time
+        type: string
+      acceptedDate:
+        format: date-time
+        type: string
+      surveyResponse:
+        $ref: '#/definitions/DAS.Core.EntityFramework.SurveyResponse'
+  DAS.Core.EntityFramework.HierarchyLabel:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      hierarchyId:
+        format: int32
+        type: integer
+      hierarchyLevel:
+        format: int32
+        type: integer
+      isLeafDefault:
+        type: boolean
+      isInternalDefault:
+        type: boolean
+      hierarchy:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Hierarchy'
+  DAS.Core.EntityFramework.SurveyDealerResponse:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      surveyId:
+        format: int32
+        type: integer
+      responseDate:
+        format: date-time
+        type: string
+      comments:
+        type: string
+      survey:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Survey'
+  DAS.Core.EntityFramework.SurveyHistory:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      surveyId:
+        format: int32
+        type: integer
+      actionId:
+        enum:
+        - SurveySent
+        - SurveyOpened
+        - SurveyCompleted
+        - SiteClicked
+        - ReviewSubmmited
+        - Bounced
+        - Unsubscribed
+        - PublicationStatusChanged
+        type: string
+      actionTime:
+        format: date-time
+        type: string
+      siteId:
+        format: int32
+        type: integer
+      count:
+        format: int32
+        type: integer
+      survey:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Survey'
+  DAS.Core.EntityFramework.Txn:
+    type: object
+    properties:
+      txnId:
+        format: int32
+        type: integer
+      createdDate:
+        format: date-time
+        type: string
+      token:
+        format: uuid
+        type: string
+      txnDate:
+        format: date-time
+        type: string
+      txnTypeId:
+        format: int32
+        type: integer
+      accountToken:
+        format: uuid
+        type: string
+      customerId:
+        format: int32
+        type: integer
+      txnProviderId:
+        format: int32
+        type: integer
+      hasCustomerEmail:
+        type: boolean
+      customer:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Customer'
+      surveys:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Survey'
+      txnProvider:
+        $ref: '#/definitions/DAS.Core.EntityFramework.TxnProvider'
+      txnType:
+        $ref: '#/definitions/DAS.Core.EntityFramework.TxnType'
+      vehicleSaleTxns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.VehicleSaleTxn'
+      vehicleServiceTxns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.VehicleServiceTxn'
+  DAS.Core.EntityFramework.SurveyDealerPendingResponse:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      surveyId:
+        format: int32
+        type: integer
+      responseDate:
+        format: date-time
+        type: string
+      comments:
+        type: string
+      survey:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Survey'
+  DAS.Core.EntityFramework.TxnType:
+    type: object
+    properties:
+      txnTypeId:
+        format: int32
+        type: integer
+      txnType1:
+        type: string
+      txns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Txn'
+      surveys:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Survey'
+  DAS.Core.EntityFramework.Brand:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      sfdcId:
+        type: string
+      name:
+        type: string
+      dynId:
+        format: uuid
+        type: string
+      accountBrands:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.AccountBrand'
+  DAS.Core.EntityFramework.InventorySource:
+    type: object
+    properties:
+      sourceId:
+        format: int32
+        type: integer
+      sourceName:
+        type: string
+      accountInventories:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.AccountInventory'
+  DAS.Core.EntityFramework.Customer:
+    type: object
+    properties:
+      customerId:
+        format: int32
+        type: integer
+      createdDate:
+        format: date-time
+        type: string
+      lastUpdatedDate:
+        format: date-time
+        type: string
+      lastUpdatedBy:
+        type: string
+      token:
+        format: uuid
+        type: string
+      accountToken:
+        format: uuid
+        type: string
+      customerNumber:
+        type: string
+      email:
+        type: string
+      name:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      address1:
+        type: string
+      address2:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      country:
+        type: string
+      zip:
+        type: string
+      homePhone:
+        type: string
+      mobilePhone:
+        type: string
+      workPhone:
+        type: string
+      unsubscribedToPhone:
+        type: boolean
+      unsubscribedToEmail:
+        type: boolean
+      unsubscribedToMail:
+        type: boolean
+      mobilePhoneId:
+        type: string
+      txns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Txn'
+  DAS.Core.EntityFramework.TxnProvider:
+    type: object
+    properties:
+      txnProviderId:
+        format: int32
+        type: integer
+      txnProvider1:
+        type: string
+      txns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Txn'
+  DAS.Core.EntityFramework.VehicleSaleTxn:
+    type: object
+    properties:
+      vehicleSaleTxnId:
+        format: int32
+        type: integer
+      txnId:
+        format: int32
+        type: integer
+      dmsTypeId:
+        format: int32
+        type: integer
+      dealNumber:
+        type: string
+      entryDate:
+        format: date-time
+        type: string
+      dealBookDate:
+        format: date-time
+        type: string
+      dealType:
+        type: string
+      individualBusinessFlag:
+        type: string
+      salesMan1Id:
+        format: int32
+        type: integer
+      salesMan2Id:
+        format: int32
+        type: integer
+      vehicleType:
+        type: string
+      vehicleId:
+        format: int32
+        type: integer
+      stockNumber:
+        type: string
+      vin:
+        type: string
+      dmsType:
+        $ref: '#/definitions/DAS.Core.EntityFramework.DMSType'
+      employee:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Employee'
+      employee1:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Employee'
+      txn:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Txn'
+      vehicle:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Vehicle'
+  DAS.Core.EntityFramework.VehicleServiceTxn:
+    type: object
+    properties:
+      vehicleServiceTxnId:
+        format: int32
+        type: integer
+      txnId:
+        format: int32
+        type: integer
+      dmsTypeId:
+        format: int32
+        type: integer
+      repairOrderNumber:
+        type: string
+      openDate:
+        format: date-time
+        type: string
+      closedDate:
+        format: date-time
+        type: string
+      individualBusinessFlag:
+        type: string
+      salesManId:
+        format: int32
+        type: integer
+      serviceAdvisorId:
+        format: int32
+        type: integer
+      vehicleId:
+        format: int32
+        type: integer
+      vin:
+        type: string
+      odometer:
+        type: string
+      hasInternalPayLaborType:
+        type: boolean
+      hasCustomerPayLaborType:
+        type: boolean
+      hasWarrantyLaborType:
+        type: boolean
+      hasUnknownLaborType:
+        type: boolean
+      dmsType:
+        $ref: '#/definitions/DAS.Core.EntityFramework.DMSType'
+      employee:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Employee'
+      employee1:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Employee'
+      txn:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Txn'
+      vehicle:
+        $ref: '#/definitions/DAS.Core.EntityFramework.Vehicle'
+  DAS.Core.EntityFramework.DMSType:
+    type: object
+    properties:
+      dmsTypeId:
+        format: int32
+        type: integer
+      dmsType1:
+        type: string
+      vehicleSaleTxns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.VehicleSaleTxn'
+      vehicleServiceTxns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.VehicleServiceTxn'
+  DAS.Core.EntityFramework.Employee:
+    type: object
+    properties:
+      employeeId:
+        format: int32
+        type: integer
+      createdDate:
+        format: date-time
+        type: string
+      lastUpdatedDate:
+        format: date-time
+        type: string
+      lastUpdatedBy:
+        type: string
+      token:
+        format: uuid
+        type: string
+      accountToken:
+        format: uuid
+        type: string
+      employeeNumber:
+        type: string
+      name:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      employeeDepartmentId:
+        format: int32
+        type: integer
+      employeeStatus:
+        type: boolean
+      terminationDate:
+        format: date-time
+        type: string
+      updatedBy:
+        type: string
+      employeeDepartment:
+        $ref: '#/definitions/DAS.Core.EntityFramework.EmployeeDepartment'
+      vehicleSaleTxns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.VehicleSaleTxn'
+      vehicleSaleTxns1:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.VehicleSaleTxn'
+      vehicleServiceTxns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.VehicleServiceTxn'
+      vehicleServiceTxns1:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.VehicleServiceTxn'
+  DAS.Core.EntityFramework.Vehicle:
+    type: object
+    properties:
+      vehicleId:
+        format: int32
+        type: integer
+      createdDate:
+        format: date-time
+        type: string
+      lastUpdatedDate:
+        format: date-time
+        type: string
+      lastUpdatedBy:
+        type: string
+      year:
+        type: string
+      make:
+        type: string
+      model:
+        type: string
+      vehicleSaleTxns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.VehicleSaleTxn'
+      vehicleServiceTxns:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.VehicleServiceTxn'
+  DAS.Core.EntityFramework.EmployeeDepartment:
+    type: object
+    properties:
+      employeeDepartmentId:
+        format: int32
+        type: integer
+      employeeDepartment1:
+        type: string
+      employees:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Core.EntityFramework.Employee'
+  DAS.Models.ReviewStats:
+    type: object
+    properties:
+      accountGuid:
+        format: uuid
+        type: string
+      averageRating:
+        format: double
+        type: number
+      averageTotalCount:
+        format: int32
+        type: integer
+      positiveCount:
+        format: int32
+        type: integer
+      neutralCount:
+        format: int32
+        type: integer
+      negativeCount:
+        format: int32
+        type: integer
+      positiveRespondedCount:
+        format: int32
+        type: integer
+      positiveNotRespondedCount:
+        format: int32
+        type: integer
+      negativeRespondedCount:
+        format: int32
+        type: integer
+      negativeNotRespondedCount:
+        format: int32
+        type: integer
+      positivePercentage:
+        format: double
+        type: number
+      neutralPercentage:
+        format: double
+        type: number
+      negativePercentage:
+        format: double
+        type: number
+      reviewStatsSources:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ReviewStatsSource'
+      reviewStatsStates:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ReviewStatsState'
+      siteRatings:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ReviewSiteRatings'
+  DAS.Models.ReviewStatsSource:
+    type: object
+    properties:
+      name:
+        type: string
+      count:
+        format: int32
+        type: integer
+      averageRating:
+        format: double
+        type: number
+      positiveCount:
+        format: int32
+        type: integer
+      averageTotalCount:
+        format: int32
+        type: integer
+      averageSite:
+        format: double
+        type: number
+  DAS.Models.ReviewStatsState:
+    type: object
+    properties:
+      stateName:
+        type: string
+      ratingAverage:
+        format: double
+        type: number
+  DAS.Models.ReviewSiteRatings:
+    type: object
+    properties:
+      name:
+        type: string
+      averageRating:
+        format: double
+        type: number
+  DAS.Models.ReviewStatsByInterval:
+    type: object
+    properties:
+      accountGuid:
+        format: uuid
+        type: string
+      intervalName:
+        type: string
+      averageRating:
+        format: double
+        type: number
+      totalCount:
+        format: int32
+        type: integer
+      averageTotalCount:
+        format: int32
+        type: integer
+  DAS.Models.SurveyStatsByInterval:
+    type: object
+    properties:
+      accountGuid:
+        format: uuid
+        type: string
+      intervalName:
+        type: string
+      averageRating:
+        format: double
+        type: number
+      totalCount:
+        format: int32
+        type: integer
+      averageTotalCount:
+        format: int32
+        type: integer
+  DAS.Models.SurveyQuery:
+    required:
+    - fromDate
+    type: object
+    properties:
+      fromDate:
+        format: date-time
+        type: string
+      toDate:
+        format: date-time
+        type: string
+      surveyType:
+        type: array
+        items:
+          type: string
+      source:
+        type: array
+        items:
+          type: string
+  DAS.Models.SurveyV2Response:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.SurveyResponseV2'
+      count:
+        format: int32
+        type: integer
+  DAS.Models.SurveyResponseV2:
+    type: object
+    properties:
+      accountGuid:
+        format: uuid
+        type: string
+      name:
+        type: string
+      district:
+        type: string
+      dealership:
+        type: string
+      isClosedLoopReview:
+        type: boolean
+      isGMSFEAccount:
+        type: boolean
+      npsScore:
+        format: int32
+        type: integer
+      rating:
+        format: int32
+        type: integer
+      date:
+        format: date-time
+        type: string
+      transactionDate:
+        format: date-time
+        type: string
+      department:
+        type: string
+      employee:
+        type: string
+      surveyId:
+        format: uuid
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      phone:
+        type: string
+      homePhone:
+        type: string
+      workPhone:
+        type: string
+      cellPhone:
+        type: string
+      email:
+        type: string
+      surveyVia:
+        type: string
+      vehicleYear:
+        type: string
+      vehicleMake:
+        type: string
+      vehicleModel:
+        type: string
+      vin:
+        type: string
+      stockNumber:
+        type: string
+      repairOrder:
+        type: string
+      customerResponseComment:
+        type: string
+      customerResponseImprovementComment:
+        type: string
+      dealerResponseDate:
+        type: string
+      dealerResponseComment:
+        type: string
+      canRespondInline:
+        type: boolean
+      proposedResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ProposedResponse'
+      surveyResponseId:
+        format: uuid
+        type: string
+      publicationDate:
+        format: date-time
+        type: string
+      publicationStatus:
+        type: string
+      responded:
+        type: boolean
+      published:
+        type: boolean
+      daysUntilPublication:
+        format: int32
+        type: integer
+        readOnly: true
+      daysUntilResponseLocked:
+        format: int32
+        type: integer
+        readOnly: true
+      canRespond:
+        type: boolean
+        readOnly: true
+  DAS.Models.SurveyStatsV2:
+    type: object
+    properties:
+      clTotalSurveysCompleted:
+        format: int32
+        type: integer
+      clAverageStarRating:
+        format: double
+        type: number
+      clAverageLoyaltyScore:
+        format: double
+        type: number
+      clPositiveSurveysCompleted:
+        format: int32
+        type: integer
+      neutralSurveysCompleted:
+        format: int32
+        type: integer
+      positivePercentage:
+        format: int32
+        type: integer
+      accountGuid:
+        format: uuid
+        type: string
+      name:
+        type: string
+      transactions:
+        format: int32
+        type: integer
+      emailCapture:
+        format: int32
+        type: integer
+      surveysSent:
+        format: int32
+        type: integer
+      surveysOpened:
+        format: int32
+        type: integer
+      totalSurveysCompleted:
+        format: int32
+        type: integer
+      positiveSurveysCompleted:
+        format: int32
+        type: integer
+      negativeSurveysCompleted:
+        format: int32
+        type: integer
+      averageStarRating:
+        format: double
+        type: number
+      averageLoyaltyScore:
+        format: double
+        type: number
+      nclReviewClicks:
+        format: int32
+        type: integer
+  DAS.Models.SurveyResponseLegacy:
+    type: object
+    properties:
+      hasClosedLoopReview:
+        type: boolean
+      accountGuid:
+        format: uuid
+        type: string
+      name:
+        type: string
+      district:
+        type: string
+      canRespond:
+        type: boolean
+      canRespondInline:
+        type: boolean
+      proposedResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ProposedResponse'
+      id:
+        format: uuid
+        type: string
+      date:
+        format: date-time
+        type: string
+      rating:
+        format: int32
+        type: integer
+      loyaltyScore:
+        format: int32
+        type: integer
+      comment:
+        type: string
+      suggestion:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      questionResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.QuestionResponse'
+      tags:
+        type: array
+        items:
+          type: string
+      transaction:
+        $ref: '#/definitions/DAS.Models.SurveyTransaction'
+  DAS.Models.QuestionResponse:
+    type: object
+    properties:
+      question:
+        type: string
+      answer:
+        type: string
+  DAS.Models.SurveyTransaction:
+    type: object
+    properties:
+      id:
+        format: uuid
+        type: string
+      type:
+        type: string
+      employee:
+        $ref: '#/definitions/DAS.Models.SurveyEmployee'
+  DAS.Models.SurveyEmployee:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+  DAS.Models.AccountManager:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      name:
+        type: string
+      email:
+        type: string
+      phone:
+        type: string
+      mobilePhone:
+        type: string
+      title:
+        type: string
+      department:
+        type: string
+  DAS.Models.EmployeeStats:
+    type: object
+    properties:
+      employeeId:
+        format: int32
+        type: integer
+      employeeName:
+        type: string
+      employeeDepartment:
+        type: string
+      dealershipName:
+        type: string
+      dealershipGuid:
+        format: uuid
+        type: string
+      surveyStats:
+        $ref: '#/definitions/DAS.Models.SurveyStats'
+      closedLoopStats:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ReviewStatsSimple'
+  DAS.Models.SurveyStats:
+    type: object
+    properties:
+      accountGuid:
+        format: uuid
+        type: string
+      name:
+        type: string
+      transactions:
+        format: int32
+        type: integer
+      emailCapture:
+        format: int32
+        type: integer
+      surveysSent:
+        format: int32
+        type: integer
+      surveysOpened:
+        format: int32
+        type: integer
+      totalSurveysCompleted:
+        format: int32
+        type: integer
+      positiveSurveysCompleted:
+        format: int32
+        type: integer
+      negativeSurveysCompleted:
+        format: int32
+        type: integer
+      averageStarRating:
+        format: double
+        type: number
+      averageLoyaltyScore:
+        format: double
+        type: number
+      nclReviewClicks:
+        format: int32
+        type: integer
+  DAS.Models.ReviewStatsSimple:
+    type: object
+    properties:
+      name:
+        type: string
+      reviewClicks:
+        format: int32
+        type: integer
+      reviewCount:
+        format: int32
+        type: integer
+      averageStarRating:
+        format: double
+        type: number
+      percentPositive:
+        format: double
+        type: number
+  DAS.Models.EnterpriseStatsV2:
+    type: object
+    properties:
+      nclTotalSurveysCompleted:
+        format: int32
+        type: integer
+      nclAverageStarRating:
+        format: double
+        type: number
+      nclPositiveSurveysCompleted:
+        format: double
+        type: number
+      clTotalSurveysCompleted:
+        format: int32
+        type: integer
+      clAverageStarRating:
+        format: double
+        type: number
+      clAverageLoyaltyScore:
+        format: double
+        type: number
+      clPositiveSurveysCompleted:
+        format: int32
+        type: integer
+      neutralSurveysCompleted:
+        format: int32
+        type: integer
+      positivePercentage:
+        format: int32
+        type: integer
+      accountGuid:
+        format: uuid
+        type: string
+      name:
+        type: string
+      transactions:
+        format: int32
+        type: integer
+      emailCapture:
+        format: int32
+        type: integer
+      surveysSent:
+        format: int32
+        type: integer
+      surveysOpened:
+        format: int32
+        type: integer
+      totalSurveysCompleted:
+        format: int32
+        type: integer
+      positiveSurveysCompleted:
+        format: int32
+        type: integer
+      negativeSurveysCompleted:
+        format: int32
+        type: integer
+      averageStarRating:
+        format: double
+        type: number
+      averageLoyaltyScore:
+        format: double
+        type: number
+      nclReviewClicks:
+        format: int32
+        type: integer
+  DAS.Models.EnterpriseStats:
+    type: object
+    properties:
+      surveyStats:
+        $ref: '#/definitions/DAS.Models.SurveyStats'
+      closedLoopStats:
+        $ref: '#/definitions/DAS.Models.ReviewStats'
+      nonClosedLoopStats:
+        $ref: '#/definitions/DAS.Models.ReviewStats'
+  DAS.Models.Unsubscribe:
+    type: object
+    properties:
+      dealershipName:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      emailAddress:
+        type: string
+      unsubscribeDate:
+        format: date-time
+        type: string
+      surveyId:
+        format: uuid
+        type: string
+  DAS.Models.PortalAccountNotifySettings:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      title:
+        type: string
+      timeZone:
+        type: string
+      notification:
+        $ref: '#/definitions/DAS.Models.NotificationSettings'
+  DAS.Models.NotificationSettings:
+    type: object
+    properties:
+      review:
+        $ref: '#/definitions/DAS.Models.ReviewNotificationSettings'
+      surveyResponse:
+        $ref: '#/definitions/DAS.Models.SurveyResponseNotificationSettings'
+  DAS.Models.ReviewNotificationSettings:
+    type: object
+    properties:
+      sales:
+        $ref: '#/definitions/DAS.Models.RatingNotificationSettings'
+      service:
+        $ref: '#/definitions/DAS.Models.RatingNotificationSettings'
+      uncategorized:
+        $ref: '#/definitions/DAS.Models.RatingNotificationSettings'
+  DAS.Models.SurveyResponseNotificationSettings:
+    type: object
+    properties:
+      sales:
+        $ref: '#/definitions/DAS.Models.RatingNotificationSettings'
+      service:
+        $ref: '#/definitions/DAS.Models.RatingNotificationSettings'
+  DAS.Models.RatingNotificationSettings:
+    type: object
+    properties:
+      negative:
+        enum:
+        - None
+        - Email
+        - Mobile
+        type: string
+      positive:
+        enum:
+        - None
+        - Email
+        - Mobile
+        type: string
+  DAS.Models.ActivityModel:
+    type: object
+    properties:
+      activityDate:
+        format: date-time
+        type: string
+      activityType:
+        type: string
+      activityDesc:
+        type: string
+      activitySites:
+        type: string
+  DASWebAPI.Contracts.ClientsRequest:
+    description: Used for the Clients controller params
+    type: object
+    properties:
+      apiKey:
+        type: string
+      queryKey:
+        type: string
+      pageSize:
+        format: int32
+        type: integer
+      currentPage:
+        format: int32
+        type: integer
+  DASWebAPI.Contracts.ClientsSurveyRequest:
+    type: object
+    properties:
+      clientId:
+        format: uuid
+        type: string
+      fromDate:
+        format: date-time
+        type: string
+      toDate:
+        format: date-time
+        type: string
+      rating:
+        type: array
+        items:
+          format: int32
+          type: integer
+      apiKey:
+        type: string
+      queryKey:
+        type: string
+      pageSize:
+        format: int32
+        type: integer
+      currentPage:
+        format: int32
+        type: integer
+  DASWebAPI.Controllers.AddonConfiguration:
+    type: object
+    properties:
+      optInSmsSweepstakes:
+        type: boolean
+  DAS.Models.EmployeeModel:
+    type: object
+    properties:
+      employeeId:
+        format: int32
+        type: integer
+      createdDate:
+        format: date-time
+        type: string
+      lastUpdatedDate:
+        format: date-time
+        type: string
+      lastUpdatedBy:
+        type: string
+      token:
+        format: uuid
+        type: string
+      accountToken:
+        format: uuid
+        type: string
+      employeeNumber:
+        type: string
+      name:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      employeeDepartment:
+        type: string
+      active:
+        type: boolean
+  DAS.Models.Envelope:
+    type: object
+    properties:
+      id:
+        format: uuid
+        type: string
+      mailType:
+        enum:
+        - Default
+        - Client
+        - Operations
+        type: string
+      entity:
+        format: uuid
+        type: string
+      categories:
+        type: array
+        items:
+          type: string
+      messageId:
+        type: string
+      inReplyTo:
+        type: string
+      references:
+        type: string
+      listUnsubscribe:
+        type: string
+      from:
+        type: string
+      replyTo:
+        type: array
+        items:
+          type: string
+      to:
+        type: array
+        items:
+          type: string
+      cc:
+        type: array
+        items:
+          type: string
+      bcc:
+        type: array
+        items:
+          type: string
+      subject:
+        type: string
+      text:
+        type: string
+      html:
+        type: string
+      oneClickUnsubscribe:
+        type: boolean
+      showUnsubscribe:
+        type: boolean
+      disableOpenTracking:
+        type: boolean
+      disableClickTracking:
+        type: boolean
+      bypassListManagement:
+        type: boolean
+      attachments:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.EnvelopeAttachment'
+  DAS.Models.EnvelopeAttachment:
+    type: object
+    properties:
+      content:
+        format: byte
+        type: string
+      contentId:
+        type: string
+      contentType:
+        type: string
+      dispositionType:
+        type: string
+      name:
+        type: string
+      nameEncoding:
+        format: int32
+        type: integer
+      transferEncoding:
+        format: int32
+        type: integer
+  DASWebAPI.Controllers.SmsProvisionRequestInfo:
+    type: object
+    properties:
+      phone:
+        type: string
+      street:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      country:
+        type: string
+      postalCode:
+        type: string
+  DAS.Models.ReviewModel:
+    type: object
+    properties:
+      reviewId:
+        format: uuid
+        type: string
+      reviewDate:
+        format: date-time
+        type: string
+      reviewType:
+        type: string
+      source:
+        type: string
+      lastUpdatedDate:
+        format: date-time
+        type: string
+      lastUpdatedBy:
+        type: string
+      createdBy:
+        type: string
+      dealerGuid:
+        format: uuid
+        type: string
+      dealerName:
+        type: string
+      reviewSurgeResponseId:
+        format: uuid
+        type: string
+      siteId:
+        format: uuid
+        type: string
+      siteName:
+        type: string
+      rating:
+        type: string
+      reviewerName:
+        type: string
+      comment:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      responseDate:
+        format: date-time
+        type: string
+      disputedReview:
+        type: boolean
+      createdDate:
+        format: date-time
+        type: string
+      country:
+        type: string
+      district:
+        type: string
+      reviewResponses:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ReviewResponseModel'
+      externalId:
+        type: string
+      reviewTitle:
+        type: string
+      reviewUrl:
+        type: string
+  DAS.Models.ReviewResponseModel:
+    type: object
+    properties:
+      reviewId:
+        format: uuid
+        type: string
+      reviewResponseGuid:
+        format: uuid
+        type: string
+      externalId:
+        type: string
+      responseDate:
+        format: date-time
+        type: string
+      responderName:
+        type: string
+      responseTitle:
+        type: string
+      responseComment:
+        type: string
+  DAS.Models.ReviewDepartmentDispositionModel:
+    type: object
+    properties:
+      department:
+        type: string
+      logon:
+        type: string
+  DAS.Models.CustomerReviewSiteInfo:
+    type: object
+    properties:
+      accountId:
+        format: uuid
+        type: string
+      dealerPage:
+        type: string
+      siteId:
+        format: int32
+        type: integer
+      siteName:
+        type: string
+      siteHome:
+        type: string
+  DAS.Models.PackageModel:
+    type: object
+    properties:
+      packageName:
+        type: string
+      status:
+        type: string
+  DAS.Models.Site:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      siteUrl:
+        type: string
+      description:
+        type: string
+      ratingMethod:
+        $ref: '#/definitions/DAS.Models.RatingMethod'
+      logoUrl:
+        type: string
+      active:
+        type: boolean
+      slReporting:
+        type: boolean
+      guid:
+        format: uuid
+        type: string
+  DAS.Models.RatingMethod:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      description:
+        type: string
+      ratingDisplay:
+        type: string
+      ratingMethodItems:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.RatingMethodItems'
+  DAS.Models.RatingMethodItems:
+    type: object
+    properties:
+      rating:
+        type: string
+      orderId:
+        format: int32
+        type: integer
+      ratingValue:
+        format: int32
+        type: integer
+  System.Collections.Generic.KeyValuePair[System.String,System.String]:
+    type: object
+    properties:
+      key:
+        type: string
+        readOnly: true
+      value:
+        type: string
+        readOnly: true
+  DASWebAPI.Controllers.ReportQuery:
+    type: object
+    properties:
+      fromDate:
+        format: date-time
+        type: string
+      toDate:
+        format: date-time
+        type: string
+      categories:
+        type: array
+        items:
+          type: string
+      type:
+        type: array
+        items:
+          type: string
+      brands:
+        type: array
+        items:
+          type: string
+      q:
+        type: string
+  DAS.Models.SurveyDealerComments:
+    type: object
+    properties:
+      surveyId:
+        format: int32
+        type: integer
+      surveyResponseId:
+        format: int32
+        type: integer
+      date:
+        format: date-time
+        type: string
+      comment:
+        type: string
+  DAS.Models.Transaction:
+    type: object
+    properties:
+      transactionId:
+        format: int32
+        type: integer
+      transactionGuid:
+        format: uuid
+        type: string
+      openDate:
+        format: date-time
+        type: string
+      closedDate:
+        format: date-time
+        type: string
+      customer:
+        $ref: '#/definitions/DAS.Models.CustomerModel'
+      employee:
+        $ref: '#/definitions/DAS.Models.EmployeeModel'
+      vehicle:
+        $ref: '#/definitions/DAS.Models.VehicleModel'
+  DAS.Models.CustomerModel:
+    type: object
+    properties:
+      customerId:
+        format: int32
+        type: integer
+      customerGuid:
+        format: uuid
+        type: string
+      number:
+        type: string
+      email:
+        type: string
+      name:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      streetAddress:
+        type: string
+      streetAddress2:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      zip:
+        type: string
+      homePhone:
+        type: string
+      cellPhone:
+        type: string
+      workPhone:
+        type: string
+  DAS.Models.VehicleModel:
+    type: object
+    properties:
+      vin:
+        type: string
+      year:
+        type: string
+      make:
+        type: string
+      model:
+        type: string
+      odometer:
+        type: string
+  DAS.Models.UserModel:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      guid:
+        format: uuid
+        type: string
+      externalId:
+        format: uuid
+        type: string
+      active:
+        type: boolean
+      accessLevel:
+        enum:
+        - Hidden
+        - None
+        - User
+        - Administrator
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      title:
+        type: string
+      created:
+        format: date-time
+        type: string
+      updated:
+        format: date-time
+        type: string
+      lastLogin:
+        format: date-time
+        type: string
+      timeZone:
+        type: string
+      accountAccess:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.AccountAccessModel'
+      settings:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.UserSettings'
+      portalStyle:
+        type: string
+      portalFeatures:
+        type: array
+        items:
+          type: string
+      accountHierarchyViews:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.AccountHierarchyView'
+      advocateName:
+        type: string
+      advocateMail:
+        type: string
+      advocatePhone:
+        type: string
+  DAS.Models.AccountAccessModel:
+    type: object
+    properties:
+      accountGuid:
+        format: uuid
+        type: string
+      accessLevel:
+        enum:
+        - Hidden
+        - None
+        - User
+        - Administrator
+        type: string
+  DAS.Models.UserSettings:
+    type: object
+    properties:
+      accountGuid:
+        format: uuid
+        type: string
+      notification:
+        $ref: '#/definitions/DAS.Models.NotificationSettings'
+      report:
+        $ref: '#/definitions/DAS.Models.ReportSettings'
+  DAS.Models.AccountHierarchyView:
+    type: object
+    properties:
+      hierarchyName:
+        type: string
+      hierarchyGuid:
+        format: uuid
+        type: string
+      accountName:
+        type: string
+      accountGuid:
+        format: uuid
+        type: string
+      root:
+        $ref: '#/definitions/DAS.Models.PortalAccountV2'
+      isDefault:
+        type: boolean
+  DAS.Models.ReportSettings:
+    type: object
+    properties:
+      enterprise:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ReportSettingDetails'
+      unsubscribe:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ReportSettingDetails'
+      bounce:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.ReportSettingDetails'
+  DAS.Models.PortalAccountV2:
+    type: object
+    properties:
+      name:
+        type: string
+      guid:
+        format: uuid
+        type: string
+      parent:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.PortalAccountV2'
+      child:
+        type: array
+        items:
+          $ref: '#/definitions/DAS.Models.PortalAccountV2'
+      level:
+        format: int32
+        type: integer
+      label:
+        type: string
+      features:
+        type: array
+        items:
+          type: string
+      brands:
+        type: string
+  DAS.Models.ReportSettingDetails:
+    type: object
+    properties:
+      frequency:
+        enum:
+        - Never
+        - Daily
+        - Weekly
+        - Monthly
+        type: string
+      format:
+        enum:
+        - Default
+        - CSV
+        - XLS
+        - PDF
+        type: string
+      method:
+        enum:
+        - None
+        - Email
+        - Mobile
+        type: string
+      expandTable:
+        type: boolean

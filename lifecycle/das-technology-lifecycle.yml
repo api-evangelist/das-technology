@@ -1,0 +1,70 @@
+generated: '2026-08-12'
+method: derived
+source: >-
+  openapi/_original/das-technology-daswebapi-v1-swagger.json,
+  openapi/_original/das-technology-daswebapi-v2-swagger.json, plus a search of
+  https://www.dastechnology.com (sitemap enumerated 2026-08-12) for versioning, deprecation, SLA
+  and status pages
+api: DAS Web API (DASWebAPI v1 + v2)
+versioning:
+  scheme: path-prefix (/v1, /v2)
+  current_versions:
+  - v1
+  - v2
+  policy_published: false
+  policy_url: null
+  detail: >-
+    Two versions are served side by side from one host. v2 does not supersede v1 — it covers eight
+    resource families while eleven v1 families (Mail, Notification, Promotions, Review,
+    SmartFacts, Site, Survey, SurveyResponse, Transaction, Vehicle, Zuora) have no v2 counterpart.
+    No sunset date is published for v1.
+deprecation:
+  policy_published: false
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations:
+  - operationId: Client_GetClientSurveys
+    path: /v1/clients/{clientId}/surveys
+    method: get
+    spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+    replacement_documented: false
+    sunset_date: null
+  detail: >-
+    Exactly one operation carries `deprecated: true` in the published specification and it names no
+    replacement and no sunset date. No Deprecation or Sunset response header was observed. There is
+    no public deprecation policy.
+sla:
+  published: false
+  url: null
+status_page:
+  published: false
+  url: null
+  detail: >-
+    No status.dastechnology.com or status.digitalairstrike.com DNS record exists, and no
+    statuspage.io / status.io / instatus property was found for either brand. The provider
+    publishes no uptime or incident surface for the API.
+changelog:
+  published: false
+  url: null
+  detail: >-
+    No API changelog or release-notes page exists. The dastechnology.com sitemap carries press
+    releases and marketing blog posts only; neither documents API changes. The only version signal
+    a caller has is the appearance of a new /swagger/docs/{version} discovery path.
+maintenance_signals:
+- signal: legacy-brand-host
+  detail: >-
+    The API is still served from api.digitalairstrike.com, the pre-2023 brand domain, three years
+    after the company rebranded to DAS Technology. No api.dastechnology.com host resolves.
+- signal: swagger-2-0
+  detail: >-
+    The contract is published as Swagger 2.0 using Swashbuckle's legacy Swagger UI 2.x bundle, an
+    eleven-year-old specification version, rather than OpenAPI 3.x.
+gaps:
+- id: no-deprecation-policy
+  remediation: Publish a versioning + deprecation policy and emit RFC 8594 Deprecation/Sunset headers.
+- id: no-status-page
+  remediation: Publish a status page for the API host so integrators can see incidents.
+- id: no-changelog
+  remediation: Publish dated API release notes.

@@ -1,0 +1,57 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  public registry search across npm, PyPI, RubyGems, NuGet, Maven Central, Packagist and
+  crates.io, plus the GitHub organizations for both DAS Technology brands (2026-08-12)
+api: DAS Web API (DASWebAPI v1 + v2)
+package_count: 0
+official_package_count: 0
+packages: []
+note: >-
+  DAS Technology ships no client libraries. No first-party SDK was found in any public registry,
+  and no SDK, CLI or code sample is linked from any DAS Technology surface — the company publishes
+  no developer portal at all. Because zero official packages were found, this repo emits NO
+  `Packages` and NO `SDKs` pointer: this file records a verified absence, not a surface. Callers
+  integrate against the raw Swagger 2.0 contract at https://api.digitalairstrike.com/swagger.
+registries_searched:
+- registry: npm
+  query: digitalairstrike
+  results: 0
+- registry: pypi
+  query: digitalairstrike, daswebapi
+  results: 0
+- registry: rubygems
+  query: digitalairstrike
+  results: 0
+- registry: nuget
+  query: digitalairstrike
+  results: 0
+  note: >-
+    Notable miss — the API is ASP.NET Web API, so a .NET client would be the natural first-party
+    package, and none is published.
+- registry: maven-central
+  query: digitalairstrike, das technology
+  results: 0
+- registry: packagist
+  query: digitalairstrike
+  results: 0
+- registry: crates.io
+  query: digitalairstrike
+  results: 0
+source_repositories:
+- org: https://github.com/dastechnology
+  status: 200
+  verified: >-
+    Org description reads "Digital Air Strike, a division of DAS Technology" — this is the
+    company's own organization.
+  public_repos: 1
+  contains_sdk: false
+  detail: >-
+    The single public repository, dastechnology/social-logix-radar-react-splitter-layout, is a
+    JavaScript layout component with no description. It is not an API client.
+- org: https://github.com/das-technology
+  status: 200
+  verified: false
+  detail: >-
+    DIFFERENT COMPANY — "Digital Applications & Services Company", blog das.technology, zero public
+    repositories. Not this provider; excluded.

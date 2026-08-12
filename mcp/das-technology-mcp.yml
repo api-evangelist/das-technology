@@ -1,0 +1,2883 @@
+generated: '2026-08-12'
+method: derived
+status: candidate
+source: openapi/_original/das-technology-daswebapi-v1-swagger.json, openapi/_original/das-technology-daswebapi-v2-swagger.json
+note: 'DAS Technology publishes NO MCP server. Probed 2026-08-12: POST https://api.digitalairstrike.com/mcp
+  returned 404, and neither mcp.dastechnology.com nor mcp.digitalairstrike.com resolves in DNS. This file
+  is a CANDIDATE tool surface derived mechanically from the 136 operations in the two published Swagger
+  2.0 documents — what an MCP server for the DAS Web API would expose if the provider shipped one. It
+  is not served by DAS Technology and must not be read as an existing endpoint. Each tool inherits its
+  real inputSchema from the backing operation''s parameters. Every call requires a bearer token (see authentication/das-technology-authentication.yml);
+  the 25 write tools have no idempotency key, so an agent must not retry them blind (see conventions/das-technology-conventions.yml).'
+server:
+  published: false
+  url: null
+  transport: null
+evidence:
+- url: https://api.digitalairstrike.com/mcp
+  status: 404
+- url: https://mcp.dastechnology.com/
+  status: dns-nxdomain
+- url: https://mcp.digitalairstrike.com/
+  status: dns-nxdomain
+tool_count: 136
+read_only_tools: 110
+write_tools: 26
+tools:
+- tool: das_deprovision
+  category: SOCi
+  rest_operation_id: SOCi_Deprovision
+  http: GET /v1/SOCi/{accountGuid}/deprovision
+  summary: Deprovisions the specified account unique identifier.
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: projectId
+    in: query
+    required: true
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_provision
+  category: SOCi
+  rest_operation_id: SOCi_Provision
+  http: GET /v1/SOCi/{accountGuid}/provision
+  summary: Provisions the specified account unique identifier.
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: projectId
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_provision_dashboard
+  category: Account
+  rest_operation_id: Account_GetProvisionDashboard
+  http: GET /v1/account/provisionDashboard/{accountGuid}
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_s_m_s_provision_details
+  category: Account
+  rest_operation_id: Account_GetSMSProvisionDetails
+  http: GET /v1/account/smsprovisiondetails/{accountGuid}
+  summary: Retrieve account sms provision details by account identifer
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_account
+  category: Account
+  rest_operation_id: Account_GetAccount
+  http: GET /v1/account/{accountGuid}
+  summary: Retrieve account details by account identifer
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_active_packages
+  category: Account
+  rest_operation_id: Account_GetActivePackages
+  http: GET /v1/account/{accountGuid}/activePackageList
+  summary: Returns a list of active packages
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: product
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_add_activity
+  category: Account
+  rest_operation_id: Account_AddActivity
+  http: POST /v1/account/{accountGuid}/activity
+  summary: ''
+  read_only: false
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: activity
+    in: body
+    required: true
+    type: object
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_child
+  category: Account
+  rest_operation_id: Account_GetChild
+  http: GET /v1/account/{accountGuid}/child
+  summary: Retrieves child accounts of the referenced account
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_descendant
+  category: Account
+  rest_operation_id: Account_GetDescendant
+  http: GET /v1/account/{accountGuid}/descendant
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_employee
+  category: Account
+  rest_operation_id: Account_GetEmployee
+  http: GET /v1/account/{accountGuid}/employee
+  summary: Retrieve employees by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_employee_stats
+  category: Account
+  rest_operation_id: Account_GetEmployeeStatsAsync
+  http: GET /v1/account/{accountGuid}/employeeStats
+  summary: Retrieve employee stats by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: fromDate
+    in: query
+    required: true
+    type: string
+  - name: toDate
+    in: query
+    required: false
+    type: string
+  - name: type
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_enterprise_stats
+  category: Account
+  rest_operation_id: Account_GetEnterpriseStatsAsync
+  http: GET /v1/account/{accountGuid}/enterpriseStats
+  summary: Retrieve survey and review stats by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: fromDate
+    in: query
+    required: true
+    type: string
+  - name: toDate
+    in: query
+    required: false
+    type: string
+  - name: type
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_enterprise_stats_v2
+  category: Account
+  rest_operation_id: Account_GetEnterpriseStatsAsyncV2
+  http: GET /v1/account/{accountGuid}/enterpriseStatsV2
+  summary: Retrieve survey and review stats by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: fromDate
+    in: query
+    required: true
+    type: string
+  - name: toDate
+    in: query
+    required: false
+    type: string
+  - name: type
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_g_m2016
+  category: Account
+  rest_operation_id: Account_GetGM2016
+  http: GET /v1/account/{accountGuid}/gm2016
+  summary: Determine if a given account has an active GM 2016 package
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_heirarchy
+  category: Account
+  rest_operation_id: Account_GetHeirarchy
+  http: GET /v1/account/{accountGuid}/heirarchy
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_account_notification
+  category: Account
+  rest_operation_id: Account_GetAccountNotification
+  http: GET /v1/account/{accountGuid}/notificationsettings
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_owner
+  category: Account
+  rest_operation_id: Account_GetOwner
+  http: GET /v1/account/{accountGuid}/owner
+  summary: Retrieve account owner by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_parent
+  category: Account
+  rest_operation_id: Account_GetParent
+  http: GET /v1/account/{accountGuid}/parent
+  summary: Retrieves parent accounts of the referenced account
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_reviews
+  category: Account
+  rest_operation_id: Account_GetReviews
+  http: GET /v1/account/{accountGuid}/review
+  summary: Retrieve reviews by account identifier, supports partial filter
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.reviewType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: string
+  - name: query.siteName
+    in: query
+    required: false
+    type: string
+  - name: query.disputedReview
+    in: query
+    required: false
+    type: boolean
+  - name: query.state
+    in: query
+    required: false
+    type: string
+  - name: query.hasResponse
+    in: query
+    required: false
+    type: boolean
+  - name: query.closedLoop
+    in: query
+    required: false
+    type: boolean
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.orderBy
+    in: query
+    required: false
+    type: string
+  - name: query.page
+    in: query
+    required: false
+    type: integer
+  - name: query.pageSize
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_review_stats
+  category: Account
+  rest_operation_id: Account_GetReviewStatsAsync
+  http: GET /v1/account/{accountGuid}/reviewStats
+  summary: Retrieve review stats by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.reviewType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: string
+  - name: query.siteName
+    in: query
+    required: false
+    type: string
+  - name: query.disputedReview
+    in: query
+    required: false
+    type: boolean
+  - name: query.state
+    in: query
+    required: false
+    type: string
+  - name: query.hasResponse
+    in: query
+    required: false
+    type: boolean
+  - name: query.closedLoop
+    in: query
+    required: false
+    type: boolean
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.orderBy
+    in: query
+    required: false
+    type: string
+  - name: query.page
+    in: query
+    required: false
+    type: integer
+  - name: query.pageSize
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_review_stats_by_interval
+  category: Account
+  rest_operation_id: Account_GetReviewStatsByIntervalAsync
+  http: GET /v1/account/{accountGuid}/reviewStatsByInterval
+  summary: Retrieve review stats for interval and limit by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: interval
+    in: query
+    required: true
+    type: string
+  - name: limit
+    in: query
+    required: true
+    type: integer
+  - name: reviewType
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_reviews_v2
+  category: Account
+  rest_operation_id: Account_GetReviewsV2
+  http: GET /v1/account/{accountGuid}/reviewV2
+  summary: Retrieve reviews by account identifier, supports partial filter
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: fromDate
+    in: query
+    required: true
+    type: string
+  - name: toDate
+    in: query
+    required: false
+    type: string
+  - name: categories
+    in: query
+    required: false
+    type: array
+  - name: reviewType
+    in: query
+    required: false
+    type: array
+  - name: source
+    in: query
+    required: false
+    type: string
+  - name: siteName
+    in: query
+    required: false
+    type: string
+  - name: disputedReview
+    in: query
+    required: false
+    type: boolean
+  - name: state
+    in: query
+    required: false
+    type: string
+  - name: hasResponse
+    in: query
+    required: false
+    type: boolean
+  - name: closedLoop
+    in: query
+    required: false
+    type: boolean
+  - name: brands
+    in: query
+    required: false
+    type: array
+  - name: orderBy
+    in: query
+    required: false
+    type: string
+  - name: page
+    in: query
+    required: false
+    type: integer
+  - name: pageSize
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_social_activities
+  category: Account
+  rest_operation_id: Account_GetSocialActivities
+  http: GET /v1/account/{accountGuid}/socialActivity
+  summary: Retrieve social activities by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_surveys
+  category: Account
+  rest_operation_id: Account_GetSurveys
+  http: GET /v1/account/{accountGuid}/survey
+  summary: Retrieve surveys by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.surveyType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_survey_responses
+  category: Account
+  rest_operation_id: Account_GetSurveyResponsesAsync
+  http: GET /v1/account/{accountGuid}/survey/response
+  summary: Retrieve survey responses by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: startDate
+    in: query
+    required: true
+    type: string
+  - name: endDate
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_survey_responses_v2
+  category: Account
+  rest_operation_id: Account_GetSurveyResponsesV2Async
+  http: GET /v1/account/{accountGuid}/survey/responsesV2
+  summary: Retrieve survey responses by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: page
+    in: query
+    required: true
+    type: integer
+  - name: pageSize
+    in: query
+    required: true
+    type: integer
+  - name: orderBy
+    in: query
+    required: false
+    type: string
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.surveyType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_survey_stats
+  category: Account
+  rest_operation_id: Account_GetSurveyStatsAsync
+  http: GET /v1/account/{accountGuid}/surveyStats
+  summary: Retrieve survey stats by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.surveyType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_survey_stats_by_interval
+  category: Account
+  rest_operation_id: Account_GetSurveyStatsByIntervalAsync
+  http: GET /v1/account/{accountGuid}/surveyStatsByInterval
+  summary: Retrieve survey stats for interval and limit by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: interval
+    in: query
+    required: true
+    type: string
+  - name: limit
+    in: query
+    required: true
+    type: integer
+  - name: surveyType
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_toyota_reputation_report
+  category: Account
+  rest_operation_id: Account_GetToyotaReputationReport
+  http: GET /v1/account/{accountGuid}/toyotareputation
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: year
+    in: query
+    required: true
+    type: integer
+  - name: month
+    in: query
+    required: true
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_unsubscribe
+  category: Account
+  rest_operation_id: Account_GetUnsubscribe
+  http: GET /v1/account/{accountGuid}/unsubscribe
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: fromDate
+    in: query
+    required: true
+    type: string
+  - name: toDate
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_unsubscribe_report
+  category: Account
+  rest_operation_id: Account_GetUnsubscribeReport
+  http: GET /v1/account/{accountGuid}/unsubscribeReport
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: fromDate
+    in: query
+    required: true
+    type: string
+  - name: toDate
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_send_survey_email
+  category: Account
+  rest_operation_id: Account_SendSurveyEmail
+  http: POST /v1/account/{dealerGuid}/surveySample/{email}
+  summary: ''
+  read_only: false
+  parameters:
+  - name: dealerGuid
+    in: path
+    required: true
+    type: string
+  - name: email
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_promotion_redirect
+  category: Promotions
+  rest_operation_id: Promotions_GetPromotionRedirect
+  http: GET /v1/accounts/{accountId}/promotions
+  summary: Used by web browsers to request a redirect while also allowing us to count the click.
+  read_only: true
+  parameters:
+  - name: accountId
+    in: path
+    required: true
+    type: string
+  - name: promotionId
+    in: query
+    required: true
+    type: string
+  - name: redirect
+    in: query
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_addon_configuration
+  category: Configuration
+  rest_operation_id: Configuration_GetAddonConfiguration
+  http: GET /v1/accounts/{clientId}/configuration/addons
+  summary: ''
+  read_only: true
+  parameters:
+  - name: clientId
+    in: path
+    required: true
+    type: string
+  - name: config.optInSmsSweepstakes
+    in: query
+    required: false
+    type: boolean
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_mobile_configuration
+  category: Configuration
+  rest_operation_id: Configuration_GetMobileConfiguration
+  http: GET /v1/accounts/{clientId}/configuration/mobile
+  summary: ''
+  read_only: true
+  parameters:
+  - name: clientId
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_clients
+  category: Client
+  rest_operation_id: Client_GetClients
+  http: GET /v1/clients
+  summary: Returns a paginated result set of the SL Active clients
+  read_only: true
+  parameters:
+  - name: request.apiKey
+    in: query
+    required: false
+    type: string
+  - name: request.queryKey
+    in: query
+    required: false
+    type: string
+  - name: request.pageSize
+    in: query
+    required: false
+    type: integer
+  - name: request.currentPage
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_client_surveys
+  category: Client
+  rest_operation_id: Client_GetClientSurveys
+  http: GET /v1/clients/{clientId}/surveys
+  summary: Returns paginated result of surveys and associated information for the specified client
+  read_only: true
+  parameters:
+  - name: clientId
+    in: path
+    required: true
+    type: string
+  - name: request.clientId
+    in: query
+    required: false
+    type: string
+  - name: request.fromDate
+    in: query
+    required: false
+    type: string
+  - name: request.toDate
+    in: query
+    required: false
+    type: string
+  - name: request.rating
+    in: query
+    required: false
+    type: array
+  - name: request.apiKey
+    in: query
+    required: false
+    type: string
+  - name: request.queryKey
+    in: query
+    required: false
+    type: string
+  - name: request.pageSize
+    in: query
+    required: false
+    type: integer
+  - name: request.currentPage
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_employee_2
+  category: Employee
+  rest_operation_id: Employee_GetEmployee
+  http: GET /v1/employee/{employeeId}
+  summary: Retrieve employee by employee identifer
+  read_only: true
+  parameters:
+  - name: employeeId
+    in: path
+    required: true
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_events
+  category: Mail
+  rest_operation_id: Mail_GetEventsAsync
+  http: GET /v1/mail/events/{token}
+  summary: ''
+  read_only: true
+  parameters:
+  - name: token
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_messagehronous
+  category: Mail
+  rest_operation_id: Mail_PostMessageAsynchronous
+  http: POST /v1/mail/send
+  summary: ''
+  read_only: false
+  parameters:
+  - name: message
+    in: body
+    required: true
+    type: object
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_message_synchronous
+  category: Mail
+  rest_operation_id: Mail_PostMessageSynchronous
+  http: POST /v1/mail/sendsync
+  summary: ''
+  read_only: false
+  parameters:
+  - name: message
+    in: body
+    required: true
+    type: object
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_status
+  category: Mail
+  rest_operation_id: Mail_GetStatus
+  http: GET /v1/mail/status/{token}
+  summary: ''
+  read_only: true
+  parameters:
+  - name: token
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_provision_sms_number
+  category: Notification
+  rest_operation_id: Notification_ProvisionSmsNumber
+  http: POST /v1/notification/{clientId}/sms/phonenumbers/new
+  summary: ''
+  read_only: false
+  parameters:
+  - name: clientId
+    in: path
+    required: true
+    type: string
+  - name: requestInfo
+    in: body
+    required: true
+    type: object
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_deprovision_sms_number
+  category: Notification
+  rest_operation_id: Notification_DeprovisionSmsNumber
+  http: DELETE /v1/notification/{clientId}/sms/phonenumbers/{smsNumber}
+  summary: ''
+  read_only: false
+  parameters:
+  - name: clientId
+    in: path
+    required: true
+    type: string
+  - name: smsNumber
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_review
+  category: Review
+  rest_operation_id: Review_PostReview
+  http: POST /v1/review
+  summary: Inserts or updates one or more reviews into the database
+  read_only: false
+  parameters:
+  - name: reviewModels
+    in: body
+    required: true
+    type: object
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_all_review_sites
+  category: Review
+  rest_operation_id: getAllReviewSites
+  http: GET /v1/review/accounts/{accountId}/configuration/reviewsites
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountId
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_review_site_links
+  category: Review
+  rest_operation_id: getReviewSiteLinks
+  http: GET /v1/review/accounts/{accountId}/sitelinks
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountId
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_review_site_redirect2
+  category: Review
+  rest_operation_id: getReviewSiteRedirect2
+  http: GET /v1/review/accounts/{accountId}/sites
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountId
+    in: path
+    required: true
+    type: string
+  - name: surveyId
+    in: query
+    required: true
+    type: string
+  - name: site
+    in: query
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_refresh_reviews
+  category: Review
+  rest_operation_id: Review_RefreshReviews
+  http: GET /v1/review/{accountId}/reviews/refresh
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountId
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_review
+  category: Review
+  rest_operation_id: Review_GetReview
+  http: GET /v1/review/{reviewGuid}
+  summary: Retrieve review by identifier
+  read_only: true
+  parameters:
+  - name: reviewGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_department_disposition
+  category: Review
+  rest_operation_id: Review_DepartmentDisposition
+  http: POST /v1/review/{reviewGuid}/DepartmentDisposition
+  summary: Records review department disposition.
+  read_only: false
+  parameters:
+  - name: model
+    in: body
+    required: true
+    type: object
+  - name: reviewGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_review_responses
+  category: Review
+  rest_operation_id: Review_GetReviewResponses
+  http: GET /v1/review/{reviewGuid}/response
+  summary: Retrieve all responses for a review
+  read_only: true
+  parameters:
+  - name: reviewGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_review_response
+  category: Review
+  rest_operation_id: Review_PostReviewResponse
+  http: POST /v1/review/{reviewGuid}/response
+  summary: Create a new review response
+  read_only: false
+  parameters:
+  - name: reviewResponse
+    in: body
+    required: true
+    type: object
+  - name: reviewGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_review_response
+  category: Review
+  rest_operation_id: Review_GetReviewResponse
+  http: GET /v1/review/{reviewGuid}/response/{responseGuid}
+  summary: Retrieve a single review response
+  read_only: true
+  parameters:
+  - name: reviewGuid
+    in: path
+    required: true
+    type: string
+  - name: responseGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_packages
+  category: RLCustomer
+  rest_operation_id: RLCustomer_GetPackages
+  http: GET /v1/rlcustomer/{customerGuid}/packages
+  summary: ''
+  read_only: true
+  parameters:
+  - name: customerGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_sites
+  category: Site
+  rest_operation_id: Site_GetSites
+  http: GET /v1/site/list
+  summary: Retrieve sites
+  read_only: true
+  parameters:
+  - name: isActive
+    in: query
+    required: false
+    type: boolean
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_site
+  category: Site
+  rest_operation_id: Site_GetSite
+  http: GET /v1/site/{id}
+  summary: Retrieve single site by site identifier
+  read_only: true
+  parameters:
+  - name: id
+    in: path
+    required: true
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get
+  category: SmartFacts
+  rest_operation_id: SmartFacts_Get
+  http: GET /v1/smartfacts/{customerGuid}
+  summary: ''
+  read_only: true
+  parameters:
+  - name: customerGuid
+    in: path
+    required: true
+    type: string
+  - name: type
+    in: query
+    required: true
+    type: string
+  - name: initialDate
+    in: query
+    required: true
+    type: string
+  - name: periods
+    in: query
+    required: true
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_toyota_social_interactions_report
+  category: Stats
+  rest_operation_id: Stats_GetToyotaSocialInteractionsReport
+  http: GET /v1/stats/ToyotaSocialInteractions
+  summary: ''
+  read_only: true
+  parameters:
+  - name: fromDate
+    in: query
+    required: false
+    type: string
+  - name: toDate
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_employee_stats_2
+  category: Stats
+  rest_operation_id: Stats_GetEmployeeStatsAsync
+  http: GET /v1/stats/employee
+  summary: Retrieve employee stats by list of account identifiers
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: array
+  - name: fromDate
+    in: query
+    required: true
+    type: string
+  - name: toDate
+    in: query
+    required: false
+    type: string
+  - name: type
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_enterprise_stats_2
+  category: Stats
+  rest_operation_id: Stats_GetEnterpriseStatsAsync
+  http: GET /v1/stats/enterprise
+  summary: Retrieve survey and review stats by list of account identifiers
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: array
+  - name: fromDate
+    in: query
+    required: true
+    type: string
+  - name: toDate
+    in: query
+    required: false
+    type: string
+  - name: type
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_review_stats_2
+  category: Stats
+  rest_operation_id: Stats_GetReviewStatsAsync
+  http: GET /v1/stats/review
+  summary: Retrieve review stats by list of account identifiers
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: array
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.reviewType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: string
+  - name: query.siteName
+    in: query
+    required: false
+    type: string
+  - name: query.disputedReview
+    in: query
+    required: false
+    type: boolean
+  - name: query.state
+    in: query
+    required: false
+    type: string
+  - name: query.hasResponse
+    in: query
+    required: false
+    type: boolean
+  - name: query.closedLoop
+    in: query
+    required: false
+    type: boolean
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.orderBy
+    in: query
+    required: false
+    type: string
+  - name: query.page
+    in: query
+    required: false
+    type: integer
+  - name: query.pageSize
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_survey_stats_2
+  category: Stats
+  rest_operation_id: Stats_GetSurveyStatsAsync
+  http: GET /v1/stats/survey
+  summary: Retrieve survey stats by list of account identifiers
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: array
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.surveyType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_mobile_survey_stats
+  category: Survey
+  rest_operation_id: Survey_GetMobileSurveyStatsAsync
+  http: GET /v1/survey/GetMobileSurveyStats
+  summary: Returns just the stats, no surveys, broken up by intervals.
+  read_only: true
+  parameters:
+  - name: token
+    in: query
+    required: true
+    type: string
+  - name: type
+    in: query
+    required: true
+    type: string
+  - name: timespan
+    in: query
+    required: false
+    type: string
+  - name: interval
+    in: query
+    required: false
+    type: string
+  - name: fromCurrentDate
+    in: query
+    required: false
+    type: boolean
+  - name: query.fromDate
+    in: query
+    required: false
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.type
+    in: query
+    required: false
+    type: array
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_request_survey
+  category: Survey
+  rest_operation_id: Survey_RequestSurvey
+  http: POST /v1/survey/accounts/{clientId}/smssurveys
+  summary: Calls service.surveys on the new platform and sends a Mobile Review Surge survey via SMS to
+    the given destination phone number.
+  read_only: false
+  parameters:
+  - name: clientId
+    in: path
+    required: true
+    type: string
+  - name: data
+    in: body
+    required: true
+    type: object
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_maritz_survey_by_maritz_survey_id
+  category: Survey
+  rest_operation_id: Survey_GetMaritzSurveyByMaritzSurveyId
+  http: GET /v1/survey/maritz/{maritzSurveyId}
+  summary: ''
+  read_only: true
+  parameters:
+  - name: maritzSurveyId
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_survey_responses_2
+  category: Survey
+  rest_operation_id: Survey_GetSurveyResponsesAsync
+  http: GET /v1/survey/{surveyId}/response
+  summary: Retrieve survey responses by survey identifier
+  read_only: true
+  parameters:
+  - name: surveyId
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_review_surge_report
+  category: Survey
+  rest_operation_id: Survey_GetReviewSurgeReport
+  http: GET /v1/survey/{token}/ReviewSurgeReport
+  summary: Get the ReviewSurgeReport and generate the csv file
+  read_only: true
+  parameters:
+  - name: token
+    in: path
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.reviewType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: string
+  - name: query.siteName
+    in: query
+    required: false
+    type: string
+  - name: query.disputedReview
+    in: query
+    required: false
+    type: boolean
+  - name: query.state
+    in: query
+    required: false
+    type: string
+  - name: query.hasResponse
+    in: query
+    required: false
+    type: boolean
+  - name: query.closedLoop
+    in: query
+    required: false
+    type: boolean
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.orderBy
+    in: query
+    required: false
+    type: string
+  - name: query.page
+    in: query
+    required: false
+    type: integer
+  - name: query.pageSize
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_review_surge_report_month
+  category: Survey
+  rest_operation_id: Survey_ReviewSurgeReportMonth
+  http: GET /v1/survey/{token}/ReviewSurgeReportByMonth
+  summary: Get the ReviewSurgeReport and generate the csv file of a month
+  read_only: true
+  parameters:
+  - name: token
+    in: path
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.reviewType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: string
+  - name: query.siteName
+    in: query
+    required: false
+    type: string
+  - name: query.disputedReview
+    in: query
+    required: false
+    type: boolean
+  - name: query.state
+    in: query
+    required: false
+    type: string
+  - name: query.hasResponse
+    in: query
+    required: false
+    type: boolean
+  - name: query.closedLoop
+    in: query
+    required: false
+    type: boolean
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.orderBy
+    in: query
+    required: false
+    type: string
+  - name: query.page
+    in: query
+    required: false
+    type: integer
+  - name: query.pageSize
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_review_surge_report_week
+  category: Survey
+  rest_operation_id: Survey_ReviewSurgeReportWeek
+  http: GET /v1/survey/{token}/ReviewSurgeReportByWeek
+  summary: Get the ReviewSurgeReport and generate the csv file of a week
+  read_only: true
+  parameters:
+  - name: token
+    in: path
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.reviewType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: string
+  - name: query.siteName
+    in: query
+    required: false
+    type: string
+  - name: query.disputedReview
+    in: query
+    required: false
+    type: boolean
+  - name: query.state
+    in: query
+    required: false
+    type: string
+  - name: query.hasResponse
+    in: query
+    required: false
+    type: boolean
+  - name: query.closedLoop
+    in: query
+    required: false
+    type: boolean
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.orderBy
+    in: query
+    required: false
+    type: string
+  - name: query.page
+    in: query
+    required: false
+    type: integer
+  - name: query.pageSize
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_survey_response
+  category: SurveyResponse
+  rest_operation_id: SurveyResponse_GetSurveyResponse
+  http: GET /v1/surveyResponse/{surveyResponseGuid}
+  summary: Retrieve survey response by identifier
+  read_only: true
+  parameters:
+  - name: surveyResponseGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_survey_dealer_response
+  category: SurveyResponse
+  rest_operation_id: SurveyResponse_PostSurveyDealerResponse
+  http: POST /v1/surveyResponse/{surveyResponseGuid}/DealerResponse
+  summary: Create or update a pending request for store dealer's response to survey
+  read_only: false
+  parameters:
+  - name: surveyResponseGuid
+    in: path
+    required: true
+    type: string
+  - name: response
+    in: body
+    required: true
+    type: object
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_survey_response_response
+  category: SurveyResponse
+  rest_operation_id: SurveyResponse_PostSurveyResponseResponse
+  http: POST /v1/surveyResponse/{surveyResponseGuid}/response
+  summary: Create a new survey response response
+  read_only: false
+  parameters:
+  - name: proposedResponse
+    in: body
+    required: true
+    type: object
+  - name: surveyResponseGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_survey_response_response
+  category: SurveyResponse
+  rest_operation_id: SurveyResponse_GetSurveyResponseResponse
+  http: GET /v1/surveyResponse/{surveyResponseGuid}/response/{responseGuid}
+  summary: Retrieve a single survey response response
+  read_only: true
+  parameters:
+  - name: surveyResponseGuid
+    in: path
+    required: true
+    type: string
+  - name: responseGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_survey_response_responses
+  category: SurveyResponse
+  rest_operation_id: SurveyResponse_GetSurveyResponseResponses
+  http: GET /v1/surveyResponse/{surveyResponse}/response
+  summary: Retrieve all responses for a survey response
+  read_only: true
+  parameters:
+  - name: surveyResponse
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_transaction
+  category: Transaction
+  rest_operation_id: Transaction_GetTransaction
+  http: GET /v1/transaction/{transactionId}
+  summary: Retrieve a transaction by identifier
+  read_only: true
+  parameters:
+  - name: transactionId
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_user
+  category: User
+  rest_operation_id: User_PostUser
+  http: POST /v1/user
+  summary: ''
+  read_only: false
+  parameters:
+  - name: user
+    in: body
+    required: true
+    type: object
+  - name: sendWelcome
+    in: query
+    required: false
+    type: boolean
+  - name: template
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_find_guid
+  category: User
+  rest_operation_id: User_GetFindGuid
+  http: GET /v1/user/findGuid
+  summary: ''
+  read_only: true
+  parameters:
+  - name: email
+    in: query
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_forgot_password
+  category: User
+  rest_operation_id: User_GetForgotPassword
+  http: GET /v1/user/forgotPassword
+  summary: ''
+  read_only: true
+  parameters:
+  - name: email
+    in: query
+    required: false
+    type: string
+  - name: template
+    in: query
+    required: false
+    type: string
+  - name: token
+    in: query
+    required: false
+    type: string
+  - name: newPassword
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_list
+  category: User
+  rest_operation_id: User_GetList
+  http: GET /v1/user/list
+  summary: Retrieve a list of all users
+  read_only: true
+  parameters:
+  - name: all
+    in: query
+    required: false
+    type: boolean
+  - name: orderBy
+    in: query
+    required: false
+    type: string
+  - name: pageSize
+    in: query
+    required: false
+    type: integer
+  - name: page
+    in: query
+    required: false
+    type: integer
+  - name: q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_list_for_report
+  category: User
+  rest_operation_id: User_GetListForReport
+  http: GET /v1/user/listForReport
+  summary: Retrieve a list of all users with specified report settings
+  read_only: true
+  parameters:
+  - name: type
+    in: query
+    required: true
+    type: string
+  - name: frequency
+    in: query
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_user
+  category: User
+  rest_operation_id: User_GetUser
+  http: GET /v1/user/me
+  summary: Retrieve the user executing this request
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_notification_settings
+  category: User
+  rest_operation_id: User_GetNotificationSettings
+  http: GET /v1/user/me/notification
+  summary: ''
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_user_settings
+  category: User
+  rest_operation_id: User_GetUserSettings
+  http: GET /v1/user/me/settings
+  summary: Retrieve user settings for the current user
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_custom_settings
+  category: User
+  rest_operation_id: User_GetCustomSettings
+  http: GET /v1/user/me/settings/custom
+  summary: ''
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_custom_settings
+  category: User
+  rest_operation_id: User_PostCustomSettings
+  http: POST /v1/user/me/settings/custom
+  summary: ''
+  read_only: false
+  parameters:
+  - name: custom
+    in: query
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_report_settings
+  category: User
+  rest_operation_id: User_GetReportSettings
+  http: GET /v1/user/me/settings/report
+  summary: ''
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_notification_settings
+  category: User
+  rest_operation_id: User_PostNotificationSettings
+  http: POST /v1/user/me/{accountGuid}/settings/notification
+  summary: ''
+  read_only: false
+  parameters:
+  - name: settings
+    in: body
+    required: true
+    type: object
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_report_settings
+  category: User
+  rest_operation_id: User_PostReportSettings
+  http: POST /v1/user/me/{accountGuid}/settings/report
+  summary: ''
+  read_only: false
+  parameters:
+  - name: settings
+    in: body
+    required: true
+    type: object
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_resend_welcome
+  category: User
+  rest_operation_id: User_GetResendWelcome
+  http: GET /v1/user/resendWelcome
+  summary: ''
+  read_only: true
+  parameters:
+  - name: email
+    in: query
+    required: true
+    type: string
+  - name: template
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_resend_welcome_all_users
+  category: User
+  rest_operation_id: User_GetResendWelcomeAllUsers
+  http: GET /v1/user/resendWelcomeAllUsers
+  summary: ''
+  read_only: true
+  parameters:
+  - name: key
+    in: query
+    required: true
+    type: string
+  - name: template
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_test
+  category: User
+  rest_operation_id: User_GetTest
+  http: GET /v1/user/test
+  summary: ''
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_user_2
+  category: User
+  rest_operation_id: User_GetUser
+  http: GET /v1/user/{userGuid}
+  summary: ''
+  read_only: true
+  parameters:
+  - name: userGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_password
+  category: User
+  rest_operation_id: User_PostPassword
+  http: POST /v1/user/{userGuid}/password
+  summary: ''
+  read_only: false
+  parameters:
+  - name: userGuid
+    in: path
+    required: true
+    type: string
+  - name: password
+    in: body
+    required: true
+    type: object
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_custom_settings_2
+  category: User
+  rest_operation_id: User_GetCustomSettings
+  http: GET /v1/user/{userGuid}/settings/custom
+  summary: ''
+  read_only: true
+  parameters:
+  - name: userGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_custom_settings_2
+  category: User
+  rest_operation_id: User_PostCustomSettings
+  http: POST /v1/user/{userGuid}/settings/custom
+  summary: ''
+  read_only: false
+  parameters:
+  - name: userGuid
+    in: path
+    required: true
+    type: string
+  - name: custom
+    in: query
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_notification_settings_2
+  category: User
+  rest_operation_id: User_GetNotificationSettings
+  http: GET /v1/user/{userGuid}/{accountGuid}/notification
+  summary: ''
+  read_only: true
+  parameters:
+  - name: userGuid
+    in: path
+    required: true
+    type: string
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_report_settings_2
+  category: User
+  rest_operation_id: User_GetReportSettings
+  http: GET /v1/user/{userGuid}/{accountGuid}/report
+  summary: ''
+  read_only: true
+  parameters:
+  - name: userGuid
+    in: path
+    required: true
+    type: string
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_user_settings_2
+  category: User
+  rest_operation_id: User_GetUserSettings
+  http: GET /v1/user/{userGuid}/{accountGuid}/settings
+  summary: Retrieve user settings for the current user
+  read_only: true
+  parameters:
+  - name: userGuid
+    in: path
+    required: true
+    type: string
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_notification_settings_2
+  category: User
+  rest_operation_id: User_PostNotificationSettings
+  http: POST /v1/user/{userGuid}/{accountGuid}/settings/notification
+  summary: ''
+  read_only: false
+  parameters:
+  - name: settings
+    in: body
+    required: true
+    type: object
+  - name: userGuid
+    in: path
+    required: true
+    type: string
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_post_report_settings_2
+  category: User
+  rest_operation_id: User_PostReportSettings
+  http: POST /v1/user/{userGuid}/{accountGuid}/settings/report
+  summary: ''
+  read_only: false
+  parameters:
+  - name: settings
+    in: body
+    required: true
+    type: object
+  - name: userGuid
+    in: path
+    required: true
+    type: string
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_car_details
+  category: Vehicle
+  rest_operation_id: Vehicle_GetCarDetails
+  http: GET /v1/vehicles/test
+  summary: ''
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_get_vin_details
+  category: Vehicle
+  rest_operation_id: Vehicle_GetVinDetails
+  http: GET /v1/vehicles/{vin}
+  summary: ''
+  read_only: true
+  parameters:
+  - name: vin
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_request_digital_signature
+  category: Zuora
+  rest_operation_id: Zuora_RequestDigitalSignature
+  http: POST /v1/zuora/signature
+  summary: ''
+  read_only: false
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v1-swagger.json
+- tool: das_deprovision_v2
+  category: SociV2
+  rest_operation_id: SociV2_Deprovision
+  http: GET /v2/SOCi/{accountsId}/deprovision
+  summary: Deprovisions the specified account unique identifier.
+  read_only: true
+  parameters:
+  - name: accountsId
+    in: path
+    required: true
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_provision_v2
+  category: SociV2
+  rest_operation_id: SociV2_Provision
+  http: GET /v2/SOCi/{accountsId}/provision
+  summary: Provisions the specified account unique identifier.
+  read_only: true
+  parameters:
+  - name: accountsId
+    in: path
+    required: true
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_accounts_active_review_surge_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_GetAccountsActiveReviewSurge
+  http: GET /v2/account/GetAccountsActiveReviewSurge
+  summary: Returns the clients that are active on review surge.
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_accounts_token_active_review_surge_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_GetAccountsTokenActiveReviewSurge
+  http: GET /v2/account/GetAccountsTokenActiveReviewSurge
+  summary: Return a simple list of tokens of the clients active on Review Surge.
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_advocate_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_GetAdvocate
+  http: GET /v2/account/GetAdvocate
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_run_social_ads_campaign_report_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_RunSocialAdsCampaignReport
+  http: GET /v2/account/RunSocialAdsCampaignReport
+  summary: ''
+  read_only: true
+  parameters:
+  - name: campaignId
+    in: query
+    required: true
+    type: string
+  - name: fromMonth
+    in: query
+    required: false
+    type: string
+  - name: fromYear
+    in: query
+    required: false
+    type: string
+  - name: toMonth
+    in: query
+    required: false
+    type: string
+  - name: toYear
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_employees_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_GetEmployees
+  http: GET /v2/account/{accountGuid}/GetEmployees
+  summary: Gets the list of active Employees of an account
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: ActiveDays
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_socical_ads_campaign_report_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_SocicalAdsCampaignReport
+  http: GET /v2/account/{accountGuid}/SocialAdsCampaignReport
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: campaignId
+    in: query
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_competitors_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_GetCompetitors
+  http: GET /v2/account/{accountGuid}/competitor
+  summary: Retrieves a list of competitors for an account.
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_post_competitors_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_PostCompetitors
+  http: POST /v2/account/{accountGuid}/competitor
+  summary: "Sets a list of account guids as the competitor list.  Duplicate accounts are suppressed.\r\
+    \nIf an account guid does not exist, a 404 error will be returned."
+  read_only: false
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: competitors
+    in: body
+    required: true
+    type: object
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_delete_competitors_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_DeleteCompetitors
+  http: DELETE /v2/account/{accountGuid}/competitor
+  summary: Deletes an account competitor from the the competitor list.
+  read_only: false
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: competitorAccountGuids
+    in: body
+    required: true
+    type: object
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_hierarchy_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_GetHierarchyAsync
+  http: GET /v2/account/{accountGuid}/hierarchy
+  summary: Retrieves an account hierarchy based on the account and hierarchy
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: hierarchyGuid
+    in: query
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_reputation_statistics_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_GetReputationStatistics
+  http: GET /v2/account/{accountGuid}/reputation
+  summary: Generates a summary report of reputation statistics for a given account.
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: fromDate
+    in: query
+    required: true
+    type: string
+  - name: toDate
+    in: query
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_reviews_v2_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_GetReviewsV2
+  http: GET /v2/account/{accountGuid}/reviewV2
+  summary: Retrieve reviews by account identifier, supports partial filter
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.reviewType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: string
+  - name: query.siteName
+    in: query
+    required: false
+    type: string
+  - name: query.disputedReview
+    in: query
+    required: false
+    type: boolean
+  - name: query.state
+    in: query
+    required: false
+    type: string
+  - name: query.hasResponse
+    in: query
+    required: false
+    type: boolean
+  - name: query.closedLoop
+    in: query
+    required: false
+    type: boolean
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.orderBy
+    in: query
+    required: false
+    type: string
+  - name: query.page
+    in: query
+    required: false
+    type: integer
+  - name: query.pageSize
+    in: query
+    required: false
+    type: integer
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_survey_responses_v2_v2
+  category: AccountV2
+  rest_operation_id: AccountV2_GetSurveyResponsesV2Async
+  http: GET /v2/account/{accountGuid}/survey/responsesV2
+  summary: Retrieves survey responses by account identifier
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: path
+    required: true
+    type: string
+  - name: page
+    in: query
+    required: true
+    type: integer
+  - name: pageSize
+    in: query
+    required: true
+    type: integer
+  - name: orderBy
+    in: query
+    required: false
+    type: string
+  - name: q
+    in: query
+    required: false
+    type: string
+  - name: query.fromDate
+    in: query
+    required: true
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.surveyType
+    in: query
+    required: false
+    type: array
+  - name: query.source
+    in: query
+    required: false
+    type: array
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_list_v2
+  category: HierarchyV2
+  rest_operation_id: HierarchyV2_List
+  http: POST /v2/hierarchy/list
+  summary: Returns a list of available hierarchies
+  read_only: false
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_all_programs_v2
+  category: Incentives
+  rest_operation_id: Incentives_GetAllPrograms
+  http: GET /v2/incentives/programs
+  summary: ''
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_incentives_v2
+  category: Incentives
+  rest_operation_id: Incentives_GetIncentives
+  http: GET /v2/incentives/{vin}/{zip}
+  summary: ''
+  read_only: true
+  parameters:
+  - name: vin
+    in: path
+    required: true
+    type: string
+  - name: zip
+    in: path
+    required: true
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_list_v2_2
+  category: Media
+  rest_operation_id: Media_List
+  http: POST /v2/media/list
+  summary: Returns the list of saved files in a particular user folder
+  read_only: false
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_store_v2
+  category: Media
+  rest_operation_id: Media_Store
+  http: POST /v2/media/store
+  summary: Store photos or videos in Azure Storage
+  read_only: false
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_employee_stats_v2
+  category: StatsV2
+  rest_operation_id: StatsV2_GetEmployeeStatsAsync
+  http: GET /v2/stats/employee
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: false
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.type
+    in: query
+    required: false
+    type: array
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_enterprise_stats_v2_2
+  category: StatsV2
+  rest_operation_id: StatsV2_GetEnterpriseStatsAsync
+  http: GET /v2/stats/enterprise
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: false
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.type
+    in: query
+    required: false
+    type: array
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_nps_survey_stats_v2
+  category: StatsV2
+  rest_operation_id: StatsV2_GetNpsSurveyStatsAsync
+  http: GET /v2/stats/npsStats
+  summary: "Used by the widget on Mission Control to display the NPS over time and a breakdown\r\nof the\
+    \ NPS."
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  - name: timespan
+    in: query
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: false
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.type
+    in: query
+    required: false
+    type: array
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_review_stats_v2
+  category: StatsV2
+  rest_operation_id: StatsV2_GetReviewStatsAsync
+  http: GET /v2/stats/review
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  - name: query.source
+    in: query
+    required: false
+    type: string
+  - name: query.siteName
+    in: query
+    required: false
+    type: string
+  - name: query.disputed
+    in: query
+    required: false
+    type: boolean
+  - name: query.state
+    in: query
+    required: false
+    type: string
+  - name: query.hasResponse
+    in: query
+    required: false
+    type: boolean
+  - name: query.closedLoop
+    in: query
+    required: false
+    type: boolean
+  - name: query.fromDate
+    in: query
+    required: false
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.type
+    in: query
+    required: false
+    type: array
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_review_summary_by_interval_v2
+  category: StatsV2
+  rest_operation_id: StatsV2_GetReviewSummaryByIntervalAsync
+  http: GET /v2/stats/review/summary/byinterval
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  - name: interval
+    in: query
+    required: true
+    type: string
+  - name: limit
+    in: query
+    required: false
+    type: integer
+  - name: query.fromDate
+    in: query
+    required: false
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.type
+    in: query
+    required: false
+    type: array
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_survey_stats_v2
+  category: StatsV2
+  rest_operation_id: StatsV2_GetSurveyStatsAsync
+  http: GET /v2/stats/survey
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: false
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.type
+    in: query
+    required: false
+    type: array
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_survey_summary_by_interval_v2
+  category: StatsV2
+  rest_operation_id: StatsV2_GetSurveySummaryByIntervalAsync
+  http: GET /v2/stats/survey/summary/byinterval
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  - name: interval
+    in: query
+    required: true
+    type: string
+  - name: limit
+    in: query
+    required: false
+    type: integer
+  - name: query.fromDate
+    in: query
+    required: false
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.type
+    in: query
+    required: false
+    type: array
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_survey_method_stats_v2
+  category: StatsV2
+  rest_operation_id: StatsV2_GetSurveyMethodStatsAsync
+  http: GET /v2/stats/surveymethod
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  - name: query.fromDate
+    in: query
+    required: false
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.type
+    in: query
+    required: false
+    type: array
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_survey_responses_v2_2
+  category: SurveysV2
+  rest_operation_id: SurveysV2_GetSurveyResponses
+  http: GET /v2/surveys/responses
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  - name: query.page
+    in: query
+    required: false
+    type: integer
+  - name: query.size
+    in: query
+    required: false
+    type: integer
+  - name: query.orderBy
+    in: query
+    required: false
+    type: string
+  - name: query.fromDate
+    in: query
+    required: false
+    type: string
+  - name: query.toDate
+    in: query
+    required: false
+    type: string
+  - name: query.categories
+    in: query
+    required: false
+    type: array
+  - name: query.type
+    in: query
+    required: false
+    type: array
+  - name: query.brands
+    in: query
+    required: false
+    type: array
+  - name: query.q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_sync_core_surveys_v2
+  category: SurveysV2
+  rest_operation_id: SurveysV2_SyncCoreSurveys
+  http: GET /v2/surveys/syncsurveys
+  summary: ''
+  read_only: true
+  parameters:
+  - name: accountGuid
+    in: query
+    required: true
+    type: string
+  - name: FromDate
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_list_v2
+  category: UserV2
+  rest_operation_id: UserV2_GetList
+  http: GET /v2/user/list
+  summary: Retrieve a list of all users
+  read_only: true
+  parameters:
+  - name: all
+    in: query
+    required: false
+    type: boolean
+  - name: orderBy
+    in: query
+    required: false
+    type: string
+  - name: pageSize
+    in: query
+    required: false
+    type: integer
+  - name: page
+    in: query
+    required: false
+    type: integer
+  - name: q
+    in: query
+    required: false
+    type: string
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+- tool: das_get_user_v2
+  category: UserV2
+  rest_operation_id: UserV2_GetUser
+  http: GET /v2/user/me
+  summary: "You need to authenticate using /v1/auth before using this endpoint, using a username, password,\
+    \ and bearer token.\r\nIf done successfully v1/auth should give you a token. Prepend \"bearer \" to\
+    \ the front\r\nof that token and then put all that into the Authorization header to hit this endpoint."
+  read_only: true
+  parameters: []
+  spec: openapi/_original/das-technology-daswebapi-v2-swagger.json

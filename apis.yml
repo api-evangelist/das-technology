@@ -1,15 +1,21 @@
 aid: das-technology
 accessModel:
-  pricing: unknown
-  onboarding: unknown
+  pricing: contact-sales
+  onboarding: partner
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
-  method: derived
+  label: Partner
+  confidence: medium
+  source:
+  - https://www.dastechnology.com/get-demo
+  - https://api.digitalairstrike.com/swagger
+  generated: '2026-08-12'
+  method: probed
+  note: >-
+    The contract is public and anonymously readable, but every operation returns 401 with
+    WWW-Authenticate: Bearer and no token endpoint answers anonymously. There is no pricing page,
+    no signup and no sandbox; access is arranged through a dealer, OEM or partner relationship.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/das-technology.png
 name: DAS Technology
 description: 'DAS Technology (formerly Digital Air Strike) is an automotive-retail marketing
@@ -18,19 +24,21 @@ description: 'DAS Technology (formerly Digital Air Strike) is an automotive-reta
   and retention data across three product lines: Attract (multi-channel digital advertising
   across Google, Facebook, Microsoft, Amazon, and TikTok), Convert (AI-powered lead
   response, instant quotes, and long-cycle nurturing), and Retain (reputation management,
-  equity mining, and service-retention campaigns). DAS Technology publishes no public
-  developer API, OpenAPI, SDK, or self-serve developer portal; this profile captures
-  its public company identity and a domain-security probe.'
+  equity mining, and service-retention campaigns). DAS Technology ships a real REST API — the
+  DAS Web API — served from its legacy Digital Air Strike domain and documented by two publicly
+  readable Swagger 2.0 documents covering 136 operations across accounts and dealer-group
+  hierarchy, reviews and reputation, surveys and NPS, enterprise statistics, transactional
+  messaging, users, vehicles and transactions. The contract is discoverable but the program
+  around it is not: there is no developer portal, no pricing, no SDK, no sandbox, no status page
+  and no changelog, and access is arranged through the dealer, OEM or partner relationship.'
 url: https://raw.githubusercontent.com/api-evangelist/das-technology/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - emergence-capital
-x-tier: stub
-x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-08-12'
 tags:
 - Company
 - Martech
@@ -40,7 +48,66 @@ tags:
 - Customer Data Platform
 - Advertising
 - Reputation Management
-apis: []
+- Reviews
+- Surveys
+- Customer Experience
+- Dealership
+apis:
+- name: DAS Web API
+  description: >-
+    The DAS Web API (DASWebAPI) is DAS Technology's REST API for the CDXP platform, served from
+    api.digitalairstrike.com and documented by two Swashbuckle-generated Swagger 2.0 documents
+    published side by side: v1 (104 operations, 19 resource families) and v2 (32 operations, 8
+    resource families). It covers dealership accounts and dealer-group hierarchy, online reviews
+    and dealer responses, customer surveys and NPS, enterprise/review/survey/employee statistics
+    rollups, transactional email and SMS with delivery-event polling, users and settings, vehicle
+    and VIN lookup, sale and service transactions, and partner surfaces including SOCi
+    provisioning, Zuora signature requests, incentives and media upload. Every operation requires
+    a bearer token; the contract itself is anonymously readable.
+  humanURL: https://api.digitalairstrike.com/swagger
+  baseURL: https://api.digitalairstrike.com
+  tags:
+  - automotive
+  - dealership
+  - reputation-management
+  - reviews
+  - surveys
+  - nps
+  - customer-experience
+  - customer-data-platform
+  - messaging
+  - sms
+  - email
+  - analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/das-technology-daswebapi-v1-openapi.yml
+  - type: OpenAPI
+    url: openapi/das-technology-daswebapi-v2-openapi.yml
+  - type: APIReference
+    url: https://api.digitalairstrike.com/swagger
+  - type: Documentation
+    url: https://api.digitalairstrike.com/swagger
+  - type: Overlay
+    url: overlays/das-technology-daswebapi-v1-overlay.yaml
+  - type: Overlay
+    url: overlays/das-technology-daswebapi-v2-overlay.yaml
+  - type: Authentication
+    url: authentication/das-technology-authentication.yml
+  - type: Conventions
+    url: conventions/das-technology-conventions.yml
+  - type: ErrorCatalog
+    url: errors/das-technology-problem-types.yml
+  - type: DataModel
+    url: data-model/das-technology-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/das-technology-lifecycle.yml
+  - type: Conformance
+    url: conformance/das-technology-conformance.yml
+  - type: RateLimits
+    url: rate-limits/das-technology-rate-limits.yml
+  - type: Plans
+    url: plans/das-technology-plans-pricing.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -59,10 +126,18 @@ common:
   url: https://digitalairstrike.com/terms-conditions/
 - type: PrivacyPolicy
   url: https://digitalairstrike.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/dastechnology
 - type: DomainSecurity
   url: security/das-technology-domain-security.yml
+- type: MCPServer
+  url: mcp/das-technology-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/das-technology-llms.txt
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-12'
+  status: enriched
+  artifacts_added: 23
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence

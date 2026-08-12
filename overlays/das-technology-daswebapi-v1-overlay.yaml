@@ -1,0 +1,108 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for DASWebAPI V1
+  version: 1.0.0
+  description: 'Non-destructive enhancements to the Swagger 2.0 document DAS Technology publishes at https://api.digitalairstrike.com/swagger/docs/v1.
+    The upstream document is left byte-for-byte intact in openapi/_original/. Every action below encodes
+    something OBSERVED (a live 401 carrying WWW-Authenticate: Bearer, live 404/500 error bodies) or something
+    the document is missing that a machine consumer needs. Nothing here invents an operation, a parameter
+    or a schema.'
+  x-generated: '2026-08-12'
+  x-method: generated
+  x-source: openapi/_original/das-technology-daswebapi-v1-swagger.json
+  x-operations: 104
+extends: openapi/das-technology-daswebapi-v1-openapi.yml
+actions:
+- target: $.info
+  description: Record the human documentation surface and the maintaining brand — the document ships with
+    only a title and version.
+  update:
+    description: DASWebAPI V1. Published by DAS Technology (formerly Digital Air Strike) as a Swashbuckle-generated
+      Swagger 2.0 document at https://api.digitalairstrike.com/swagger/docs/v1 and rendered at https://api.digitalairstrike.com/swagger.
+      All operations require a bearer token; DAS Technology publishes no developer portal, so token issuance
+      is arranged through the dealer/OEM/partner relationship.
+    contact:
+      name: DAS Technology
+      url: https://www.dastechnology.com
+- target: $
+  description: 'Declare the bearer scheme the API actually enforces. Probed 2026-08-12: an anonymous request
+    to any resource returns 401 with WWW-Authenticate: Bearer. The upstream document declares no securityDefinitions
+    at all, so generated clients emit unauthenticated calls.'
+  update:
+    securityDefinitions:
+      bearerAuth:
+        type: apiKey
+        name: Authorization
+        in: header
+        description: 'Bearer token: `Authorization: Bearer <token>`. Observed on a live 401 (WWW-Authenticate:
+          Bearer). Token issuance is not publicly documented.'
+    security:
+    - bearerAuth: []
+- target: $
+  description: Add the error envelope observed on the wire. The upstream document declares only 200 on
+    all operations and defines no error schema.
+  update:
+    definitions:
+      DAS.Error:
+        type: object
+        description: Proprietary XML/JSON error envelope returned by the DAS Web API. Observed on live
+          401 and 500 responses. Note that 404 is returned as an ASP.NET HTML page, not as this envelope.
+        properties:
+          Message:
+            type: string
+            description: Human-readable error message.
+          ExceptionMessage:
+            type: string
+            description: Present on unhandled server faults only.
+          ExceptionType:
+            type: string
+            description: Present on unhandled server faults only.
+          StackTrace:
+            type: string
+            description: Present on unhandled server faults only. Verbose disclosure — see errors/das-technology-problem-types.yml.
+- target: $.paths[*][?(@.operationId)]
+  description: Attach the 401 and 500 responses every operation can return but none documents.
+  update:
+    responses:
+      '401':
+        description: Unauthorized — missing or rejected bearer token. Body is application/xml <Error><Message>Authorization
+          has been denied for this request.</Message></Error>. Probed 2026-08-12.
+        schema:
+          $ref: '#/definitions/DAS.Error'
+      '500':
+        description: Internal server error. Body is application/xml and currently includes ExceptionType
+          and a full StackTrace.
+        schema:
+          $ref: '#/definitions/DAS.Error'
+- target: $
+  description: Record cross-cutting runtime semantics an agent needs and the contract omits.
+  update:
+    x-conventions:
+      idempotency:
+        supported: false
+        note: No Idempotency-Key header. Non-GET operations (email send, SMS provisioning, survey dispatch,
+          SOCi provisioning) double-fire on retry.
+      rate_limits:
+        published: false
+        headers: []
+        note: No RateLimit-*/Retry-After header observed.
+      request_id:
+        header: null
+        note: No request or correlation identifier is returned.
+      error_media_type: application/xml
+      artifacts:
+        authentication: authentication/das-technology-authentication.yml
+        conventions: conventions/das-technology-conventions.yml
+        errors: errors/das-technology-problem-types.yml
+        lifecycle: lifecycle/das-technology-lifecycle.yml
+        rate_limits: rate-limits/das-technology-rate-limits.yml
+        data_model: data-model/das-technology-data-model.yml
+- target: $.paths['/v1/clients/{clientId}/surveys'].get
+  description: The only operation flagged deprecated in the published contract names no replacement and
+    no sunset date. Record that the sunset is unknown rather than implying one.
+  update:
+    x-deprecation:
+      replacement: null
+      sunset: null
+      source: 'deprecated: true in the published Swagger document; DAS Technology publishes no deprecation
+        policy.'

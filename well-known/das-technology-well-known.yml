@@ -1,0 +1,79 @@
+generated: '2026-08-12'
+method: probed
+source: live GET probes of every host named in apis.yml and the DASWebAPI servers/host block
+note: >-
+  Every /.well-known/ path returned a miss on every host. No pointer of type WellKnown or
+  SecurityTxt is emitted for this provider — this file records a verified ABSENCE, not a
+  surface. www.dastechnology.com is a Webflow site that answers 404 with an HTML shell.
+  digitalairstrike.com sits behind a GoDaddy/Sucuri "sgcaptcha" bot challenge that answers
+  HTTP 202 with a meta-refresh interstitial for every path, so those rows are a challenge
+  page rather than a document and are recorded as a miss. api.digitalairstrike.com is an
+  ASP.NET Web API on Azure App Service and answers 404 with an IIS error page.
+hosts:
+- host: https://api.digitalairstrike.com
+  role: api
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://www.dastechnology.com
+  role: website
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://digitalairstrike.com
+  role: legacy-brand-website
+  documents:
+  - path: /.well-known/security.txt
+    status: 202
+    body: bot-challenge interstitial (sgcaptcha meta-refresh), not a document
+  - path: /.well-known/openid-configuration
+    status: 202
+    body: bot-challenge interstitial (sgcaptcha meta-refresh), not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 202
+    body: bot-challenge interstitial (sgcaptcha meta-refresh), not a document
+  - path: /.well-known/api-catalog
+    status: 202
+    body: bot-challenge interstitial (sgcaptcha meta-refresh), not a document
+  - path: /.well-known/ai-plugin.json
+    status: 202
+    body: bot-challenge interstitial (sgcaptcha meta-refresh), not a document
+  - path: /.well-known/agent-card.json
+    status: 202
+    body: bot-challenge interstitial (sgcaptcha meta-refresh), not a document
+  - path: /.well-known/agent.json
+    status: 202
+    body: bot-challenge interstitial (sgcaptcha meta-refresh), not a document
+summary:
+  documents_found: 0
+  security_txt: false
+  openid_configuration: false
+  oauth_authorization_server: false
+  api_catalog: false
+  agent_card: false

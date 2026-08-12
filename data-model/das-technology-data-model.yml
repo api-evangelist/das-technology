@@ -1,0 +1,1304 @@
+generated: '2026-08-12'
+method: derived
+source: openapi/_original/das-technology-daswebapi-v1-swagger.json, openapi/_original/das-technology-daswebapi-v2-swagger.json
+note: Entity-relationship graph derived mechanically from the $ref links and id-suffixed fields in the
+  two published DASWebAPI Swagger 2.0 documents. DAS Technology publishes no object reference page, so
+  id-prefix/domain semantics could not be searched; nothing here is inferred beyond what the schemas state.
+api: DAS Web API
+entity_count: 106
+relationship_count: 165
+primary_identifier:
+  field: accountGuid
+  format: uuid
+  note: The account (dealership rooftop) GUID is the dominant path parameter across both versions — 17
+    schemas carry it and most v1/v2 resources are scoped under /v{n}/account/{accountGuid}/.
+common_id_fields:
+- accountGuid
+- accountId
+- surveyId
+- reviewId
+- surveyResponseId
+- txnId
+- siteId
+- customerId
+- vehicleId
+- employeeId
+- externalId
+entities:
+- name: Account
+  schemas:
+  - DAS.Core.EntityFramework.Account
+  field_count: 67
+  id_fields:
+  - alternativeGuid
+  - dynId
+  - dynParentAccountId
+  - facebookPageId
+  - mySqlDealerId
+  - newSFDCId
+  - oldSFDCId
+  - ownerId
+  - parentAccountId
+  - rlCustomerId
+  - sfdcParentAccountId
+  - tekionId
+  relationships:
+  - kind: has_many
+    target: Account
+    via: childAccounts
+  - kind: has_many
+    target: AccountBrand
+    via: accountBrands
+  - kind: has_many
+    target: AccountCompetitor
+    via: accountCompetitors
+  - kind: has_many
+    target: AccountCompetitor
+    via: competitorOfAccounts
+  - kind: has_many
+    target: AccountHierarchy
+    via: childOfHierarchies
+  - kind: has_many
+    target: AccountHierarchy
+    via: parentOfHierarchies
+  - kind: has_many
+    target: AccountInventory
+    via: accountInventories
+  - kind: has_many
+    target: Address
+    via: addresses
+  - kind: has_many
+    target: DashboardClient
+    via: dashboardClients
+  - kind: has_many
+    target: FacebookAdAccount
+    via: facebookAdAccounts
+  - kind: has_many
+    target: Hierarchy
+    via: hierarchies
+  - kind: has_many
+    target: OemCode
+    via: oemCodes
+  - kind: has_many
+    target: OemProgram
+    via: oemPrograms1
+  - kind: has_many
+    target: Package
+    via: packages
+  - kind: has_many
+    target: Review
+    via: reviews
+  - kind: has_many
+    target: Rooftop
+    via: rooftops
+  - kind: has_many
+    target: Survey
+    via: surveys
+  - kind: has_one
+    target: Account
+    via: parentAccount
+  - kind: has_one
+    target: AccountIntegration
+    via: accountIntegration
+  - kind: has_one
+    target: RLCustomer
+    via: rlCustomer
+  - kind: has_one
+    target: SFDCUser
+    via: sfdcUser
+  - kind: has_one
+    target: SociProject
+    via: sociProject
+- name: AccountAccessModel
+  schemas:
+  - DAS.Models.AccountAccessModel
+  field_count: 2
+  id_fields:
+  - accountGuid
+  relationships: []
+- name: AccountBrand
+  schemas:
+  - DAS.Core.EntityFramework.AccountBrand
+  field_count: 6
+  id_fields:
+  - accountId
+  - brandId
+  - dynId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+  - kind: has_one
+    target: Brand
+    via: brand
+- name: AccountCompetitor
+  schemas:
+  - DAS.Core.EntityFramework.AccountCompetitor
+  field_count: 7
+  id_fields:
+  - accountCompetitorGuid
+  - accountId
+  - competitorAccountId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+  - kind: has_one
+    target: Account
+    via: competitorAccount
+- name: AccountHierarchy
+  schemas:
+  - DAS.Core.EntityFramework.AccountHierarchy
+  field_count: 7
+  id_fields:
+  - childAccountId
+  - hierarchyId
+  - parentAccountId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: childAccount
+  - kind: has_one
+    target: Account
+    via: parentAccount
+  - kind: has_one
+    target: Hierarchy
+    via: hierarchy
+- name: AccountHierarchyView
+  schemas:
+  - DAS.Models.AccountHierarchyView
+  field_count: 6
+  id_fields:
+  - accountGuid
+  - hierarchyGuid
+  relationships:
+  - kind: has_one
+    target: PortalAccountV2
+    via: root
+- name: AccountIntegration
+  schemas:
+  - DAS.Core.EntityFramework.AccountIntegration
+  field_count: 3
+  id_fields:
+  - accountId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+- name: AccountInventory
+  schemas:
+  - DAS.Core.EntityFramework.AccountInventory
+  field_count: 7
+  id_fields:
+  - accountId
+  - inventoryId
+  - sourceId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+  - kind: has_one
+    target: InventorySource
+    via: inventorySource
+- name: AccountManager
+  schemas:
+  - DAS.Models.AccountManager
+  field_count: 8
+  id_fields: []
+  relationships: []
+- name: Address
+  schemas:
+  - DAS.Core.EntityFramework.Address
+  field_count: 9
+  id_fields:
+  - accountId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+- name: Brand
+  schemas:
+  - DAS.Core.EntityFramework.Brand
+  field_count: 5
+  id_fields:
+  - dynId
+  - sfdcId
+  relationships:
+  - kind: has_many
+    target: AccountBrand
+    via: accountBrands
+- name: Category
+  schemas:
+  - DAS.Core.EntityFramework.Category
+  field_count: 4
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: Review
+    via: reviews
+  - kind: has_many
+    target: ReviewCategoryDisposition
+    via: reviewCategoryDispositions
+- name: ClientsSurveyRequest
+  schemas:
+  - DASWebAPI.Contracts.ClientsSurveyRequest
+  field_count: 8
+  id_fields:
+  - clientId
+  relationships: []
+- name: Customer
+  schemas:
+  - DAS.Core.EntityFramework.Customer
+  field_count: 25
+  id_fields:
+  - customerId
+  - mobilePhoneId
+  relationships:
+  - kind: has_many
+    target: Txn
+    via: txns
+- name: CustomerModel
+  schemas:
+  - DAS.Models.CustomerModel
+  field_count: 15
+  id_fields:
+  - customerGuid
+  - customerId
+  relationships: []
+- name: DMSType
+  schemas:
+  - DAS.Core.EntityFramework.DMSType
+  field_count: 4
+  id_fields:
+  - dmsTypeId
+  relationships:
+  - kind: has_many
+    target: VehicleSaleTxn
+    via: vehicleSaleTxns
+  - kind: has_many
+    target: VehicleServiceTxn
+    via: vehicleServiceTxns
+- name: DashboardClient
+  schemas:
+  - DAS.Core.EntityFramework.DashboardClient
+  field_count: 8
+  id_fields:
+  - accountId
+  - dashboardClientId
+  - klipfolioClientId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+- name: Employee
+  schemas:
+  - DAS.Core.EntityFramework.Employee
+  field_count: 19
+  id_fields:
+  - employeeDepartmentId
+  - employeeId
+  relationships:
+  - kind: has_many
+    target: VehicleSaleTxn
+    via: vehicleSaleTxns
+  - kind: has_many
+    target: VehicleSaleTxn
+    via: vehicleSaleTxns1
+  - kind: has_many
+    target: VehicleServiceTxn
+    via: vehicleServiceTxns
+  - kind: has_many
+    target: VehicleServiceTxn
+    via: vehicleServiceTxns1
+  - kind: has_one
+    target: EmployeeDepartment
+    via: employeeDepartment
+- name: EmployeeDepartment
+  schemas:
+  - DAS.Core.EntityFramework.EmployeeDepartment
+  field_count: 3
+  id_fields:
+  - employeeDepartmentId
+  relationships:
+  - kind: has_many
+    target: Employee
+    via: employees
+- name: EmployeeModel
+  schemas:
+  - DAS.Models.EmployeeModel
+  field_count: 12
+  id_fields:
+  - employeeId
+  relationships: []
+- name: EmployeeStats
+  schemas:
+  - DAS.Models.EmployeeStats
+  field_count: 7
+  id_fields:
+  - dealershipGuid
+  - employeeId
+  relationships:
+  - kind: has_many
+    target: ReviewStatsSimple
+    via: closedLoopStats
+  - kind: has_one
+    target: SurveyStats
+    via: surveyStats
+- name: EnterpriseStats
+  schemas:
+  - DAS.Models.EnterpriseStats
+  field_count: 3
+  id_fields: []
+  relationships:
+  - kind: has_one
+    target: ReviewStats
+    via: closedLoopStats
+  - kind: has_one
+    target: ReviewStats
+    via: nonClosedLoopStats
+  - kind: has_one
+    target: SurveyStats
+    via: surveyStats
+- name: EnterpriseStatsV2
+  schemas:
+  - DAS.Models.EnterpriseStatsV2
+  field_count: 21
+  id_fields:
+  - accountGuid
+  relationships: []
+- name: Envelope
+  schemas:
+  - DAS.Models.Envelope
+  field_count: 22
+  id_fields:
+  - messageId
+  relationships:
+  - kind: has_many
+    target: EnvelopeAttachment
+    via: attachments
+- name: EnvelopeAttachment
+  schemas:
+  - DAS.Models.EnvelopeAttachment
+  field_count: 7
+  id_fields:
+  - contentId
+  relationships: []
+- name: FacebookAdAccount
+  schemas:
+  - DAS.Core.EntityFramework.FacebookAdAccount
+  field_count: 7
+  id_fields:
+  - accountId
+  - facebookAdAccountId
+  - offlineEventSetId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+- name: Hierarchy
+  schemas:
+  - DAS.Core.EntityFramework.Hierarchy
+  field_count: 7
+  id_fields:
+  - accountId
+  relationships:
+  - kind: has_many
+    target: AccountHierarchy
+    via: accountHierarchies
+  - kind: has_many
+    target: HierarchyLabel
+    via: hierarchyLabels
+  - kind: has_one
+    target: Account
+    via: account
+- name: HierarchyLabel
+  schemas:
+  - DAS.Core.EntityFramework.HierarchyLabel
+  field_count: 7
+  id_fields:
+  - hierarchyId
+  relationships:
+  - kind: has_one
+    target: Hierarchy
+    via: hierarchy
+- name: InventorySource
+  schemas:
+  - DAS.Core.EntityFramework.InventorySource
+  field_count: 3
+  id_fields:
+  - sourceId
+  relationships:
+  - kind: has_many
+    target: AccountInventory
+    via: accountInventories
+- name: ManualListing
+  schemas:
+  - DAS.Core.EntityFramework.ManualListing
+  field_count: 6
+  id_fields:
+  - externalId
+  - siteId
+  relationships:
+  - kind: has_one
+    target: ReviewSite
+    via: reviewSite
+- name: MediaModel
+  schemas:
+  - DASWebAPI.Models.MediaModel
+  field_count: 5
+  id_fields:
+  - dealerId
+  relationships:
+  - kind: has_many
+    target: MediaUploadError
+    via: errors
+- name: MediaUploadError
+  schemas:
+  - DASWebAPI.Models.MediaUploadError
+  field_count: 2
+  id_fields: []
+  relationships: []
+- name: NotificationSettings
+  schemas:
+  - DAS.Models.NotificationSettings
+  field_count: 2
+  id_fields: []
+  relationships:
+  - kind: has_one
+    target: ReviewNotificationSettings
+    via: review
+  - kind: has_one
+    target: SurveyResponseNotificationSettings
+    via: surveyResponse
+- name: NpsNode
+  schemas:
+  - DAS.Models.NpsNode
+  field_count: 9
+  id_fields: []
+  relationships: []
+- name: NpsStats
+  schemas:
+  - DAS.Models.NpsStats
+  field_count: 1
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: NpsNode
+    via: npsNodes
+- name: OemCode
+  schemas:
+  - DAS.Core.EntityFramework.OemCode
+  field_count: 5
+  id_fields:
+  - accountsId
+  - dynId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+- name: OemProgram
+  schemas:
+  - DAS.Core.EntityFramework.OemProgram
+  field_count: 4
+  id_fields:
+  - accountsId
+  - dynId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+- name: Package
+  schemas:
+  - DAS.Core.EntityFramework.Package
+  field_count: 11
+  id_fields:
+  - accountId
+  - sfdcId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+- name: PagedQuery
+  schemas:
+  - DASWebAPI.Controllers.PagedQuery
+  field_count: 9
+  id_fields: []
+  relationships: []
+- name: PortalAccount
+  schemas:
+  - DAS.Models.PortalAccount
+  field_count: 4
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: PortalAccount
+    via: child
+  - kind: has_many
+    target: PortalAccount
+    via: parent
+- name: PortalAccountAddress
+  schemas:
+  - DAS.Models.PortalAccountAddress
+  field_count: 5
+  id_fields: []
+  relationships: []
+- name: PortalAccountDetailed
+  schemas:
+  - DAS.Models.PortalAccountDetailed
+  field_count: 7
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: PortalAccount
+    via: child
+  - kind: has_many
+    target: PortalAccount
+    via: parent
+  - kind: has_one
+    target: PortalAccountAddress
+    via: address
+- name: PortalAccountNotifySettings
+  schemas:
+  - DAS.Models.PortalAccountNotifySettings
+  field_count: 6
+  id_fields: []
+  relationships:
+  - kind: has_one
+    target: NotificationSettings
+    via: notification
+- name: PortalAccountV2
+  schemas:
+  - DAS.Models.PortalAccountV2
+  field_count: 8
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: PortalAccountV2
+    via: child
+  - kind: has_many
+    target: PortalAccountV2
+    via: parent
+- name: ProposedResponse
+  schemas:
+  - DAS.Models.ProposedResponse
+  field_count: 9
+  id_fields:
+  - surveyResponseResponseGuid
+  relationships: []
+- name: QuestionResponse
+  schemas:
+  - DAS.Models.QuestionResponse
+  field_count: 2
+  id_fields: []
+  relationships: []
+- name: RLCustomer
+  schemas:
+  - DAS.Core.EntityFramework.RLCustomer
+  field_count: 5
+  id_fields:
+  - oltpCustomerId
+  relationships:
+  - kind: has_many
+    target: Account
+    via: accounts
+- name: RatingMethod
+  schemas:
+  - DAS.Models.RatingMethod
+  field_count: 5
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: RatingMethodItems
+    via: ratingMethodItems
+- name: RatingMethodItems
+  schemas:
+  - DAS.Models.RatingMethodItems
+  field_count: 3
+  id_fields:
+  - orderId
+  relationships: []
+- name: RatingNotificationSettings
+  schemas:
+  - DAS.Models.RatingNotificationSettings
+  field_count: 2
+  id_fields: []
+  relationships: []
+- name: ReportSettingDetails
+  schemas:
+  - DAS.Models.ReportSettingDetails
+  field_count: 4
+  id_fields: []
+  relationships: []
+- name: ReportSettings
+  schemas:
+  - DAS.Models.ReportSettings
+  field_count: 3
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: ReportSettingDetails
+    via: bounce
+  - kind: has_many
+    target: ReportSettingDetails
+    via: enterprise
+  - kind: has_many
+    target: ReportSettingDetails
+    via: unsubscribe
+- name: ReputationStatisticsRootModel
+  schemas:
+  - DAS.Models.ReputationStatisticsRootModel
+  field_count: 6
+  id_fields:
+  - accountGuid
+  relationships:
+  - kind: has_many
+    target: ReputationStatisticsSiteDetailsModel
+    via: statistics
+  - kind: has_many
+    target: ReputationStatisticsSiteDetailsModelAllTime
+    via: statisticsAllTime
+  - kind: has_many
+    target: ReputationStatisticsSummaryModel
+    via: summaries
+- name: ReputationStatisticsSiteDetailsModel
+  schemas:
+  - DAS.Models.ReputationStatisticsSiteDetailsModel
+  field_count: 7
+  id_fields: []
+  relationships: []
+- name: ReputationStatisticsSiteDetailsModelAllTime
+  schemas:
+  - DAS.Models.ReputationStatisticsSiteDetailsModelAllTime
+  field_count: 2
+  id_fields: []
+  relationships: []
+- name: ReputationStatisticsSummaryModel
+  schemas:
+  - DAS.Models.ReputationStatisticsSummaryModel
+  field_count: 3
+  id_fields: []
+  relationships: []
+- name: Review
+  schemas:
+  - DAS.Core.EntityFramework.Review
+  field_count: 30
+  id_fields:
+  - accountGuid
+  - accountId
+  - externalId
+  - reviewGuid
+  - reviewSiteId
+  - reviewSourceId
+  - surveyResponseId
+  relationships:
+  - kind: has_many
+    target: Category
+    via: categories
+  - kind: has_many
+    target: ReviewCategoryDisposition
+    via: reviewCategoryDispositions
+  - kind: has_many
+    target: ReviewClassification
+    via: reviewClassifications
+  - kind: has_many
+    target: ReviewResponse
+    via: reviewResponses
+  - kind: has_one
+    target: Account
+    via: account
+  - kind: has_one
+    target: ReviewSite
+    via: reviewSite
+  - kind: has_one
+    target: ReviewSource
+    via: reviewSource
+  - kind: has_one
+    target: SurveyResponse
+    via: surveyResponse
+- name: ReviewCategoryDisposition
+  schemas:
+  - DAS.Core.EntityFramework.ReviewCategoryDisposition
+  field_count: 7
+  id_fields:
+  - categoryId
+  - reviewId
+  relationships:
+  - kind: has_one
+    target: Category
+    via: category
+  - kind: has_one
+    target: Review
+    via: review
+- name: ReviewClassification
+  schemas:
+  - DAS.Core.EntityFramework.ReviewClassification
+  field_count: 6
+  id_fields:
+  - reviewId
+  relationships:
+  - kind: has_one
+    target: Review
+    via: review
+- name: ReviewModel
+  schemas:
+  - DAS.Models.ReviewModel
+  field_count: 26
+  id_fields:
+  - dealerGuid
+  - externalId
+  - reviewId
+  - reviewSurgeResponseId
+  - siteId
+  relationships:
+  - kind: has_many
+    target: ReviewResponseModel
+    via: reviewResponses
+- name: ReviewNotificationSettings
+  schemas:
+  - DAS.Models.ReviewNotificationSettings
+  field_count: 3
+  id_fields: []
+  relationships:
+  - kind: has_one
+    target: RatingNotificationSettings
+    via: sales
+  - kind: has_one
+    target: RatingNotificationSettings
+    via: service
+  - kind: has_one
+    target: RatingNotificationSettings
+    via: uncategorized
+- name: ReviewQuery
+  schemas:
+  - DAS.Models.ReviewQuery
+  field_count: 14
+  id_fields: []
+  relationships: []
+- name: ReviewReportQuery
+  schemas:
+  - DASWebAPI.Controllers.V2.ReviewReportQuery
+  field_count: 12
+  id_fields: []
+  relationships: []
+- name: ReviewResponse
+  schemas:
+  - DAS.Core.EntityFramework.ReviewResponse
+  field_count: 13
+  id_fields:
+  - externalId
+  - reviewId
+  - reviewResponseGuid
+  - reviewSourceId
+  relationships:
+  - kind: has_one
+    target: Review
+    via: review
+- name: ReviewResponseModel
+  schemas:
+  - DAS.Models.ReviewResponseModel
+  field_count: 7
+  id_fields:
+  - externalId
+  - reviewId
+  - reviewResponseGuid
+  relationships: []
+- name: ReviewResponseV2
+  schemas:
+  - DAS.Models.ReviewResponseV2
+  field_count: 9
+  id_fields:
+  - externalId
+  - reviewResponseGuid
+  relationships: []
+- name: ReviewSite
+  schemas:
+  - DAS.Core.EntityFramework.ReviewSite
+  field_count: 6
+  id_fields:
+  - legacyId
+  relationships:
+  - kind: has_many
+    target: ManualListing
+    via: manualListings
+  - kind: has_many
+    target: Review
+    via: reviews
+- name: ReviewSiteRatings
+  schemas:
+  - DAS.Models.ReviewSiteRatings
+  field_count: 2
+  id_fields: []
+  relationships: []
+- name: ReviewSource
+  schemas:
+  - DAS.Core.EntityFramework.ReviewSource
+  field_count: 3
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: Review
+    via: reviews
+- name: ReviewStats
+  schemas:
+  - DAS.Models.ReviewStats
+  field_count: 16
+  id_fields:
+  - accountGuid
+  relationships:
+  - kind: has_many
+    target: ReviewSiteRatings
+    via: siteRatings
+  - kind: has_many
+    target: ReviewStatsSource
+    via: reviewStatsSources
+  - kind: has_many
+    target: ReviewStatsState
+    via: reviewStatsStates
+- name: ReviewStatsSimple
+  schemas:
+  - DAS.Models.ReviewStatsSimple
+  field_count: 5
+  id_fields: []
+  relationships: []
+- name: ReviewStatsSource
+  schemas:
+  - DAS.Models.ReviewStatsSource
+  field_count: 6
+  id_fields: []
+  relationships: []
+- name: ReviewStatsState
+  schemas:
+  - DAS.Models.ReviewStatsState
+  field_count: 2
+  id_fields: []
+  relationships: []
+- name: ReviewV2
+  schemas:
+  - DAS.Models.ReviewV2
+  field_count: 20
+  id_fields:
+  - accountGuid
+  relationships:
+  - kind: has_many
+    target: ProposedResponse
+    via: proposedResponses
+  - kind: has_many
+    target: ReviewResponseV2
+    via: reviewResponses
+- name: ReviewV2]
+  schemas:
+  - DAS.Models.PagedResult[DAS.Models.ReviewV2]
+  field_count: 2
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: ReviewV2
+    via: data
+- name: Rooftop
+  schemas:
+  - DAS.Core.EntityFramework.Rooftop
+  field_count: 5
+  id_fields:
+  - rlCustomerInventorySourceGuid
+  - rooftopId
+  relationships:
+  - kind: has_many
+    target: Account
+    via: accounts
+- name: SFDCUser
+  schemas:
+  - DAS.Core.EntityFramework.SFDCUser
+  field_count: 12
+  id_fields:
+  - dynId
+  - sfdcId
+  relationships:
+  - kind: has_many
+    target: Account
+    via: accounts
+- name: Site
+  schemas:
+  - DAS.Models.Site
+  field_count: 9
+  id_fields: []
+  relationships:
+  - kind: has_one
+    target: RatingMethod
+    via: ratingMethod
+- name: SociProject
+  schemas:
+  - DAS.Core.EntityFramework.SociProject
+  field_count: 4
+  id_fields:
+  - accountsId
+  - sociProjectId
+  relationships:
+  - kind: has_one
+    target: Account
+    via: account
+- name: Survey
+  schemas:
+  - DAS.Core.EntityFramework.Survey
+  field_count: 33
+  id_fields:
+  - accountId
+  - oldSurveyId
+  - reviewSurgeConsumerId
+  - txnId
+  - txnTypeId
+  relationships:
+  - kind: has_many
+    target: SurveyDealerPendingResponse
+    via: surveyDealerPendingResponses
+  - kind: has_many
+    target: SurveyDealerResponse
+    via: surveyDealerResponses
+  - kind: has_many
+    target: SurveyHistory
+    via: surveyHistories
+  - kind: has_many
+    target: SurveyResponse
+    via: surveyResponses
+  - kind: has_one
+    target: Account
+    via: account
+  - kind: has_one
+    target: Txn
+    via: txn
+  - kind: has_one
+    target: TxnType
+    via: txnType
+- name: SurveyDealerPendingResponse
+  schemas:
+  - DAS.Core.EntityFramework.SurveyDealerPendingResponse
+  field_count: 5
+  id_fields:
+  - surveyId
+  relationships:
+  - kind: has_one
+    target: Survey
+    via: survey
+- name: SurveyDealerResponse
+  schemas:
+  - DAS.Core.EntityFramework.SurveyDealerResponse
+  field_count: 5
+  id_fields:
+  - surveyId
+  relationships:
+  - kind: has_one
+    target: Survey
+    via: survey
+- name: SurveyEmployee
+  schemas:
+  - DAS.Models.SurveyEmployee
+  field_count: 2
+  id_fields: []
+  relationships: []
+- name: SurveyHistory
+  schemas:
+  - DAS.Core.EntityFramework.SurveyHistory
+  field_count: 7
+  id_fields:
+  - actionId
+  - siteId
+  - surveyId
+  relationships:
+  - kind: has_one
+    target: Survey
+    via: survey
+- name: SurveyMethodStatsV2
+  schemas:
+  - DAS.Models.SurveyMethodStatsV2
+  field_count: 24
+  id_fields:
+  - accountGuid
+  relationships: []
+- name: SurveyResponse
+  schemas:
+  - DAS.Core.EntityFramework.SurveyResponse
+  field_count: 22
+  id_fields:
+  - publishedReviewSiteId
+  - surveyId
+  - surveyResponseGuid
+  relationships:
+  - kind: has_many
+    target: Review
+    via: reviews
+  - kind: has_many
+    target: SurveyResponseResponse
+    via: surveyResponseResponses
+  - kind: has_one
+    target: Survey
+    via: survey
+- name: SurveyResponseLegacy
+  schemas:
+  - DAS.Models.SurveyResponseLegacy
+  field_count: 20
+  id_fields:
+  - accountGuid
+  relationships:
+  - kind: has_many
+    target: ProposedResponse
+    via: proposedResponses
+  - kind: has_many
+    target: QuestionResponse
+    via: questionResponses
+  - kind: has_one
+    target: SurveyTransaction
+    via: transaction
+- name: SurveyResponseNotificationSettings
+  schemas:
+  - DAS.Models.SurveyResponseNotificationSettings
+  field_count: 2
+  id_fields: []
+  relationships:
+  - kind: has_one
+    target: RatingNotificationSettings
+    via: sales
+  - kind: has_one
+    target: RatingNotificationSettings
+    via: service
+- name: SurveyResponseResponse
+  schemas:
+  - DAS.Core.EntityFramework.SurveyResponseResponse
+  field_count: 11
+  id_fields:
+  - surveyResponseId
+  - surveyResponseResponseGuid
+  relationships:
+  - kind: has_one
+    target: SurveyResponse
+    via: surveyResponse
+- name: SurveyResponseV2
+  schemas:
+  - DAS.Models.SurveyResponseV2
+  field_count: 41
+  id_fields:
+  - accountGuid
+  - surveyId
+  - surveyResponseId
+  relationships:
+  - kind: has_many
+    target: ProposedResponse
+    via: proposedResponses
+- name: SurveyResponseV2]
+  schemas:
+  - DAS.Models.PagedResult[DAS.Models.SurveyResponseV2]
+  field_count: 2
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: SurveyResponseV2
+    via: data
+- name: SurveyStats
+  schemas:
+  - DAS.Models.SurveyStats
+  field_count: 12
+  id_fields:
+  - accountGuid
+  relationships: []
+- name: SurveyStatsV2
+  schemas:
+  - DAS.Models.SurveyStatsV2
+  field_count: 18
+  id_fields:
+  - accountGuid
+  relationships: []
+- name: SurveyTransaction
+  schemas:
+  - DAS.Models.SurveyTransaction
+  field_count: 3
+  id_fields: []
+  relationships:
+  - kind: has_one
+    target: SurveyEmployee
+    via: employee
+- name: SurveyV2Response
+  schemas:
+  - DAS.Models.SurveyV2Response
+  field_count: 2
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: SurveyResponseV2
+    via: data
+- name: Transaction
+  schemas:
+  - DAS.Models.Transaction
+  field_count: 7
+  id_fields:
+  - transactionGuid
+  - transactionId
+  relationships:
+  - kind: has_one
+    target: CustomerModel
+    via: customer
+  - kind: has_one
+    target: EmployeeModel
+    via: employee
+  - kind: has_one
+    target: VehicleModel
+    via: vehicle
+- name: Txn
+  schemas:
+  - DAS.Core.EntityFramework.Txn
+  field_count: 15
+  id_fields:
+  - customerId
+  - txnId
+  - txnProviderId
+  - txnTypeId
+  relationships:
+  - kind: has_many
+    target: Survey
+    via: surveys
+  - kind: has_many
+    target: VehicleSaleTxn
+    via: vehicleSaleTxns
+  - kind: has_many
+    target: VehicleServiceTxn
+    via: vehicleServiceTxns
+  - kind: has_one
+    target: Customer
+    via: customer
+  - kind: has_one
+    target: TxnProvider
+    via: txnProvider
+  - kind: has_one
+    target: TxnType
+    via: txnType
+- name: TxnProvider
+  schemas:
+  - DAS.Core.EntityFramework.TxnProvider
+  field_count: 3
+  id_fields:
+  - txnProviderId
+  relationships:
+  - kind: has_many
+    target: Txn
+    via: txns
+- name: TxnType
+  schemas:
+  - DAS.Core.EntityFramework.TxnType
+  field_count: 4
+  id_fields:
+  - txnTypeId
+  relationships:
+  - kind: has_many
+    target: Survey
+    via: surveys
+  - kind: has_many
+    target: Txn
+    via: txns
+- name: UserModel
+  schemas:
+  - DAS.Models.UserModel
+  field_count: 23
+  id_fields:
+  - externalId
+  relationships:
+  - kind: has_many
+    target: AccountAccessModel
+    via: accountAccess
+  - kind: has_many
+    target: AccountHierarchyView
+    via: accountHierarchyViews
+  - kind: has_many
+    target: UserSettings
+    via: settings
+- name: UserModel]
+  schemas:
+  - DAS.Models.PagedResult[DAS.Models.UserModel]
+  field_count: 2
+  id_fields: []
+  relationships:
+  - kind: has_many
+    target: UserModel
+    via: data
+- name: UserSettings
+  schemas:
+  - DAS.Models.UserSettings
+  field_count: 3
+  id_fields:
+  - accountGuid
+  relationships:
+  - kind: has_one
+    target: NotificationSettings
+    via: notification
+  - kind: has_one
+    target: ReportSettings
+    via: report
+- name: Vehicle
+  schemas:
+  - DAS.Core.EntityFramework.Vehicle
+  field_count: 9
+  id_fields:
+  - vehicleId
+  relationships:
+  - kind: has_many
+    target: VehicleSaleTxn
+    via: vehicleSaleTxns
+  - kind: has_many
+    target: VehicleServiceTxn
+    via: vehicleServiceTxns
+- name: VehicleModel
+  schemas:
+  - DAS.Models.VehicleModel
+  field_count: 5
+  id_fields: []
+  relationships: []
+- name: VehicleSaleTxn
+  schemas:
+  - DAS.Core.EntityFramework.VehicleSaleTxn
+  field_count: 19
+  id_fields:
+  - dmsTypeId
+  - salesMan1Id
+  - salesMan2Id
+  - txnId
+  - vehicleId
+  - vehicleSaleTxnId
+  relationships:
+  - kind: has_one
+    target: DMSType
+    via: dmsType
+  - kind: has_one
+    target: Employee
+    via: employee
+  - kind: has_one
+    target: Employee
+    via: employee1
+  - kind: has_one
+    target: Txn
+    via: txn
+  - kind: has_one
+    target: Vehicle
+    via: vehicle
+- name: VehicleServiceTxn
+  schemas:
+  - DAS.Core.EntityFramework.VehicleServiceTxn
+  field_count: 21
+  id_fields:
+  - dmsTypeId
+  - salesManId
+  - serviceAdvisorId
+  - txnId
+  - vehicleId
+  - vehicleServiceTxnId
+  relationships:
+  - kind: has_one
+    target: DMSType
+    via: dmsType
+  - kind: has_one
+    target: Employee
+    via: employee
+  - kind: has_one
+    target: Employee
+    via: employee1
+  - kind: has_one
+    target: Txn
+    via: txn
+  - kind: has_one
+    target: Vehicle
+    via: vehicle

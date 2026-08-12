@@ -1,0 +1,83 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  live unauthenticated requests to https://api.digitalairstrike.com/ (v1/v2), reconciled against
+  openapi/_original/das-technology-daswebapi-v1-swagger.json and
+  openapi/_original/das-technology-daswebapi-v2-swagger.json
+api: DAS Web API (DASWebAPI v1 + v2)
+format: proprietary
+rfc9457: false
+media_type: application/xml
+note: >-
+  This catalog could NOT be derived from the specification. All 136 operations across both
+  published Swagger 2.0 documents declare exactly one response — `200 OK`. There is not a single
+  4xx or 5xx response object, no error schema, and no error reference page on any public DAS
+  Technology surface. Every entry below was observed on a live unauthenticated request and is
+  recorded with the exact status and body shape returned.
+envelope:
+  root: Error
+  fields:
+  - name: Message
+    always_present: true
+  - name: ExceptionMessage
+    always_present: false
+    note: present on unhandled server faults
+  - name: ExceptionType
+    always_present: false
+  - name: StackTrace
+    always_present: false
+  example_shape: '<Error><Message>Authorization has been denied for this request.</Message></Error>'
+problem_types:
+- status: 401
+  title: Authorization has been denied for this request.
+  media_type: application/xml
+  headers:
+    WWW-Authenticate: Bearer
+  meaning: >-
+    No bearer token, or a token the API rejects. Returned for every v1 and v2 resource when called
+    anonymously.
+  remediation: Present a valid bearer token in the Authorization header.
+  method: probed
+  evidence:
+    url: https://api.digitalairstrike.com/v1/account/00000000-0000-0000-0000-000000000000
+    http_status: 401
+  documented_by_provider: false
+- status: 404
+  title: The resource cannot be found.
+  media_type: text/html
+  meaning: >-
+    Unrouted path. Returned as an ASP.NET/IIS HTML error page, NOT as the XML Error envelope — an
+    agent parsing errors as XML will fail to parse a 404.
+  remediation: Check the path and version prefix against the published Swagger document.
+  method: probed
+  evidence:
+    url: https://api.digitalairstrike.com/token
+    http_status: 404
+  documented_by_provider: false
+- status: 500
+  title: An error has occurred.
+  media_type: application/xml
+  meaning: Unhandled server fault.
+  remediation: Retry is not documented as safe; contact DAS Technology support.
+  method: probed
+  evidence:
+    url: https://api.digitalairstrike.com/v1/clients
+    http_status: 500
+  documented_by_provider: false
+  finding: >-
+    VERBOSE ERROR DISCLOSURE — the 500 body is not redacted. It returns ExceptionType
+    (System.NullReferenceException), ExceptionMessage, and a full StackTrace that discloses
+    internal class names and absolute build paths from the DAS build server. This reaches an
+    unauthenticated caller. Recommended remediation: set the ASP.NET Web API
+    IncludeErrorDetailPolicy to LocalOnly (or Never) in production.
+  severity: medium
+gaps:
+- id: no-documented-errors
+  detail: 136 of 136 operations document only a 200 response; the entire error surface is undocumented.
+  remediation: >-
+    Declare 400/401/403/404/429/500 responses with a shared error schema in the Swagger documents,
+    and consider migrating the envelope to RFC 9457 application/problem+json.
+- id: inconsistent-error-media-type
+  detail: >-
+    401 and 500 return application/xml; 404 returns text/html. A client cannot use one parser for
+    the error path.

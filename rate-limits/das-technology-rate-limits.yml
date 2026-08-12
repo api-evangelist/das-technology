@@ -1,0 +1,37 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  live unauthenticated responses from https://api.digitalairstrike.com/ (headers inspected
+  2026-08-12) plus a search of https://www.dastechnology.com and the published Swagger documents
+  for a documented limit
+api: DAS Web API (DASWebAPI v1 + v2)
+limit_count: 0
+limits: []
+response_headers: []
+retry_after: false
+status_on_exhaustion: null
+note: >-
+  No rate limits are published and none are signaled at runtime. Neither Swagger document mentions
+  a limit, quota or 429 response — all 136 operations declare only a 200 — and DAS Technology has
+  no developer portal to document one. Live responses (401, 404, 500) carry no RateLimit-*,
+  X-RateLimit-*, Retry-After or Retry-After-Seconds header; the only non-standard headers returned
+  are the Azure App Service ARRAffinity session-affinity cookies and ASP.NET version banners. An
+  authenticated caller may still be throttled by Azure App Service or an upstream WAF without any
+  advertised signal, so an integrator cannot budget or back off from anything the API tells them.
+  This is a recorded zero, not a missing measurement.
+evidence:
+- url: https://api.digitalairstrike.com/v1/account/00000000-0000-0000-0000-000000000000
+  status: 401
+  finding: no rate-limit headers present
+- url: https://api.digitalairstrike.com/v1/clients
+  status: 500
+  finding: no rate-limit headers present
+- url: https://api.digitalairstrike.com/swagger/docs/v1
+  status: 200
+  finding: no 429 response and no limit documented across 104 operations
+- url: https://api.digitalairstrike.com/swagger/docs/v2
+  status: 200
+  finding: no 429 response and no limit documented across 32 operations
+remediation: >-
+  Publish per-account limits and emit the RateLimit-Limit / RateLimit-Remaining / RateLimit-Reset
+  header set (or X-RateLimit-*) plus Retry-After on 429.

@@ -1,0 +1,131 @@
+generated: '2026-08-12'
+method: derived
+source: >-
+  openapi/_original/das-technology-daswebapi-v1-swagger.json,
+  openapi/_original/das-technology-daswebapi-v2-swagger.json, plus live unauthenticated response
+  headers from https://api.digitalairstrike.com/
+api: DAS Web API (DASWebAPI v1 + v2)
+note: >-
+  DAS Technology publishes no developer guide, so every convention below is read off the two
+  Swagger 2.0 documents it serves at https://api.digitalairstrike.com/swagger and off live
+  response headers. Where a convention is absent, that absence is recorded rather than filled in.
+authentication:
+  style: bearer token in the Authorization header
+  declared_in_spec: false
+  detail: See authentication/das-technology-authentication.yml — probed from a live 401.
+versioning:
+  style: path-prefix
+  detail: >-
+    Two independently published Swagger documents — /swagger/docs/v1 (DASWebAPI V1, 104 operations)
+    and /swagger/docs/v2 (DASWebAPI V2, 32 operations). Version is the first path segment (/v1/..,
+    /v2/..). v2 is not a replacement for v1: it re-cuts eight resource families (AccountV2,
+    HierarchyV2, Incentives, Media, SociV2, StatsV2, SurveysV2, UserV2) while the remaining v1
+    families have no v2 equivalent, so callers run both concurrently.
+  media_type_versioning: false
+  header_versioning: false
+content_negotiation:
+  request: >-
+    Almost no operation declares a `consumes` list; the four that accept a body are ASP.NET Web API
+    controllers that will bind JSON or XML.
+  response_formats:
+  - application/json
+  - text/json
+  - application/xml
+  - text/xml
+  - text/html
+  default_on_error: >-
+    application/xml — the live 401 and 500 responses return an XML <Error> envelope even though
+    JSON is the first-class success format. Agents must not assume JSON on the error path.
+  detail: >-
+    Every one of the 136 operations declares the same five-entry `produces` list, which is the
+    ASP.NET Web API default rather than a designed content-type policy.
+pagination:
+  supported: partial
+  style: page-number
+  detail: >-
+    v2 collection endpoints take a bound query object (DASWebAPI.Controllers.PagedQuery) flattened
+    onto the query string. Both `page`/`size` (on the model) and `page`/`pageSize` (on the wire
+    parameters) appear, which is an inconsistency in the published contract. v1 exposes the same
+    fields as `query.page` / `query.pageSize`.
+  request_params:
+  - page
+  - pageSize
+  - size
+  - orderBy
+  - q
+  - fromDate
+  - toDate
+  - categories
+  - brands
+  - type
+  response_envelope:
+    schema: 'DAS.Models.PagedResult[T]'
+    fields:
+    - name: data
+      role: the page of records
+    - name: count
+      role: total matching records (int32)
+  cursor: false
+  link_header: false
+  gap: >-
+    No next/prev link, no cursor and no page-count field — a caller must compute page arithmetic
+    from `count` and its own `pageSize`. v1 list operations return bare arrays with no envelope
+    and therefore no total at all.
+filtering:
+  style: bound query object flattened to query-string parameters
+  detail: >-
+    v1 prefixes filter parameters with `query.` (query.fromDate, query.source, query.reviewType,
+    query.siteName, query.disputedReview, query.state, query.hasResponse, query.closedLoop,
+    query.orderBy). v2 uses both the prefixed and unprefixed forms depending on the controller.
+  date_range: fromDate / toDate, ISO 8601 date-time
+field_expansion:
+  supported: false
+sparse_fieldsets:
+  supported: false
+metadata:
+  supported: false
+  detail: No customer-writable metadata/annotation field is exposed on any resource.
+idempotency:
+  supported: false
+  idempotency_key_header: null
+  detail: >-
+    No Idempotency-Key header, no client-supplied request identifier and no documented retry
+    semantics anywhere in either document. Of the 25 non-GET operations (24 POST, 2 DELETE),
+    none is safe to retry blind. Notable exposures: Mail_PostMessageSynchronous and
+    Mail_PostMessageAsynchronous send email, Notification_ProvisionSmsNumber provisions an SMS
+    number, Survey_RequestSurvey triggers a survey send, and SOCi_Provision/SociV2_Provision
+    provision a downstream account — all of which double-fire on a naive retry.
+  remediation: >-
+    Accept an Idempotency-Key request header on the POST surface, scope it per account, and
+    replay the stored response for a repeated key.
+request_tracing:
+  request_id_header: null
+  correlation_id_header: null
+  detail: >-
+    No X-Request-Id, X-Correlation-Id or trace header is returned. The only per-request header on
+    the wire is the Azure App Service ARRAffinity session-affinity cookie. Support tickets cannot
+    be anchored to a request identifier.
+rate_limit_signaling:
+  headers_returned: []
+  detail: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header appears on any observed response, and no
+    limits are published. See rate-limits/das-technology-rate-limits.yml.
+error_envelope:
+  format: proprietary
+  rfc9457: false
+  media_type: application/xml
+  shape: '<Error><Message>...</Message></Error>'
+  verbose_shape: >-
+    On a server fault the envelope additionally carries <ExceptionMessage>, <ExceptionType> and a
+    full <StackTrace>. See errors/das-technology-problem-types.yml — this is a finding, not a feature.
+  declared_in_spec: false
+  detail: >-
+    All 136 operations declare exactly one response — 200 OK. No 4xx or 5xx response is documented
+    anywhere in either Swagger document, so the error surface is entirely undocumented and had to
+    be probed.
+cross_references:
+  authentication: authentication/das-technology-authentication.yml
+  errors: errors/das-technology-problem-types.yml
+  lifecycle: lifecycle/das-technology-lifecycle.yml
+  rate_limits: rate-limits/das-technology-rate-limits.yml
+  data_model: data-model/das-technology-data-model.yml

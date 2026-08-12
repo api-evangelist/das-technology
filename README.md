@@ -42,6 +42,8 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-DAS Technology is a company surfaced as a portfolio company of emergence-capital and added to the API Evangelist network as a stub for enrichment. Sector: martech. This profile is a lead awaiting the enrichment pipeline.
+DAS Technology (formerly Digital Air Strike) is an automotive-retail customer-data and experience company serving more than 9,300 dealerships, retailers, partners and OEMs. Sector: martech.
+
+It ships a real REST API — the **DAS Web API** — served from its legacy `api.digitalairstrike.com` domain and documented by two publicly readable Swagger 2.0 documents (v1: 104 operations; v2: 32 operations) at https://api.digitalairstrike.com/swagger. There is no developer portal, no pricing, no SDK, no sandbox, no status page and no changelog around it; every operation requires a bearer token issued through the dealer, OEM or partner relationship.
 
 Backed by: emergence-capital — https://www.dastechnology.com
