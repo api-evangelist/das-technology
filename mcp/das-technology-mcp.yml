@@ -2881,3 +2881,9 @@ tools:
   read_only: true
   parameters: []
   spec: openapi/_original/das-technology-daswebapi-v2-swagger.json
+deployment:
+  mode: none
+  verified: derived
+  tools: 136
+  checked: '2026-08-12'
+  source: catalog MCP census

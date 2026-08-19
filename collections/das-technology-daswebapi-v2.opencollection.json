@@ -1,0 +1,1132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DASWebAPI V2",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AccountV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve reviews by account identifier, supports partial filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/:accountGuid/reviewV2",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path",
+                "description": "A uniqueidentifier representing an account."
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.reviewType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.siteName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.disputedReview",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.hasResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.closedLoop",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve reviews by account identifier, supports partial filter"
+        },
+        {
+          "info": {
+            "name": "Retrieves survey responses by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/:accountGuid/survey/responsesV2",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path",
+                "description": "The account unique identifier."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Size of the page."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The order by."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The q."
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.surveyType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves survey responses by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieves an account hierarchy based on the account and hierarchy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/:accountGuid/hierarchy",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "hierarchyGuid",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieves an account hierarchy based on the account and hierarchy"
+        },
+        {
+          "info": {
+            "name": "Retrieves a list of competitors for an account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/:accountGuid/competitor",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path",
+                "description": "A guid identifying the account."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of competitors for an account."
+        },
+        {
+          "info": {
+            "name": "Sets a list of account guids as the competitor list.  Duplicate accounts are suppressed.\r\nIf an account guid does not exist, a 404 error will be returned.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/account/:accountGuid/competitor",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path",
+                "description": "A guid representing the account"
+              }
+            ]
+          },
+          "docs": "Sets a list of account guids as the competitor list.  Duplicate accounts are suppressed.\r\nIf an account guid does not exist, a 404 error will be returned."
+        },
+        {
+          "info": {
+            "name": "Deletes an account competitor from the the competitor list.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/account/:accountGuid/competitor",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path",
+                "description": "A guid representing an account"
+              }
+            ]
+          },
+          "docs": "Deletes an account competitor from the the competitor list."
+        },
+        {
+          "info": {
+            "name": "Generates a summary report of reputation statistics for a given account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/:accountGuid/reputation",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path",
+                "description": "A unique identifier representing an account"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query",
+                "description": "A date time offset value representing the start date.  Time is represented in UTC.  Default value is -14 days if ToDate is specified, or -14\r\n            from current time if no fromDate and toDate parameter is specified."
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query",
+                "description": "A date time offset value representing the end date.  Time is represented in UTC.  Default value is 14 days from fromDate if specified, or if\r\n            current time if no fromDate or toDate parameter is specified."
+              }
+            ]
+          },
+          "docs": "Generates a summary report of reputation statistics for a given account."
+        },
+        {
+          "info": {
+            "name": "AccountV2_SocicalAdsCampaignReport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/:accountGuid/SocialAdsCampaignReport",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaignId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "AccountV2_RunSocialAdsCampaignReport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/RunSocialAdsCampaignReport",
+            "params": [
+              {
+                "name": "campaignId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromMonth",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromYear",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toMonth",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toYear",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Returns the clients that are active on review surge.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/GetAccountsActiveReviewSurge"
+          },
+          "docs": "This Data is based off the RSActive column in the Accounts table in Core."
+        },
+        {
+          "info": {
+            "name": "Return a simple list of tokens of the clients active on Review Surge.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/GetAccountsTokenActiveReviewSurge"
+          },
+          "docs": "Return a simple list of tokens of the clients active on Review Surge."
+        },
+        {
+          "info": {
+            "name": "Gets the list of active Employees of an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/:accountGuid/GetEmployees",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ActiveDays",
+                "value": "",
+                "type": "query",
+                "description": "Range of days to evaluate user activity"
+              }
+            ]
+          },
+          "docs": "Gets the list of active Employees of an account"
+        },
+        {
+          "info": {
+            "name": "AccountV2_GetAdvocate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/account/GetAdvocate",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "HierarchyV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of available hierarchies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/hierarchy/list"
+          },
+          "docs": "Returns a list of available hierarchies"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Incentives",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Incentives_GetIncentives",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/incentives/:vin/:zip",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "zip",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Incentives_GetAllPrograms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/incentives/programs"
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Store photos or videos in Azure Storage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/media/store"
+          },
+          "docs": "Store photos or videos in Azure Storage"
+        },
+        {
+          "info": {
+            "name": "Returns the list of saved files in a particular user folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/media/list"
+          },
+          "docs": "Returns the list of saved files in a particular user folder"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SociV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Provisions the specified account unique identifier.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/SOCi/:accountsId/provision",
+            "params": [
+              {
+                "name": "accountsId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Provisions the specified account unique identifier."
+        },
+        {
+          "info": {
+            "name": "Deprovisions the specified account unique identifier.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/SOCi/:accountsId/deprovision",
+            "params": [
+              {
+                "name": "accountsId",
+                "value": "",
+                "type": "path",
+                "description": "The account unique identifier."
+              }
+            ]
+          },
+          "docs": "Deprovisions the specified account unique identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "StatsV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "StatsV2_GetReviewSummaryByIntervalAsync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/stats/review/summary/byinterval",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "StatsV2_GetReviewStatsAsync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/stats/review",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.siteName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.disputed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.hasResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.closedLoop",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "StatsV2_GetEnterpriseStatsAsync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/stats/enterprise",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "StatsV2_GetSurveyStatsAsync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/stats/survey",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "StatsV2_GetSurveyMethodStatsAsync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/stats/surveymethod",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Used by the widget on Mission Control to display the NPS over time and a breakdown\r\nof the NPS.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/stats/npsStats",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "Denotes the intervals we'll use to display the data, such as day, week,\r\n            month, year. See SurveyStatsService.cs for acceptable values."
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Used by the widget on Mission Control to display the NPS over time and a breakdown\r\nof the NPS."
+        },
+        {
+          "info": {
+            "name": "StatsV2_GetSurveySummaryByIntervalAsync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/stats/survey/summary/byinterval",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "StatsV2_GetEmployeeStatsAsync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/stats/employee",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SurveysV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "SurveysV2_GetSurveyResponses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/surveys/responses",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "SurveysV2_SyncCoreSurveys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/surveys/syncsurveys",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "FromDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "UserV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "You need to authenticate using /v1/auth before using this endpoint, using a username, password, and bearer token.\r\nIf done successfully v1/auth should give you a token. Prepend \"bearer \" to the front\r\nof that token and then put all that into the Authorization header to hit this endpoint.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/user/me"
+          },
+          "docs": "You need to authenticate using /v1/auth before using this endpoint, using a username, password, and bearer token.\r\nIf done successfully v1/auth should give you a token. Prepend \"bearer \" to the front\r\nof that token and then put all that into the Authorization header to hit this endpoint."
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of all users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/user/list",
+            "params": [
+              {
+                "name": "all",
+                "value": "",
+                "type": "query",
+                "description": "if set to true [all]."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "FirstName\r\n            FirstNameDESC\r\n            LastName\r\n            LastNameDESC\r\n            Email\r\n            EmailDESC\r\n            AccessLevel\r\n            AccessLevelDESC\r\n            LastLogin\r\n            LastLoginDESC"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page value, zero based."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The q."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all users"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

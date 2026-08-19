@@ -1,0 +1,2933 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DASWebAPI V1",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve account details by account identifer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve account details by account identifer"
+        },
+        {
+          "info": {
+            "name": "Retrieve social activities by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/socialActivity",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve social activities by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve reviews by account identifier, supports partial filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/reviewV2",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reviewType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "siteName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "disputedReview",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "hasResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "closedLoop",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve reviews by account identifier, supports partial filter"
+        },
+        {
+          "info": {
+            "name": "Retrieve reviews by account identifier, supports partial filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/review",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.reviewType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.siteName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.disputedReview",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.hasResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.closedLoop",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve reviews by account identifier, supports partial filter"
+        },
+        {
+          "info": {
+            "name": "Retrieve review stats by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/reviewStats",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.reviewType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.siteName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.disputedReview",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.hasResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.closedLoop",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve review stats by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve review stats for interval and limit by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/reviewStatsByInterval",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "day || week || month || year"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reviewType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve review stats for interval and limit by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve survey stats for interval and limit by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/surveyStatsByInterval",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path",
+                "description": "The account unique identifier."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "day || week || month || year"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The limit."
+              },
+              {
+                "name": "surveyType",
+                "value": "",
+                "type": "query",
+                "description": "Type of the survey."
+              }
+            ]
+          },
+          "docs": "Retrieve survey stats for interval and limit by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve surveys by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/survey",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.surveyType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve surveys by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve survey responses by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/survey/responsesV2",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.surveyType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve survey responses by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve survey stats by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/surveyStats",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.surveyType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve survey stats by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve survey responses by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/survey/response",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve survey responses by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve account owner by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/owner",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve account owner by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve employees by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/employee",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve employees by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve employee stats by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/employeeStats",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve employee stats by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve survey and review stats by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/enterpriseStatsV2",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve survey and review stats by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve survey and review stats by account identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/enterpriseStats",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve survey and review stats by account identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieves parent accounts of the referenced account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/parent",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves parent accounts of the referenced account"
+        },
+        {
+          "info": {
+            "name": "Retrieves child accounts of the referenced account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/child",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves child accounts of the referenced account"
+        },
+        {
+          "info": {
+            "name": "Account_GetDescendant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/descendant",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Account_GetHeirarchy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/heirarchy",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Account_GetUnsubscribe",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/unsubscribe",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Account_GetUnsubscribeReport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/unsubscribeReport",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Determine if a given account has an active GM 2016 package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/gm2016",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Determine if a given account has an active GM 2016 package"
+        },
+        {
+          "info": {
+            "name": "Returns a list of active packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/activePackageList",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "product",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of active packages"
+        },
+        {
+          "info": {
+            "name": "Account_GetAccountNotification",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/notificationsettings",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Account_GetToyotaReputationReport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/toyotareputation",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Account_AddActivity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/account/:accountGuid/activity",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Account_SendSurveyEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/account/:dealerGuid/surveySample/:email",
+            "params": [
+              {
+                "name": "dealerGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Account_GetProvisionDashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/provisionDashboard/:accountGuid",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Retrieve account sms provision details by account identifer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/account/smsprovisiondetails/:accountGuid",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve account sms provision details by account identifer"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Client",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a paginated result set of the SL Active clients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/clients",
+            "params": [
+              {
+                "name": "request.apiKey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request.queryKey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request.pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request.currentPage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated result set of the SL Active clients"
+        },
+        {
+          "info": {
+            "name": "Returns paginated result of surveys and associated information for the specified client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/clients/:clientId/surveys",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "request.clientId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request.rating",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request.apiKey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request.queryKey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request.pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request.currentPage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Removed because Overstock change of product leadership."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Configuration_GetAddonConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/accounts/:clientId/configuration/addons",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "config.optInSmsSweepstakes",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Configuration_GetMobileConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/accounts/:clientId/configuration/mobile",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Employee",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve employee by employee identifer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/employee/:employeeId",
+            "params": [
+              {
+                "name": "employeeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve employee by employee identifer"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Mail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mail_PostMessageAsynchronous",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/mail/send"
+          }
+        },
+        {
+          "info": {
+            "name": "Mail_PostMessageSynchronous",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/mail/sendsync"
+          }
+        },
+        {
+          "info": {
+            "name": "Mail_GetStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/mail/status/:token",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Mail_GetEventsAsync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/mail/events/:token",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Notification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Notification_ProvisionSmsNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/notification/:clientId/sms/phonenumbers/new",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Notification_DeprovisionSmsNumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/notification/:clientId/sms/phonenumbers/:smsNumber",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "smsNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Promotions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Used by web browsers to request a redirect while also allowing us to count the click.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/accounts/:accountId/promotions",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "The account identifier."
+              },
+              {
+                "name": "promotionId",
+                "value": "",
+                "type": "query",
+                "description": "The promotion identifier."
+              },
+              {
+                "name": "redirect",
+                "value": "",
+                "type": "query",
+                "description": "The redirect."
+              }
+            ]
+          },
+          "docs": "Used by web browsers to request a redirect while also allowing us to count the click."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Review",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve review by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/review/:reviewGuid",
+            "params": [
+              {
+                "name": "reviewGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve review by identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve all responses for a review",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/review/:reviewGuid/response",
+            "params": [
+              {
+                "name": "reviewGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve all responses for a review"
+        },
+        {
+          "info": {
+            "name": "Create a new review response",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/review/:reviewGuid/response",
+            "params": [
+              {
+                "name": "reviewGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create a new review response"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single review response",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/review/:reviewGuid/response/:responseGuid",
+            "params": [
+              {
+                "name": "reviewGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "responseGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a single review response"
+        },
+        {
+          "info": {
+            "name": "Inserts or updates one or more reviews into the database",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/review"
+          },
+          "docs": "Inserts or updates one or more reviews into the database"
+        },
+        {
+          "info": {
+            "name": "Records review department disposition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/review/:reviewGuid/DepartmentDisposition",
+            "params": [
+              {
+                "name": "reviewGuid",
+                "value": "",
+                "type": "path",
+                "description": "Review GUID"
+              }
+            ]
+          },
+          "docs": "Records review department disposition."
+        },
+        {
+          "info": {
+            "name": "getReviewSiteLinks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/review/accounts/:accountId/sitelinks",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getReviewSiteRedirect2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/review/accounts/:accountId/sites",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "site",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getAllReviewSites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/review/accounts/:accountId/configuration/reviewsites",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Review_RefreshReviews",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/review/:accountId/reviews/refresh",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "RLCustomer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "RLCustomer_GetPackages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/rlcustomer/:customerGuid/packages",
+            "params": [
+              {
+                "name": "customerGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Site",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve sites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/site/list",
+            "params": [
+              {
+                "name": "isActive",
+                "value": "",
+                "type": "query",
+                "description": "Nullable boolean; Null returns all sites, True returns all sites that are active; False returns all sites that inactive"
+              }
+            ]
+          },
+          "docs": "Retrieve sites"
+        },
+        {
+          "info": {
+            "name": "Retrieve single site by site identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/site/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The site ID of the value you want to return"
+              }
+            ]
+          },
+          "docs": "Retrieve single site by site identifier"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SmartFacts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "SmartFacts_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/smartfacts/:customerGuid",
+            "params": [
+              {
+                "name": "customerGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "initialDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "periods",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SOCi",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Provisions the specified account unique identifier.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/SOCi/:accountGuid/provision",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path",
+                "description": "The account unique identifier."
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query",
+                "description": "The project identifier."
+              }
+            ]
+          },
+          "docs": "Provisions the specified account unique identifier."
+        },
+        {
+          "info": {
+            "name": "Deprovisions the specified account unique identifier.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/SOCi/:accountGuid/deprovision",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path",
+                "description": "The account unique identifier."
+              },
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query",
+                "description": "The project identifier."
+              }
+            ]
+          },
+          "docs": "Deprovisions the specified account unique identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve survey stats by list of account identifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/stats/survey",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.surveyType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve survey stats by list of account identifiers"
+        },
+        {
+          "info": {
+            "name": "Retrieve review stats by list of account identifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/stats/review",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.reviewType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.siteName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.disputedReview",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.hasResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.closedLoop",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve review stats by list of account identifiers"
+        },
+        {
+          "info": {
+            "name": "Retrieve survey and review stats by list of account identifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/stats/enterprise",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve survey and review stats by list of account identifiers"
+        },
+        {
+          "info": {
+            "name": "Retrieve employee stats by list of account identifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/stats/employee",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve employee stats by list of account identifiers"
+        },
+        {
+          "info": {
+            "name": "Stats_GetToyotaSocialInteractionsReport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/stats/ToyotaSocialInteractions",
+            "params": [
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Survey",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve survey responses by survey identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/survey/:surveyId/response",
+            "params": [
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve survey responses by survey identifier"
+        },
+        {
+          "info": {
+            "name": "Survey_GetMaritzSurveyByMaritzSurveyId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/survey/maritz/:maritzSurveyId",
+            "params": [
+              {
+                "name": "maritzSurveyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Calls service.surveys on the new platform and sends a Mobile Review Surge survey via SMS to the given destination phone number.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/survey/accounts/:clientId/smssurveys",
+            "params": [
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "path",
+                "description": "This is the Account GUID."
+              }
+            ]
+          },
+          "docs": "Calls service.surveys on the new platform and sends a Mobile Review Surge survey via SMS to the given destination phone number."
+        },
+        {
+          "info": {
+            "name": "Returns just the stats, no surveys, broken up by intervals.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/survey/GetMobileSurveyStats",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "The client or portal user GUID."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Used to determine if this is client or portal user GUID."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "Acceptable timespans are: 1w, 30d, 90d, 6m, 1y, hist. These match the front end's filters."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "It is ok to have a null interval as long as the front end sent us a timespan and not a fromDate and toDate.\r\n            Otherwise, an interval must be provided."
+              },
+              {
+                "name": "fromCurrentDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns just the stats, no surveys, broken up by intervals."
+        },
+        {
+          "info": {
+            "name": "Get the ReviewSurgeReport and generate the csv file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/survey/:token/ReviewSurgeReport",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "Account guid"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.reviewType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.siteName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.disputedReview",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.hasResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.closedLoop",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the ReviewSurgeReport and generate the csv file"
+        },
+        {
+          "info": {
+            "name": "Get the ReviewSurgeReport and generate the csv file of a week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/survey/:token/ReviewSurgeReportByWeek",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "Account guid"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.reviewType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.siteName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.disputedReview",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.hasResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.closedLoop",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the ReviewSurgeReport and generate the csv file of a week"
+        },
+        {
+          "info": {
+            "name": "Get the ReviewSurgeReport and generate the csv file of a month",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/survey/:token/ReviewSurgeReportByMonth",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path",
+                "description": "Account guid"
+              },
+              {
+                "name": "query.fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.categories",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.reviewType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.siteName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.disputedReview",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.hasResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.closedLoop",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.brands",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query.pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the ReviewSurgeReport and generate the csv file of a month"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SurveyResponse",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve survey response by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/surveyResponse/:surveyResponseGuid",
+            "params": [
+              {
+                "name": "surveyResponseGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve survey response by identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve all responses for a survey response",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/surveyResponse/:surveyResponse/response",
+            "params": [
+              {
+                "name": "surveyResponse",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve all responses for a survey response"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single survey response response",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/surveyResponse/:surveyResponseGuid/response/:responseGuid",
+            "params": [
+              {
+                "name": "surveyResponseGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "responseGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a single survey response response"
+        },
+        {
+          "info": {
+            "name": "Create a new survey response response",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/surveyResponse/:surveyResponseGuid/response",
+            "params": [
+              {
+                "name": "surveyResponseGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create a new survey response response"
+        },
+        {
+          "info": {
+            "name": "Create or update a pending request for store dealer's response to survey",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/surveyResponse/:surveyResponseGuid/DealerResponse",
+            "params": [
+              {
+                "name": "surveyResponseGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create or update a pending request for store dealer's response to survey"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transaction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a transaction by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/transaction/:transactionId",
+            "params": [
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a transaction by identifier"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve the user executing this request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/me"
+          },
+          "docs": "Retrieve the user executing this request"
+        },
+        {
+          "info": {
+            "name": "User_GetUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/:userGuid",
+            "params": [
+              {
+                "name": "userGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_PostUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/user",
+            "params": [
+              {
+                "name": "sendWelcome",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "template",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Retrieve user settings for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/me/settings"
+          },
+          "docs": "Retrieve user settings for the current user"
+        },
+        {
+          "info": {
+            "name": "Retrieve user settings for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/:userGuid/:accountGuid/settings",
+            "params": [
+              {
+                "name": "userGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve user settings for the current user"
+        },
+        {
+          "info": {
+            "name": "User_GetNotificationSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/me/notification"
+          }
+        },
+        {
+          "info": {
+            "name": "User_GetNotificationSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/:userGuid/:accountGuid/notification",
+            "params": [
+              {
+                "name": "userGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_GetReportSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/me/settings/report"
+          }
+        },
+        {
+          "info": {
+            "name": "User_GetReportSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/:userGuid/:accountGuid/report",
+            "params": [
+              {
+                "name": "userGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_GetCustomSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/me/settings/custom"
+          }
+        },
+        {
+          "info": {
+            "name": "User_PostCustomSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/user/me/settings/custom",
+            "params": [
+              {
+                "name": "custom",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_GetCustomSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/:userGuid/settings/custom",
+            "params": [
+              {
+                "name": "userGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_PostCustomSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/user/:userGuid/settings/custom",
+            "params": [
+              {
+                "name": "userGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "custom",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_PostNotificationSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/user/me/:accountGuid/settings/notification",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_PostNotificationSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/user/:userGuid/:accountGuid/settings/notification",
+            "params": [
+              {
+                "name": "userGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_PostReportSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/user/me/:accountGuid/settings/report",
+            "params": [
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_PostReportSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/user/:userGuid/:accountGuid/settings/report",
+            "params": [
+              {
+                "name": "userGuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "accountGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of all users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/list",
+            "params": [
+              {
+                "name": "all",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "FirstName\r\nFirstNameDESC\r\nLastName\r\nLastNameDESC\r\nEmail\r\nEmailDESC\r\nAccessLevel\r\nAccessLevelDESC\r\nUpdated\r\nUpdatedDESC"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all users"
+        },
+        {
+          "info": {
+            "name": "Retrieve a list of all users with specified report settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/listForReport",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "frequency",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all users with specified report settings"
+        },
+        {
+          "info": {
+            "name": "User_GetTest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/test"
+          }
+        },
+        {
+          "info": {
+            "name": "User_GetResendWelcome",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/resendWelcome",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "template",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_GetResendWelcomeAllUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/resendWelcomeAllUsers",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "template",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_GetFindGuid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/findGuid",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_PostPassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/user/:userGuid/password",
+            "params": [
+              {
+                "name": "userGuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "User_GetForgotPassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/user/forgotPassword",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "template",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "newPassword",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Vehicle",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Vehicle_GetVinDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/vehicles/:vin",
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Vehicle_GetCarDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/vehicles/test"
+          }
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Zuora",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zuora_RequestDigitalSignature",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/zuora/signature"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

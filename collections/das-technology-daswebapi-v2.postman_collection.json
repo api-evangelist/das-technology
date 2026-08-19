@@ -1,0 +1,4180 @@
+{
+  "item": [
+    {
+      "id": "5c3a4e14-ca53-474d-b319-9ef11ca8d8ef",
+      "name": "AccountV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "148d8b99-3896-4184-9fa7-94142a3f8717",
+          "name": "Retrieve reviews by account identifier, supports partial filter",
+          "request": {
+            "name": "Retrieve reviews by account identifier, supports partial filter",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                ":accountGuid",
+                "reviewV2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.reviewType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.reviewType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.source",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.siteName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.disputedReview",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.hasResponse",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.closedLoop",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.pageSize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountGuid",
+                  "description": "(Required) A uniqueidentifier representing an account."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e96aa26-234b-4cf8-ab89-948bc505ede5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    ":accountGuid",
+                    "reviewV2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.reviewType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.reviewType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.siteName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.disputedReview",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "query.state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.hasResponse",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "query.closedLoop",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query.pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountGuid",
+                      "description": "(Required) A uniqueidentifier representing an account."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"e63b9374-5ab9-91d7-c6d3-ca3eb4bca089\",\n      \"comment\": \"string\",\n      \"accountGuid\": \"c315cc4e-6b71-1040-88da-a59c0d62657f\",\n      \"reviewerName\": \"string\",\n      \"siteName\": \"string\",\n      \"rating\": \"string\",\n      \"isClosedLoopReview\": true,\n      \"reviewDate\": \"2022-04-08T01:05:19.021Z\",\n      \"district\": \"string\",\n      \"dealerName\": \"string\",\n      \"department\": \"string\",\n      \"hasResponse\": false,\n      \"reviewResponses\": [\n        {\n          \"responseDate\": \"1997-11-27T13:40:41.887Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": false,\n          \"lastModified\": \"1963-02-16T22:34:03.333Z\",\n          \"reviewResponseGuid\": \"ab48984c-1a5a-7e02-ff3e-4c04aa98da87\",\n          \"proposed\": true,\n          \"externalId\": \"string\"\n        },\n        {\n          \"responseDate\": \"1946-12-09T16:47:57.521Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": false,\n          \"lastModified\": \"1974-06-29T23:26:46.717Z\",\n          \"reviewResponseGuid\": \"5a0a1e80-d609-45f3-d204-98228430a7d3\",\n          \"proposed\": false,\n          \"externalId\": \"string\"\n        }\n      ],\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"reviewUrl\": \"string\",\n      \"canRespond\": false,\n      \"canRespondInline\": false,\n      \"proposedResponses\": [\n        {\n          \"responseDate\": \"2009-03-17T04:46:39.625Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": true,\n          \"accepted\": false,\n          \"acceptedDate\": \"1947-09-02T01:43:44.171Z\",\n          \"lastModified\": \"1995-04-16T15:45:31.542Z\",\n          \"surveyResponseResponseGuid\": \"7b06686e-e1c4-5947-f45e-9e59d0537132\"\n        },\n        {\n          \"responseDate\": \"2007-12-21T17:30:11.995Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": false,\n          \"accepted\": true,\n          \"acceptedDate\": \"2024-04-10T17:44:36.873Z\",\n          \"lastModified\": \"2002-05-28T09:39:43.520Z\",\n          \"surveyResponseResponseGuid\": \"4d0d84d9-c677-9c3f-e132-a4c691279d91\"\n        }\n      ],\n      \"canChangeDepartment\": true\n    },\n    {\n      \"id\": \"85c1b606-9c65-2e17-53d4-b5c022fcb62e\",\n      \"comment\": \"string\",\n      \"accountGuid\": \"daf87d1c-5a2c-c913-fe28-f44f52743fae\",\n      \"reviewerName\": \"string\",\n      \"siteName\": \"string\",\n      \"rating\": \"string\",\n      \"isClosedLoopReview\": false,\n      \"reviewDate\": \"1953-05-16T14:47:33.778Z\",\n      \"district\": \"string\",\n      \"dealerName\": \"string\",\n      \"department\": \"string\",\n      \"hasResponse\": false,\n      \"reviewResponses\": [\n        {\n          \"responseDate\": \"1975-07-05T01:47:24.966Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": true,\n          \"lastModified\": \"1990-11-01T11:00:35.721Z\",\n          \"reviewResponseGuid\": \"09eaeb95-e144-f5b0-4473-4bbf4d2f568a\",\n          \"proposed\": true,\n          \"externalId\": \"string\"\n        },\n        {\n          \"responseDate\": \"1976-01-28T23:45:20.650Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": true,\n          \"lastModified\": \"2007-04-18T11:06:56.431Z\",\n          \"reviewResponseGuid\": \"b4f758ca-f7e0-a131-e7a7-1add5bf80f5e\",\n          \"proposed\": true,\n          \"externalId\": \"string\"\n        }\n      ],\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"reviewUrl\": \"string\",\n      \"canRespond\": false,\n      \"canRespondInline\": true,\n      \"proposedResponses\": [\n        {\n          \"responseDate\": \"1959-02-19T03:14:40.242Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": false,\n          \"accepted\": false,\n          \"acceptedDate\": \"1991-05-25T15:01:06.873Z\",\n          \"lastModified\": \"2021-12-06T06:57:08.201Z\",\n          \"surveyResponseResponseGuid\": \"3a2ac08b-3a90-7319-534f-d45cbeaed7a7\"\n        },\n        {\n          \"responseDate\": \"1971-04-11T01:57:49.624Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": false,\n          \"accepted\": false,\n          \"acceptedDate\": \"1965-12-28T10:43:39.331Z\",\n          \"lastModified\": \"2024-06-03T20:14:05.898Z\",\n          \"surveyResponseResponseGuid\": \"f528a73f-a70a-f099-23ba-73a3bfe4588e\"\n        }\n      ],\n      \"canChangeDepartment\": true\n    }\n  ],\n  \"count\": 8559\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc393455-6c4c-4b24-9191-0d85a191f9cf",
+          "name": "Retrieves survey responses by account identifier",
+          "request": {
+            "name": "Retrieves survey responses by account identifier",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                ":accountGuid",
+                "survey",
+                "responsesV2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "(Required) The page."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "(Required) Size of the page."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "The order by."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "The q."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.surveyType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.surveyType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.source",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.source",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountGuid",
+                  "description": "(Required) The account unique identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4e228c9-d655-4919-a621-b620d62e252c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    ":accountGuid",
+                    "survey",
+                    "responsesV2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.surveyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.surveyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountGuid",
+                      "description": "(Required) The account unique identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"accountGuid\": \"2d421d58-0332-167d-62d6-214b26f62bfb\",\n      \"name\": \"string\",\n      \"district\": \"string\",\n      \"dealership\": \"string\",\n      \"isClosedLoopReview\": true,\n      \"isGMSFEAccount\": true,\n      \"npsScore\": 2084,\n      \"rating\": 5988,\n      \"date\": \"1949-09-14T13:32:05.106Z\",\n      \"transactionDate\": \"2006-11-06T07:07:01.839Z\",\n      \"department\": \"string\",\n      \"employee\": \"string\",\n      \"surveyId\": \"ee1cf3f7-ac97-9087-7ce7-59dc16bba31b\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"phone\": \"string\",\n      \"homePhone\": \"string\",\n      \"workPhone\": \"string\",\n      \"cellPhone\": \"string\",\n      \"email\": \"string\",\n      \"surveyVia\": \"string\",\n      \"vehicleYear\": \"string\",\n      \"vehicleMake\": \"string\",\n      \"vehicleModel\": \"string\",\n      \"vin\": \"string\",\n      \"stockNumber\": \"string\",\n      \"repairOrder\": \"string\",\n      \"customerResponseComment\": \"string\",\n      \"customerResponseImprovementComment\": \"string\",\n      \"dealerResponseDate\": \"string\",\n      \"dealerResponseComment\": \"string\",\n      \"canRespondInline\": true,\n      \"proposedResponses\": [\n        {\n          \"responseDate\": \"1999-12-28T16:41:06.001Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": false,\n          \"accepted\": true,\n          \"acceptedDate\": \"2011-04-17T10:04:03.421Z\",\n          \"lastModified\": \"2019-06-10T20:32:04.648Z\",\n          \"surveyResponseResponseGuid\": \"fe36d924-39d8-c679-66ce-308388fc2cf7\"\n        },\n        {\n          \"responseDate\": \"1946-10-25T23:40:48.386Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": true,\n          \"accepted\": false,\n          \"acceptedDate\": \"1951-01-05T11:13:38.005Z\",\n          \"lastModified\": \"2011-04-14T01:36:15.800Z\",\n          \"surveyResponseResponseGuid\": \"0c8c79b6-c516-db8a-c3c6-dfa5162d61a5\"\n        }\n      ],\n      \"surveyResponseId\": \"46dc4cc9-166d-ee01-29fb-deb3435ede4c\",\n      \"publicationDate\": \"1955-07-04T15:24:59.854Z\",\n      \"publicationStatus\": \"string\",\n      \"responded\": false,\n      \"published\": false,\n      \"daysUntilPublication\": 1001,\n      \"daysUntilResponseLocked\": 1398,\n      \"canRespond\": false\n    },\n    {\n      \"accountGuid\": \"04163af3-9d52-6c76-cc8b-b2e7fce657ee\",\n      \"name\": \"string\",\n      \"district\": \"string\",\n      \"dealership\": \"string\",\n      \"isClosedLoopReview\": true,\n      \"isGMSFEAccount\": true,\n      \"npsScore\": 1359,\n      \"rating\": 894,\n      \"date\": \"1951-04-09T16:19:18.461Z\",\n      \"transactionDate\": \"1975-10-27T00:12:56.785Z\",\n      \"department\": \"string\",\n      \"employee\": \"string\",\n      \"surveyId\": \"73506032-fe96-9877-3b61-14e2143ab19e\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"phone\": \"string\",\n      \"homePhone\": \"string\",\n      \"workPhone\": \"string\",\n      \"cellPhone\": \"string\",\n      \"email\": \"string\",\n      \"surveyVia\": \"string\",\n      \"vehicleYear\": \"string\",\n      \"vehicleMake\": \"string\",\n      \"vehicleModel\": \"string\",\n      \"vin\": \"string\",\n      \"stockNumber\": \"string\",\n      \"repairOrder\": \"string\",\n      \"customerResponseComment\": \"string\",\n      \"customerResponseImprovementComment\": \"string\",\n      \"dealerResponseDate\": \"string\",\n      \"dealerResponseComment\": \"string\",\n      \"canRespondInline\": true,\n      \"proposedResponses\": [\n        {\n          \"responseDate\": \"1971-09-28T14:36:07.857Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": true,\n          \"accepted\": false,\n          \"acceptedDate\": \"1977-09-13T07:27:16.468Z\",\n          \"lastModified\": \"1987-02-09T13:20:03.540Z\",\n          \"surveyResponseResponseGuid\": \"1ff6c4c5-71fd-e2db-ba15-b4c79dd74edd\"\n        },\n        {\n          \"responseDate\": \"2002-07-30T04:18:19.075Z\",\n          \"responderName\": \"string\",\n          \"responseTitle\": \"string\",\n          \"responseComment\": \"string\",\n          \"canEditResponse\": false,\n          \"accepted\": true,\n          \"acceptedDate\": \"1985-03-11T08:48:33.398Z\",\n          \"lastModified\": \"2022-03-20T23:24:21.595Z\",\n          \"surveyResponseResponseGuid\": \"06561c5a-83b1-1887-2839-431ca4add105\"\n        }\n      ],\n      \"surveyResponseId\": \"39d4a38c-7a8f-eb37-1c6f-0590ba116b19\",\n      \"publicationDate\": \"1954-10-24T16:30:58.352Z\",\n      \"publicationStatus\": \"string\",\n      \"responded\": false,\n      \"published\": true,\n      \"daysUntilPublication\": 6011,\n      \"daysUntilResponseLocked\": 7910,\n      \"canRespond\": true\n    }\n  ],\n  \"count\": 1770\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70e533bf-503c-49e2-b894-a2757ebe70a5",
+          "name": "Retrieves an account hierarchy based on the account and hierarchy",
+          "request": {
+            "name": "Retrieves an account hierarchy based on the account and hierarchy",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                ":accountGuid",
+                "hierarchy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hierarchyGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountGuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5297e47-f3d8-4a16-b1a4-90ec015f8f37",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    ":accountGuid",
+                    "hierarchy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hierarchyGuid",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountGuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"guid\": \"57d4b84f-c128-e243-45c9-c64e94bf340c\",\n  \"parent\": [\n    {\n      \"name\": \"string\",\n      \"guid\": \"072aec26-b34b-53c1-e92b-f9f5ef22b33a\",\n      \"parent\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        }\n      ],\n      \"child\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        }\n      ],\n      \"level\": 4489,\n      \"label\": \"string\",\n      \"features\": [\n        \"string\",\n        \"string\"\n      ],\n      \"brands\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"guid\": \"62c07020-1096-8128-2ec3-529f6097c2ab\",\n      \"parent\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        }\n      ],\n      \"child\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        }\n      ],\n      \"level\": 4069,\n      \"label\": \"string\",\n      \"features\": [\n        \"string\",\n        \"string\"\n      ],\n      \"brands\": \"string\"\n    }\n  ],\n  \"child\": [\n    {\n      \"name\": \"string\",\n      \"guid\": \"9906f76d-f726-e161-9a21-0dbdba1022d2\",\n      \"parent\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        }\n      ],\n      \"child\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        }\n      ],\n      \"level\": 4543,\n      \"label\": \"string\",\n      \"features\": [\n        \"string\",\n        \"string\"\n      ],\n      \"brands\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"guid\": \"9b2dcdc5-87dd-4b34-0a7f-f446200e1110\",\n      \"parent\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        }\n      ],\n      \"child\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n        }\n      ],\n      \"level\": 5614,\n      \"label\": \"string\",\n      \"features\": [\n        \"string\",\n        \"string\"\n      ],\n      \"brands\": \"string\"\n    }\n  ],\n  \"level\": 2132,\n  \"label\": \"string\",\n  \"features\": [\n    \"string\",\n    \"string\"\n  ],\n  \"brands\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97fff7d6-1e86-4e4f-82e2-1e9dd9800649",
+          "name": "Retrieves a list of competitors for an account.",
+          "request": {
+            "name": "Retrieves a list of competitors for an account.",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                ":accountGuid",
+                "competitor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountGuid",
+                  "description": "(Required) A guid identifying the account."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc2a7edf-aaca-4b1c-a3d0-509637a617e3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    ":accountGuid",
+                    "competitor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountGuid",
+                      "description": "(Required) A guid identifying the account."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accountGuid\": \"191735b1-1acb-9e63-787e-2d15504374b0\",\n  \"competitorAccountGuid\": \"31089843-b94a-a1ff-b898-78aaf00f5063\",\n  \"id\": \"e61e38aa-a38e-60d5-4345-f1803f1e0ee2\",\n  \"competitorAccountName\": \"string\",\n  \"rank\": 6715\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8466d5d-3b42-48d1-b4eb-10c13d9eaaf1",
+          "name": "Sets a list of account guids as the competitor list.  Duplicate accounts are suppressed.\r\nIf an account guid does not exist, a 404 error will be returned.",
+          "request": {
+            "name": "Sets a list of account guids as the competitor list.  Duplicate accounts are suppressed.\r\nIf an account guid does not exist, a 404 error will be returned.",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                ":accountGuid",
+                "competitor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountGuid",
+                  "description": "(Required) A guid representing the account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "competitorAccountGuid",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "competitorAccountName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rank",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "competitorAccountGuid",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "competitorAccountName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rank",
+                  "value": "<integer>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bc3a400c-3b8f-40c2-9a60-57c9ccaabab1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    ":accountGuid",
+                    "competitor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountGuid",
+                      "description": "(Required) A guid representing the account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "competitorAccountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "competitorAccountName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "rank",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "competitorAccountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "competitorAccountName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "rank",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e2ef87e-6b1b-4e08-953b-c1c067afffa4",
+          "name": "Deletes an account competitor from the the competitor list.",
+          "request": {
+            "name": "Deletes an account competitor from the the competitor list.",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                ":accountGuid",
+                "competitor"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountGuid",
+                  "description": "(Required) A guid representing an account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "<uuid>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c47f21ff-7b5e-4d5a-8404-27c044516c72",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    ":accountGuid",
+                    "competitor"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountGuid",
+                      "description": "(Required) A guid representing an account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "0",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "1",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3598baa7-a95f-472e-9cde-7eba08ed8def",
+          "name": "Generates a summary report of reputation statistics for a given account.",
+          "request": {
+            "name": "Generates a summary report of reputation statistics for a given account.",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                ":accountGuid",
+                "reputation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) A date time offset value representing the start date.  Time is represented in UTC.  Default value is -14 days if ToDate is specified, or -14\r\n            from current time if no fromDate and toDate parameter is specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) A date time offset value representing the end date.  Time is represented in UTC.  Default value is 14 days from fromDate if specified, or if\r\n            current time if no fromDate or toDate parameter is specified."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountGuid",
+                  "description": "(Required) A unique identifier representing an account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45dd5ec8-2d56-4b09-9871-50de32085219",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    ":accountGuid",
+                    "reputation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountGuid",
+                      "description": "(Required) A unique identifier representing an account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accountGuid\": \"16dfd478-3be3-03a0-8bec-3145fa767748\",\n  \"startDate\": \"2017-09-02T05:43:13.777Z\",\n  \"endDate\": \"1972-08-03T16:32:30.003Z\",\n  \"statistics\": [\n    {\n      \"date\": \"2014-05-25T13:04:07.757Z\",\n      \"site\": \"string\",\n      \"reviewCount\": 4529,\n      \"positiveReviews\": 4416,\n      \"negativeReviews\": 5483,\n      \"dealerResponses\": 578,\n      \"averageScore\": 358.96863929632985\n    },\n    {\n      \"date\": \"1977-07-20T13:59:16.421Z\",\n      \"site\": \"string\",\n      \"reviewCount\": 3608,\n      \"positiveReviews\": 9406,\n      \"negativeReviews\": 4420,\n      \"dealerResponses\": 6931,\n      \"averageScore\": 9414.167705777778\n    }\n  ],\n  \"statisticsAllTime\": [\n    {\n      \"site\": \"string\",\n      \"averageScore\": 4199.354406571914\n    },\n    {\n      \"site\": \"string\",\n      \"averageScore\": 4350.6397543491075\n    }\n  ],\n  \"summaries\": [\n    {\n      \"date\": \"1991-01-18T21:34:01.386Z\",\n      \"total\": 8011,\n      \"average\": 9356.414207062526\n    },\n    {\n      \"date\": \"1975-04-11T17:07:26.990Z\",\n      \"total\": 2075,\n      \"average\": 2140.9895421895244\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "653a5f44-504c-4af0-9e01-ba7a9a7967fc",
+          "name": "Account V2 Socical Ads Campaign Report",
+          "request": {
+            "name": "Account V2 Socical Ads Campaign Report",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                ":accountGuid",
+                "SocialAdsCampaignReport"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "campaignId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountGuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59ba6c2a-af85-40e8-9981-58626046d4fe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    ":accountGuid",
+                    "SocialAdsCampaignReport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "campaignId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountGuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07bdc52d-b933-49f9-b201-eba79e34c690",
+          "name": "Account V2 Run Social Ads Campaign Report",
+          "request": {
+            "name": "Account V2 Run Social Ads Campaign Report",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                "RunSocialAdsCampaignReport"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "campaignId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "fromMonth",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromYear",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toMonth",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toYear",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a55c9e83-8cbd-4826-8c31-5c31c8245675",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    "RunSocialAdsCampaignReport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "campaignId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromMonth",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fromYear",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toMonth",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toYear",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24cf0c8a-c179-4698-b38d-3cecedb14c5b",
+          "name": "Returns the clients that are active on review surge.",
+          "request": {
+            "name": "Returns the clients that are active on review surge.",
+            "description": {
+              "content": "This Data is based off the RSActive column in the Accounts table in Core.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                "GetAccountsActiveReviewSurge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec9fe038-d741-4568-9ab2-1f770f00bf99",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    "GetAccountsActiveReviewSurge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b905697e-9a77-4e2a-9f0c-e3087e4d2afd",
+          "name": "Return a simple list of tokens of the clients active on Review Surge.",
+          "request": {
+            "name": "Return a simple list of tokens of the clients active on Review Surge.",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                "GetAccountsTokenActiveReviewSurge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07c89d3d-e75a-4868-8b60-6d07b3e82603",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    "GetAccountsTokenActiveReviewSurge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb9664b8-97ca-40bb-add1-6710d871427b",
+          "name": "Gets the list of active Employees of an account",
+          "request": {
+            "name": "Gets the list of active Employees of an account",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                ":accountGuid",
+                "GetEmployees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ActiveDays",
+                  "value": "<integer>",
+                  "description": "Range of days to evaluate user activity"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "accountGuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3c68086-8cf4-4eed-b0d9-f01a3eab14db",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    ":accountGuid",
+                    "GetEmployees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ActiveDays",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "accountGuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2daa5cb0-baf8-4756-81e6-e88cf4275d30",
+          "name": "Account V2 Get Advocate",
+          "request": {
+            "name": "Account V2 Get Advocate",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "account",
+                "GetAdvocate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa97e024-a0a7-417b-9174-b821dcaf2b5d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "account",
+                    "GetAdvocate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9077fc01-1d63-437b-aceb-352b4b4ad1fb",
+      "name": "HierarchyV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c4260cd8-526e-4602-8dda-8e790c14f77e",
+          "name": "Returns a list of available hierarchies",
+          "request": {
+            "name": "Returns a list of available hierarchies",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "hierarchy",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0abdee9-ce1f-4d9f-9cf7-3fd8cde8af43",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "hierarchy",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"guid\": \"0c9d3e5e-06c9-a368-1e1b-779335d67944\",\n  \"accountGuid\": \"fb89fd72-257c-8d9f-a8d5-167e46ddf137\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "49fe7c36-b0a2-4811-8669-ef0157dd82ee",
+      "name": "Incentives",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e899fe0b-f2be-4b4f-8c54-6a96b7864910",
+          "name": "Incentives Get Incentives",
+          "request": {
+            "name": "Incentives Get Incentives",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "incentives",
+                ":vin",
+                ":zip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "zip",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9bac74eb-9568-45e6-88c4-5d6ec6475ee9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "incentives",
+                    ":vin",
+                    ":zip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zip",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d2752e3-7eec-4951-8a4e-6537a0d838bb",
+          "name": "Incentives Get All Programs",
+          "request": {
+            "name": "Incentives Get All Programs",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "incentives",
+                "programs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f50779a-388d-4d98-9ff5-31adcadc444b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "incentives",
+                    "programs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f0923a4b-2e4d-4ccd-8f48-df3902ad6f79",
+      "name": "Media",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f58745f9-9819-4306-88a5-5073d3574dca",
+          "name": "Store photos or videos in Azure Storage",
+          "request": {
+            "name": "Store photos or videos in Azure Storage",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "media",
+                "store"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d46d1d6e-a7d3-4d5a-adfc-09bf8e7abce0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "media",
+                    "store"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"dealerId\": \"f3a5cfcc-9fc1-8b37-160a-d168f699b588\",\n  \"useremail\": \"string\",\n  \"files\": [\n    \"string\",\n    \"string\"\n  ],\n  \"errors\": [\n    {\n      \"file\": \"string\",\n      \"errorMessage\": \"string\"\n    },\n    {\n      \"file\": \"string\",\n      \"errorMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfebb5be-0c64-46c9-95b4-88823975e772",
+          "name": "Returns the list of saved files in a particular user folder",
+          "request": {
+            "name": "Returns the list of saved files in a particular user folder",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "media",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7f09f8e-5217-4c43-a406-28e10cab5f4c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "media",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"dealerId\": \"0212d518-ffb2-19cf-3894-cdf5c84e7c66\",\n  \"useremail\": \"string\",\n  \"files\": [\n    \"string\",\n    \"string\"\n  ],\n  \"errors\": [\n    {\n      \"file\": \"string\",\n      \"errorMessage\": \"string\"\n    },\n    {\n      \"file\": \"string\",\n      \"errorMessage\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8de70f7f-e89d-4f20-bcf1-976c4d8b06f3",
+      "name": "SociV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fa2db8b5-7445-4b70-98dc-3a0b723a9766",
+          "name": "Provisions the specified account unique identifier.",
+          "request": {
+            "name": "Provisions the specified account unique identifier.",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "SOCi",
+                ":accountsId",
+                "provision"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountsId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d99e01a0-fc30-4ef5-8271-7f3160414d3c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "SOCi",
+                    ":accountsId",
+                    "provision"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountsId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93e1ef67-590e-411a-b370-ed50a7029fa7",
+          "name": "Deprovisions the specified account unique identifier.",
+          "request": {
+            "name": "Deprovisions the specified account unique identifier.",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "SOCi",
+                ":accountsId",
+                "deprovision"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "accountsId",
+                  "description": "(Required) The account unique identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a910eb4b-e1c5-4b91-bf16-9490c17b187e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "SOCi",
+                    ":accountsId",
+                    "deprovision"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "accountsId",
+                      "description": "(Required) The account unique identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9e8190b9-a5cb-4489-849b-dcf77a9cad06",
+      "name": "StatsV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b514397a-d02a-4765-82aa-b80db484588e",
+          "name": "Stats V2 Get Review Summary By Interval Async",
+          "request": {
+            "name": "Stats V2 Get Review Summary By Interval Async",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "stats",
+                "review",
+                "summary",
+                "byinterval"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8cfaef1f-ad64-4acc-8b50-c88391c0214c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stats",
+                    "review",
+                    "summary",
+                    "byinterval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc18685f-2707-48f6-a667-b4768bc3decd",
+          "name": "Stats V2 Get Review Stats Async",
+          "request": {
+            "name": "Stats V2 Get Review Stats Async",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "stats",
+                "review"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "query.source",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.siteName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.disputed",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.hasResponse",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.closedLoop",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8afd524-d308-4e63-adec-318ef0629b9a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stats",
+                    "review"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "query.source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.siteName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.disputed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "query.state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.hasResponse",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "query.closedLoop",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed795ce4-0fc0-4dd2-8e31-5d32ed9447f2",
+          "name": "Stats V2 Get Enterprise Stats Async",
+          "request": {
+            "name": "Stats V2 Get Enterprise Stats Async",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "stats",
+                "enterprise"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b790eb20-0ab9-41c5-a066-a208c975d17a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stats",
+                    "enterprise"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"nclTotalSurveysCompleted\": 7060,\n    \"nclAverageStarRating\": 6949.101467068158,\n    \"nclPositiveSurveysCompleted\": 9970.792159371738,\n    \"clTotalSurveysCompleted\": 1947,\n    \"clAverageStarRating\": 501.4431295020794,\n    \"clAverageLoyaltyScore\": 5573.42353699193,\n    \"clPositiveSurveysCompleted\": 4779,\n    \"neutralSurveysCompleted\": 7842,\n    \"positivePercentage\": 1055,\n    \"accountGuid\": \"70047314-d290-125f-eb8b-f1011e5e71ce\",\n    \"name\": \"string\",\n    \"transactions\": 2,\n    \"emailCapture\": 5300,\n    \"surveysSent\": 9763,\n    \"surveysOpened\": 8322,\n    \"totalSurveysCompleted\": 4032,\n    \"positiveSurveysCompleted\": 889,\n    \"negativeSurveysCompleted\": 2235,\n    \"averageStarRating\": 5020.8923153656115,\n    \"averageLoyaltyScore\": 6554.807155351267,\n    \"nclReviewClicks\": 2618\n  },\n  {\n    \"nclTotalSurveysCompleted\": 4259,\n    \"nclAverageStarRating\": 9534.45023271155,\n    \"nclPositiveSurveysCompleted\": 6282.029127692491,\n    \"clTotalSurveysCompleted\": 997,\n    \"clAverageStarRating\": 2175.1639862478387,\n    \"clAverageLoyaltyScore\": 6170.027895970884,\n    \"clPositiveSurveysCompleted\": 9425,\n    \"neutralSurveysCompleted\": 2822,\n    \"positivePercentage\": 1688,\n    \"accountGuid\": \"2545a4c7-1efb-77fb-0e23-3b69319d6358\",\n    \"name\": \"string\",\n    \"transactions\": 684,\n    \"emailCapture\": 7145,\n    \"surveysSent\": 2560,\n    \"surveysOpened\": 1113,\n    \"totalSurveysCompleted\": 6924,\n    \"positiveSurveysCompleted\": 84,\n    \"negativeSurveysCompleted\": 3864,\n    \"averageStarRating\": 1270.6211708463122,\n    \"averageLoyaltyScore\": 652.5961565557981,\n    \"nclReviewClicks\": 9412\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18a385cf-aedd-4677-98fd-e1f761ad15c0",
+          "name": "Stats V2 Get Survey Stats Async",
+          "request": {
+            "name": "Stats V2 Get Survey Stats Async",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "stats",
+                "survey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e557b3bc-e8d3-4c91-a7e1-45e5ac2f89f7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stats",
+                    "survey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"clTotalSurveysCompleted\": 8006,\n    \"clAverageStarRating\": 2230.9723028346284,\n    \"clAverageLoyaltyScore\": 1836.0992923830322,\n    \"clPositiveSurveysCompleted\": 5988,\n    \"neutralSurveysCompleted\": 8109,\n    \"positivePercentage\": 4245,\n    \"accountGuid\": \"d991c41e-f886-11f4-e515-19bcced19f15\",\n    \"name\": \"string\",\n    \"transactions\": 8623,\n    \"emailCapture\": 6172,\n    \"surveysSent\": 675,\n    \"surveysOpened\": 9598,\n    \"totalSurveysCompleted\": 3314,\n    \"positiveSurveysCompleted\": 7981,\n    \"negativeSurveysCompleted\": 342,\n    \"averageStarRating\": 4411.401457924311,\n    \"averageLoyaltyScore\": 3491.6687914781996,\n    \"nclReviewClicks\": 2612\n  },\n  {\n    \"clTotalSurveysCompleted\": 1229,\n    \"clAverageStarRating\": 6593.485454891609,\n    \"clAverageLoyaltyScore\": 9286.546866490497,\n    \"clPositiveSurveysCompleted\": 5880,\n    \"neutralSurveysCompleted\": 2436,\n    \"positivePercentage\": 8779,\n    \"accountGuid\": \"57ce4bba-e8cf-2f05-376c-9268f3256df9\",\n    \"name\": \"string\",\n    \"transactions\": 6966,\n    \"emailCapture\": 986,\n    \"surveysSent\": 6713,\n    \"surveysOpened\": 7035,\n    \"totalSurveysCompleted\": 9952,\n    \"positiveSurveysCompleted\": 4985,\n    \"negativeSurveysCompleted\": 3357,\n    \"averageStarRating\": 9821.464812337852,\n    \"averageLoyaltyScore\": 332.0408396590302,\n    \"nclReviewClicks\": 3586\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ecc5080-e610-4080-bbcf-2e49d363303f",
+          "name": "Stats V2 Get Survey Method Stats Async",
+          "request": {
+            "name": "Stats V2 Get Survey Method Stats Async",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "stats",
+                "surveymethod"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "adaadb12-b4dd-4542-aaa0-bf3e139888b3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stats",
+                    "surveymethod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"surveysSentTotal\": 8286,\n    \"surveysSentEmail\": 3421,\n    \"surveysSentSMS\": 8776,\n    \"surveysReminderSentTotal\": 492,\n    \"surveysReminderSentEmail\": 7389,\n    \"surveysReminderSentSMS\": 8561,\n    \"surveysCompletedTotal\": 8846,\n    \"surveysCompletedEmail\": 8792,\n    \"surveysCompletedSMS\": 9847,\n    \"overallResponseRate\": 2758.2515068182333,\n    \"responseRateEmail\": 3382.8483422772338,\n    \"responseRateSMS\": 7936.144479766141,\n    \"accountGuid\": \"56c3fc10-deca-d80b-e18f-09476a2dc283\",\n    \"name\": \"string\",\n    \"transactions\": 4287,\n    \"emailCapture\": 993,\n    \"surveysSent\": 4554,\n    \"surveysOpened\": 2600,\n    \"totalSurveysCompleted\": 4177,\n    \"positiveSurveysCompleted\": 7521,\n    \"negativeSurveysCompleted\": 4621,\n    \"averageStarRating\": 3166.506621247922,\n    \"averageLoyaltyScore\": 6681.1047868349215,\n    \"nclReviewClicks\": 9632\n  },\n  {\n    \"surveysSentTotal\": 1400,\n    \"surveysSentEmail\": 8860,\n    \"surveysSentSMS\": 3408,\n    \"surveysReminderSentTotal\": 2553,\n    \"surveysReminderSentEmail\": 3672,\n    \"surveysReminderSentSMS\": 7496,\n    \"surveysCompletedTotal\": 487,\n    \"surveysCompletedEmail\": 5599,\n    \"surveysCompletedSMS\": 2477,\n    \"overallResponseRate\": 6365.727000178634,\n    \"responseRateEmail\": 8743.750795451995,\n    \"responseRateSMS\": 297.92703801384545,\n    \"accountGuid\": \"d60f5e0a-8cbb-6958-c0a9-cf4484f9f6d8\",\n    \"name\": \"string\",\n    \"transactions\": 6955,\n    \"emailCapture\": 5448,\n    \"surveysSent\": 8725,\n    \"surveysOpened\": 1741,\n    \"totalSurveysCompleted\": 7095,\n    \"positiveSurveysCompleted\": 9610,\n    \"negativeSurveysCompleted\": 3187,\n    \"averageStarRating\": 411.44534966329195,\n    \"averageLoyaltyScore\": 7755.113640127719,\n    \"nclReviewClicks\": 4611\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2470d490-a2e9-4755-bbef-abdb528206cb",
+          "name": "Used by the widget on Mission Control to display the NPS over time and a breakdown\r\nof the NPS.",
+          "request": {
+            "name": "Used by the widget on Mission Control to display the NPS over time and a breakdown\r\nof the NPS.",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "stats",
+                "npsStats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "timespan",
+                  "value": "<string>",
+                  "description": "(Required) Denotes the intervals we'll use to display the data, such as day, week,\r\n            month, year. See SurveyStatsService.cs for acceptable values."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a48c9b6f-dd61-4711-8780-6ff5e11ee727",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stats",
+                    "npsStats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "timespan",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"npsNodes\": [\n      {\n        \"timespan\": \"string\",\n        \"startDate\": \"1994-07-27T18:54:25.135Z\",\n        \"endDate\": \"1996-10-23T21:23:24.649Z\",\n        \"month\": 3547,\n        \"year\": 1963,\n        \"npsRating\": 7421.357420968215,\n        \"npsPromoters\": 8635,\n        \"npsPassives\": 1323,\n        \"npsDetractors\": 9070\n      },\n      {\n        \"timespan\": \"string\",\n        \"startDate\": \"1951-02-15T23:50:25.392Z\",\n        \"endDate\": \"1993-09-02T01:48:55.784Z\",\n        \"month\": 7912,\n        \"year\": 4668,\n        \"npsRating\": 1974.7969443300751,\n        \"npsPromoters\": 1361,\n        \"npsPassives\": 3997,\n        \"npsDetractors\": 5436\n      }\n    ]\n  },\n  {\n    \"npsNodes\": [\n      {\n        \"timespan\": \"string\",\n        \"startDate\": \"1991-05-29T10:28:12.605Z\",\n        \"endDate\": \"2005-10-07T18:46:36.914Z\",\n        \"month\": 483,\n        \"year\": 7119,\n        \"npsRating\": 2399.716274958382,\n        \"npsPromoters\": 9241,\n        \"npsPassives\": 7877,\n        \"npsDetractors\": 3167\n      },\n      {\n        \"timespan\": \"string\",\n        \"startDate\": \"2010-12-29T07:47:19.440Z\",\n        \"endDate\": \"2005-04-09T04:38:10.963Z\",\n        \"month\": 7951,\n        \"year\": 1808,\n        \"npsRating\": 668.862649527524,\n        \"npsPromoters\": 5480,\n        \"npsPassives\": 3824,\n        \"npsDetractors\": 4468\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20157b35-11f8-437b-9518-355777fcbba4",
+          "name": "Stats V2 Get Survey Summary By Interval Async",
+          "request": {
+            "name": "Stats V2 Get Survey Summary By Interval Async",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "stats",
+                "survey",
+                "summary",
+                "byinterval"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9c40c3d-15db-4ebb-819f-cd129b98c864",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stats",
+                    "survey",
+                    "summary",
+                    "byinterval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7df5d8c1-6e13-4594-a36f-10100b57a431",
+          "name": "Stats V2 Get Employee Stats Async",
+          "request": {
+            "name": "Stats V2 Get Employee Stats Async",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "stats",
+                "employee"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25a2ddb3-f5d1-4843-9412-24c9434c8f75",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "stats",
+                    "employee"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  [\n    {\n      \"employeeId\": 8070,\n      \"employeeName\": \"string\",\n      \"employeeDepartment\": \"string\",\n      \"dealershipName\": \"string\",\n      \"dealershipGuid\": \"4e3de9e0-d92b-04e8-170a-ceea03d57da8\",\n      \"surveyStats\": {\n        \"accountGuid\": \"1df6b081-8fc3-ebf9-f08b-6ebe742d7ce9\",\n        \"name\": \"string\",\n        \"transactions\": 7808,\n        \"emailCapture\": 712,\n        \"surveysSent\": 5027,\n        \"surveysOpened\": 4031,\n        \"totalSurveysCompleted\": 9941,\n        \"positiveSurveysCompleted\": 9572,\n        \"negativeSurveysCompleted\": 9304,\n        \"averageStarRating\": 3287.4812428575383,\n        \"averageLoyaltyScore\": 9988.685592855794,\n        \"nclReviewClicks\": 6479\n      },\n      \"closedLoopStats\": [\n        {\n          \"name\": \"string\",\n          \"reviewClicks\": 8589,\n          \"reviewCount\": 2731,\n          \"averageStarRating\": 8104.987413478555,\n          \"percentPositive\": 8209.4374396606\n        },\n        {\n          \"name\": \"string\",\n          \"reviewClicks\": 134,\n          \"reviewCount\": 2418,\n          \"averageStarRating\": 1348.0710134807084,\n          \"percentPositive\": 2598.8798015086554\n        }\n      ]\n    },\n    {\n      \"employeeId\": 820,\n      \"employeeName\": \"string\",\n      \"employeeDepartment\": \"string\",\n      \"dealershipName\": \"string\",\n      \"dealershipGuid\": \"5b38d6c8-36e1-b34a-acc4-64e8a7ee87e3\",\n      \"surveyStats\": {\n        \"accountGuid\": \"f17ea30c-4b29-ac0c-1e82-f8d51c1ea956\",\n        \"name\": \"string\",\n        \"transactions\": 3810,\n        \"emailCapture\": 6784,\n        \"surveysSent\": 8761,\n        \"surveysOpened\": 9978,\n        \"totalSurveysCompleted\": 2025,\n        \"positiveSurveysCompleted\": 2112,\n        \"negativeSurveysCompleted\": 1181,\n        \"averageStarRating\": 6587.492973811479,\n        \"averageLoyaltyScore\": 9696.26972434748,\n        \"nclReviewClicks\": 7874\n      },\n      \"closedLoopStats\": [\n        {\n          \"name\": \"string\",\n          \"reviewClicks\": 9842,\n          \"reviewCount\": 6227,\n          \"averageStarRating\": 3535.5295555791877,\n          \"percentPositive\": 5034.207916514784\n        },\n        {\n          \"name\": \"string\",\n          \"reviewClicks\": 1536,\n          \"reviewCount\": 3754,\n          \"averageStarRating\": 2906.1595128553586,\n          \"percentPositive\": 1175.5836588036507\n        }\n      ]\n    }\n  ],\n  [\n    {\n      \"employeeId\": 5122,\n      \"employeeName\": \"string\",\n      \"employeeDepartment\": \"string\",\n      \"dealershipName\": \"string\",\n      \"dealershipGuid\": \"334b3914-be46-1701-9d1e-3afe9ea6128e\",\n      \"surveyStats\": {\n        \"accountGuid\": \"3362af47-9ead-44a7-c828-1088c6d836fe\",\n        \"name\": \"string\",\n        \"transactions\": 1410,\n        \"emailCapture\": 550,\n        \"surveysSent\": 8246,\n        \"surveysOpened\": 1028,\n        \"totalSurveysCompleted\": 6609,\n        \"positiveSurveysCompleted\": 7410,\n        \"negativeSurveysCompleted\": 4398,\n        \"averageStarRating\": 4058.259279315636,\n        \"averageLoyaltyScore\": 3095.768742305616,\n        \"nclReviewClicks\": 4345\n      },\n      \"closedLoopStats\": [\n        {\n          \"name\": \"string\",\n          \"reviewClicks\": 8012,\n          \"reviewCount\": 5929,\n          \"averageStarRating\": 8674.69857282365,\n          \"percentPositive\": 1516.8506750670917\n        },\n        {\n          \"name\": \"string\",\n          \"reviewClicks\": 1457,\n          \"reviewCount\": 280,\n          \"averageStarRating\": 9511.965379277282,\n          \"percentPositive\": 8074.542360703922\n        }\n      ]\n    },\n    {\n      \"employeeId\": 6683,\n      \"employeeName\": \"string\",\n      \"employeeDepartment\": \"string\",\n      \"dealershipName\": \"string\",\n      \"dealershipGuid\": \"76b002b5-ab68-0ae9-0d57-56e1a9cc92d4\",\n      \"surveyStats\": {\n        \"accountGuid\": \"ed1799ca-1f5e-6349-8df4-7e84ab07b0ee\",\n        \"name\": \"string\",\n        \"transactions\": 3378,\n        \"emailCapture\": 3581,\n        \"surveysSent\": 5577,\n        \"surveysOpened\": 1931,\n        \"totalSurveysCompleted\": 2700,\n        \"positiveSurveysCompleted\": 4058,\n        \"negativeSurveysCompleted\": 4479,\n        \"averageStarRating\": 3897.677686378519,\n        \"averageLoyaltyScore\": 3676.9667095057666,\n        \"nclReviewClicks\": 573\n      },\n      \"closedLoopStats\": [\n        {\n          \"name\": \"string\",\n          \"reviewClicks\": 5382,\n          \"reviewCount\": 6227,\n          \"averageStarRating\": 4983.402658040661,\n          \"percentPositive\": 9065.801905034285\n        },\n        {\n          \"name\": \"string\",\n          \"reviewClicks\": 8626,\n          \"reviewCount\": 3075,\n          \"averageStarRating\": 7570.562254950929,\n          \"percentPositive\": 5814.320835283241\n        }\n      ]\n    }\n  ]\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "dce85ea6-cf8b-4f2b-affa-c77ddcb06f68",
+      "name": "SurveysV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "215bc0fe-98b7-41fe-9f9d-7f1b72c29257",
+          "name": "Surveys V2 Get Survey Responses",
+          "request": {
+            "name": "Surveys V2 Get Survey Responses",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "surveys",
+                "responses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "query.page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.size",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.brands",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "query.q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0e3a307-269d-4083-8e8a-df998935d6eb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "surveys",
+                    "responses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "query.page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query.size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query.orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.brands",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c20bb7b3-42f4-4c2b-af10-5961c2eb66fe",
+          "name": "Surveys V2 Sync Core Surveys",
+          "request": {
+            "name": "Surveys V2 Sync Core Surveys",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "surveys",
+                "syncsurveys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accountGuid",
+                  "value": "<uuid>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "FromDate",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b8096a8-eb43-459a-a229-61611d55a195",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "surveys",
+                    "syncsurveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accountGuid",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "FromDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fdd45344-b4d0-493c-8c12-eef41a7dbd60",
+      "name": "UserV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0054c4b6-758b-4ed0-a78d-a4958cb02115",
+          "name": "You need to authenticate using /v1/auth before using this endpoint, using a username, password, and bearer token.\r\nIf done successfully v1/auth should give you a token. Prepend \"bearer \" to the front\r\nof that token and then put all that into the Authorization header to hit this endpoint.",
+          "request": {
+            "name": "You need to authenticate using /v1/auth before using this endpoint, using a username, password, and bearer token.\r\nIf done successfully v1/auth should give you a token. Prepend \"bearer \" to the front\r\nof that token and then put all that into the Authorization header to hit this endpoint.",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "user",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb68a90b-2c83-41ee-851f-0e397d1803a6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "user",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1272,\n  \"guid\": \"ca2826fb-2758-603f-810c-fa2aaab0a395\",\n  \"externalId\": \"72ca3aa0-599f-37b2-d086-c8e11c8a4953\",\n  \"active\": false,\n  \"accessLevel\": \"Administrator\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"phone\": \"string\",\n  \"title\": \"string\",\n  \"created\": \"2007-06-01T10:27:29.764Z\",\n  \"updated\": \"1998-04-04T03:11:41.035Z\",\n  \"lastLogin\": \"1967-06-12T08:34:09.000Z\",\n  \"timeZone\": \"string\",\n  \"accountAccess\": [\n    {\n      \"accountGuid\": \"9dbab2bd-8f5d-70a7-2876-bf544eb73335\",\n      \"accessLevel\": \"Administrator\"\n    },\n    {\n      \"accountGuid\": \"58123e26-fa0b-c3e9-0ba4-b2c1027aa398\",\n      \"accessLevel\": \"Administrator\"\n    }\n  ],\n  \"settings\": [\n    {\n      \"accountGuid\": \"67844b20-6194-7d3d-897c-289d0cc58d4b\",\n      \"notification\": {\n        \"review\": {\n          \"sales\": {\n            \"negative\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"service\": {\n            \"negative\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"uncategorized\": {\n            \"negative\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"surveyResponse\": {\n          \"sales\": {\n            \"negative\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"service\": {\n            \"negative\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"report\": {\n        \"enterprise\": [\n          {\n            \"frequency\": \"Monthly\",\n            \"format\": \"Default\",\n            \"method\": \"Email\",\n            \"expandTable\": true\n          },\n          {\n            \"frequency\": \"Daily\",\n            \"format\": \"PDF\",\n            \"method\": \"Email\",\n            \"expandTable\": true\n          }\n        ],\n        \"unsubscribe\": [\n          {\n            \"frequency\": \"Daily\",\n            \"format\": \"Default\",\n            \"method\": \"Email\",\n            \"expandTable\": true\n          },\n          {\n            \"frequency\": \"Never\",\n            \"format\": \"Default\",\n            \"method\": \"Email\",\n            \"expandTable\": true\n          }\n        ],\n        \"bounce\": [\n          {\n            \"frequency\": \"Weekly\",\n            \"format\": \"CSV\",\n            \"method\": \"Email\",\n            \"expandTable\": true\n          },\n          {\n            \"frequency\": \"Daily\",\n            \"format\": \"CSV\",\n            \"method\": \"None\",\n            \"expandTable\": false\n          }\n        ]\n      }\n    },\n    {\n      \"accountGuid\": \"45ad2d44-4cb8-85b4-7cec-61d66517fc51\",\n      \"notification\": {\n        \"review\": {\n          \"sales\": {\n            \"negative\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"service\": {\n            \"negative\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"uncategorized\": {\n            \"negative\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"surveyResponse\": {\n          \"sales\": {\n            \"negative\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"service\": {\n            \"negative\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"positive\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"report\": {\n        \"enterprise\": [\n          {\n            \"frequency\": \"Monthly\",\n            \"format\": \"CSV\",\n            \"method\": \"Email\",\n            \"expandTable\": false\n          },\n          {\n            \"frequency\": \"Daily\",\n            \"format\": \"XLS\",\n            \"method\": \"Mobile\",\n            \"expandTable\": false\n          }\n        ],\n        \"unsubscribe\": [\n          {\n            \"frequency\": \"Monthly\",\n            \"format\": \"CSV\",\n            \"method\": \"None\",\n            \"expandTable\": true\n          },\n          {\n            \"frequency\": \"Never\",\n            \"format\": \"Default\",\n            \"method\": \"None\",\n            \"expandTable\": false\n          }\n        ],\n        \"bounce\": [\n          {\n            \"frequency\": \"Never\",\n            \"format\": \"XLS\",\n            \"method\": \"Mobile\",\n            \"expandTable\": true\n          },\n          {\n            \"frequency\": \"Daily\",\n            \"format\": \"Default\",\n            \"method\": \"Email\",\n            \"expandTable\": false\n          }\n        ]\n      }\n    }\n  ],\n  \"portalStyle\": \"string\",\n  \"portalFeatures\": [\n    \"string\",\n    \"string\"\n  ],\n  \"accountHierarchyViews\": [\n    {\n      \"hierarchyName\": \"string\",\n      \"hierarchyGuid\": \"b70e9e3f-f55d-ee81-07a2-e4401463798f\",\n      \"accountName\": \"string\",\n      \"accountGuid\": \"cbe33c68-455c-1487-cd67-56f3f0d962ab\",\n      \"root\": {\n        \"name\": \"string\",\n        \"guid\": \"e6e446a4-59ed-2ffe-57c7-d5c2ebfd743f\",\n        \"parent\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n          }\n        ],\n        \"child\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n          }\n        ],\n        \"level\": 201,\n        \"label\": \"string\",\n        \"features\": [\n          \"string\",\n          \"string\"\n        ],\n        \"brands\": \"string\"\n      },\n      \"isDefault\": false\n    },\n    {\n      \"hierarchyName\": \"string\",\n      \"hierarchyGuid\": \"11f3a656-1a61-3fa6-86d2-2514e8201001\",\n      \"accountName\": \"string\",\n      \"accountGuid\": \"c82e403f-bb23-d821-e948-d0f37f946947\",\n      \"root\": {\n        \"name\": \"string\",\n        \"guid\": \"1855a1b8-7dca-2d75-351b-69f9c7a1062c\",\n        \"parent\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n          }\n        ],\n        \"child\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/DAS.Models.PortalAccountV2 detected>\"\n          }\n        ],\n        \"level\": 9457,\n        \"label\": \"string\",\n        \"features\": [\n          \"string\",\n          \"string\"\n        ],\n        \"brands\": \"string\"\n      },\n      \"isDefault\": true\n    }\n  ],\n  \"advocateName\": \"string\",\n  \"advocateMail\": \"string\",\n  \"advocatePhone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb83e7c4-e289-4764-a0ec-5cbc2f5ea963",
+          "name": "Retrieve a list of all users",
+          "request": {
+            "name": "Retrieve a list of all users",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "user",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "all",
+                  "value": "<boolean>",
+                  "description": "if set to true [all]."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "FirstName\r\n            FirstNameDESC\r\n            LastName\r\n            LastNameDESC\r\n            Email\r\n            EmailDESC\r\n            AccessLevel\r\n            AccessLevelDESC\r\n            LastLogin\r\n            LastLoginDESC"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Page size."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page value, zero based."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "The q."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d325e56-446b-49b7-bc74-7b12e9bd715c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "user",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "all",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 9538,\n      \"guid\": \"1d3a1cdf-4111-d526-3878-7c1ea742da7d\",\n      \"externalId\": \"7f32d0de-17be-67af-8558-555865043bbe\",\n      \"active\": false,\n      \"accessLevel\": \"User\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"email\": \"string\",\n      \"password\": \"string\",\n      \"phone\": \"string\",\n      \"title\": \"string\",\n      \"created\": \"2017-11-14T04:54:23.631Z\",\n      \"updated\": \"1957-04-13T02:31:32.598Z\",\n      \"lastLogin\": \"2023-12-10T02:31:42.162Z\",\n      \"timeZone\": \"string\",\n      \"accountAccess\": [\n        {\n          \"accountGuid\": \"a85fbb33-976f-af7e-b004-830cbc9efbd1\",\n          \"accessLevel\": \"Hidden\"\n        },\n        {\n          \"accountGuid\": \"623c4c4c-b44b-38a2-9df7-b3742fdbf798\",\n          \"accessLevel\": \"Administrator\"\n        }\n      ],\n      \"settings\": [\n        {\n          \"accountGuid\": \"e17e5bad-32fb-2a3b-4d52-6690118fbc33\",\n          \"notification\": {\n            \"review\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"surveyResponse\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"report\": {\n            \"enterprise\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"unsubscribe\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"bounce\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        {\n          \"accountGuid\": \"0be3ae2c-eeb1-5e93-04a7-ba158c7f56bf\",\n          \"notification\": {\n            \"review\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"surveyResponse\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"report\": {\n            \"enterprise\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"unsubscribe\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"bounce\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      ],\n      \"portalStyle\": \"string\",\n      \"portalFeatures\": [\n        \"string\",\n        \"string\"\n      ],\n      \"accountHierarchyViews\": [\n        {\n          \"hierarchyName\": \"string\",\n          \"hierarchyGuid\": \"1c4ab163-b26f-6851-0886-3a9f857ae5f8\",\n          \"accountName\": \"string\",\n          \"accountGuid\": \"d164b4c3-e863-0608-fa95-1f8fca7a4d0f\",\n          \"root\": {\n            \"name\": \"string\",\n            \"guid\": \"b186c134-1103-7837-4768-e331ed0e77ee\",\n            \"parent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"child\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"level\": 4702,\n            \"label\": \"string\",\n            \"features\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"brands\": \"string\"\n          },\n          \"isDefault\": false\n        },\n        {\n          \"hierarchyName\": \"string\",\n          \"hierarchyGuid\": \"061f8f74-396b-9fa9-c931-61778acdaac2\",\n          \"accountName\": \"string\",\n          \"accountGuid\": \"9c8f085a-452c-626b-1a91-1330ed82a2c7\",\n          \"root\": {\n            \"name\": \"string\",\n            \"guid\": \"36dfdcad-8e57-3081-d805-7e66e3d63dca\",\n            \"parent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"child\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"level\": 7037,\n            \"label\": \"string\",\n            \"features\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"brands\": \"string\"\n          },\n          \"isDefault\": true\n        }\n      ],\n      \"advocateName\": \"string\",\n      \"advocateMail\": \"string\",\n      \"advocatePhone\": \"string\"\n    },\n    {\n      \"id\": 616,\n      \"guid\": \"151a3310-2833-2fd6-b3a5-43965dc8a735\",\n      \"externalId\": \"852b60e9-6aba-f0ed-b7ef-93ee7c1e3207\",\n      \"active\": false,\n      \"accessLevel\": \"Administrator\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"email\": \"string\",\n      \"password\": \"string\",\n      \"phone\": \"string\",\n      \"title\": \"string\",\n      \"created\": \"1983-04-27T08:16:41.878Z\",\n      \"updated\": \"2023-12-14T09:13:46.796Z\",\n      \"lastLogin\": \"1991-01-10T12:39:37.123Z\",\n      \"timeZone\": \"string\",\n      \"accountAccess\": [\n        {\n          \"accountGuid\": \"e729419b-c11a-a92c-d8e1-f0fe222d9d74\",\n          \"accessLevel\": \"None\"\n        },\n        {\n          \"accountGuid\": \"e367b206-c37f-7963-4977-a180010bc055\",\n          \"accessLevel\": \"Administrator\"\n        }\n      ],\n      \"settings\": [\n        {\n          \"accountGuid\": \"7ef7522c-2926-130e-e599-352eb940f908\",\n          \"notification\": {\n            \"review\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"surveyResponse\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"report\": {\n            \"enterprise\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"unsubscribe\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"bounce\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        },\n        {\n          \"accountGuid\": \"c0092135-ebff-0f26-3c78-72f7197de574\",\n          \"notification\": {\n            \"review\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"surveyResponse\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"report\": {\n            \"enterprise\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"unsubscribe\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"bounce\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        }\n      ],\n      \"portalStyle\": \"string\",\n      \"portalFeatures\": [\n        \"string\",\n        \"string\"\n      ],\n      \"accountHierarchyViews\": [\n        {\n          \"hierarchyName\": \"string\",\n          \"hierarchyGuid\": \"83c7ff10-5162-bcf6-5008-621588f5aad3\",\n          \"accountName\": \"string\",\n          \"accountGuid\": \"b0965277-3cd5-e57a-aa46-bedb64bc5345\",\n          \"root\": {\n            \"name\": \"string\",\n            \"guid\": \"8ccba436-dfb7-6941-e03a-0efd94e5401a\",\n            \"parent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"child\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"level\": 8914,\n            \"label\": \"string\",\n            \"features\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"brands\": \"string\"\n          },\n          \"isDefault\": true\n        },\n        {\n          \"hierarchyName\": \"string\",\n          \"hierarchyGuid\": \"d938e17e-ebac-f847-f9e5-563d53d0b555\",\n          \"accountName\": \"string\",\n          \"accountGuid\": \"3681ec8f-399f-dde3-817c-d399bf528c77\",\n          \"root\": {\n            \"name\": \"string\",\n            \"guid\": \"be58e87c-f2c4-c2b6-6d5b-a120c81bbbe3\",\n            \"parent\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"child\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"level\": 1624,\n            \"label\": \"string\",\n            \"features\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"brands\": \"string\"\n          },\n          \"isDefault\": true\n        }\n      ],\n      \"advocateName\": \"string\",\n      \"advocateMail\": \"string\",\n      \"advocatePhone\": \"string\"\n    }\n  ],\n  \"count\": 9301\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.digitalairstrike.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cb6eab43-7824-4b12-a007-88602f4f274f",
+    "name": "DASWebAPI V2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}
