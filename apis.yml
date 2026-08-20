@@ -41,6 +41,19 @@ created: '2026-07-17'
 modified: '2026-08-12'
 tags:
 - Company
+- MarTech
+- Automotive
+- Automotive Retail
+- Marketing
+- Customer Data Platform
+- Advertising
+- Reputation Management
+- Reviews
+- Surveys
+- Customer Experience
+- Dealership
+tags_raw:
+- Company
 - Martech
 - Automotive
 - Automotive Retail
@@ -67,6 +80,19 @@ apis:
   humanURL: https://api.digitalairstrike.com/swagger
   baseURL: https://api.digitalairstrike.com
   tags:
+  - Automotive
+  - Dealership
+  - Reputation Management
+  - Reviews
+  - Surveys
+  - NPS
+  - Customer Experience
+  - Customer Data Platform
+  - Messaging
+  - SMS
+  - Email
+  - Analytics
+  tags_raw:
   - automotive
   - dealership
   - reputation-management
