@@ -894,6 +894,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/das-technology-capability-edges.yml
+  name: DAS Technology Business Capability Map
 - type: Overlay
   url: overlays/das-technology-daswebapi-v1-overlay.yaml
 - type: Overlay

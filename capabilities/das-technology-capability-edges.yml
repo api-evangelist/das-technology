@@ -1,0 +1,73 @@
+slug: das-technology
+provider: DAS Technology
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Automotive & Mobility
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Survey
+  spec_file: das-technology-survey-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.85
+  evidence: Survey_RequestSurvey 'sends a Mobile Review Surge survey via SMS to the given destination
+    phone number'; Survey_GetSurveyResponsesAsync 'Retrieve survey responses'
+  reason: Sends customer surveys and retrieves responses — customer feedback / survey programme operations.
+- tag: SurveyResponse
+  spec_file: das-technology-surveyresponse-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.85
+  evidence: SurveyResponse_GetSurveyResponse 'Retrieve survey response by identifier'; SurveyResponse_PostSurveyDealerResponse
+    'pending request for store dealer's response to survey'
+  reason: Manages customer survey responses and dealer replies to them — survey/voice-of-customer feedback
+    handling.
+- tag: SurveysV2
+  spec_file: das-technology-surveysv2-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.82
+  evidence: GET /v2/surveys/responses  SurveysV2_GetSurveyResponses
+  reason: Operations retrieve and sync survey responses — voice-of-customer / survey feedback capability
+    within customer service management for dealership CX.
+- tag: Review
+  spec_file: das-technology-review-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.8
+  evidence: Review_GetReview 'Retrieve review by identifier'; Review_PostReviewResponse 'Create a new
+    review response'; getAllReviewSites
+  reason: Operations manage consumer reviews, dealer responses and review-site configuration — an online
+    reputation / voice-of-customer feedback capability.
+- tag: StatsV2
+  spec_file: das-technology-statsv2-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.75
+  evidence: StatsV2_GetNpsSurveyStatsAsync 'display the NPS over time and a breakdown of the NPS'
+  reason: Explicit NPS and survey/review statistics reporting maps to survey/NPS voice-of-customer feedback
+    measurement.
+- tag: Account
+  spec_file: das-technology-account-api-openapi.yml
+  capability_id: BC-430.50
+  capability_id_l1: BC-430
+  capability_name: Customer Feedback Management
+  confidence: 0.7
+  evidence: Account_GetSurveys  Retrieve surveys by account identifier; Account_GetReviewStatsAsync  Retrieve
+    review stats by account identifier
+  reason: Despite the generic 'Account' tag, the operations are overwhelmingly about retrieving dealership
+    customer reviews, review statistics, surveys and survey responses — voice-of-customer / feedback programme
+    data rather than account administration.
