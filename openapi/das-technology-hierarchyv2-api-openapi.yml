@@ -1,0 +1,47 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: DASWebAPI V2 Hierarchy V2 API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: HierarchyV2
+paths:
+  /v2/hierarchy/list:
+    post:
+      tags:
+      - HierarchyV2
+      summary: Returns a list of available hierarchies
+      operationId: HierarchyV2_List
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.HierarchyModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.HierarchyModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.HierarchyModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.HierarchyModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.HierarchyModel'
+components:
+  schemas:
+    DAS.Models.HierarchyModel:
+      type: object
+      properties:
+        name:
+          type: string
+        guid:
+          format: uuid
+          type: string
+        accountGuid:
+          format: uuid
+          type: string

@@ -1,0 +1,57 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Smart Facts API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: SmartFacts
+paths:
+  /v1/smartfacts/{customerGuid}:
+    get:
+      tags:
+      - SmartFacts
+      operationId: SmartFacts_Get
+      parameters:
+      - name: customerGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: type
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: initialDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: periods
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object

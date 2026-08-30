@@ -1,0 +1,76 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Configuration API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Configuration
+paths:
+  /v1/accounts/{clientId}/configuration/addons:
+    get:
+      tags:
+      - Configuration
+      operationId: Configuration_GetAddonConfiguration
+      parameters:
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: config.optInSmsSweepstakes
+        in: query
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/accounts/{clientId}/configuration/mobile:
+    get:
+      tags:
+      - Configuration
+      operationId: Configuration_GetMobileConfiguration
+      parameters:
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object

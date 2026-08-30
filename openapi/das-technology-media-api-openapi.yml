@@ -1,0 +1,86 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: DASWebAPI V2 Media API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Media
+paths:
+  /v2/media/store:
+    post:
+      tags:
+      - Media
+      summary: Store photos or videos in Azure Storage
+      operationId: Media_Store
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DASWebAPI.Models.MediaModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DASWebAPI.Models.MediaModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DASWebAPI.Models.MediaModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DASWebAPI.Models.MediaModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DASWebAPI.Models.MediaModel'
+  /v2/media/list:
+    post:
+      tags:
+      - Media
+      summary: Returns the list of saved files in a particular user folder
+      operationId: Media_List
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DASWebAPI.Models.MediaModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DASWebAPI.Models.MediaModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DASWebAPI.Models.MediaModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DASWebAPI.Models.MediaModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DASWebAPI.Models.MediaModel'
+components:
+  schemas:
+    DASWebAPI.Models.MediaModel:
+      type: object
+      properties:
+        message:
+          type: string
+        dealerId:
+          format: uuid
+          type: string
+        useremail:
+          type: string
+        files:
+          type: array
+          items:
+            type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/DASWebAPI.Models.MediaUploadError'
+    DASWebAPI.Models.MediaUploadError:
+      type: object
+      properties:
+        file:
+          type: string
+        errorMessage:
+          type: string

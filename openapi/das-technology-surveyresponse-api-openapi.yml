@@ -1,0 +1,372 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Survey Response API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: SurveyResponse
+paths:
+  /v1/surveyResponse/{surveyResponseGuid}:
+    get:
+      tags:
+      - SurveyResponse
+      summary: Retrieve survey response by identifier
+      operationId: SurveyResponse_GetSurveyResponse
+      parameters:
+      - name: surveyResponseGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+  /v1/surveyResponse/{surveyResponse}/response:
+    get:
+      tags:
+      - SurveyResponse
+      summary: Retrieve all responses for a survey response
+      operationId: SurveyResponse_GetSurveyResponseResponses
+      parameters:
+      - name: surveyResponse
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+  /v1/surveyResponse/{surveyResponseGuid}/response/{responseGuid}:
+    get:
+      tags:
+      - SurveyResponse
+      summary: Retrieve a single survey response response
+      operationId: SurveyResponse_GetSurveyResponseResponse
+      parameters:
+      - name: surveyResponseGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: responseGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+  /v1/surveyResponse/{surveyResponseGuid}/response:
+    post:
+      tags:
+      - SurveyResponse
+      summary: Create a new survey response response
+      operationId: SurveyResponse_PostSurveyResponseResponse
+      parameters:
+      - name: surveyResponseGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+        required: true
+  /v1/surveyResponse/{surveyResponseGuid}/DealerResponse:
+    post:
+      tags:
+      - SurveyResponse
+      summary: Create or update a pending request for store dealer's response to survey
+      operationId: SurveyResponse_PostSurveyDealerResponse
+      parameters:
+      - name: surveyResponseGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.SurveyDealerComments'
+        required: true
+components:
+  schemas:
+    DAS.Models.SurveyResponseV2:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        district:
+          type: string
+        dealership:
+          type: string
+        isClosedLoopReview:
+          type: boolean
+        isGMSFEAccount:
+          type: boolean
+        npsScore:
+          format: int32
+          type: integer
+        rating:
+          format: int32
+          type: integer
+        date:
+          format: date-time
+          type: string
+        transactionDate:
+          format: date-time
+          type: string
+        department:
+          type: string
+        employee:
+          type: string
+        surveyId:
+          format: uuid
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        phone:
+          type: string
+        homePhone:
+          type: string
+        workPhone:
+          type: string
+        cellPhone:
+          type: string
+        email:
+          type: string
+        surveyVia:
+          type: string
+        vehicleYear:
+          type: string
+        vehicleMake:
+          type: string
+        vehicleModel:
+          type: string
+        vin:
+          type: string
+        stockNumber:
+          type: string
+        repairOrder:
+          type: string
+        customerResponseComment:
+          type: string
+        customerResponseImprovementComment:
+          type: string
+        dealerResponseDate:
+          type: string
+        dealerResponseComment:
+          type: string
+        canRespondInline:
+          type: boolean
+        proposedResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+        surveyResponseId:
+          format: uuid
+          type: string
+        publicationDate:
+          format: date-time
+          type: string
+        publicationStatus:
+          type: string
+        responded:
+          type: boolean
+        published:
+          type: boolean
+        daysUntilPublication:
+          format: int32
+          type: integer
+          readOnly: true
+        daysUntilResponseLocked:
+          format: int32
+          type: integer
+          readOnly: true
+        canRespond:
+          type: boolean
+          readOnly: true
+    DAS.Models.ProposedResponse:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        accepted:
+          type: boolean
+        acceptedDate:
+          format: date-time
+          type: string
+        lastModified:
+          format: date-time
+          type: string
+        surveyResponseResponseGuid:
+          format: uuid
+          type: string
+    DAS.Models.SurveyDealerComments:
+      type: object
+      properties:
+        surveyId:
+          format: int32
+          type: integer
+        surveyResponseId:
+          format: int32
+          type: integer
+        date:
+          format: date-time
+          type: string
+        comment:
+          type: string

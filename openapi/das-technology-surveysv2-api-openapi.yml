@@ -1,0 +1,138 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: DASWebAPI V2 Surveys V2 API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: SurveysV2
+paths:
+  /v2/surveys/responses:
+    get:
+      tags:
+      - SurveysV2
+      operationId: SurveysV2_GetSurveyResponses
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: query.page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: query.size
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: query.orderBy
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v2/surveys/syncsurveys:
+    get:
+      tags:
+      - SurveysV2
+      operationId: SurveysV2_SyncCoreSurveys
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: FromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object

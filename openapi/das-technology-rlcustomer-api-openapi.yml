@@ -1,0 +1,59 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 RL Customer API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: RLCustomer
+paths:
+  /v1/rlcustomer/{customerGuid}/packages:
+    get:
+      tags:
+      - RLCustomer
+      operationId: RLCustomer_GetPackages
+      parameters:
+      - name: customerGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.PackageModel'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.PackageModel'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.PackageModel'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.PackageModel'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.PackageModel'
+components:
+  schemas:
+    DAS.Models.PackageModel:
+      type: object
+      properties:
+        packageName:
+          type: string
+        status:
+          type: string

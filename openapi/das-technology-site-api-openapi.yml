@@ -1,0 +1,136 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Site API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Site
+paths:
+  /v1/site/list:
+    get:
+      tags:
+      - Site
+      summary: Retrieve sites
+      operationId: Site_GetSites
+      parameters:
+      - name: isActive
+        in: query
+        description: Nullable boolean; Null returns all sites, True returns all sites that are active; False returns all sites that inactive
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.Site'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.Site'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.Site'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.Site'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.Site'
+  /v1/site/{id}:
+    get:
+      tags:
+      - Site
+      summary: Retrieve single site by site identifier
+      operationId: Site_GetSite
+      parameters:
+      - name: id
+        in: path
+        description: The site ID of the value you want to return
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.Site'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.Site'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.Site'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.Site'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.Site'
+components:
+  schemas:
+    DAS.Models.RatingMethod:
+      type: object
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        ratingDisplay:
+          type: string
+        ratingMethodItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.RatingMethodItems'
+    DAS.Models.Site:
+      type: object
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        siteUrl:
+          type: string
+        description:
+          type: string
+        ratingMethod:
+          $ref: '#/components/schemas/DAS.Models.RatingMethod'
+        logoUrl:
+          type: string
+        active:
+          type: boolean
+        slReporting:
+          type: boolean
+        guid:
+          format: uuid
+          type: string
+    DAS.Models.RatingMethodItems:
+      type: object
+      properties:
+        rating:
+          type: string
+        orderId:
+          format: int32
+          type: integer
+        ratingValue:
+          format: int32
+          type: integer

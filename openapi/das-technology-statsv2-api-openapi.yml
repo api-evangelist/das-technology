@@ -1,0 +1,1040 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: DASWebAPI V2 Stats V2 API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: StatsV2
+paths:
+  /v2/stats/review/summary/byinterval:
+    get:
+      tags:
+      - StatsV2
+      operationId: StatsV2_GetReviewSummaryByIntervalAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: interval
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: query.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v2/stats/review:
+    get:
+      tags:
+      - StatsV2
+      operationId: StatsV2_GetReviewStatsAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: query.source
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.siteName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.disputed
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.state
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v2/stats/enterprise:
+    get:
+      tags:
+      - StatsV2
+      operationId: StatsV2_GetEnterpriseStatsAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: query.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+  /v2/stats/survey:
+    get:
+      tags:
+      - StatsV2
+      operationId: StatsV2_GetSurveyStatsAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: query.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+  /v2/stats/surveymethod:
+    get:
+      tags:
+      - StatsV2
+      operationId: StatsV2_GetSurveyMethodStatsAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: query.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyMethodStatsV2'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyMethodStatsV2'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyMethodStatsV2'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyMethodStatsV2'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyMethodStatsV2'
+  /v2/stats/npsStats:
+    get:
+      tags:
+      - StatsV2
+      summary: 'Used by the widget on Mission Control to display the NPS over time and a breakdown
+
+        of the NPS.'
+      operationId: StatsV2_GetNpsSurveyStatsAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: timespan
+        in: query
+        description: "Denotes the intervals we'll use to display the data, such as day, week,\n            month, year. See SurveyStatsService.cs for acceptable values."
+        required: true
+        schema:
+          type: string
+      - name: query.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.NpsStats'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.NpsStats'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.NpsStats'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.NpsStats'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.NpsStats'
+  /v2/stats/survey/summary/byinterval:
+    get:
+      tags:
+      - StatsV2
+      operationId: StatsV2_GetSurveySummaryByIntervalAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: interval
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: query.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v2/stats/employee:
+    get:
+      tags:
+      - StatsV2
+      operationId: StatsV2_GetEmployeeStatsAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: query.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+            text/html:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+components:
+  schemas:
+    DAS.Models.EnterpriseStatsV2:
+      type: object
+      properties:
+        nclTotalSurveysCompleted:
+          format: int32
+          type: integer
+        nclAverageStarRating:
+          format: double
+          type: number
+        nclPositiveSurveysCompleted:
+          format: double
+          type: number
+        clTotalSurveysCompleted:
+          format: int32
+          type: integer
+        clAverageStarRating:
+          format: double
+          type: number
+        clAverageLoyaltyScore:
+          format: double
+          type: number
+        clPositiveSurveysCompleted:
+          format: int32
+          type: integer
+        neutralSurveysCompleted:
+          format: int32
+          type: integer
+        positivePercentage:
+          format: int32
+          type: integer
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        transactions:
+          format: int32
+          type: integer
+        emailCapture:
+          format: int32
+          type: integer
+        surveysSent:
+          format: int32
+          type: integer
+        surveysOpened:
+          format: int32
+          type: integer
+        totalSurveysCompleted:
+          format: int32
+          type: integer
+        positiveSurveysCompleted:
+          format: int32
+          type: integer
+        negativeSurveysCompleted:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        averageLoyaltyScore:
+          format: double
+          type: number
+        nclReviewClicks:
+          format: int32
+          type: integer
+    DAS.Models.SurveyStatsV2:
+      type: object
+      properties:
+        clTotalSurveysCompleted:
+          format: int32
+          type: integer
+        clAverageStarRating:
+          format: double
+          type: number
+        clAverageLoyaltyScore:
+          format: double
+          type: number
+        clPositiveSurveysCompleted:
+          format: int32
+          type: integer
+        neutralSurveysCompleted:
+          format: int32
+          type: integer
+        positivePercentage:
+          format: int32
+          type: integer
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        transactions:
+          format: int32
+          type: integer
+        emailCapture:
+          format: int32
+          type: integer
+        surveysSent:
+          format: int32
+          type: integer
+        surveysOpened:
+          format: int32
+          type: integer
+        totalSurveysCompleted:
+          format: int32
+          type: integer
+        positiveSurveysCompleted:
+          format: int32
+          type: integer
+        negativeSurveysCompleted:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        averageLoyaltyScore:
+          format: double
+          type: number
+        nclReviewClicks:
+          format: int32
+          type: integer
+    DAS.Models.SurveyStats:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        transactions:
+          format: int32
+          type: integer
+        emailCapture:
+          format: int32
+          type: integer
+        surveysSent:
+          format: int32
+          type: integer
+        surveysOpened:
+          format: int32
+          type: integer
+        totalSurveysCompleted:
+          format: int32
+          type: integer
+        positiveSurveysCompleted:
+          format: int32
+          type: integer
+        negativeSurveysCompleted:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        averageLoyaltyScore:
+          format: double
+          type: number
+        nclReviewClicks:
+          format: int32
+          type: integer
+    DAS.Models.NpsStats:
+      type: object
+      properties:
+        npsNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.NpsNode'
+    DAS.Models.ReviewStatsSimple:
+      type: object
+      properties:
+        name:
+          type: string
+        reviewClicks:
+          format: int32
+          type: integer
+        reviewCount:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        percentPositive:
+          format: double
+          type: number
+    DAS.Models.NpsNode:
+      type: object
+      properties:
+        timespan:
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        month:
+          format: int32
+          type: integer
+        year:
+          format: int32
+          type: integer
+        npsRating:
+          format: float
+          type: number
+        npsPromoters:
+          format: int32
+          type: integer
+        npsPassives:
+          format: int32
+          type: integer
+        npsDetractors:
+          format: int32
+          type: integer
+    DAS.Models.SurveyMethodStatsV2:
+      type: object
+      properties:
+        surveysSentTotal:
+          format: int32
+          type: integer
+        surveysSentEmail:
+          format: int32
+          type: integer
+        surveysSentSMS:
+          format: int32
+          type: integer
+        surveysReminderSentTotal:
+          format: int32
+          type: integer
+        surveysReminderSentEmail:
+          format: int32
+          type: integer
+        surveysReminderSentSMS:
+          format: int32
+          type: integer
+        surveysCompletedTotal:
+          format: int32
+          type: integer
+        surveysCompletedEmail:
+          format: int32
+          type: integer
+        surveysCompletedSMS:
+          format: int32
+          type: integer
+        overallResponseRate:
+          format: double
+          type: number
+        responseRateEmail:
+          format: double
+          type: number
+        responseRateSMS:
+          format: double
+          type: number
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        transactions:
+          format: int32
+          type: integer
+        emailCapture:
+          format: int32
+          type: integer
+        surveysSent:
+          format: int32
+          type: integer
+        surveysOpened:
+          format: int32
+          type: integer
+        totalSurveysCompleted:
+          format: int32
+          type: integer
+        positiveSurveysCompleted:
+          format: int32
+          type: integer
+        negativeSurveysCompleted:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        averageLoyaltyScore:
+          format: double
+          type: number
+        nclReviewClicks:
+          format: int32
+          type: integer
+    DAS.Models.EmployeeStats:
+      type: object
+      properties:
+        employeeId:
+          format: int32
+          type: integer
+        employeeName:
+          type: string
+        employeeDepartment:
+          type: string
+        dealershipName:
+          type: string
+        dealershipGuid:
+          format: uuid
+          type: string
+        surveyStats:
+          $ref: '#/components/schemas/DAS.Models.SurveyStats'
+        closedLoopStats:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewStatsSimple'

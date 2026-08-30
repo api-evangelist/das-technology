@@ -1,0 +1,140 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Client API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Client
+paths:
+  /v1/clients:
+    get:
+      tags:
+      - Client
+      summary: Returns a paginated result set of the SL Active clients
+      operationId: Client_GetClients
+      parameters:
+      - name: request.apiKey
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: request.queryKey
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: request.pageSize
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: request.currentPage
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/clients/{clientId}/surveys:
+    get:
+      tags:
+      - Client
+      summary: Returns paginated result of surveys and associated information for the specified client
+      description: Removed because Overstock change of product leadership.
+      operationId: Client_GetClientSurveys
+      parameters:
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: request.clientId
+        in: query
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: request.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: request.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: request.rating
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      - name: request.apiKey
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: request.queryKey
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: request.pageSize
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: request.currentPage
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      deprecated: true

@@ -1,0 +1,68 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: DASWebAPI V2 Incentives API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Incentives
+paths:
+  /v2/incentives/{vin}/{zip}:
+    get:
+      tags:
+      - Incentives
+      operationId: Incentives_GetIncentives
+      parameters:
+      - name: vin
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: zip
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v2/incentives/programs:
+    get:
+      tags:
+      - Incentives
+      operationId: Incentives_GetAllPrograms
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object

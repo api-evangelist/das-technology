@@ -1,0 +1,743 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Survey API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Survey
+paths:
+  /v1/survey/{surveyId}/response:
+    get:
+      tags:
+      - Survey
+      summary: Retrieve survey responses by survey identifier
+      operationId: Survey_GetSurveyResponsesAsync
+      parameters:
+      - name: surveyId
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+  /v1/survey/maritz/{maritzSurveyId}:
+    get:
+      tags:
+      - Survey
+      operationId: Survey_GetMaritzSurveyByMaritzSurveyId
+      parameters:
+      - name: maritzSurveyId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/survey/accounts/{clientId}/smssurveys:
+    post:
+      tags:
+      - Survey
+      summary: Calls service.surveys on the new platform and sends a Mobile Review Surge survey via SMS to the given destination phone number.
+      operationId: Survey_RequestSurvey
+      parameters:
+      - name: clientId
+        in: path
+        description: This is the Account GUID.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/System.Collections.Generic.KeyValuePair_System.String_System.String'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/System.Collections.Generic.KeyValuePair_System.String_System.String'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/System.Collections.Generic.KeyValuePair_System.String_System.String'
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/System.Collections.Generic.KeyValuePair_System.String_System.String'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/System.Collections.Generic.KeyValuePair_System.String_System.String'
+          text/html:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/System.Collections.Generic.KeyValuePair_System.String_System.String'
+        description: The collection of data in the Form.
+        required: true
+  /v1/survey/GetMobileSurveyStats:
+    get:
+      tags:
+      - Survey
+      summary: Returns just the stats, no surveys, broken up by intervals.
+      operationId: Survey_GetMobileSurveyStatsAsync
+      parameters:
+      - name: token
+        in: query
+        description: The client or portal user GUID.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: type
+        in: query
+        description: Used to determine if this is client or portal user GUID.
+        required: true
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: 'Acceptable timespans are: 1w, 30d, 90d, 6m, 1y, hist. These match the front end''s filters.'
+        required: false
+        schema:
+          type: string
+      - name: interval
+        in: query
+        description: "It is ok to have a null interval as long as the front end sent us a timespan and not a fromDate and toDate.\n            Otherwise, an interval must be provided."
+        required: false
+        schema:
+          type: string
+      - name: fromCurrentDate
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: boolean
+      - name: query.fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/survey/{token}/ReviewSurgeReport:
+    get:
+      tags:
+      - Survey
+      summary: Get the ReviewSurgeReport and generate the csv file
+      operationId: Survey_GetReviewSurgeReport
+      parameters:
+      - name: token
+        in: path
+        description: Account guid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.reviewType
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.source
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.siteName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.state
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.orderBy
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/survey/{token}/ReviewSurgeReportByWeek:
+    get:
+      tags:
+      - Survey
+      summary: Get the ReviewSurgeReport and generate the csv file of a week
+      operationId: Survey_ReviewSurgeReportWeek
+      parameters:
+      - name: token
+        in: path
+        description: Account guid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.reviewType
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.source
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.siteName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.state
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.orderBy
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/survey/{token}/ReviewSurgeReportByMonth:
+    get:
+      tags:
+      - Survey
+      summary: Get the ReviewSurgeReport and generate the csv file of a month
+      operationId: Survey_ReviewSurgeReportMonth
+      parameters:
+      - name: token
+        in: path
+        description: Account guid
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.reviewType
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.source
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.siteName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.state
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.orderBy
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+components:
+  schemas:
+    DAS.Models.SurveyResponseV2:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        district:
+          type: string
+        dealership:
+          type: string
+        isClosedLoopReview:
+          type: boolean
+        isGMSFEAccount:
+          type: boolean
+        npsScore:
+          format: int32
+          type: integer
+        rating:
+          format: int32
+          type: integer
+        date:
+          format: date-time
+          type: string
+        transactionDate:
+          format: date-time
+          type: string
+        department:
+          type: string
+        employee:
+          type: string
+        surveyId:
+          format: uuid
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        phone:
+          type: string
+        homePhone:
+          type: string
+        workPhone:
+          type: string
+        cellPhone:
+          type: string
+        email:
+          type: string
+        surveyVia:
+          type: string
+        vehicleYear:
+          type: string
+        vehicleMake:
+          type: string
+        vehicleModel:
+          type: string
+        vin:
+          type: string
+        stockNumber:
+          type: string
+        repairOrder:
+          type: string
+        customerResponseComment:
+          type: string
+        customerResponseImprovementComment:
+          type: string
+        dealerResponseDate:
+          type: string
+        dealerResponseComment:
+          type: string
+        canRespondInline:
+          type: boolean
+        proposedResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+        surveyResponseId:
+          format: uuid
+          type: string
+        publicationDate:
+          format: date-time
+          type: string
+        publicationStatus:
+          type: string
+        responded:
+          type: boolean
+        published:
+          type: boolean
+        daysUntilPublication:
+          format: int32
+          type: integer
+          readOnly: true
+        daysUntilResponseLocked:
+          format: int32
+          type: integer
+          readOnly: true
+        canRespond:
+          type: boolean
+          readOnly: true
+    DAS.Models.ProposedResponse:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        accepted:
+          type: boolean
+        acceptedDate:
+          format: date-time
+          type: string
+        lastModified:
+          format: date-time
+          type: string
+        surveyResponseResponseGuid:
+          format: uuid
+          type: string
+    System.Collections.Generic.KeyValuePair_System.String_System.String:
+      type: object
+      properties:
+        key:
+          type: string
+          readOnly: true
+        value:
+          type: string
+          readOnly: true

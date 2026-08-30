@@ -1,0 +1,55 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Promotions API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Promotions
+paths:
+  /v1/accounts/{accountId}/promotions:
+    get:
+      tags:
+      - Promotions
+      summary: Used by web browsers to request a redirect while also allowing us to count the click.
+      operationId: Promotions_GetPromotionRedirect
+      parameters:
+      - name: accountId
+        in: path
+        description: The account identifier.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: promotionId
+        in: query
+        description: The promotion identifier.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: redirect
+        in: query
+        description: The redirect.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object

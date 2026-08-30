@@ -1,0 +1,114 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Notification API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Notification
+paths:
+  /v1/notification/{clientId}/sms/phonenumbers/new:
+    post:
+      tags:
+      - Notification
+      operationId: Notification_ProvisionSmsNumber
+      parameters:
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DASWebAPI.Controllers.SmsProvisionRequestInfo'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DASWebAPI.Controllers.SmsProvisionRequestInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DASWebAPI.Controllers.SmsProvisionRequestInfo'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DASWebAPI.Controllers.SmsProvisionRequestInfo'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DASWebAPI.Controllers.SmsProvisionRequestInfo'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DASWebAPI.Controllers.SmsProvisionRequestInfo'
+        required: true
+  /v1/notification/{clientId}/sms/phonenumbers/{smsNumber}:
+    delete:
+      tags:
+      - Notification
+      operationId: Notification_DeprovisionSmsNumber
+      parameters:
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: smsNumber
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+components:
+  schemas:
+    DASWebAPI.Controllers.SmsProvisionRequestInfo:
+      type: object
+      properties:
+        phone:
+          type: string
+        street:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postalCode:
+          type: string

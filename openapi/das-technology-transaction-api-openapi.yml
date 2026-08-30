@@ -1,0 +1,145 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Transaction API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Transaction
+paths:
+  /v1/transaction/{transactionId}:
+    get:
+      tags:
+      - Transaction
+      summary: Retrieve a transaction by identifier
+      operationId: Transaction_GetTransaction
+      parameters:
+      - name: transactionId
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.Transaction'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.Transaction'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.Transaction'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.Transaction'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.Transaction'
+components:
+  schemas:
+    DAS.Models.CustomerModel:
+      type: object
+      properties:
+        customerId:
+          format: int32
+          type: integer
+        customerGuid:
+          format: uuid
+          type: string
+        number:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        streetAddress:
+          type: string
+        streetAddress2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        homePhone:
+          type: string
+        cellPhone:
+          type: string
+        workPhone:
+          type: string
+    DAS.Models.Transaction:
+      type: object
+      properties:
+        transactionId:
+          format: int32
+          type: integer
+        transactionGuid:
+          format: uuid
+          type: string
+        openDate:
+          format: date-time
+          type: string
+        closedDate:
+          format: date-time
+          type: string
+        customer:
+          $ref: '#/components/schemas/DAS.Models.CustomerModel'
+        employee:
+          $ref: '#/components/schemas/DAS.Models.EmployeeModel'
+        vehicle:
+          $ref: '#/components/schemas/DAS.Models.VehicleModel'
+    DAS.Models.VehicleModel:
+      type: object
+      properties:
+        vin:
+          type: string
+        year:
+          type: string
+        make:
+          type: string
+        model:
+          type: string
+        odometer:
+          type: string
+    DAS.Models.EmployeeModel:
+      type: object
+      properties:
+        employeeId:
+          format: int32
+          type: integer
+        createdDate:
+          format: date-time
+          type: string
+        lastUpdatedDate:
+          format: date-time
+          type: string
+        lastUpdatedBy:
+          type: string
+        token:
+          format: uuid
+          type: string
+        accountToken:
+          format: uuid
+          type: string
+        employeeNumber:
+          type: string
+        name:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        employeeDepartment:
+          type: string
+        active:
+          type: boolean

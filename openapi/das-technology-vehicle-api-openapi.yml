@@ -1,0 +1,63 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Vehicle API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Vehicle
+paths:
+  /v1/vehicles/{vin}:
+    get:
+      tags:
+      - Vehicle
+      operationId: Vehicle_GetVinDetails
+      parameters:
+      - name: vin
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/vehicles/test:
+    get:
+      tags:
+      - Vehicle
+      operationId: Vehicle_GetCarDetails
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object

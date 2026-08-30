@@ -1,0 +1,1356 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 User API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: User
+paths:
+  /v1/user/me:
+    get:
+      tags:
+      - User
+      summary: Retrieve the user executing this request
+      operationId: User_GetUser
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.UserModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.UserModel'
+  /v1/user/{userGuid}:
+    get:
+      tags:
+      - User
+      operationId: User_GetUser
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.UserModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.UserModel'
+  /v1/user:
+    post:
+      tags:
+      - User
+      operationId: User_PostUser
+      parameters:
+      - name: sendWelcome
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: template
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.UserModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.UserModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.UserModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.UserModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.UserModel'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.UserModel'
+        required: true
+  /v1/user/me/settings:
+    get:
+      tags:
+      - User
+      summary: Retrieve user settings for the current user
+      operationId: User_GetUserSettings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.UserSettings'
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.UserSettings'
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.UserSettings'
+            text/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.UserSettings'
+            text/html:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.UserSettings'
+  /v1/user/{userGuid}/{accountGuid}/settings:
+    get:
+      tags:
+      - User
+      summary: Retrieve user settings for the current user
+      operationId: User_GetUserSettings
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: accountGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.UserSettings'
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.UserSettings'
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.UserSettings'
+            text/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.UserSettings'
+            text/html:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.UserSettings'
+  /v1/user/me/notification:
+    get:
+      tags:
+      - User
+      operationId: User_GetNotificationSettings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+            text/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+            text/html:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+  /v1/user/{userGuid}/{accountGuid}/notification:
+    get:
+      tags:
+      - User
+      operationId: User_GetNotificationSettings
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: accountGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+            text/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+            text/html:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+  /v1/user/me/settings/report:
+    get:
+      tags:
+      - User
+      operationId: User_GetReportSettings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.ReportSettings'
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.ReportSettings'
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.ReportSettings'
+            text/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.ReportSettings'
+            text/html:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.ReportSettings'
+  /v1/user/{userGuid}/{accountGuid}/report:
+    get:
+      tags:
+      - User
+      operationId: User_GetReportSettings
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: accountGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.ReportSettings'
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.ReportSettings'
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.ReportSettings'
+            text/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.ReportSettings'
+            text/html:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.ReportSettings'
+  /v1/user/me/settings/custom:
+    get:
+      tags:
+      - User
+      operationId: User_GetCustomSettings
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+            text/html:
+              schema:
+                type: string
+    post:
+      tags:
+      - User
+      operationId: User_PostCustomSettings
+      parameters:
+      - name: custom
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/user/{userGuid}/settings/custom:
+    get:
+      tags:
+      - User
+      operationId: User_GetCustomSettings
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+            text/html:
+              schema:
+                type: string
+    post:
+      tags:
+      - User
+      operationId: User_PostCustomSettings
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: custom
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/user/me/{accountGuid}/settings/notification:
+    post:
+      tags:
+      - User
+      operationId: User_PostNotificationSettings
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+        required: true
+  /v1/user/{userGuid}/{accountGuid}/settings/notification:
+    post:
+      tags:
+      - User
+      operationId: User_PostNotificationSettings
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: accountGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+        required: true
+  /v1/user/me/{accountGuid}/settings/report:
+    post:
+      tags:
+      - User
+      operationId: User_PostReportSettings
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+        required: true
+  /v1/user/{userGuid}/{accountGuid}/settings/report:
+    post:
+      tags:
+      - User
+      operationId: User_PostReportSettings
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: accountGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReportSettings'
+        required: true
+  /v1/user/list:
+    get:
+      tags:
+      - User
+      summary: Retrieve a list of all users
+      operationId: User_GetList
+      parameters:
+      - name: all
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: orderBy
+        in: query
+        description: 'FirstName
+
+          FirstNameDESC
+
+          LastName
+
+          LastNameDESC
+
+          Email
+
+          EmailDESC
+
+          AccessLevel
+
+          AccessLevelDESC
+
+          Updated
+
+          UpdatedDESC'
+        required: false
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.UserModel'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.UserModel'
+  /v1/user/listForReport:
+    get:
+      tags:
+      - User
+      summary: Retrieve a list of all users with specified report settings
+      operationId: User_GetListForReport
+      parameters:
+      - name: type
+        in: query
+        description: ''
+        required: true
+        schema:
+          type: string
+          enum:
+          - Enterprise
+          - Unsubscribe
+          - Bounce
+      - name: frequency
+        in: query
+        description: ''
+        required: true
+        schema:
+          type: string
+          enum:
+          - Never
+          - Daily
+          - Weekly
+          - Monthly
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.UserModel'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.UserModel'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.UserModel'
+  /v1/user/test:
+    get:
+      tags:
+      - User
+      operationId: User_GetTest
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+            text/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+            text/html:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+  /v1/user/resendWelcome:
+    get:
+      tags:
+      - User
+      operationId: User_GetResendWelcome
+      parameters:
+      - name: email
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: template
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/user/resendWelcomeAllUsers:
+    get:
+      tags:
+      - User
+      operationId: User_GetResendWelcomeAllUsers
+      parameters:
+      - name: key
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: template
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/user/findGuid:
+    get:
+      tags:
+      - User
+      operationId: User_GetFindGuid
+      parameters:
+      - name: email
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                format: uuid
+                type: string
+            text/xml:
+              schema:
+                format: uuid
+                type: string
+            application/json:
+              schema:
+                format: uuid
+                type: string
+            text/json:
+              schema:
+                format: uuid
+                type: string
+            text/html:
+              schema:
+                format: uuid
+                type: string
+  /v1/user/{userGuid}/password:
+    post:
+      tags:
+      - User
+      operationId: User_PostPassword
+      parameters:
+      - name: userGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: string
+          text/xml:
+            schema:
+              type: string
+          application/x-www-form-urlencoded:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          text/html:
+            schema:
+              type: string
+        required: true
+  /v1/user/forgotPassword:
+    get:
+      tags:
+      - User
+      operationId: User_GetForgotPassword
+      parameters:
+      - name: email
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: template
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: token
+        in: query
+        required: false
+        schema:
+          type: string
+          format: uuid
+      - name: newPassword
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+components:
+  schemas:
+    DAS.Models.UserModel:
+      type: object
+      properties:
+        id:
+          format: int32
+          type: integer
+        guid:
+          format: uuid
+          type: string
+        externalId:
+          format: uuid
+          type: string
+        active:
+          type: boolean
+        accessLevel:
+          enum:
+          - Hidden
+          - None
+          - User
+          - Administrator
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        phone:
+          type: string
+        title:
+          type: string
+        created:
+          format: date-time
+          type: string
+        updated:
+          format: date-time
+          type: string
+        lastLogin:
+          format: date-time
+          type: string
+        timeZone:
+          type: string
+        accountAccess:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.AccountAccessModel'
+        settings:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.UserSettings'
+        portalStyle:
+          type: string
+        portalFeatures:
+          type: array
+          items:
+            type: string
+        accountHierarchyViews:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.AccountHierarchyView'
+        advocateName:
+          type: string
+        advocateMail:
+          type: string
+        advocatePhone:
+          type: string
+    DAS.Models.AccountHierarchyView:
+      type: object
+      properties:
+        hierarchyName:
+          type: string
+        hierarchyGuid:
+          format: uuid
+          type: string
+        accountName:
+          type: string
+        accountGuid:
+          format: uuid
+          type: string
+        root:
+          $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        isDefault:
+          type: boolean
+    DAS.Models.ReportSettings:
+      type: object
+      properties:
+        enterprise:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+        unsubscribe:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+        bounce:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+    DAS.Models.SurveyResponseNotificationSettings:
+      type: object
+      properties:
+        sales:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+        service:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+    DAS.Models.ReviewNotificationSettings:
+      type: object
+      properties:
+        sales:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+        service:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+        uncategorized:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+    DAS.Models.AccountAccessModel:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        accessLevel:
+          enum:
+          - Hidden
+          - None
+          - User
+          - Administrator
+          type: string
+    DAS.Models.NotificationSettings:
+      type: object
+      properties:
+        review:
+          $ref: '#/components/schemas/DAS.Models.ReviewNotificationSettings'
+        surveyResponse:
+          $ref: '#/components/schemas/DAS.Models.SurveyResponseNotificationSettings'
+    DAS.Models.UserSettings:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        notification:
+          $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+        report:
+          $ref: '#/components/schemas/DAS.Models.ReportSettings'
+    DAS.Models.PortalAccountV2:
+      type: object
+      properties:
+        name:
+          type: string
+        guid:
+          format: uuid
+          type: string
+        parent:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        child:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        level:
+          format: int32
+          type: integer
+        label:
+          type: string
+        features:
+          type: array
+          items:
+            type: string
+        brands:
+          type: string
+    DAS.Models.ReportSettingDetails:
+      type: object
+      properties:
+        frequency:
+          enum:
+          - Never
+          - Daily
+          - Weekly
+          - Monthly
+          type: string
+        format:
+          enum:
+          - Default
+          - CSV
+          - XLS
+          - PDF
+          type: string
+        method:
+          enum:
+          - None
+          - Email
+          - Mobile
+          type: string
+        expandTable:
+          type: boolean
+    DAS.Models.RatingNotificationSettings:
+      type: object
+      properties:
+        negative:
+          enum:
+          - None
+          - Email
+          - Mobile
+          type: string
+        positive:
+          enum:
+          - None
+          - Email
+          - Mobile
+          type: string

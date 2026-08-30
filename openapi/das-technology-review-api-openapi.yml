@@ -1,0 +1,570 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Review API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Review
+paths:
+  /v1/review/{reviewGuid}:
+    get:
+      tags:
+      - Review
+      summary: Retrieve review by identifier
+      operationId: Review_GetReview
+      parameters:
+      - name: reviewGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+  /v1/review/{reviewGuid}/response:
+    get:
+      tags:
+      - Review
+      summary: Retrieve all responses for a review
+      operationId: Review_GetReviewResponses
+      parameters:
+      - name: reviewGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+    post:
+      tags:
+      - Review
+      summary: Create a new review response
+      operationId: Review_PostReviewResponse
+      parameters:
+      - name: reviewGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+        required: true
+  /v1/review/{reviewGuid}/response/{responseGuid}:
+    get:
+      tags:
+      - Review
+      summary: Retrieve a single review response
+      operationId: Review_GetReviewResponse
+      parameters:
+      - name: reviewGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: responseGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+  /v1/review:
+    post:
+      tags:
+      - Review
+      summary: Inserts or updates one or more reviews into the database
+      operationId: Review_PostReview
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+          text/html:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+        description: An array of review models
+        required: true
+  /v1/review/{reviewGuid}/DepartmentDisposition:
+    post:
+      tags:
+      - Review
+      summary: Records review department disposition.
+      operationId: Review_DepartmentDisposition
+      parameters:
+      - name: reviewGuid
+        in: path
+        description: Review GUID
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReviewModel'
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewDepartmentDispositionModel'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewDepartmentDispositionModel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewDepartmentDispositionModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewDepartmentDispositionModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewDepartmentDispositionModel'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.ReviewDepartmentDispositionModel'
+        description: Department disposition model.
+        required: true
+  /v1/review/accounts/{accountId}/sitelinks:
+    get:
+      tags:
+      - Review
+      operationId: getReviewSiteLinks
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.CustomerReviewSiteInfo'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.CustomerReviewSiteInfo'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.CustomerReviewSiteInfo'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.CustomerReviewSiteInfo'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.CustomerReviewSiteInfo'
+  /v1/review/accounts/{accountId}/sites:
+    get:
+      tags:
+      - Review
+      operationId: getReviewSiteRedirect2
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: surveyId
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: site
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/review/accounts/{accountId}/configuration/reviewsites:
+    get:
+      tags:
+      - Review
+      operationId: getAllReviewSites
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/review/{accountId}/reviews/refresh:
+    get:
+      tags:
+      - Review
+      operationId: Review_RefreshReviews
+      parameters:
+      - name: accountId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+components:
+  schemas:
+    DAS.Models.CustomerReviewSiteInfo:
+      type: object
+      properties:
+        accountId:
+          format: uuid
+          type: string
+        dealerPage:
+          type: string
+        siteId:
+          format: int32
+          type: integer
+        siteName:
+          type: string
+        siteHome:
+          type: string
+    DAS.Models.ReviewModel:
+      type: object
+      properties:
+        reviewId:
+          format: uuid
+          type: string
+        reviewDate:
+          format: date-time
+          type: string
+        reviewType:
+          type: string
+        source:
+          type: string
+        lastUpdatedDate:
+          format: date-time
+          type: string
+        lastUpdatedBy:
+          type: string
+        createdBy:
+          type: string
+        dealerGuid:
+          format: uuid
+          type: string
+        dealerName:
+          type: string
+        reviewSurgeResponseId:
+          format: uuid
+          type: string
+        siteId:
+          format: uuid
+          type: string
+        siteName:
+          type: string
+        rating:
+          type: string
+        reviewerName:
+          type: string
+        comment:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        responseDate:
+          format: date-time
+          type: string
+        disputedReview:
+          type: boolean
+        createdDate:
+          format: date-time
+          type: string
+        country:
+          type: string
+        district:
+          type: string
+        reviewResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewResponseModel'
+        externalId:
+          type: string
+        reviewTitle:
+          type: string
+        reviewUrl:
+          type: string
+    DAS.Models.ReviewDepartmentDispositionModel:
+      type: object
+      properties:
+        department:
+          type: string
+        logon:
+          type: string
+    DAS.Models.ReviewResponseV2:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        lastModified:
+          format: date-time
+          type: string
+        reviewResponseGuid:
+          format: uuid
+          type: string
+        proposed:
+          type: boolean
+        externalId:
+          type: string
+    DAS.Models.ReviewResponseModel:
+      type: object
+      properties:
+        reviewId:
+          format: uuid
+          type: string
+        reviewResponseGuid:
+          format: uuid
+          type: string
+        externalId:
+          type: string
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string

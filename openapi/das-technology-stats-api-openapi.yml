@@ -1,0 +1,687 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Stats API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Stats
+paths:
+  /v1/stats/survey:
+    get:
+      tags:
+      - Stats
+      summary: Retrieve survey stats by list of account identifiers
+      operationId: Stats_GetSurveyStatsAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.surveyType
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.source
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+  /v1/stats/review:
+    get:
+      tags:
+      - Stats
+      summary: Retrieve review stats by list of account identifiers
+      operationId: Stats_GetReviewStatsAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.reviewType
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.source
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.siteName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.state
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.orderBy
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ReviewStats'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ReviewStats'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ReviewStats'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ReviewStats'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.ReviewStats'
+  /v1/stats/enterprise:
+    get:
+      tags:
+      - Stats
+      summary: Retrieve survey and review stats by list of account identifiers
+      operationId: Stats_GetEnterpriseStatsAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: fromDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+            text/html:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+  /v1/stats/employee:
+    get:
+      tags:
+      - Stats
+      summary: Retrieve employee stats by list of account identifiers
+      operationId: Stats_GetEmployeeStatsAsync
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+      - name: fromDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+            text/html:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+  /v1/stats/ToyotaSocialInteractions:
+    get:
+      tags:
+      - Stats
+      operationId: Stats_GetToyotaSocialInteractionsReport
+      parameters:
+      - name: fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+components:
+  schemas:
+    DAS.Models.ReviewStats:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        averageRating:
+          format: double
+          type: number
+        averageTotalCount:
+          format: int32
+          type: integer
+        positiveCount:
+          format: int32
+          type: integer
+        neutralCount:
+          format: int32
+          type: integer
+        negativeCount:
+          format: int32
+          type: integer
+        positiveRespondedCount:
+          format: int32
+          type: integer
+        positiveNotRespondedCount:
+          format: int32
+          type: integer
+        negativeRespondedCount:
+          format: int32
+          type: integer
+        negativeNotRespondedCount:
+          format: int32
+          type: integer
+        positivePercentage:
+          format: double
+          type: number
+        neutralPercentage:
+          format: double
+          type: number
+        negativePercentage:
+          format: double
+          type: number
+        reviewStatsSources:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewStatsSource'
+        reviewStatsStates:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewStatsState'
+        siteRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewSiteRatings'
+    DAS.Models.EnterpriseStatsV2:
+      type: object
+      properties:
+        nclTotalSurveysCompleted:
+          format: int32
+          type: integer
+        nclAverageStarRating:
+          format: double
+          type: number
+        nclPositiveSurveysCompleted:
+          format: double
+          type: number
+        clTotalSurveysCompleted:
+          format: int32
+          type: integer
+        clAverageStarRating:
+          format: double
+          type: number
+        clAverageLoyaltyScore:
+          format: double
+          type: number
+        clPositiveSurveysCompleted:
+          format: int32
+          type: integer
+        neutralSurveysCompleted:
+          format: int32
+          type: integer
+        positivePercentage:
+          format: int32
+          type: integer
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        transactions:
+          format: int32
+          type: integer
+        emailCapture:
+          format: int32
+          type: integer
+        surveysSent:
+          format: int32
+          type: integer
+        surveysOpened:
+          format: int32
+          type: integer
+        totalSurveysCompleted:
+          format: int32
+          type: integer
+        positiveSurveysCompleted:
+          format: int32
+          type: integer
+        negativeSurveysCompleted:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        averageLoyaltyScore:
+          format: double
+          type: number
+        nclReviewClicks:
+          format: int32
+          type: integer
+    DAS.Models.SurveyStatsV2:
+      type: object
+      properties:
+        clTotalSurveysCompleted:
+          format: int32
+          type: integer
+        clAverageStarRating:
+          format: double
+          type: number
+        clAverageLoyaltyScore:
+          format: double
+          type: number
+        clPositiveSurveysCompleted:
+          format: int32
+          type: integer
+        neutralSurveysCompleted:
+          format: int32
+          type: integer
+        positivePercentage:
+          format: int32
+          type: integer
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        transactions:
+          format: int32
+          type: integer
+        emailCapture:
+          format: int32
+          type: integer
+        surveysSent:
+          format: int32
+          type: integer
+        surveysOpened:
+          format: int32
+          type: integer
+        totalSurveysCompleted:
+          format: int32
+          type: integer
+        positiveSurveysCompleted:
+          format: int32
+          type: integer
+        negativeSurveysCompleted:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        averageLoyaltyScore:
+          format: double
+          type: number
+        nclReviewClicks:
+          format: int32
+          type: integer
+    DAS.Models.SurveyStats:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        transactions:
+          format: int32
+          type: integer
+        emailCapture:
+          format: int32
+          type: integer
+        surveysSent:
+          format: int32
+          type: integer
+        surveysOpened:
+          format: int32
+          type: integer
+        totalSurveysCompleted:
+          format: int32
+          type: integer
+        positiveSurveysCompleted:
+          format: int32
+          type: integer
+        negativeSurveysCompleted:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        averageLoyaltyScore:
+          format: double
+          type: number
+        nclReviewClicks:
+          format: int32
+          type: integer
+    DAS.Models.ReviewStatsSource:
+      type: object
+      properties:
+        name:
+          type: string
+        count:
+          format: int32
+          type: integer
+        averageRating:
+          format: double
+          type: number
+        positiveCount:
+          format: int32
+          type: integer
+        averageTotalCount:
+          format: int32
+          type: integer
+        averageSite:
+          format: double
+          type: number
+    DAS.Models.ReviewSiteRatings:
+      type: object
+      properties:
+        name:
+          type: string
+        averageRating:
+          format: double
+          type: number
+    DAS.Models.ReviewStatsState:
+      type: object
+      properties:
+        stateName:
+          type: string
+        ratingAverage:
+          format: double
+          type: number
+    DAS.Models.ReviewStatsSimple:
+      type: object
+      properties:
+        name:
+          type: string
+        reviewClicks:
+          format: int32
+          type: integer
+        reviewCount:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        percentPositive:
+          format: double
+          type: number
+    DAS.Models.EmployeeStats:
+      type: object
+      properties:
+        employeeId:
+          format: int32
+          type: integer
+        employeeName:
+          type: string
+        employeeDepartment:
+          type: string
+        dealershipName:
+          type: string
+        dealershipGuid:
+          format: uuid
+          type: string
+        surveyStats:
+          $ref: '#/components/schemas/DAS.Models.SurveyStats'
+        closedLoopStats:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewStatsSimple'

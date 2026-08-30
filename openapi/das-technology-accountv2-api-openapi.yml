@@ -1,0 +1,1016 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: DASWebAPI V2 Account V2 API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: AccountV2
+paths:
+  /v2/account/{accountGuid}/reviewV2:
+    get:
+      tags:
+      - AccountV2
+      summary: Retrieve reviews by account identifier, supports partial filter
+      operationId: AccountV2_GetReviewsV2
+      parameters:
+      - name: accountGuid
+        in: path
+        description: A uniqueidentifier representing an account.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: query.fromDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.categories
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.reviewType
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.source
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.siteName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.disputedReview
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.state
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.hasResponse
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.closedLoop
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query.brands
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.orderBy
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: query.page
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: query.pageSize
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.ReviewV2'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.ReviewV2'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.ReviewV2'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.ReviewV2'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.ReviewV2'
+  /v2/account/{accountGuid}/survey/responsesV2:
+    get:
+      tags:
+      - AccountV2
+      summary: Retrieves survey responses by account identifier
+      operationId: AccountV2_GetSurveyResponsesV2Async
+      parameters:
+      - name: accountGuid
+        in: path
+        description: The account unique identifier.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: page
+        in: query
+        description: The page.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: pageSize
+        in: query
+        description: Size of the page.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: orderBy
+        in: query
+        description: The order by.
+        required: false
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: The q.
+        required: false
+        schema:
+          type: string
+      - name: query.fromDate
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: query.toDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: query.surveyType
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: query.source
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.SurveyResponseV2'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.SurveyResponseV2'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.SurveyResponseV2'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.SurveyResponseV2'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.SurveyResponseV2'
+  /v2/account/{accountGuid}/hierarchy:
+    get:
+      tags:
+      - AccountV2
+      summary: Retrieves an account hierarchy based on the account and hierarchy
+      operationId: AccountV2_GetHierarchyAsync
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: hierarchyGuid
+        in: query
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+  /v2/account/{accountGuid}/competitor:
+    get:
+      tags:
+      - AccountV2
+      summary: Retrieves a list of competitors for an account.
+      operationId: AccountV2_GetCompetitors
+      parameters:
+      - name: accountGuid
+        in: path
+        description: A guid identifying the account.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+    post:
+      tags:
+      - AccountV2
+      summary: 'Sets a list of account guids as the competitor list.  Duplicate accounts are suppressed.
+
+        If an account guid does not exist, a 404 error will be returned.'
+      operationId: AccountV2_PostCompetitors
+      parameters:
+      - name: accountGuid
+        in: path
+        description: A guid representing the account
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+          text/xml:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+          text/html:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
+        required: true
+    delete:
+      tags:
+      - AccountV2
+      summary: Deletes an account competitor from the the competitor list.
+      operationId: AccountV2_DeleteCompetitors
+      parameters:
+      - name: accountGuid
+        in: path
+        description: A guid representing an account
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: array
+              items:
+                format: uuid
+                type: string
+          text/xml:
+            schema:
+              type: array
+              items:
+                format: uuid
+                type: string
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                format: uuid
+                type: string
+          application/json:
+            schema:
+              type: array
+              items:
+                format: uuid
+                type: string
+          text/json:
+            schema:
+              type: array
+              items:
+                format: uuid
+                type: string
+          text/html:
+            schema:
+              type: array
+              items:
+                format: uuid
+                type: string
+        description: An array of guids representing the account competitors
+        required: true
+  /v2/account/{accountGuid}/reputation:
+    get:
+      tags:
+      - AccountV2
+      summary: Generates a summary report of reputation statistics for a given account.
+      operationId: AccountV2_GetReputationStatistics
+      parameters:
+      - name: accountGuid
+        in: path
+        description: A unique identifier representing an account
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: fromDate
+        in: query
+        description: "A date time offset value representing the start date.  Time is represented in UTC.  Default value is -14 days if ToDate is specified, or -14\n            from current time if no fromDate and toDate parameter is specified."
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: toDate
+        in: query
+        description: "A date time offset value representing the end date.  Time is represented in UTC.  Default value is 14 days from fromDate if specified, or if\n            current time if no fromDate or toDate parameter is specified."
+        required: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReputationStatisticsRootModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReputationStatisticsRootModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReputationStatisticsRootModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReputationStatisticsRootModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.ReputationStatisticsRootModel'
+  /v2/account/{accountGuid}/SocialAdsCampaignReport:
+    get:
+      tags:
+      - AccountV2
+      operationId: AccountV2_SocicalAdsCampaignReport
+      parameters:
+      - name: accountGuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: campaignId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v2/account/RunSocialAdsCampaignReport:
+    get:
+      tags:
+      - AccountV2
+      operationId: AccountV2_RunSocialAdsCampaignReport
+      parameters:
+      - name: campaignId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: fromMonth
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: fromYear
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: toMonth
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: toYear
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: string
+            text/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+            text/html:
+              schema:
+                type: string
+  /v2/account/GetAccountsActiveReviewSurge:
+    get:
+      tags:
+      - AccountV2
+      summary: Returns the clients that are active on review surge.
+      description: This Data is based off the RSActive column in the Accounts table in Core.
+      operationId: AccountV2_GetAccountsActiveReviewSurge
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v2/account/GetAccountsTokenActiveReviewSurge:
+    get:
+      tags:
+      - AccountV2
+      summary: Return a simple list of tokens of the clients active on Review Surge.
+      operationId: AccountV2_GetAccountsTokenActiveReviewSurge
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v2/account/{accountGuid}/GetEmployees:
+    get:
+      tags:
+      - AccountV2
+      summary: Gets the list of active Employees of an account
+      operationId: AccountV2_GetEmployees
+      parameters:
+      - name: accountGuid
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: ActiveDays
+        in: query
+        description: Range of days to evaluate user activity
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v2/account/GetAdvocate:
+    get:
+      tags:
+      - AccountV2
+      operationId: AccountV2_GetAdvocate
+      parameters:
+      - name: accountGuid
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+components:
+  schemas:
+    DAS.Models.PagedResult_DAS.Models.ReviewV2:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewV2'
+        count:
+          format: int32
+          type: integer
+    DAS.Models.AccountCompetitorModel:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        competitorAccountGuid:
+          format: uuid
+          type: string
+        id:
+          format: uuid
+          type: string
+        competitorAccountName:
+          type: string
+        rank:
+          format: int32
+          type: integer
+    DAS.Models.ReputationStatisticsSummaryModel:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        total:
+          format: int32
+          type: integer
+        average:
+          format: double
+          type: number
+    DAS.Models.SurveyResponseV2:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        district:
+          type: string
+        dealership:
+          type: string
+        isClosedLoopReview:
+          type: boolean
+        isGMSFEAccount:
+          type: boolean
+        npsScore:
+          format: int32
+          type: integer
+        rating:
+          format: int32
+          type: integer
+        date:
+          format: date-time
+          type: string
+        transactionDate:
+          format: date-time
+          type: string
+        department:
+          type: string
+        employee:
+          type: string
+        surveyId:
+          format: uuid
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        phone:
+          type: string
+        homePhone:
+          type: string
+        workPhone:
+          type: string
+        cellPhone:
+          type: string
+        email:
+          type: string
+        surveyVia:
+          type: string
+        vehicleYear:
+          type: string
+        vehicleMake:
+          type: string
+        vehicleModel:
+          type: string
+        vin:
+          type: string
+        stockNumber:
+          type: string
+        repairOrder:
+          type: string
+        customerResponseComment:
+          type: string
+        customerResponseImprovementComment:
+          type: string
+        dealerResponseDate:
+          type: string
+        dealerResponseComment:
+          type: string
+        canRespondInline:
+          type: boolean
+        proposedResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+        surveyResponseId:
+          format: uuid
+          type: string
+        publicationDate:
+          format: date-time
+          type: string
+        publicationStatus:
+          type: string
+        responded:
+          type: boolean
+        published:
+          type: boolean
+        daysUntilPublication:
+          format: int32
+          type: integer
+          readOnly: true
+        daysUntilResponseLocked:
+          format: int32
+          type: integer
+          readOnly: true
+        canRespond:
+          type: boolean
+          readOnly: true
+    DAS.Models.ProposedResponse:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        accepted:
+          type: boolean
+        acceptedDate:
+          format: date-time
+          type: string
+        lastModified:
+          format: date-time
+          type: string
+        surveyResponseResponseGuid:
+          format: uuid
+          type: string
+    DAS.Models.PagedResult_DAS.Models.SurveyResponseV2:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+        count:
+          format: int32
+          type: integer
+    DAS.Models.PortalAccountV2:
+      type: object
+      properties:
+        name:
+          type: string
+        guid:
+          format: uuid
+          type: string
+        parent:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        child:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        level:
+          format: int32
+          type: integer
+        label:
+          type: string
+        features:
+          type: array
+          items:
+            type: string
+        brands:
+          type: string
+    DAS.Models.ReviewResponseV2:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        lastModified:
+          format: date-time
+          type: string
+        reviewResponseGuid:
+          format: uuid
+          type: string
+        proposed:
+          type: boolean
+        externalId:
+          type: string
+    DAS.Models.ReviewV2:
+      type: object
+      properties:
+        id:
+          format: uuid
+          type: string
+        comment:
+          type: string
+        accountGuid:
+          format: uuid
+          type: string
+        reviewerName:
+          type: string
+        siteName:
+          type: string
+        rating:
+          type: string
+        isClosedLoopReview:
+          type: boolean
+        reviewDate:
+          format: date-time
+          type: string
+        district:
+          type: string
+        dealerName:
+          type: string
+        department:
+          type: string
+        hasResponse:
+          type: boolean
+        reviewResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+        city:
+          type: string
+        state:
+          type: string
+        reviewUrl:
+          type: string
+        canRespond:
+          type: boolean
+        canRespondInline:
+          type: boolean
+        proposedResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+        canChangeDepartment:
+          type: boolean
+    DAS.Models.ReputationStatisticsSiteDetailsModelAllTime:
+      type: object
+      properties:
+        site:
+          type: string
+        averageScore:
+          format: double
+          type: number
+    DAS.Models.ReputationStatisticsRootModel:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModel'
+        statisticsAllTime:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModelAllTime'
+        summaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSummaryModel'
+    DAS.Models.ReputationStatisticsSiteDetailsModel:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        site:
+          type: string
+        reviewCount:
+          format: int32
+          type: integer
+        positiveReviews:
+          format: int32
+          type: integer
+        negativeReviews:
+          format: int32
+          type: integer
+        dealerResponses:
+          format: int32
+          type: integer
+        averageScore:
+          format: double
+          type: number

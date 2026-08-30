@@ -1,0 +1,76 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Employee API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Employee
+paths:
+  /v1/employee/{employeeId}:
+    get:
+      tags:
+      - Employee
+      summary: Retrieve employee by employee identifer
+      operationId: Employee_GetEmployee
+      parameters:
+      - name: employeeId
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.EmployeeModel'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.EmployeeModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.EmployeeModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.EmployeeModel'
+            text/html:
+              schema:
+                $ref: '#/components/schemas/DAS.Models.EmployeeModel'
+components:
+  schemas:
+    DAS.Models.EmployeeModel:
+      type: object
+      properties:
+        employeeId:
+          format: int32
+          type: integer
+        createdDate:
+          format: date-time
+          type: string
+        lastUpdatedDate:
+          format: date-time
+          type: string
+        lastUpdatedBy:
+          type: string
+        token:
+          format: uuid
+          type: string
+        accountToken:
+          format: uuid
+          type: string
+        employeeNumber:
+          type: string
+        name:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        employeeDepartment:
+          type: string
+        active:
+          type: boolean

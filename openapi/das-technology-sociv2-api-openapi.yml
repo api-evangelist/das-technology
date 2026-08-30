@@ -1,0 +1,75 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: DASWebAPI V2 Soci V2 API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: SociV2
+paths:
+  /v2/SOCi/{accountsId}/provision:
+    get:
+      tags:
+      - SociV2
+      summary: Provisions the specified account unique identifier.
+      operationId: SociV2_Provision
+      parameters:
+      - name: accountsId
+        in: path
+        description: ''
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v2/SOCi/{accountsId}/deprovision:
+    get:
+      tags:
+      - SociV2
+      summary: Deprovisions the specified account unique identifier.
+      operationId: SociV2_Deprovision
+      parameters:
+      - name: accountsId
+        in: path
+        description: The account unique identifier.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object

@@ -1,0 +1,248 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Mail API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Mail
+paths:
+  /v1/mail/send:
+    post:
+      tags:
+      - Mail
+      operationId: Mail_PostMessageAsynchronous
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+        required: true
+  /v1/mail/sendsync:
+    post:
+      tags:
+      - Mail
+      operationId: Mail_PostMessageSynchronous
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+          text/html:
+            schema:
+              $ref: '#/components/schemas/DAS.Models.Envelope'
+        required: true
+  /v1/mail/status/{token}:
+    get:
+      tags:
+      - Mail
+      operationId: Mail_GetStatus
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/mail/events/{token}:
+    get:
+      tags:
+      - Mail
+      operationId: Mail_GetEventsAsync
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+components:
+  schemas:
+    DAS.Models.Envelope:
+      type: object
+      properties:
+        id:
+          format: uuid
+          type: string
+        mailType:
+          enum:
+          - Default
+          - Client
+          - Operations
+          type: string
+        entity:
+          format: uuid
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+        messageId:
+          type: string
+        inReplyTo:
+          type: string
+        references:
+          type: string
+        listUnsubscribe:
+          type: string
+        from:
+          type: string
+        replyTo:
+          type: array
+          items:
+            type: string
+        to:
+          type: array
+          items:
+            type: string
+        cc:
+          type: array
+          items:
+            type: string
+        bcc:
+          type: array
+          items:
+            type: string
+        subject:
+          type: string
+        text:
+          type: string
+        html:
+          type: string
+        oneClickUnsubscribe:
+          type: boolean
+        showUnsubscribe:
+          type: boolean
+        disableOpenTracking:
+          type: boolean
+        disableClickTracking:
+          type: boolean
+        bypassListManagement:
+          type: boolean
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.EnvelopeAttachment'
+    DAS.Models.EnvelopeAttachment:
+      type: object
+      properties:
+        content:
+          format: byte
+          type: string
+        contentId:
+          type: string
+        contentType:
+          type: string
+        dispositionType:
+          type: string
+        name:
+          type: string
+        nameEncoding:
+          format: int32
+          type: integer
+        transferEncoding:
+          format: int32
+          type: integer

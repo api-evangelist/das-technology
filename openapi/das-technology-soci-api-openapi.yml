@@ -1,0 +1,89 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 SO Ci API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: SOCi
+paths:
+  /v1/SOCi/{accountGuid}/provision:
+    get:
+      tags:
+      - SOCi
+      summary: Provisions the specified account unique identifier.
+      operationId: SOCi_Provision
+      parameters:
+      - name: accountGuid
+        in: path
+        description: The account unique identifier.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: projectId
+        in: query
+        description: The project identifier.
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
+  /v1/SOCi/{accountGuid}/deprovision:
+    get:
+      tags:
+      - SOCi
+      summary: Deprovisions the specified account unique identifier.
+      operationId: SOCi_Deprovision
+      parameters:
+      - name: accountGuid
+        in: path
+        description: The account unique identifier.
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: projectId
+        in: query
+        description: The project identifier.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object

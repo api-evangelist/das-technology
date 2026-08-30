@@ -1,0 +1,33 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: DASWebAPI V1 Zuora API
+servers:
+- url: https://api.digitalairstrike.com
+tags:
+- name: Zuora
+paths:
+  /v1/zuora/signature:
+    post:
+      tags:
+      - Zuora
+      operationId: Zuora_RequestDigitalSignature
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: object
+            text/xml:
+              schema:
+                type: object
+            application/json:
+              schema:
+                type: object
+            text/json:
+              schema:
+                type: object
+            text/html:
+              schema:
+                type: object
