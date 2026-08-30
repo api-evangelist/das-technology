@@ -53,7 +53,7 @@ created: '2026-07-17'
 modified: '2026-08-12'
 tags:
 - Company
-- MarTech
+- Martech
 - Automotive
 - Automotive Retail
 - Marketing
@@ -144,6 +144,8 @@ apis:
   humanURL: https://api.digitalairstrike.com/swagger
   baseURL: https://api.digitalairstrike.com
   tags:
+  - Clients
+  tags_raw:
   - Client
   properties:
   - type: OpenAPI
@@ -804,6 +806,8 @@ apis:
   humanURL: https://api.digitalairstrike.com/swagger
   baseURL: https://api.digitalairstrike.com
   tags:
+  - User v2
+  tags_raw:
   - UserV2
   properties:
   - type: OpenAPI
