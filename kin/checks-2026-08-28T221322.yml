@@ -2,61 +2,50 @@
 kin_checks:
   slug: das-technology
   schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T140727
+  scored_at: '2026-08-28'
+  run_ts: 2026-08-28T221322
   note: Actionable checks only (missed + partial). earned/na are every other check
     in rubric/scoring-0.15.1.yml; counts below let you verify that.
   counts:
     total: 130
-    earned: 26
-    partial: 8
-    missed: 72
+    earned: 27
+    partial: 11
+    missed: 68
     na: 24
   checks:
-  - id: multiple_apis
-    status: missed
   - id: llms_txt_published
     status: missed
   - id: apis_json_self_hosted
     status: missed
   - id: openapi_3_2
     status: missed
-    detail: 0 of 1 openapi documents pass
+    detail: 0 of 27 openapi documents pass
   - id: openapi_3_1
     status: missed
-    detail: 0 of 1 openapi documents pass
+    detail: 0 of 27 openapi documents pass
   - id: openapi_3_0
     status: missed
-    detail: 0 of 1 openapi documents pass
+    detail: 0 of 27 openapi documents pass
   - id: info_complete
     status: missed
-    detail: 0 of 1 openapi documents pass
-  - id: operations_summary_coverage
-    status: missed
-    detail: 0 of 1 openapi documents pass
+    detail: 0 of 27 openapi documents pass
   - id: operations_description_coverage
     status: missed
-    detail: 0 of 1 openapi documents pass
-  - id: response_coverage
-    status: missed
-    detail: 0 of 1 openapi documents pass
+    detail: 0 of 27 openapi documents pass
   - id: error_responses_documented
     status: missed
-    detail: 0 of 1 openapi documents pass
+    detail: 0 of 27 openapi documents pass
   - id: examples_present
     status: missed
-  - id: components_reuse
-    status: missed
-    detail: 0 of 1 openapi documents pass
   - id: security_schemes_defined
     status: missed
-    detail: 0 of 1 openapi documents pass
+    detail: 0 of 27 openapi documents pass
   - id: security_applied
     status: missed
-    detail: 0 of 1 openapi documents pass
+    detail: 0 of 27 openapi documents pass
   - id: webhooks_or_callbacks
     status: missed
-    detail: 0 of 1 openapi documents pass
+    detail: 0 of 27 openapi documents pass
   - id: asyncapi_present
     status: missed
   - id: json_schema_present
@@ -175,6 +164,18 @@ kin_checks:
     status: missed
   - id: agentic_commerce
     status: missed
+  - id: operations_summary_coverage
+    status: partial
+    earned: 2.89
+    detail: 13 of 27 openapi documents pass
+  - id: operations_operation_ids
+    status: partial
+    earned: 3.85
+    detail: 26 of 27 openapi documents pass
+  - id: components_reuse
+    status: partial
+    earned: 0.78
+    detail: 7 of 27 openapi documents pass
   - id: conformance_declared
     status: partial
     earned: 1.5
