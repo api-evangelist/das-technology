@@ -108,36 +108,6 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
-- aid: das-technology:das-technology-accountv2-api
-  name: DAS Technology Account V2 API
-  description: The AccountV2 API from DAS Technology — 11 operation(s) for accountv2.
-  humanURL: https://api.digitalairstrike.com/swagger
-  baseURL: https://api.digitalairstrike.com
-  tags:
-  - AccountV2
-  properties:
-  - type: OpenAPI
-    url: openapi/das-technology-accountv2-api-openapi.yml
-  - type: APIReference
-    url: https://api.digitalairstrike.com/swagger
-  - type: Documentation
-    url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
-  - type: Conventions
-    url: conventions/das-technology-conventions.yml
-  - type: ErrorCatalog
-    url: errors/das-technology-problem-types.yml
-  - type: DataModel
-    url: data-model/das-technology-data-model.yml
-  - type: Lifecycle
-    url: lifecycle/das-technology-lifecycle.yml
-  - type: Conformance
-    url: conformance/das-technology-conformance.yml
-  - type: RateLimits
-    url: rate-limits/das-technology-rate-limits.yml
-  - type: Plans
-    url: plans/das-technology-plans-pricing.yml
 - aid: das-technology:das-technology-client-api
   name: DAS Technology Client API
   description: The Client API from DAS Technology — 2 operation(s) for client.
@@ -800,38 +770,6 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
-- aid: das-technology:das-technology-userv2-api
-  name: DAS Technology User V2 API
-  description: The UserV2 API from DAS Technology — 2 operation(s) for userv2.
-  humanURL: https://api.digitalairstrike.com/swagger
-  baseURL: https://api.digitalairstrike.com
-  tags:
-  - User v2
-  tags_raw:
-  - UserV2
-  properties:
-  - type: OpenAPI
-    url: openapi/das-technology-userv2-api-openapi.yml
-  - type: APIReference
-    url: https://api.digitalairstrike.com/swagger
-  - type: Documentation
-    url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
-  - type: Conventions
-    url: conventions/das-technology-conventions.yml
-  - type: ErrorCatalog
-    url: errors/das-technology-problem-types.yml
-  - type: DataModel
-    url: data-model/das-technology-data-model.yml
-  - type: Lifecycle
-    url: lifecycle/das-technology-lifecycle.yml
-  - type: Conformance
-    url: conformance/das-technology-conformance.yml
-  - type: RateLimits
-    url: rate-limits/das-technology-rate-limits.yml
-  - type: Plans
-    url: plans/das-technology-plans-pricing.yml
 - aid: das-technology:das-technology-vehicle-api
   name: DAS Technology Vehicle API
   description: The Vehicle API from DAS Technology — 2 operation(s) for vehicle.
@@ -872,6 +810,66 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/das-technology-zuora-api-openapi.yml
+  - type: APIReference
+    url: https://api.digitalairstrike.com/swagger
+  - type: Documentation
+    url: https://api.digitalairstrike.com/swagger
+  - type: Authentication
+    url: authentication/das-technology-authentication.yml
+  - type: Conventions
+    url: conventions/das-technology-conventions.yml
+  - type: ErrorCatalog
+    url: errors/das-technology-problem-types.yml
+  - type: DataModel
+    url: data-model/das-technology-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/das-technology-lifecycle.yml
+  - type: Conformance
+    url: conformance/das-technology-conformance.yml
+  - type: RateLimits
+    url: rate-limits/das-technology-rate-limits.yml
+  - type: Plans
+    url: plans/das-technology-plans-pricing.yml
+- aid: das-technology:das-technology-account-v2-api
+  name: DAS Technology Account V2 API
+  description: The Account V2 API from DAS Technology — 11 operation(s) for account v2.
+  humanURL: https://api.digitalairstrike.com/swagger
+  baseURL: https://api.digitalairstrike.com
+  tags:
+  - Account V2
+  properties:
+  - type: OpenAPI
+    url: openapi/das-technology-account-v2-api-openapi.yml
+  - type: APIReference
+    url: https://api.digitalairstrike.com/swagger
+  - type: Documentation
+    url: https://api.digitalairstrike.com/swagger
+  - type: Authentication
+    url: authentication/das-technology-authentication.yml
+  - type: Conventions
+    url: conventions/das-technology-conventions.yml
+  - type: ErrorCatalog
+    url: errors/das-technology-problem-types.yml
+  - type: DataModel
+    url: data-model/das-technology-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/das-technology-lifecycle.yml
+  - type: Conformance
+    url: conformance/das-technology-conformance.yml
+  - type: RateLimits
+    url: rate-limits/das-technology-rate-limits.yml
+  - type: Plans
+    url: plans/das-technology-plans-pricing.yml
+- aid: das-technology:das-technology-user-v2-api
+  name: DAS Technology User v2 API
+  description: The User v2 API from DAS Technology — 2 operation(s) for user v2.
+  humanURL: https://api.digitalairstrike.com/swagger
+  baseURL: https://api.digitalairstrike.com
+  tags:
+  - User v2
+  properties:
+  - type: OpenAPI
+    url: openapi/das-technology-user-v2-api-openapi.yml
   - type: APIReference
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
