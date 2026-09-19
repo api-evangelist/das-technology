@@ -626,6 +626,8 @@ apis:
   humanURL: https://api.digitalairstrike.com/swagger
   baseURL: https://api.digitalairstrike.com
   tags:
+  - Surveys
+  tags_raw:
   - Survey
   properties:
   - type: OpenAPI
@@ -776,6 +778,8 @@ apis:
   humanURL: https://api.digitalairstrike.com/swagger
   baseURL: https://api.digitalairstrike.com
   tags:
+  - Vehicles
+  tags_raw:
   - Vehicle
   properties:
   - type: OpenAPI
@@ -836,6 +840,8 @@ apis:
   humanURL: https://api.digitalairstrike.com/swagger
   baseURL: https://api.digitalairstrike.com
   tags:
+  - AccountV2
+  tags_raw:
   - Account V2
   properties:
   - type: OpenAPI
