@@ -43,6 +43,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Configuration get addon configuration
+      x-summary-source: derived
   /v1/accounts/{clientId}/configuration/mobile:
     get:
       tags:
@@ -74,3 +76,5 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Configuration get mobile configuration
+      x-summary-source: derived

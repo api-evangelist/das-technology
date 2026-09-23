@@ -331,6 +331,20 @@ components:
         canRespond:
           type: boolean
           readOnly: true
+    DAS.Models.SurveyDealerComments:
+      type: object
+      properties:
+        surveyId:
+          format: int32
+          type: integer
+        surveyResponseId:
+          format: int32
+          type: integer
+        date:
+          format: date-time
+          type: string
+        comment:
+          type: string
     DAS.Models.ProposedResponse:
       type: object
       properties:
@@ -355,18 +369,4 @@ components:
           type: string
         surveyResponseResponseGuid:
           format: uuid
-          type: string
-    DAS.Models.SurveyDealerComments:
-      type: object
-      properties:
-        surveyId:
-          format: int32
-          type: integer
-        surveyResponseId:
-          format: int32
-          type: integer
-        date:
-          format: date-time
-          type: string
-        comment:
           type: string

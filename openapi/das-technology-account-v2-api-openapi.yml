@@ -5,12 +5,12 @@ info:
 servers:
 - url: https://api.digitalairstrike.com
 tags:
-- name: AccountV2
+- name: Account V2
 paths:
   /v2/account/{accountGuid}/reviewV2:
     get:
       tags:
-      - AccountV2
+      - Account V2
       summary: Retrieve reviews by account identifier, supports partial filter
       operationId: AccountV2_GetReviewsV2
       parameters:
@@ -129,7 +129,7 @@ paths:
   /v2/account/{accountGuid}/survey/responsesV2:
     get:
       tags:
-      - AccountV2
+      - Account V2
       summary: Retrieves survey responses by account identifier
       operationId: AccountV2_GetSurveyResponsesV2Async
       parameters:
@@ -218,7 +218,7 @@ paths:
   /v2/account/{accountGuid}/hierarchy:
     get:
       tags:
-      - AccountV2
+      - Account V2
       summary: Retrieves an account hierarchy based on the account and hierarchy
       operationId: AccountV2_GetHierarchyAsync
       parameters:
@@ -258,8 +258,8 @@ paths:
   /v2/account/{accountGuid}/competitor:
     get:
       tags:
-      - AccountV2
-      summary: Retrieves a list of competitors for an account.
+      - Account V2
+      summary: Retrieves a list of competitors for an account
       operationId: AccountV2_GetCompetitors
       parameters:
       - name: accountGuid
@@ -290,10 +290,8 @@ paths:
                 $ref: '#/components/schemas/DAS.Models.AccountCompetitorModel'
     post:
       tags:
-      - AccountV2
-      summary: 'Sets a list of account guids as the competitor list.  Duplicate accounts are suppressed.
-
-        If an account guid does not exist, a 404 error will be returned.'
+      - Account V2
+      summary: Sets a list of account guids as the competitor list.
       operationId: AccountV2_PostCompetitors
       parameters:
       - name: accountGuid
@@ -357,8 +355,8 @@ paths:
         required: true
     delete:
       tags:
-      - AccountV2
-      summary: Deletes an account competitor from the the competitor list.
+      - Account V2
+      summary: Deletes an account competitor from the the competitor list
       operationId: AccountV2_DeleteCompetitors
       parameters:
       - name: accountGuid
@@ -430,8 +428,8 @@ paths:
   /v2/account/{accountGuid}/reputation:
     get:
       tags:
-      - AccountV2
-      summary: Generates a summary report of reputation statistics for a given account.
+      - Account V2
+      summary: Generates a summary report of reputation statistics for a given account
       operationId: AccountV2_GetReputationStatistics
       parameters:
       - name: accountGuid
@@ -477,7 +475,7 @@ paths:
   /v2/account/{accountGuid}/SocialAdsCampaignReport:
     get:
       tags:
-      - AccountV2
+      - Account V2
       operationId: AccountV2_SocicalAdsCampaignReport
       parameters:
       - name: accountGuid
@@ -510,10 +508,12 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Account V2 socical ads campaign report
+      x-summary-source: derived
   /v2/account/RunSocialAdsCampaignReport:
     get:
       tags:
-      - AccountV2
+      - Account V2
       operationId: AccountV2_RunSocialAdsCampaignReport
       parameters:
       - name: campaignId
@@ -560,11 +560,13 @@ paths:
             text/html:
               schema:
                 type: string
+      summary: Account V2 run social ads campaign report
+      x-summary-source: derived
   /v2/account/GetAccountsActiveReviewSurge:
     get:
       tags:
-      - AccountV2
-      summary: Returns the clients that are active on review surge.
+      - Account V2
+      summary: Returns the clients that are active on review surge
       description: This Data is based off the RSActive column in the Accounts table in Core.
       operationId: AccountV2_GetAccountsActiveReviewSurge
       responses:
@@ -589,8 +591,8 @@ paths:
   /v2/account/GetAccountsTokenActiveReviewSurge:
     get:
       tags:
-      - AccountV2
-      summary: Return a simple list of tokens of the clients active on Review Surge.
+      - Account V2
+      summary: Return a simple list of tokens of the clients active on Review Surge
       operationId: AccountV2_GetAccountsTokenActiveReviewSurge
       responses:
         '200':
@@ -614,7 +616,7 @@ paths:
   /v2/account/{accountGuid}/GetEmployees:
     get:
       tags:
-      - AccountV2
+      - Account V2
       summary: Gets the list of active Employees of an account
       operationId: AccountV2_GetEmployees
       parameters:
@@ -654,7 +656,7 @@ paths:
   /v2/account/GetAdvocate:
     get:
       tags:
-      - AccountV2
+      - Account V2
       operationId: AccountV2_GetAdvocate
       parameters:
       - name: accountGuid
@@ -682,18 +684,65 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Account V2 get advocate
+      x-summary-source: derived
 components:
   schemas:
-    DAS.Models.PagedResult_DAS.Models.ReviewV2:
+    DAS.Models.ReputationStatisticsSiteDetailsModelAllTime:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReviewV2'
-        count:
+        site:
+          type: string
+        averageScore:
+          format: double
+          type: number
+    DAS.Models.ReputationStatisticsSiteDetailsModel:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        site:
+          type: string
+        reviewCount:
           format: int32
           type: integer
+        positiveReviews:
+          format: int32
+          type: integer
+        negativeReviews:
+          format: int32
+          type: integer
+        dealerResponses:
+          format: int32
+          type: integer
+        averageScore:
+          format: double
+          type: number
+    DAS.Models.ReviewResponseV2:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        lastModified:
+          format: date-time
+          type: string
+        reviewResponseGuid:
+          format: uuid
+          type: string
+        proposed:
+          type: boolean
+        externalId:
+          type: string
     DAS.Models.AccountCompetitorModel:
       type: object
       properties:
@@ -711,18 +760,142 @@ components:
         rank:
           format: int32
           type: integer
-    DAS.Models.ReputationStatisticsSummaryModel:
+    DAS.Models.PortalAccountV2:
       type: object
       properties:
-        date:
-          format: date-time
+        name:
           type: string
-        total:
+        guid:
+          format: uuid
+          type: string
+        parent:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        child:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        level:
           format: int32
           type: integer
-        average:
-          format: double
-          type: number
+        label:
+          type: string
+        features:
+          type: array
+          items:
+            type: string
+        brands:
+          type: string
+    DAS.Models.PagedResult_DAS.Models.ReviewV2:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewV2'
+        count:
+          format: int32
+          type: integer
+    DAS.Models.ProposedResponse:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        accepted:
+          type: boolean
+        acceptedDate:
+          format: date-time
+          type: string
+        lastModified:
+          format: date-time
+          type: string
+        surveyResponseResponseGuid:
+          format: uuid
+          type: string
+    DAS.Models.ReputationStatisticsRootModel:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModel'
+        statisticsAllTime:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModelAllTime'
+        summaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSummaryModel'
+    DAS.Models.ReviewV2:
+      type: object
+      properties:
+        id:
+          format: uuid
+          type: string
+        comment:
+          type: string
+        accountGuid:
+          format: uuid
+          type: string
+        reviewerName:
+          type: string
+        siteName:
+          type: string
+        rating:
+          type: string
+        isClosedLoopReview:
+          type: boolean
+        reviewDate:
+          format: date-time
+          type: string
+        district:
+          type: string
+        dealerName:
+          type: string
+        department:
+          type: string
+        hasResponse:
+          type: boolean
+        reviewResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+        city:
+          type: string
+        state:
+          type: string
+        reviewUrl:
+          type: string
+        canRespond:
+          type: boolean
+        canRespondInline:
+          type: boolean
+        proposedResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+        canChangeDepartment:
+          type: boolean
     DAS.Models.SurveyResponseV2:
       type: object
       properties:
@@ -823,31 +996,18 @@ components:
         canRespond:
           type: boolean
           readOnly: true
-    DAS.Models.ProposedResponse:
+    DAS.Models.ReputationStatisticsSummaryModel:
       type: object
       properties:
-        responseDate:
+        date:
           format: date-time
           type: string
-        responderName:
-          type: string
-        responseTitle:
-          type: string
-        responseComment:
-          type: string
-        canEditResponse:
-          type: boolean
-        accepted:
-          type: boolean
-        acceptedDate:
-          format: date-time
-          type: string
-        lastModified:
-          format: date-time
-          type: string
-        surveyResponseResponseGuid:
-          format: uuid
-          type: string
+        total:
+          format: int32
+          type: integer
+        average:
+          format: double
+          type: number
     DAS.Models.PagedResult_DAS.Models.SurveyResponseV2:
       type: object
       properties:
@@ -858,159 +1018,3 @@ components:
         count:
           format: int32
           type: integer
-    DAS.Models.PortalAccountV2:
-      type: object
-      properties:
-        name:
-          type: string
-        guid:
-          format: uuid
-          type: string
-        parent:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
-        child:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
-        level:
-          format: int32
-          type: integer
-        label:
-          type: string
-        features:
-          type: array
-          items:
-            type: string
-        brands:
-          type: string
-    DAS.Models.ReviewResponseV2:
-      type: object
-      properties:
-        responseDate:
-          format: date-time
-          type: string
-        responderName:
-          type: string
-        responseTitle:
-          type: string
-        responseComment:
-          type: string
-        canEditResponse:
-          type: boolean
-        lastModified:
-          format: date-time
-          type: string
-        reviewResponseGuid:
-          format: uuid
-          type: string
-        proposed:
-          type: boolean
-        externalId:
-          type: string
-    DAS.Models.ReviewV2:
-      type: object
-      properties:
-        id:
-          format: uuid
-          type: string
-        comment:
-          type: string
-        accountGuid:
-          format: uuid
-          type: string
-        reviewerName:
-          type: string
-        siteName:
-          type: string
-        rating:
-          type: string
-        isClosedLoopReview:
-          type: boolean
-        reviewDate:
-          format: date-time
-          type: string
-        district:
-          type: string
-        dealerName:
-          type: string
-        department:
-          type: string
-        hasResponse:
-          type: boolean
-        reviewResponses:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
-        city:
-          type: string
-        state:
-          type: string
-        reviewUrl:
-          type: string
-        canRespond:
-          type: boolean
-        canRespondInline:
-          type: boolean
-        proposedResponses:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ProposedResponse'
-        canChangeDepartment:
-          type: boolean
-    DAS.Models.ReputationStatisticsSiteDetailsModelAllTime:
-      type: object
-      properties:
-        site:
-          type: string
-        averageScore:
-          format: double
-          type: number
-    DAS.Models.ReputationStatisticsRootModel:
-      type: object
-      properties:
-        accountGuid:
-          format: uuid
-          type: string
-        startDate:
-          format: date-time
-          type: string
-        endDate:
-          format: date-time
-          type: string
-        statistics:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModel'
-        statisticsAllTime:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModelAllTime'
-        summaries:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSummaryModel'
-    DAS.Models.ReputationStatisticsSiteDetailsModel:
-      type: object
-      properties:
-        date:
-          format: date-time
-          type: string
-        site:
-          type: string
-        reviewCount:
-          format: int32
-          type: integer
-        positiveReviews:
-          format: int32
-          type: integer
-        negativeReviews:
-          format: int32
-          type: integer
-        dealerResponses:
-          format: int32
-          type: integer
-        averageScore:
-          format: double
-          type: number

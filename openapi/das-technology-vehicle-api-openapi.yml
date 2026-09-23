@@ -37,6 +37,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Vehicle get vin details
+      x-summary-source: derived
   /v1/vehicles/test:
     get:
       tags:
@@ -61,3 +63,5 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Vehicle get car details
+      x-summary-source: derived

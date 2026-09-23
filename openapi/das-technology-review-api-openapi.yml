@@ -239,7 +239,7 @@ paths:
     post:
       tags:
       - Review
-      summary: Records review department disposition.
+      summary: Records review department disposition
       operationId: Review_DepartmentDisposition
       parameters:
       - name: reviewGuid
@@ -331,6 +331,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/DAS.Models.CustomerReviewSiteInfo'
+      summary: Get review site links
+      x-summary-source: derived
   /v1/review/accounts/{accountId}/sites:
     get:
       tags:
@@ -373,6 +375,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Get review site redirect2
+      x-summary-source: derived
   /v1/review/accounts/{accountId}/configuration/reviewsites:
     get:
       tags:
@@ -404,6 +408,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Get all review sites
+      x-summary-source: derived
   /v1/review/{accountId}/reviews/refresh:
     get:
       tags:
@@ -435,8 +441,61 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Review refresh reviews
+      x-summary-source: derived
 components:
   schemas:
+    DAS.Models.ReviewDepartmentDispositionModel:
+      type: object
+      properties:
+        department:
+          type: string
+        logon:
+          type: string
+    DAS.Models.ReviewResponseV2:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        lastModified:
+          format: date-time
+          type: string
+        reviewResponseGuid:
+          format: uuid
+          type: string
+        proposed:
+          type: boolean
+        externalId:
+          type: string
+    DAS.Models.ReviewResponseModel:
+      type: object
+      properties:
+        reviewId:
+          format: uuid
+          type: string
+        reviewResponseGuid:
+          format: uuid
+          type: string
+        externalId:
+          type: string
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
     DAS.Models.CustomerReviewSiteInfo:
       type: object
       properties:
@@ -516,55 +575,4 @@ components:
         reviewTitle:
           type: string
         reviewUrl:
-          type: string
-    DAS.Models.ReviewDepartmentDispositionModel:
-      type: object
-      properties:
-        department:
-          type: string
-        logon:
-          type: string
-    DAS.Models.ReviewResponseV2:
-      type: object
-      properties:
-        responseDate:
-          format: date-time
-          type: string
-        responderName:
-          type: string
-        responseTitle:
-          type: string
-        responseComment:
-          type: string
-        canEditResponse:
-          type: boolean
-        lastModified:
-          format: date-time
-          type: string
-        reviewResponseGuid:
-          format: uuid
-          type: string
-        proposed:
-          type: boolean
-        externalId:
-          type: string
-    DAS.Models.ReviewResponseModel:
-      type: object
-      properties:
-        reviewId:
-          format: uuid
-          type: string
-        reviewResponseGuid:
-          format: uuid
-          type: string
-        externalId:
-          type: string
-        responseDate:
-          format: date-time
-          type: string
-        responderName:
-          type: string
-        responseTitle:
-          type: string
-        responseComment:
           type: string

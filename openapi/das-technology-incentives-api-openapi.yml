@@ -42,6 +42,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Incentives get incentives
+      x-summary-source: derived
   /v2/incentives/programs:
     get:
       tags:
@@ -66,3 +68,5 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Incentives get all programs
+      x-summary-source: derived

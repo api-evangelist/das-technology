@@ -99,6 +99,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Surveys V2 get survey responses
+      x-summary-source: derived
   /v2/surveys/syncsurveys:
     get:
       tags:
@@ -136,3 +138,5 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Surveys V2 sync core surveys
+      x-summary-source: derived

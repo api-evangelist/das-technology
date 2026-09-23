@@ -59,6 +59,8 @@ paths:
             schema:
               $ref: '#/components/schemas/DASWebAPI.Controllers.SmsProvisionRequestInfo'
         required: true
+      summary: Notification provision sms number
+      x-summary-source: derived
   /v1/notification/{clientId}/sms/phonenumbers/{smsNumber}:
     delete:
       tags:
@@ -95,6 +97,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Notification deprovision sms number
+      x-summary-source: derived
 components:
   schemas:
     DASWebAPI.Controllers.SmsProvisionRequestInfo:

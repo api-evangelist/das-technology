@@ -52,6 +52,8 @@ paths:
             schema:
               $ref: '#/components/schemas/DAS.Models.Envelope'
         required: true
+      summary: Mail post message asynchronous
+      x-summary-source: derived
   /v1/mail/sendsync:
     post:
       tags:
@@ -97,6 +99,8 @@ paths:
             schema:
               $ref: '#/components/schemas/DAS.Models.Envelope'
         required: true
+      summary: Mail post message synchronous
+      x-summary-source: derived
   /v1/mail/status/{token}:
     get:
       tags:
@@ -128,6 +132,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Mail get status
+      x-summary-source: derived
   /v1/mail/events/{token}:
     get:
       tags:
@@ -159,6 +165,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Mail get events async
+      x-summary-source: derived
 components:
   schemas:
     DAS.Models.Envelope:

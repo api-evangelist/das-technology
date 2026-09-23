@@ -93,6 +93,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Stats V2 get review summary by interval async
+      x-summary-source: derived
   /v2/stats/review:
     get:
       tags:
@@ -198,6 +200,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Stats V2 get review stats async
+      x-summary-source: derived
   /v2/stats/enterprise:
     get:
       tags:
@@ -283,6 +287,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/DAS.Models.EnterpriseStatsV2'
+      summary: Stats V2 get enterprise stats async
+      x-summary-source: derived
   /v2/stats/survey:
     get:
       tags:
@@ -368,6 +374,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/DAS.Models.SurveyStatsV2'
+      summary: Stats V2 get survey stats async
+      x-summary-source: derived
   /v2/stats/surveymethod:
     get:
       tags:
@@ -453,13 +461,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/DAS.Models.SurveyMethodStatsV2'
+      summary: Stats V2 get survey method stats async
+      x-summary-source: derived
   /v2/stats/npsStats:
     get:
       tags:
       - StatsV2
-      summary: 'Used by the widget on Mission Control to display the NPS over time and a breakdown
-
-        of the NPS.'
+      summary: Used by the widget on Mission Control to display the NPS over time and a…
       operationId: StatsV2_GetNpsSurveyStatsAsync
       parameters:
       - name: accountGuid
@@ -634,6 +642,8 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Stats V2 get survey summary by interval async
+      x-summary-source: derived
   /v2/stats/employee:
     get:
       tags:
@@ -729,8 +739,94 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/DAS.Models.EmployeeStats'
+      summary: Stats V2 get employee stats async
+      x-summary-source: derived
 components:
   schemas:
+    DAS.Models.SurveyStatsV2:
+      type: object
+      properties:
+        clTotalSurveysCompleted:
+          format: int32
+          type: integer
+        clAverageStarRating:
+          format: double
+          type: number
+        clAverageLoyaltyScore:
+          format: double
+          type: number
+        clPositiveSurveysCompleted:
+          format: int32
+          type: integer
+        neutralSurveysCompleted:
+          format: int32
+          type: integer
+        positivePercentage:
+          format: int32
+          type: integer
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        transactions:
+          format: int32
+          type: integer
+        emailCapture:
+          format: int32
+          type: integer
+        surveysSent:
+          format: int32
+          type: integer
+        surveysOpened:
+          format: int32
+          type: integer
+        totalSurveysCompleted:
+          format: int32
+          type: integer
+        positiveSurveysCompleted:
+          format: int32
+          type: integer
+        negativeSurveysCompleted:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        averageLoyaltyScore:
+          format: double
+          type: number
+        nclReviewClicks:
+          format: int32
+          type: integer
+    DAS.Models.NpsStats:
+      type: object
+      properties:
+        npsNodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.NpsNode'
+    DAS.Models.EmployeeStats:
+      type: object
+      properties:
+        employeeId:
+          format: int32
+          type: integer
+        employeeName:
+          type: string
+        employeeDepartment:
+          type: string
+        dealershipName:
+          type: string
+        dealershipGuid:
+          format: uuid
+          type: string
+        surveyStats:
+          $ref: '#/components/schemas/DAS.Models.SurveyStats'
+        closedLoopStats:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewStatsSimple'
     DAS.Models.EnterpriseStatsV2:
       type: object
       properties:
@@ -796,60 +892,33 @@ components:
         nclReviewClicks:
           format: int32
           type: integer
-    DAS.Models.SurveyStatsV2:
+    DAS.Models.NpsNode:
       type: object
       properties:
-        clTotalSurveysCompleted:
-          format: int32
-          type: integer
-        clAverageStarRating:
-          format: double
-          type: number
-        clAverageLoyaltyScore:
-          format: double
-          type: number
-        clPositiveSurveysCompleted:
-          format: int32
-          type: integer
-        neutralSurveysCompleted:
-          format: int32
-          type: integer
-        positivePercentage:
-          format: int32
-          type: integer
-        accountGuid:
-          format: uuid
+        timespan:
           type: string
-        name:
+        startDate:
+          format: date-time
           type: string
-        transactions:
+        endDate:
+          format: date-time
+          type: string
+        month:
           format: int32
           type: integer
-        emailCapture:
+        year:
           format: int32
           type: integer
-        surveysSent:
-          format: int32
-          type: integer
-        surveysOpened:
-          format: int32
-          type: integer
-        totalSurveysCompleted:
-          format: int32
-          type: integer
-        positiveSurveysCompleted:
-          format: int32
-          type: integer
-        negativeSurveysCompleted:
-          format: int32
-          type: integer
-        averageStarRating:
-          format: double
+        npsRating:
+          format: float
           type: number
-        averageLoyaltyScore:
-          format: double
-          type: number
-        nclReviewClicks:
+        npsPromoters:
+          format: int32
+          type: integer
+        npsPassives:
+          format: int32
+          type: integer
+        npsDetractors:
           format: int32
           type: integer
     DAS.Models.SurveyStats:
@@ -890,13 +959,6 @@ components:
         nclReviewClicks:
           format: int32
           type: integer
-    DAS.Models.NpsStats:
-      type: object
-      properties:
-        npsNodes:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.NpsNode'
     DAS.Models.ReviewStatsSimple:
       type: object
       properties:
@@ -914,35 +976,6 @@ components:
         percentPositive:
           format: double
           type: number
-    DAS.Models.NpsNode:
-      type: object
-      properties:
-        timespan:
-          type: string
-        startDate:
-          format: date-time
-          type: string
-        endDate:
-          format: date-time
-          type: string
-        month:
-          format: int32
-          type: integer
-        year:
-          format: int32
-          type: integer
-        npsRating:
-          format: float
-          type: number
-        npsPromoters:
-          format: int32
-          type: integer
-        npsPassives:
-          format: int32
-          type: integer
-        npsDetractors:
-          format: int32
-          type: integer
     DAS.Models.SurveyMethodStatsV2:
       type: object
       properties:
@@ -1017,24 +1050,3 @@ components:
         nclReviewClicks:
           format: int32
           type: integer
-    DAS.Models.EmployeeStats:
-      type: object
-      properties:
-        employeeId:
-          format: int32
-          type: integer
-        employeeName:
-          type: string
-        employeeDepartment:
-          type: string
-        dealershipName:
-          type: string
-        dealershipGuid:
-          format: uuid
-          type: string
-        surveyStats:
-          $ref: '#/components/schemas/DAS.Models.SurveyStats'
-        closedLoopStats:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReviewStatsSimple'

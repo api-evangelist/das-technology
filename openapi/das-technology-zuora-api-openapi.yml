@@ -31,3 +31,5 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Zuora request digital signature
+      x-summary-source: derived

@@ -11,7 +11,7 @@ paths:
     get:
       tags:
       - Promotions
-      summary: Used by web browsers to request a redirect while also allowing us to count the click.
+      summary: Used by web browsers to request a redirect while also allowing us to count the…
       operationId: Promotions_GetPromotionRedirect
       parameters:
       - name: accountId

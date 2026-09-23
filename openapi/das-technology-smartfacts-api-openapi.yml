@@ -55,3 +55,5 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Smart facts get
+      x-summary-source: derived

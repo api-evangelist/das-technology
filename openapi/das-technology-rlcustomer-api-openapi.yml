@@ -48,6 +48,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/DAS.Models.PackageModel'
+      summary: RL customer get packages
+      x-summary-source: derived
 components:
   schemas:
     DAS.Models.PackageModel:

@@ -59,7 +59,7 @@ paths:
     get:
       tags:
       - Client
-      summary: Returns paginated result of surveys and associated information for the specified client
+      summary: Returns paginated result of surveys and associated information for the…
       description: Removed because Overstock change of product leadership.
       operationId: Client_GetClientSurveys
       parameters:

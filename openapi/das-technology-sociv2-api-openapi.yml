@@ -11,7 +11,7 @@ paths:
     get:
       tags:
       - SociV2
-      summary: Provisions the specified account unique identifier.
+      summary: Provisions the specified account unique identifier
       operationId: SociV2_Provision
       parameters:
       - name: accountsId
@@ -44,7 +44,7 @@ paths:
     get:
       tags:
       - SociV2
-      summary: Deprovisions the specified account unique identifier.
+      summary: Deprovisions the specified account unique identifier
       operationId: SociV2_Deprovision
       parameters:
       - name: accountsId

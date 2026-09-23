@@ -80,11 +80,13 @@ paths:
             text/html:
               schema:
                 type: object
+      summary: Survey get maritz survey by maritz survey id
+      x-summary-source: derived
   /v1/survey/accounts/{clientId}/smssurveys:
     post:
       tags:
       - Survey
-      summary: Calls service.surveys on the new platform and sends a Mobile Review Surge survey via SMS to the given destination phone number.
+      summary: Calls service.surveys on the new platform and sends a Mobile Review Surge…
       operationId: Survey_RequestSurvey
       parameters:
       - name: clientId
@@ -151,7 +153,7 @@ paths:
     get:
       tags:
       - Survey
-      summary: Returns just the stats, no surveys, broken up by intervals.
+      summary: Returns just the stats, no surveys, broken up by intervals
       operationId: Survey_GetMobileSurveyStatsAsync
       parameters:
       - name: token
@@ -707,6 +709,15 @@ components:
         canRespond:
           type: boolean
           readOnly: true
+    System.Collections.Generic.KeyValuePair_System.String_System.String:
+      type: object
+      properties:
+        key:
+          type: string
+          readOnly: true
+        value:
+          type: string
+          readOnly: true
     DAS.Models.ProposedResponse:
       type: object
       properties:
@@ -732,12 +743,3 @@ components:
         surveyResponseResponseGuid:
           format: uuid
           type: string
-    System.Collections.Generic.KeyValuePair_System.String_System.String:
-      type: object
-      properties:
-        key:
-          type: string
-          readOnly: true
-        value:
-          type: string
-          readOnly: true

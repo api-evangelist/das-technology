@@ -5,17 +5,13 @@ info:
 servers:
 - url: https://api.digitalairstrike.com
 tags:
-- name: UserV2
+- name: User v2
 paths:
   /v2/user/me:
     get:
       tags:
-      - UserV2
-      summary: 'You need to authenticate using /v1/auth before using this endpoint, using a username, password, and bearer token.
-
-        If done successfully v1/auth should give you a token. Prepend "bearer " to the front
-
-        of that token and then put all that into the Authorization header to hit this endpoint.'
+      - User v2
+      summary: You need to authenticate using /v1/auth before using this endpoint, using a…
       operationId: UserV2_GetUser
       responses:
         '200':
@@ -39,7 +35,7 @@ paths:
   /v2/user/list:
     get:
       tags:
-      - UserV2
+      - User v2
       summary: Retrieve a list of all users
       operationId: UserV2_GetList
       parameters:
@@ -96,6 +92,148 @@ paths:
                 $ref: '#/components/schemas/DAS.Models.PagedResult_DAS.Models.UserModel'
 components:
   schemas:
+    DAS.Models.ReportSettingDetails:
+      type: object
+      properties:
+        frequency:
+          enum:
+          - Never
+          - Daily
+          - Weekly
+          - Monthly
+          type: string
+        format:
+          enum:
+          - Default
+          - CSV
+          - XLS
+          - PDF
+          type: string
+        method:
+          enum:
+          - None
+          - Email
+          - Mobile
+          type: string
+        expandTable:
+          type: boolean
+    DAS.Models.PagedResult_DAS.Models.UserModel:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.UserModel'
+        count:
+          format: int32
+          type: integer
+    DAS.Models.NotificationSettings:
+      type: object
+      properties:
+        review:
+          $ref: '#/components/schemas/DAS.Models.ReviewNotificationSettings'
+        surveyResponse:
+          $ref: '#/components/schemas/DAS.Models.SurveyResponseNotificationSettings'
+    DAS.Models.PortalAccountV2:
+      type: object
+      properties:
+        name:
+          type: string
+        guid:
+          format: uuid
+          type: string
+        parent:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        child:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        level:
+          format: int32
+          type: integer
+        label:
+          type: string
+        features:
+          type: array
+          items:
+            type: string
+        brands:
+          type: string
+    DAS.Models.UserSettings:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        notification:
+          $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+        report:
+          $ref: '#/components/schemas/DAS.Models.ReportSettings'
+    DAS.Models.SurveyResponseNotificationSettings:
+      type: object
+      properties:
+        sales:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+        service:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+    DAS.Models.ReportSettings:
+      type: object
+      properties:
+        enterprise:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+        unsubscribe:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+        bounce:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+    DAS.Models.RatingNotificationSettings:
+      type: object
+      properties:
+        negative:
+          enum:
+          - None
+          - Email
+          - Mobile
+          type: string
+        positive:
+          enum:
+          - None
+          - Email
+          - Mobile
+          type: string
+    DAS.Models.ReviewNotificationSettings:
+      type: object
+      properties:
+        sales:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+        service:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+        uncategorized:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+    DAS.Models.AccountHierarchyView:
+      type: object
+      properties:
+        hierarchyName:
+          type: string
+        hierarchyGuid:
+          format: uuid
+          type: string
+        accountName:
+          type: string
+        accountGuid:
+          format: uuid
+          type: string
+        root:
+          $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        isDefault:
+          type: boolean
     DAS.Models.UserModel:
       type: object
       properties:
@@ -164,64 +302,6 @@ components:
           type: string
         advocatePhone:
           type: string
-    DAS.Models.AccountHierarchyView:
-      type: object
-      properties:
-        hierarchyName:
-          type: string
-        hierarchyGuid:
-          format: uuid
-          type: string
-        accountName:
-          type: string
-        accountGuid:
-          format: uuid
-          type: string
-        root:
-          $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
-        isDefault:
-          type: boolean
-    DAS.Models.ReportSettings:
-      type: object
-      properties:
-        enterprise:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
-        unsubscribe:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
-        bounce:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
-    DAS.Models.PagedResult_DAS.Models.UserModel:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.UserModel'
-        count:
-          format: int32
-          type: integer
-    DAS.Models.SurveyResponseNotificationSettings:
-      type: object
-      properties:
-        sales:
-          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-        service:
-          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-    DAS.Models.ReviewNotificationSettings:
-      type: object
-      properties:
-        sales:
-          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-        service:
-          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-        uncategorized:
-          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
     DAS.Models.AccountAccessModel:
       type: object
       properties:
@@ -234,88 +314,4 @@ components:
           - None
           - User
           - Administrator
-          type: string
-    DAS.Models.NotificationSettings:
-      type: object
-      properties:
-        review:
-          $ref: '#/components/schemas/DAS.Models.ReviewNotificationSettings'
-        surveyResponse:
-          $ref: '#/components/schemas/DAS.Models.SurveyResponseNotificationSettings'
-    DAS.Models.UserSettings:
-      type: object
-      properties:
-        accountGuid:
-          format: uuid
-          type: string
-        notification:
-          $ref: '#/components/schemas/DAS.Models.NotificationSettings'
-        report:
-          $ref: '#/components/schemas/DAS.Models.ReportSettings'
-    DAS.Models.PortalAccountV2:
-      type: object
-      properties:
-        name:
-          type: string
-        guid:
-          format: uuid
-          type: string
-        parent:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
-        child:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
-        level:
-          format: int32
-          type: integer
-        label:
-          type: string
-        features:
-          type: array
-          items:
-            type: string
-        brands:
-          type: string
-    DAS.Models.ReportSettingDetails:
-      type: object
-      properties:
-        frequency:
-          enum:
-          - Never
-          - Daily
-          - Weekly
-          - Monthly
-          type: string
-        format:
-          enum:
-          - Default
-          - CSV
-          - XLS
-          - PDF
-          type: string
-        method:
-          enum:
-          - None
-          - Email
-          - Mobile
-          type: string
-        expandTable:
-          type: boolean
-    DAS.Models.RatingNotificationSettings:
-      type: object
-      properties:
-        negative:
-          enum:
-          - None
-          - Email
-          - Mobile
-          type: string
-        positive:
-          enum:
-          - None
-          - Email
-          - Mobile
           type: string

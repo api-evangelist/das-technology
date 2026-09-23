@@ -11,7 +11,7 @@ paths:
     get:
       tags:
       - SOCi
-      summary: Provisions the specified account unique identifier.
+      summary: Provisions the specified account unique identifier
       operationId: SOCi_Provision
       parameters:
       - name: accountGuid
@@ -51,7 +51,7 @@ paths:
     get:
       tags:
       - SOCi
-      summary: Deprovisions the specified account unique identifier.
+      summary: Deprovisions the specified account unique identifier
       operationId: SOCi_Deprovision
       parameters:
       - name: accountGuid
