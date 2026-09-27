@@ -36,7 +36,7 @@ paths:
     get:
       tags:
       - User
-      operationId: User_GetUser
+      operationId: getV1UserByUserGuid
       parameters:
       - name: userGuid
         in: path
@@ -65,6 +65,8 @@ paths:
                 $ref: '#/components/schemas/DAS.Models.UserModel'
       summary: User get user
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: User_GetUser
   /v1/user:
     post:
       tags:
@@ -173,7 +175,7 @@ paths:
       tags:
       - User
       summary: Retrieve user settings for the current user
-      operationId: User_GetUserSettings
+      operationId: getV1UserByUserGuidByAccountGuidSettings
       parameters:
       - name: userGuid
         in: path
@@ -226,6 +228,8 @@ paths:
                   type: array
                   items:
                     $ref: '#/components/schemas/DAS.Models.UserSettings'
+      x-operation-id-source: normalized
+      x-operation-id-original: User_GetUserSettings
   /v1/user/me/notification:
     get:
       tags:
@@ -276,7 +280,7 @@ paths:
     get:
       tags:
       - User
-      operationId: User_GetNotificationSettings
+      operationId: getV1UserByUserGuidByAccountGuidNotification
       parameters:
       - name: userGuid
         in: path
@@ -331,6 +335,8 @@ paths:
                     $ref: '#/components/schemas/DAS.Models.NotificationSettings'
       summary: User get notification settings
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: User_GetNotificationSettings
   /v1/user/me/settings/report:
     get:
       tags:
@@ -381,7 +387,7 @@ paths:
     get:
       tags:
       - User
-      operationId: User_GetReportSettings
+      operationId: getV1UserByUserGuidByAccountGuidReport
       parameters:
       - name: userGuid
         in: path
@@ -436,6 +442,8 @@ paths:
                     $ref: '#/components/schemas/DAS.Models.ReportSettings'
       summary: User get report settings
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: User_GetReportSettings
   /v1/user/me/settings/custom:
     get:
       tags:
@@ -497,7 +505,7 @@ paths:
     get:
       tags:
       - User
-      operationId: User_GetCustomSettings
+      operationId: getV1UserByUserGuidSettingsCustom
       parameters:
       - name: userGuid
         in: path
@@ -526,10 +534,12 @@ paths:
                 type: string
       summary: User get custom settings
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: User_GetCustomSettings
     post:
       tags:
       - User
-      operationId: User_PostCustomSettings
+      operationId: postV1UserByUserGuidSettingsCustom
       parameters:
       - name: userGuid
         in: path
@@ -563,6 +573,8 @@ paths:
                 type: object
       summary: User post custom settings
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: User_PostCustomSettings
   /v1/user/me/{accountGuid}/settings/notification:
     post:
       tags:
@@ -621,7 +633,7 @@ paths:
     post:
       tags:
       - User
-      operationId: User_PostNotificationSettings
+      operationId: postV1UserByUserGuidByAccountGuidSettingsNotification
       parameters:
       - name: userGuid
         in: path
@@ -677,6 +689,8 @@ paths:
         required: true
       summary: User post notification settings
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: User_PostNotificationSettings
   /v1/user/me/{accountGuid}/settings/report:
     post:
       tags:
@@ -735,7 +749,7 @@ paths:
     post:
       tags:
       - User
-      operationId: User_PostReportSettings
+      operationId: postV1UserByUserGuidByAccountGuidSettingsReport
       parameters:
       - name: userGuid
         in: path
@@ -791,6 +805,8 @@ paths:
         required: true
       summary: User post report settings
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: User_PostReportSettings
   /v1/user/list:
     get:
       tags:
@@ -1181,38 +1197,36 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DAS.Models.ReportSettingDetails:
+    DAS.Models.AccountHierarchyView:
       type: object
       properties:
-        frequency:
-          enum:
-          - Never
-          - Daily
-          - Weekly
-          - Monthly
+        hierarchyName:
           type: string
-        format:
-          enum:
-          - Default
-          - CSV
-          - XLS
-          - PDF
+        hierarchyGuid:
+          format: uuid
           type: string
-        method:
-          enum:
-          - None
-          - Email
-          - Mobile
+        accountName:
           type: string
-        expandTable:
+        accountGuid:
+          format: uuid
+          type: string
+        root:
+          $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        isDefault:
           type: boolean
-    DAS.Models.NotificationSettings:
+    DAS.Models.AccountAccessModel:
       type: object
       properties:
-        review:
-          $ref: '#/components/schemas/DAS.Models.ReviewNotificationSettings'
-        surveyResponse:
-          $ref: '#/components/schemas/DAS.Models.SurveyResponseNotificationSettings'
+        accountGuid:
+          format: uuid
+          type: string
+        accessLevel:
+          enum:
+          - Hidden
+          - None
+          - User
+          - Administrator
+          type: string
     DAS.Models.PortalAccountV2:
       type: object
       properties:
@@ -1240,53 +1254,6 @@ components:
             type: string
         brands:
           type: string
-    DAS.Models.UserSettings:
-      type: object
-      properties:
-        accountGuid:
-          format: uuid
-          type: string
-        notification:
-          $ref: '#/components/schemas/DAS.Models.NotificationSettings'
-        report:
-          $ref: '#/components/schemas/DAS.Models.ReportSettings'
-    DAS.Models.SurveyResponseNotificationSettings:
-      type: object
-      properties:
-        sales:
-          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-        service:
-          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-    DAS.Models.ReportSettings:
-      type: object
-      properties:
-        enterprise:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
-        unsubscribe:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
-        bounce:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
-    DAS.Models.RatingNotificationSettings:
-      type: object
-      properties:
-        negative:
-          enum:
-          - None
-          - Email
-          - Mobile
-          type: string
-        positive:
-          enum:
-          - None
-          - Email
-          - Mobile
-          type: string
     DAS.Models.ReviewNotificationSettings:
       type: object
       properties:
@@ -1296,23 +1263,20 @@ components:
           $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
         uncategorized:
           $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-    DAS.Models.AccountHierarchyView:
+    DAS.Models.SurveyResponseNotificationSettings:
       type: object
       properties:
-        hierarchyName:
-          type: string
-        hierarchyGuid:
-          format: uuid
-          type: string
-        accountName:
-          type: string
-        accountGuid:
-          format: uuid
-          type: string
-        root:
-          $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
-        isDefault:
-          type: boolean
+        sales:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+        service:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+    DAS.Models.NotificationSettings:
+      type: object
+      properties:
+        review:
+          $ref: '#/components/schemas/DAS.Models.ReviewNotificationSettings'
+        surveyResponse:
+          $ref: '#/components/schemas/DAS.Models.SurveyResponseNotificationSettings'
     DAS.Models.UserModel:
       type: object
       properties:
@@ -1381,16 +1345,68 @@ components:
           type: string
         advocatePhone:
           type: string
-    DAS.Models.AccountAccessModel:
+    DAS.Models.ReportSettings:
+      type: object
+      properties:
+        enterprise:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+        unsubscribe:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+        bounce:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+    DAS.Models.ReportSettingDetails:
+      type: object
+      properties:
+        frequency:
+          enum:
+          - Never
+          - Daily
+          - Weekly
+          - Monthly
+          type: string
+        format:
+          enum:
+          - Default
+          - CSV
+          - XLS
+          - PDF
+          type: string
+        method:
+          enum:
+          - None
+          - Email
+          - Mobile
+          type: string
+        expandTable:
+          type: boolean
+    DAS.Models.RatingNotificationSettings:
+      type: object
+      properties:
+        negative:
+          enum:
+          - None
+          - Email
+          - Mobile
+          type: string
+        positive:
+          enum:
+          - None
+          - Email
+          - Mobile
+          type: string
+    DAS.Models.UserSettings:
       type: object
       properties:
         accountGuid:
           format: uuid
           type: string
-        accessLevel:
-          enum:
-          - Hidden
-          - None
-          - User
-          - Administrator
-          type: string
+        notification:
+          $ref: '#/components/schemas/DAS.Models.NotificationSettings'
+        report:
+          $ref: '#/components/schemas/DAS.Models.ReportSettings'

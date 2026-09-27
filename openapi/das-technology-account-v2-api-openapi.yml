@@ -688,6 +688,23 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    DAS.Models.AccountCompetitorModel:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        competitorAccountGuid:
+          format: uuid
+          type: string
+        id:
+          format: uuid
+          type: string
+        competitorAccountName:
+          type: string
+        rank:
+          format: int32
+          type: integer
     DAS.Models.ReputationStatisticsSiteDetailsModelAllTime:
       type: object
       properties:
@@ -719,6 +736,16 @@ components:
         averageScore:
           format: double
           type: number
+    DAS.Models.PagedResult_DAS.Models.ReviewV2:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewV2'
+        count:
+          format: int32
+          type: integer
     DAS.Models.ReviewResponseV2:
       type: object
       properties:
@@ -743,23 +770,6 @@ components:
           type: boolean
         externalId:
           type: string
-    DAS.Models.AccountCompetitorModel:
-      type: object
-      properties:
-        accountGuid:
-          format: uuid
-          type: string
-        competitorAccountGuid:
-          format: uuid
-          type: string
-        id:
-          format: uuid
-          type: string
-        competitorAccountName:
-          type: string
-        rank:
-          format: int32
-          type: integer
     DAS.Models.PortalAccountV2:
       type: object
       properties:
@@ -787,16 +797,28 @@ components:
             type: string
         brands:
           type: string
-    DAS.Models.PagedResult_DAS.Models.ReviewV2:
+    DAS.Models.PagedResult_DAS.Models.SurveyResponseV2:
       type: object
       properties:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/DAS.Models.ReviewV2'
+            $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
         count:
           format: int32
           type: integer
+    DAS.Models.ReputationStatisticsSummaryModel:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        total:
+          format: int32
+          type: integer
+        average:
+          format: double
+          type: number
     DAS.Models.ProposedResponse:
       type: object
       properties:
@@ -822,30 +844,6 @@ components:
         surveyResponseResponseGuid:
           format: uuid
           type: string
-    DAS.Models.ReputationStatisticsRootModel:
-      type: object
-      properties:
-        accountGuid:
-          format: uuid
-          type: string
-        startDate:
-          format: date-time
-          type: string
-        endDate:
-          format: date-time
-          type: string
-        statistics:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModel'
-        statisticsAllTime:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModelAllTime'
-        summaries:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSummaryModel'
     DAS.Models.ReviewV2:
       type: object
       properties:
@@ -896,6 +894,30 @@ components:
             $ref: '#/components/schemas/DAS.Models.ProposedResponse'
         canChangeDepartment:
           type: boolean
+    DAS.Models.ReputationStatisticsRootModel:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModel'
+        statisticsAllTime:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModelAllTime'
+        summaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSummaryModel'
     DAS.Models.SurveyResponseV2:
       type: object
       properties:
@@ -996,25 +1018,3 @@ components:
         canRespond:
           type: boolean
           readOnly: true
-    DAS.Models.ReputationStatisticsSummaryModel:
-      type: object
-      properties:
-        date:
-          format: date-time
-          type: string
-        total:
-          format: int32
-          type: integer
-        average:
-          format: double
-          type: number
-    DAS.Models.PagedResult_DAS.Models.SurveyResponseV2:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
-        count:
-          format: int32
-          type: integer

@@ -609,6 +609,40 @@ paths:
                 type: object
 components:
   schemas:
+    DAS.Models.ProposedResponse:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        accepted:
+          type: boolean
+        acceptedDate:
+          format: date-time
+          type: string
+        lastModified:
+          format: date-time
+          type: string
+        surveyResponseResponseGuid:
+          format: uuid
+          type: string
+    System.Collections.Generic.KeyValuePair_System.String_System.String:
+      type: object
+      properties:
+        key:
+          type: string
+          readOnly: true
+        value:
+          type: string
+          readOnly: true
     DAS.Models.SurveyResponseV2:
       type: object
       properties:
@@ -709,37 +743,3 @@ components:
         canRespond:
           type: boolean
           readOnly: true
-    System.Collections.Generic.KeyValuePair_System.String_System.String:
-      type: object
-      properties:
-        key:
-          type: string
-          readOnly: true
-        value:
-          type: string
-          readOnly: true
-    DAS.Models.ProposedResponse:
-      type: object
-      properties:
-        responseDate:
-          format: date-time
-          type: string
-        responderName:
-          type: string
-        responseTitle:
-          type: string
-        responseComment:
-          type: string
-        canEditResponse:
-          type: boolean
-        accepted:
-          type: boolean
-        acceptedDate:
-          format: date-time
-          type: string
-        lastModified:
-          format: date-time
-          type: string
-        surveyResponseResponseGuid:
-          format: uuid
-          type: string

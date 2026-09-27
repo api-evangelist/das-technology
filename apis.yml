@@ -840,8 +840,6 @@ apis:
   humanURL: https://api.digitalairstrike.com/swagger
   baseURL: https://api.digitalairstrike.com
   tags:
-  - AccountV2
-  tags_raw:
   - Account V2
   properties:
   - type: OpenAPI
