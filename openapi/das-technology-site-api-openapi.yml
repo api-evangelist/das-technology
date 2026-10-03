@@ -84,6 +84,22 @@ paths:
                 $ref: '#/components/schemas/DAS.Models.Site'
 components:
   schemas:
+    DAS.Models.RatingMethod:
+      type: object
+      properties:
+        id:
+          format: int32
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        ratingDisplay:
+          type: string
+        ratingMethodItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.RatingMethodItems'
     DAS.Models.Site:
       type: object
       properties:
@@ -118,19 +134,3 @@ components:
         ratingValue:
           format: int32
           type: integer
-    DAS.Models.RatingMethod:
-      type: object
-      properties:
-        id:
-          format: int32
-          type: integer
-        name:
-          type: string
-        description:
-          type: string
-        ratingDisplay:
-          type: string
-        ratingMethodItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.RatingMethodItems'

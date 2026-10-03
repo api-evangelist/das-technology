@@ -42,54 +42,6 @@ paths:
                 $ref: '#/components/schemas/DAS.Models.Transaction'
 components:
   schemas:
-    DAS.Models.CustomerModel:
-      type: object
-      properties:
-        customerId:
-          format: int32
-          type: integer
-        customerGuid:
-          format: uuid
-          type: string
-        number:
-          type: string
-        email:
-          type: string
-        name:
-          type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        streetAddress:
-          type: string
-        streetAddress2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
-          type: string
-        homePhone:
-          type: string
-        cellPhone:
-          type: string
-        workPhone:
-          type: string
-    DAS.Models.VehicleModel:
-      type: object
-      properties:
-        vin:
-          type: string
-        year:
-          type: string
-        make:
-          type: string
-        model:
-          type: string
-        odometer:
-          type: string
     DAS.Models.EmployeeModel:
       type: object
       properties:
@@ -143,3 +95,51 @@ components:
           $ref: '#/components/schemas/DAS.Models.EmployeeModel'
         vehicle:
           $ref: '#/components/schemas/DAS.Models.VehicleModel'
+    DAS.Models.CustomerModel:
+      type: object
+      properties:
+        customerId:
+          format: int32
+          type: integer
+        customerGuid:
+          format: uuid
+          type: string
+        number:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        streetAddress:
+          type: string
+        streetAddress2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        homePhone:
+          type: string
+        cellPhone:
+          type: string
+        workPhone:
+          type: string
+    DAS.Models.VehicleModel:
+      type: object
+      properties:
+        vin:
+          type: string
+        year:
+          type: string
+        make:
+          type: string
+        model:
+          type: string
+        odometer:
+          type: string

@@ -169,6 +169,26 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    DAS.Models.EnvelopeAttachment:
+      type: object
+      properties:
+        content:
+          format: byte
+          type: string
+        contentId:
+          type: string
+        contentType:
+          type: string
+        dispositionType:
+          type: string
+        name:
+          type: string
+        nameEncoding:
+          format: int32
+          type: integer
+        transferEncoding:
+          format: int32
+          type: integer
     DAS.Models.Envelope:
       type: object
       properties:
@@ -234,23 +254,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DAS.Models.EnvelopeAttachment'
-    DAS.Models.EnvelopeAttachment:
-      type: object
-      properties:
-        content:
-          format: byte
-          type: string
-        contentId:
-          type: string
-        contentType:
-          type: string
-        dispositionType:
-          type: string
-        name:
-          type: string
-        nameEncoding:
-          format: int32
-          type: integer
-        transferEncoding:
-          format: int32
-          type: integer

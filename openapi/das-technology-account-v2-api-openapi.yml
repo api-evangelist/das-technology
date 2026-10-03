@@ -688,51 +688,11 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DAS.Models.AccountCompetitorModel:
-      type: object
-      properties:
-        accountGuid:
-          format: uuid
-          type: string
-        competitorAccountGuid:
-          format: uuid
-          type: string
-        id:
-          format: uuid
-          type: string
-        competitorAccountName:
-          type: string
-        rank:
-          format: int32
-          type: integer
     DAS.Models.ReputationStatisticsSiteDetailsModelAllTime:
       type: object
       properties:
         site:
           type: string
-        averageScore:
-          format: double
-          type: number
-    DAS.Models.ReputationStatisticsSiteDetailsModel:
-      type: object
-      properties:
-        date:
-          format: date-time
-          type: string
-        site:
-          type: string
-        reviewCount:
-          format: int32
-          type: integer
-        positiveReviews:
-          format: int32
-          type: integer
-        negativeReviews:
-          format: int32
-          type: integer
-        dealerResponses:
-          format: int32
-          type: integer
         averageScore:
           format: double
           type: number
@@ -746,178 +706,6 @@ components:
         count:
           format: int32
           type: integer
-    DAS.Models.ReviewResponseV2:
-      type: object
-      properties:
-        responseDate:
-          format: date-time
-          type: string
-        responderName:
-          type: string
-        responseTitle:
-          type: string
-        responseComment:
-          type: string
-        canEditResponse:
-          type: boolean
-        lastModified:
-          format: date-time
-          type: string
-        reviewResponseGuid:
-          format: uuid
-          type: string
-        proposed:
-          type: boolean
-        externalId:
-          type: string
-    DAS.Models.PortalAccountV2:
-      type: object
-      properties:
-        name:
-          type: string
-        guid:
-          format: uuid
-          type: string
-        parent:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
-        child:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
-        level:
-          format: int32
-          type: integer
-        label:
-          type: string
-        features:
-          type: array
-          items:
-            type: string
-        brands:
-          type: string
-    DAS.Models.PagedResult_DAS.Models.SurveyResponseV2:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
-        count:
-          format: int32
-          type: integer
-    DAS.Models.ReputationStatisticsSummaryModel:
-      type: object
-      properties:
-        date:
-          format: date-time
-          type: string
-        total:
-          format: int32
-          type: integer
-        average:
-          format: double
-          type: number
-    DAS.Models.ProposedResponse:
-      type: object
-      properties:
-        responseDate:
-          format: date-time
-          type: string
-        responderName:
-          type: string
-        responseTitle:
-          type: string
-        responseComment:
-          type: string
-        canEditResponse:
-          type: boolean
-        accepted:
-          type: boolean
-        acceptedDate:
-          format: date-time
-          type: string
-        lastModified:
-          format: date-time
-          type: string
-        surveyResponseResponseGuid:
-          format: uuid
-          type: string
-    DAS.Models.ReviewV2:
-      type: object
-      properties:
-        id:
-          format: uuid
-          type: string
-        comment:
-          type: string
-        accountGuid:
-          format: uuid
-          type: string
-        reviewerName:
-          type: string
-        siteName:
-          type: string
-        rating:
-          type: string
-        isClosedLoopReview:
-          type: boolean
-        reviewDate:
-          format: date-time
-          type: string
-        district:
-          type: string
-        dealerName:
-          type: string
-        department:
-          type: string
-        hasResponse:
-          type: boolean
-        reviewResponses:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
-        city:
-          type: string
-        state:
-          type: string
-        reviewUrl:
-          type: string
-        canRespond:
-          type: boolean
-        canRespondInline:
-          type: boolean
-        proposedResponses:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ProposedResponse'
-        canChangeDepartment:
-          type: boolean
-    DAS.Models.ReputationStatisticsRootModel:
-      type: object
-      properties:
-        accountGuid:
-          format: uuid
-          type: string
-        startDate:
-          format: date-time
-          type: string
-        endDate:
-          format: date-time
-          type: string
-        statistics:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModel'
-        statisticsAllTime:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModelAllTime'
-        summaries:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSummaryModel'
     DAS.Models.SurveyResponseV2:
       type: object
       properties:
@@ -1018,3 +806,215 @@ components:
         canRespond:
           type: boolean
           readOnly: true
+    DAS.Models.ReviewResponseV2:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        lastModified:
+          format: date-time
+          type: string
+        reviewResponseGuid:
+          format: uuid
+          type: string
+        proposed:
+          type: boolean
+        externalId:
+          type: string
+    DAS.Models.ReputationStatisticsSummaryModel:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        total:
+          format: int32
+          type: integer
+        average:
+          format: double
+          type: number
+    DAS.Models.PortalAccountV2:
+      type: object
+      properties:
+        name:
+          type: string
+        guid:
+          format: uuid
+          type: string
+        parent:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        child:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        level:
+          format: int32
+          type: integer
+        label:
+          type: string
+        features:
+          type: array
+          items:
+            type: string
+        brands:
+          type: string
+    DAS.Models.ReputationStatisticsRootModel:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        statistics:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModel'
+        statisticsAllTime:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModelAllTime'
+        summaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReputationStatisticsSummaryModel'
+    DAS.Models.AccountCompetitorModel:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        competitorAccountGuid:
+          format: uuid
+          type: string
+        id:
+          format: uuid
+          type: string
+        competitorAccountName:
+          type: string
+        rank:
+          format: int32
+          type: integer
+    DAS.Models.ProposedResponse:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        accepted:
+          type: boolean
+        acceptedDate:
+          format: date-time
+          type: string
+        lastModified:
+          format: date-time
+          type: string
+        surveyResponseResponseGuid:
+          format: uuid
+          type: string
+    DAS.Models.ReviewV2:
+      type: object
+      properties:
+        id:
+          format: uuid
+          type: string
+        comment:
+          type: string
+        accountGuid:
+          format: uuid
+          type: string
+        reviewerName:
+          type: string
+        siteName:
+          type: string
+        rating:
+          type: string
+        isClosedLoopReview:
+          type: boolean
+        reviewDate:
+          format: date-time
+          type: string
+        district:
+          type: string
+        dealerName:
+          type: string
+        department:
+          type: string
+        hasResponse:
+          type: boolean
+        reviewResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReviewResponseV2'
+        city:
+          type: string
+        state:
+          type: string
+        reviewUrl:
+          type: string
+        canRespond:
+          type: boolean
+        canRespondInline:
+          type: boolean
+        proposedResponses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ProposedResponse'
+        canChangeDepartment:
+          type: boolean
+    DAS.Models.ReputationStatisticsSiteDetailsModel:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        site:
+          type: string
+        reviewCount:
+          format: int32
+          type: integer
+        positiveReviews:
+          format: int32
+          type: integer
+        negativeReviews:
+          format: int32
+          type: integer
+        dealerResponses:
+          format: int32
+          type: integer
+        averageScore:
+          format: double
+          type: number
+    DAS.Models.PagedResult_DAS.Models.SurveyResponseV2:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.SurveyResponseV2'
+        count:
+          format: int32
+          type: integer
