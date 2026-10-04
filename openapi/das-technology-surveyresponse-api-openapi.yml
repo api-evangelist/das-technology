@@ -231,19 +231,30 @@ paths:
         required: true
 components:
   schemas:
-    DAS.Models.SurveyDealerComments:
+    DAS.Models.ProposedResponse:
       type: object
       properties:
-        surveyId:
-          format: int32
-          type: integer
-        surveyResponseId:
-          format: int32
-          type: integer
-        date:
+        responseDate:
           format: date-time
           type: string
-        comment:
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        accepted:
+          type: boolean
+        acceptedDate:
+          format: date-time
+          type: string
+        lastModified:
+          format: date-time
+          type: string
+        surveyResponseResponseGuid:
+          format: uuid
           type: string
     DAS.Models.SurveyResponseV2:
       type: object
@@ -345,28 +356,17 @@ components:
         canRespond:
           type: boolean
           readOnly: true
-    DAS.Models.ProposedResponse:
+    DAS.Models.SurveyDealerComments:
       type: object
       properties:
-        responseDate:
+        surveyId:
+          format: int32
+          type: integer
+        surveyResponseId:
+          format: int32
+          type: integer
+        date:
           format: date-time
           type: string
-        responderName:
-          type: string
-        responseTitle:
-          type: string
-        responseComment:
-          type: string
-        canEditResponse:
-          type: boolean
-        accepted:
-          type: boolean
-        acceptedDate:
-          format: date-time
-          type: string
-        lastModified:
-          format: date-time
-          type: string
-        surveyResponseResponseGuid:
-          format: uuid
+        comment:
           type: string

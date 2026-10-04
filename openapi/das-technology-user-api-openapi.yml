@@ -1197,67 +1197,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DAS.Models.ReviewNotificationSettings:
-      type: object
-      properties:
-        sales:
-          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-        service:
-          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-        uncategorized:
-          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-    DAS.Models.NotificationSettings:
-      type: object
-      properties:
-        review:
-          $ref: '#/components/schemas/DAS.Models.ReviewNotificationSettings'
-        surveyResponse:
-          $ref: '#/components/schemas/DAS.Models.SurveyResponseNotificationSettings'
-    DAS.Models.AccountHierarchyView:
-      type: object
-      properties:
-        hierarchyName:
-          type: string
-        hierarchyGuid:
-          format: uuid
-          type: string
-        accountName:
-          type: string
-        accountGuid:
-          format: uuid
-          type: string
-        root:
-          $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
-        isDefault:
-          type: boolean
-    DAS.Models.ReportSettings:
-      type: object
-      properties:
-        enterprise:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
-        unsubscribe:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
-        bounce:
-          type: array
-          items:
-            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
-    DAS.Models.AccountAccessModel:
-      type: object
-      properties:
-        accountGuid:
-          format: uuid
-          type: string
-        accessLevel:
-          enum:
-          - Hidden
-          - None
-          - User
-          - Administrator
-          type: string
     DAS.Models.UserSettings:
       type: object
       properties:
@@ -1310,6 +1249,15 @@ components:
           - Email
           - Mobile
           type: string
+    DAS.Models.ReviewNotificationSettings:
+      type: object
+      properties:
+        sales:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+        service:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
+        uncategorized:
+          $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
     DAS.Models.SurveyResponseNotificationSettings:
       type: object
       properties:
@@ -1317,31 +1265,58 @@ components:
           $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
         service:
           $ref: '#/components/schemas/DAS.Models.RatingNotificationSettings'
-    DAS.Models.ReportSettingDetails:
+    DAS.Models.AccountHierarchyView:
       type: object
       properties:
-        frequency:
-          enum:
-          - Never
-          - Daily
-          - Weekly
-          - Monthly
+        hierarchyName:
           type: string
-        format:
-          enum:
-          - Default
-          - CSV
-          - XLS
-          - PDF
+        hierarchyGuid:
+          format: uuid
           type: string
-        method:
-          enum:
-          - None
-          - Email
-          - Mobile
+        accountName:
           type: string
-        expandTable:
+        accountGuid:
+          format: uuid
+          type: string
+        root:
+          $ref: '#/components/schemas/DAS.Models.PortalAccountV2'
+        isDefault:
           type: boolean
+    DAS.Models.NotificationSettings:
+      type: object
+      properties:
+        review:
+          $ref: '#/components/schemas/DAS.Models.ReviewNotificationSettings'
+        surveyResponse:
+          $ref: '#/components/schemas/DAS.Models.SurveyResponseNotificationSettings'
+    DAS.Models.ReportSettings:
+      type: object
+      properties:
+        enterprise:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+        unsubscribe:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+        bounce:
+          type: array
+          items:
+            $ref: '#/components/schemas/DAS.Models.ReportSettingDetails'
+    DAS.Models.AccountAccessModel:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        accessLevel:
+          enum:
+          - Hidden
+          - None
+          - User
+          - Administrator
+          type: string
     DAS.Models.UserModel:
       type: object
       properties:
@@ -1410,3 +1385,28 @@ components:
           type: string
         advocatePhone:
           type: string
+    DAS.Models.ReportSettingDetails:
+      type: object
+      properties:
+        frequency:
+          enum:
+          - Never
+          - Daily
+          - Weekly
+          - Monthly
+          type: string
+        format:
+          enum:
+          - Default
+          - CSV
+          - XLS
+          - PDF
+          type: string
+        method:
+          enum:
+          - None
+          - Email
+          - Mobile
+          type: string
+        expandTable:
+          type: boolean

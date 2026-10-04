@@ -74,27 +74,6 @@ components:
           type: string
         active:
           type: boolean
-    DAS.Models.Transaction:
-      type: object
-      properties:
-        transactionId:
-          format: int32
-          type: integer
-        transactionGuid:
-          format: uuid
-          type: string
-        openDate:
-          format: date-time
-          type: string
-        closedDate:
-          format: date-time
-          type: string
-        customer:
-          $ref: '#/components/schemas/DAS.Models.CustomerModel'
-        employee:
-          $ref: '#/components/schemas/DAS.Models.EmployeeModel'
-        vehicle:
-          $ref: '#/components/schemas/DAS.Models.VehicleModel'
     DAS.Models.CustomerModel:
       type: object
       properties:
@@ -143,3 +122,24 @@ components:
           type: string
         odometer:
           type: string
+    DAS.Models.Transaction:
+      type: object
+      properties:
+        transactionId:
+          format: int32
+          type: integer
+        transactionGuid:
+          format: uuid
+          type: string
+        openDate:
+          format: date-time
+          type: string
+        closedDate:
+          format: date-time
+          type: string
+        customer:
+          $ref: '#/components/schemas/DAS.Models.CustomerModel'
+        employee:
+          $ref: '#/components/schemas/DAS.Models.EmployeeModel'
+        vehicle:
+          $ref: '#/components/schemas/DAS.Models.VehicleModel'
