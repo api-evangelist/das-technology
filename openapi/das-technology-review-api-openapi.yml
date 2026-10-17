@@ -445,29 +445,12 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DAS.Models.ReviewResponseV2:
+    DAS.Models.ReviewDepartmentDispositionModel:
       type: object
       properties:
-        responseDate:
-          format: date-time
+        department:
           type: string
-        responderName:
-          type: string
-        responseTitle:
-          type: string
-        responseComment:
-          type: string
-        canEditResponse:
-          type: boolean
-        lastModified:
-          format: date-time
-          type: string
-        reviewResponseGuid:
-          format: uuid
-          type: string
-        proposed:
-          type: boolean
-        externalId:
+        logon:
           type: string
     DAS.Models.ReviewModel:
       type: object
@@ -534,6 +517,45 @@ components:
           type: string
         reviewUrl:
           type: string
+    DAS.Models.CustomerReviewSiteInfo:
+      type: object
+      properties:
+        accountId:
+          format: uuid
+          type: string
+        dealerPage:
+          type: string
+        siteId:
+          format: int32
+          type: integer
+        siteName:
+          type: string
+        siteHome:
+          type: string
+    DAS.Models.ReviewResponseV2:
+      type: object
+      properties:
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
+        canEditResponse:
+          type: boolean
+        lastModified:
+          format: date-time
+          type: string
+        reviewResponseGuid:
+          format: uuid
+          type: string
+        proposed:
+          type: boolean
+        externalId:
+          type: string
     DAS.Models.ReviewResponseModel:
       type: object
       properties:
@@ -553,26 +575,4 @@ components:
         responseTitle:
           type: string
         responseComment:
-          type: string
-    DAS.Models.CustomerReviewSiteInfo:
-      type: object
-      properties:
-        accountId:
-          format: uuid
-          type: string
-        dealerPage:
-          type: string
-        siteId:
-          format: int32
-          type: integer
-        siteName:
-          type: string
-        siteHome:
-          type: string
-    DAS.Models.ReviewDepartmentDispositionModel:
-      type: object
-      properties:
-        department:
-          type: string
-        logon:
           type: string
