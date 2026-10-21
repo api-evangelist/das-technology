@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-review-stats-schema.json",
+  "title": "DAS.Models.ReviewStats",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ReviewStats",
+  "type": "object",
+  "properties": {
+    "accountGuid": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "averageRating": {
+      "format": "double",
+      "type": "number"
+    },
+    "averageTotalCount": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "positiveCount": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "neutralCount": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "negativeCount": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "positiveRespondedCount": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "positiveNotRespondedCount": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "negativeRespondedCount": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "negativeNotRespondedCount": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "positivePercentage": {
+      "format": "double",
+      "type": "number"
+    },
+    "neutralPercentage": {
+      "format": "double",
+      "type": "number"
+    },
+    "negativePercentage": {
+      "format": "double",
+      "type": "number"
+    },
+    "reviewStatsSources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Models.ReviewStatsSource"
+      }
+    },
+    "reviewStatsStates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Models.ReviewStatsState"
+      }
+    },
+    "siteRatings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Models.ReviewSiteRatings"
+      }
+    }
+  },
+  "$defs": {
+    "DAS.Models.ReviewSiteRatings": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "averageRating": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "DAS.Models.ReviewStatsSource": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "averageRating": {
+          "format": "double",
+          "type": "number"
+        },
+        "positiveCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "averageTotalCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "averageSite": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "DAS.Models.ReviewStatsState": {
+      "type": "object",
+      "properties": {
+        "stateName": {
+          "type": "string"
+        },
+        "ratingAverage": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    }
+  }
+}

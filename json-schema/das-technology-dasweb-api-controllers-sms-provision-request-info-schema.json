@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-dasweb-api-controllers-sms-provision-request-info-schema.json",
+  "title": "DASWebAPI.Controllers.SmsProvisionRequestInfo",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-notification-api-openapi.yml#/components/schemas/DASWebAPI.Controllers.SmsProvisionRequestInfo",
+  "type": "object",
+  "properties": {
+    "phone": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    }
+  }
+}

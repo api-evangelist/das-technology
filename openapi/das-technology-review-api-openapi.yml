@@ -445,6 +445,26 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    DAS.Models.ReviewResponseModel:
+      type: object
+      properties:
+        reviewId:
+          format: uuid
+          type: string
+        reviewResponseGuid:
+          format: uuid
+          type: string
+        externalId:
+          type: string
+        responseDate:
+          format: date-time
+          type: string
+        responderName:
+          type: string
+        responseTitle:
+          type: string
+        responseComment:
+          type: string
     DAS.Models.ReviewDepartmentDispositionModel:
       type: object
       properties:
@@ -517,21 +537,6 @@ components:
           type: string
         reviewUrl:
           type: string
-    DAS.Models.CustomerReviewSiteInfo:
-      type: object
-      properties:
-        accountId:
-          format: uuid
-          type: string
-        dealerPage:
-          type: string
-        siteId:
-          format: int32
-          type: integer
-        siteName:
-          type: string
-        siteHome:
-          type: string
     DAS.Models.ReviewResponseV2:
       type: object
       properties:
@@ -556,23 +561,18 @@ components:
           type: boolean
         externalId:
           type: string
-    DAS.Models.ReviewResponseModel:
+    DAS.Models.CustomerReviewSiteInfo:
       type: object
       properties:
-        reviewId:
+        accountId:
           format: uuid
           type: string
-        reviewResponseGuid:
-          format: uuid
+        dealerPage:
           type: string
-        externalId:
+        siteId:
+          format: int32
+          type: integer
+        siteName:
           type: string
-        responseDate:
-          format: date-time
-          type: string
-        responderName:
-          type: string
-        responseTitle:
-          type: string
-        responseComment:
+        siteHome:
           type: string

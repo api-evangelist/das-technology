@@ -1,0 +1,1558 @@
+generated: '2026-10-20'
+method: generated
+source: openapi/das-technology-account-api-openapi.yml, openapi/das-technology-account-v2-api-openapi.yml,
+  openapi/das-technology-client-api-openapi.yml, openapi/das-technology-configuration-api-openapi.yml,
+  openapi/das-technology-employee-api-openapi.yml, openapi/das-technology-hierarchyv2-api-openapi.yml,
+  openapi/das-technology-incentives-api-openapi.yml, openapi/das-technology-mail-api-openapi.yml,
+  openapi/das-technology-media-api-openapi.yml, openapi/das-technology-notification-api-openapi.yml,
+  openapi/das-technology-promotions-api-openapi.yml, openapi/das-technology-review-api-openapi.yml,
+  openapi/das-technology-rlcustomer-api-openapi.yml, openapi/das-technology-site-api-openapi.yml,
+  openapi/das-technology-smartfacts-api-openapi.yml, openapi/das-technology-soci-api-openapi.yml,
+  openapi/das-technology-sociv2-api-openapi.yml, openapi/das-technology-stats-api-openapi.yml,
+  openapi/das-technology-statsv2-api-openapi.yml, openapi/das-technology-survey-api-openapi.yml,
+  openapi/das-technology-surveyresponse-api-openapi.yml, openapi/das-technology-surveysv2-api-openapi.yml,
+  openapi/das-technology-transaction-api-openapi.yml, openapi/das-technology-user-api-openapi.yml,
+  openapi/das-technology-user-v2-api-openapi.yml, openapi/das-technology-vehicle-api-openapi.yml,
+  openapi/das-technology-zuora-api-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 136
+  by_action_class:
+    connected: 110
+    acting: 26
+  by_consequence:
+    read: 110
+    write: 20
+    physical: 6
+  human_in_the_loop_required: 0
+operations:
+- path: /v1/account/{accountGuid}
+  method: get
+  operationId: Account_GetAccount
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/socialActivity
+  method: get
+  operationId: Account_GetSocialActivities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/reviewV2
+  method: get
+  operationId: Account_GetReviewsV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/review
+  method: get
+  operationId: Account_GetReviews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/reviewStats
+  method: get
+  operationId: Account_GetReviewStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/reviewStatsByInterval
+  method: get
+  operationId: Account_GetReviewStatsByIntervalAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/surveyStatsByInterval
+  method: get
+  operationId: Account_GetSurveyStatsByIntervalAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/survey
+  method: get
+  operationId: Account_GetSurveys
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/survey/responsesV2
+  method: get
+  operationId: Account_GetSurveyResponsesV2Async
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/surveyStats
+  method: get
+  operationId: Account_GetSurveyStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/survey/response
+  method: get
+  operationId: Account_GetSurveyResponsesAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/owner
+  method: get
+  operationId: Account_GetOwner
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/employee
+  method: get
+  operationId: Account_GetEmployee
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/employeeStats
+  method: get
+  operationId: Account_GetEmployeeStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/enterpriseStatsV2
+  method: get
+  operationId: Account_GetEnterpriseStatsAsyncV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/enterpriseStats
+  method: get
+  operationId: Account_GetEnterpriseStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/parent
+  method: get
+  operationId: Account_GetParent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/child
+  method: get
+  operationId: Account_GetChild
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/descendant
+  method: get
+  operationId: Account_GetDescendant
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/heirarchy
+  method: get
+  operationId: Account_GetHeirarchy
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/unsubscribe
+  method: get
+  operationId: Account_GetUnsubscribe
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/unsubscribeReport
+  method: get
+  operationId: Account_GetUnsubscribeReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/gm2016
+  method: get
+  operationId: Account_GetGM2016
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/activePackageList
+  method: get
+  operationId: Account_GetActivePackages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/notificationsettings
+  method: get
+  operationId: Account_GetAccountNotification
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/toyotareputation
+  method: get
+  operationId: Account_GetToyotaReputationReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/{accountGuid}/activity
+  method: post
+  operationId: Account_AddActivity
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/account/{dealerGuid}/surveySample/{email}
+  method: post
+  operationId: Account_SendSurveyEmail
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/account/provisionDashboard/{accountGuid}
+  method: get
+  operationId: Account_GetProvisionDashboard
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/account/smsprovisiondetails/{accountGuid}
+  method: get
+  operationId: Account_GetSMSProvisionDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/{accountGuid}/reviewV2
+  method: get
+  operationId: AccountV2_GetReviewsV2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/{accountGuid}/survey/responsesV2
+  method: get
+  operationId: AccountV2_GetSurveyResponsesV2Async
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/{accountGuid}/hierarchy
+  method: get
+  operationId: AccountV2_GetHierarchyAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/{accountGuid}/competitor
+  method: get
+  operationId: AccountV2_GetCompetitors
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/{accountGuid}/competitor
+  method: post
+  operationId: AccountV2_PostCompetitors
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/account/{accountGuid}/competitor
+  method: delete
+  operationId: AccountV2_DeleteCompetitors
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/account/{accountGuid}/reputation
+  method: get
+  operationId: AccountV2_GetReputationStatistics
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/{accountGuid}/SocialAdsCampaignReport
+  method: get
+  operationId: AccountV2_SocicalAdsCampaignReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/RunSocialAdsCampaignReport
+  method: get
+  operationId: AccountV2_RunSocialAdsCampaignReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/GetAccountsActiveReviewSurge
+  method: get
+  operationId: AccountV2_GetAccountsActiveReviewSurge
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/GetAccountsTokenActiveReviewSurge
+  method: get
+  operationId: AccountV2_GetAccountsTokenActiveReviewSurge
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/{accountGuid}/GetEmployees
+  method: get
+  operationId: AccountV2_GetEmployees
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/account/GetAdvocate
+  method: get
+  operationId: AccountV2_GetAdvocate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/clients
+  method: get
+  operationId: Client_GetClients
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/clients/{clientId}/surveys
+  method: get
+  operationId: Client_GetClientSurveys
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/accounts/{clientId}/configuration/addons
+  method: get
+  operationId: Configuration_GetAddonConfiguration
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/accounts/{clientId}/configuration/mobile
+  method: get
+  operationId: Configuration_GetMobileConfiguration
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/employee/{employeeId}
+  method: get
+  operationId: Employee_GetEmployee
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/hierarchy/list
+  method: post
+  operationId: HierarchyV2_List
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/incentives/{vin}/{zip}
+  method: get
+  operationId: Incentives_GetIncentives
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/incentives/programs
+  method: get
+  operationId: Incentives_GetAllPrograms
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/mail/send
+  method: post
+  operationId: Mail_PostMessageAsynchronous
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/mail/sendsync
+  method: post
+  operationId: Mail_PostMessageSynchronous
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/mail/status/{token}
+  method: get
+  operationId: Mail_GetStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/mail/events/{token}
+  method: get
+  operationId: Mail_GetEventsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/media/store
+  method: post
+  operationId: Media_Store
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/media/list
+  method: post
+  operationId: Media_List
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/notification/{clientId}/sms/phonenumbers/new
+  method: post
+  operationId: Notification_ProvisionSmsNumber
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/notification/{clientId}/sms/phonenumbers/{smsNumber}
+  method: delete
+  operationId: Notification_DeprovisionSmsNumber
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/accounts/{accountId}/promotions
+  method: get
+  operationId: Promotions_GetPromotionRedirect
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/review/{reviewGuid}
+  method: get
+  operationId: Review_GetReview
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/review/{reviewGuid}/response
+  method: get
+  operationId: Review_GetReviewResponses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/review/{reviewGuid}/response
+  method: post
+  operationId: Review_PostReviewResponse
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/review/{reviewGuid}/response/{responseGuid}
+  method: get
+  operationId: Review_GetReviewResponse
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/review
+  method: post
+  operationId: Review_PostReview
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/review/{reviewGuid}/DepartmentDisposition
+  method: post
+  operationId: Review_DepartmentDisposition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/review/accounts/{accountId}/sitelinks
+  method: get
+  operationId: getReviewSiteLinks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/review/accounts/{accountId}/sites
+  method: get
+  operationId: getReviewSiteRedirect2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/review/accounts/{accountId}/configuration/reviewsites
+  method: get
+  operationId: getAllReviewSites
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/review/{accountId}/reviews/refresh
+  method: get
+  operationId: Review_RefreshReviews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/rlcustomer/{customerGuid}/packages
+  method: get
+  operationId: RLCustomer_GetPackages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/site/list
+  method: get
+  operationId: Site_GetSites
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/site/{id}
+  method: get
+  operationId: Site_GetSite
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/smartfacts/{customerGuid}
+  method: get
+  operationId: SmartFacts_Get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/SOCi/{accountGuid}/provision
+  method: get
+  operationId: SOCi_Provision
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/SOCi/{accountGuid}/deprovision
+  method: get
+  operationId: SOCi_Deprovision
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/SOCi/{accountsId}/provision
+  method: get
+  operationId: SociV2_Provision
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/SOCi/{accountsId}/deprovision
+  method: get
+  operationId: SociV2_Deprovision
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/stats/survey
+  method: get
+  operationId: Stats_GetSurveyStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/stats/review
+  method: get
+  operationId: Stats_GetReviewStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/stats/enterprise
+  method: get
+  operationId: Stats_GetEnterpriseStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/stats/employee
+  method: get
+  operationId: Stats_GetEmployeeStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/stats/ToyotaSocialInteractions
+  method: get
+  operationId: Stats_GetToyotaSocialInteractionsReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stats/review/summary/byinterval
+  method: get
+  operationId: StatsV2_GetReviewSummaryByIntervalAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stats/review
+  method: get
+  operationId: StatsV2_GetReviewStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stats/enterprise
+  method: get
+  operationId: StatsV2_GetEnterpriseStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stats/survey
+  method: get
+  operationId: StatsV2_GetSurveyStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stats/surveymethod
+  method: get
+  operationId: StatsV2_GetSurveyMethodStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stats/npsStats
+  method: get
+  operationId: StatsV2_GetNpsSurveyStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stats/survey/summary/byinterval
+  method: get
+  operationId: StatsV2_GetSurveySummaryByIntervalAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/stats/employee
+  method: get
+  operationId: StatsV2_GetEmployeeStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/survey/{surveyId}/response
+  method: get
+  operationId: Survey_GetSurveyResponsesAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/survey/maritz/{maritzSurveyId}
+  method: get
+  operationId: Survey_GetMaritzSurveyByMaritzSurveyId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/survey/accounts/{clientId}/smssurveys
+  method: post
+  operationId: Survey_RequestSurvey
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/survey/GetMobileSurveyStats
+  method: get
+  operationId: Survey_GetMobileSurveyStatsAsync
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/survey/{token}/ReviewSurgeReport
+  method: get
+  operationId: Survey_GetReviewSurgeReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/survey/{token}/ReviewSurgeReportByWeek
+  method: get
+  operationId: Survey_ReviewSurgeReportWeek
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/survey/{token}/ReviewSurgeReportByMonth
+  method: get
+  operationId: Survey_ReviewSurgeReportMonth
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/surveyResponse/{surveyResponseGuid}
+  method: get
+  operationId: SurveyResponse_GetSurveyResponse
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/surveyResponse/{surveyResponse}/response
+  method: get
+  operationId: SurveyResponse_GetSurveyResponseResponses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/surveyResponse/{surveyResponseGuid}/response/{responseGuid}
+  method: get
+  operationId: SurveyResponse_GetSurveyResponseResponse
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/surveyResponse/{surveyResponseGuid}/response
+  method: post
+  operationId: SurveyResponse_PostSurveyResponseResponse
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/surveyResponse/{surveyResponseGuid}/DealerResponse
+  method: post
+  operationId: SurveyResponse_PostSurveyDealerResponse
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/surveys/responses
+  method: get
+  operationId: SurveysV2_GetSurveyResponses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/surveys/syncsurveys
+  method: get
+  operationId: SurveysV2_SyncCoreSurveys
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/transaction/{transactionId}
+  method: get
+  operationId: Transaction_GetTransaction
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/me
+  method: get
+  operationId: User_GetUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/{userGuid}
+  method: get
+  operationId: getV1UserByUserGuid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user
+  method: post
+  operationId: User_PostUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/user/me/settings
+  method: get
+  operationId: User_GetUserSettings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/{userGuid}/{accountGuid}/settings
+  method: get
+  operationId: getV1UserByUserGuidByAccountGuidSettings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/me/notification
+  method: get
+  operationId: User_GetNotificationSettings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/{userGuid}/{accountGuid}/notification
+  method: get
+  operationId: getV1UserByUserGuidByAccountGuidNotification
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/me/settings/report
+  method: get
+  operationId: User_GetReportSettings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/{userGuid}/{accountGuid}/report
+  method: get
+  operationId: getV1UserByUserGuidByAccountGuidReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/me/settings/custom
+  method: get
+  operationId: User_GetCustomSettings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/me/settings/custom
+  method: post
+  operationId: User_PostCustomSettings
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/user/{userGuid}/settings/custom
+  method: get
+  operationId: getV1UserByUserGuidSettingsCustom
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/{userGuid}/settings/custom
+  method: post
+  operationId: postV1UserByUserGuidSettingsCustom
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/user/me/{accountGuid}/settings/notification
+  method: post
+  operationId: User_PostNotificationSettings
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/user/{userGuid}/{accountGuid}/settings/notification
+  method: post
+  operationId: postV1UserByUserGuidByAccountGuidSettingsNotification
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/user/me/{accountGuid}/settings/report
+  method: post
+  operationId: User_PostReportSettings
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/user/{userGuid}/{accountGuid}/settings/report
+  method: post
+  operationId: postV1UserByUserGuidByAccountGuidSettingsReport
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/user/list
+  method: get
+  operationId: User_GetList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/listForReport
+  method: get
+  operationId: User_GetListForReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/test
+  method: get
+  operationId: User_GetTest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/resendWelcome
+  method: get
+  operationId: User_GetResendWelcome
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/resendWelcomeAllUsers
+  method: get
+  operationId: User_GetResendWelcomeAllUsers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/findGuid
+  method: get
+  operationId: User_GetFindGuid
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/user/{userGuid}/password
+  method: post
+  operationId: User_PostPassword
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/user/forgotPassword
+  method: get
+  operationId: User_GetForgotPassword
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/user/me
+  method: get
+  operationId: UserV2_GetUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/user/list
+  method: get
+  operationId: UserV2_GetList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/vehicles/{vin}
+  method: get
+  operationId: Vehicle_GetVinDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/vehicles/test
+  method: get
+  operationId: Vehicle_GetCarDetails
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/zuora/signature
+  method: post
+  operationId: Zuora_RequestDigitalSignature
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required

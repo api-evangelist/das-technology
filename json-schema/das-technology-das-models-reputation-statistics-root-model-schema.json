@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-reputation-statistics-root-model-schema.json",
+  "title": "DAS.Models.ReputationStatisticsRootModel",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-account-v2-api-openapi.yml#/components/schemas/DAS.Models.ReputationStatisticsRootModel",
+  "type": "object",
+  "properties": {
+    "accountGuid": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "startDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "endDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "statistics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Models.ReputationStatisticsSiteDetailsModel"
+      }
+    },
+    "statisticsAllTime": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Models.ReputationStatisticsSiteDetailsModelAllTime"
+      }
+    },
+    "summaries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Models.ReputationStatisticsSummaryModel"
+      }
+    }
+  },
+  "$defs": {
+    "DAS.Models.ReputationStatisticsSiteDetailsModel": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "site": {
+          "type": "string"
+        },
+        "reviewCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "positiveReviews": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "negativeReviews": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dealerResponses": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "averageScore": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "DAS.Models.ReputationStatisticsSiteDetailsModelAllTime": {
+      "type": "object",
+      "properties": {
+        "site": {
+          "type": "string"
+        },
+        "averageScore": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    },
+    "DAS.Models.ReputationStatisticsSummaryModel": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "total": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "average": {
+          "format": "double",
+          "type": "number"
+        }
+      }
+    }
+  }
+}

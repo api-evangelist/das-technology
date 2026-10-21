@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-survey-method-stats-v2-schema.json",
+  "title": "DAS.Models.SurveyMethodStatsV2",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-statsv2-api-openapi.yml#/components/schemas/DAS.Models.SurveyMethodStatsV2",
+  "type": "object",
+  "properties": {
+    "surveysSentTotal": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysSentEmail": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysSentSMS": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysReminderSentTotal": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysReminderSentEmail": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysReminderSentSMS": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysCompletedTotal": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysCompletedEmail": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysCompletedSMS": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "overallResponseRate": {
+      "format": "double",
+      "type": "number"
+    },
+    "responseRateEmail": {
+      "format": "double",
+      "type": "number"
+    },
+    "responseRateSMS": {
+      "format": "double",
+      "type": "number"
+    },
+    "accountGuid": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "transactions": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "emailCapture": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysSent": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysOpened": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "totalSurveysCompleted": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "positiveSurveysCompleted": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "negativeSurveysCompleted": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "averageStarRating": {
+      "format": "double",
+      "type": "number"
+    },
+    "averageLoyaltyScore": {
+      "format": "double",
+      "type": "number"
+    },
+    "nclReviewClicks": {
+      "format": "int32",
+      "type": "integer"
+    }
+  }
+}

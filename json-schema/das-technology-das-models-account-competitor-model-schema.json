@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-account-competitor-model-schema.json",
+  "title": "DAS.Models.AccountCompetitorModel",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-account-v2-api-openapi.yml#/components/schemas/DAS.Models.AccountCompetitorModel",
+  "type": "object",
+  "properties": {
+    "accountGuid": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "competitorAccountGuid": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "competitorAccountName": {
+      "type": "string"
+    },
+    "rank": {
+      "format": "int32",
+      "type": "integer"
+    }
+  }
+}

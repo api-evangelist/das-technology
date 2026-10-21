@@ -1,4 +1,5 @@
 aid: das-technology
+
 deliveryModel:
   model: saas
   open_source: false
@@ -11,6 +12,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: contact-sales
   onboarding: partner
@@ -24,33 +26,38 @@ accessModel:
   - https://api.digitalairstrike.com/swagger
   generated: '2026-08-12'
   method: probed
-  note: >-
-    The contract is public and anonymously readable, but every operation returns 401 with
-    WWW-Authenticate: Bearer and no token endpoint answers anonymously. There is no pricing page,
-    no signup and no sandbox; access is arranged through a dealer, OEM or partner relationship.
+  note: 'The contract is public and anonymously readable, but every operation returns 401 with WWW-Authenticate: Bearer and no token endpoint
+    answers anonymously. There is no pricing page, no signup and no sandbox; access is arranged through a dealer, OEM or partner relationship.'
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/das-technology.png
+
 name: DAS Technology
-description: 'DAS Technology (formerly Digital Air Strike) is an automotive-retail marketing
-  and customer-experience technology company serving more than 9,300 dealerships and
-  OEMs. Its AI-native CDXP (Customer Data and Experience Platform) unifies sales, service,
-  and retention data across three product lines: Attract (multi-channel digital advertising
-  across Google, Facebook, Microsoft, Amazon, and TikTok), Convert (AI-powered lead
-  response, instant quotes, and long-cycle nurturing), and Retain (reputation management,
-  equity mining, and service-retention campaigns). DAS Technology ships a real REST API — the
-  DAS Web API — served from its legacy Digital Air Strike domain and documented by two publicly
-  readable Swagger 2.0 documents covering 136 operations across accounts and dealer-group
-  hierarchy, reviews and reputation, surveys and NPS, enterprise statistics, transactional
-  messaging, users, vehicles and transactions. The contract is discoverable but the program
-  around it is not: there is no developer portal, no pricing, no SDK, no sandbox, no status page
-  and no changelog, and access is arranged through the dealer, OEM or partner relationship.'
+
+description: 'DAS Technology (formerly Digital Air Strike) is an automotive-retail marketing and customer-experience technology company serving
+  more than 9,300 dealerships and OEMs. Its AI-native CDXP (Customer Data and Experience Platform) unifies sales, service, and retention data
+  across three product lines: Attract (multi-channel digital advertising across Google, Facebook, Microsoft, Amazon, and TikTok), Convert (AI-powered
+  lead response, instant quotes, and long-cycle nurturing), and Retain (reputation management, equity mining, and service-retention campaigns).
+  DAS Technology ships a real REST API — the DAS Web API — served from its legacy Digital Air Strike domain and documented by two publicly readable
+  Swagger 2.0 documents covering 136 operations across accounts and dealer-group hierarchy, reviews and reputation, surveys and NPS, enterprise
+  statistics, transactional messaging, users, vehicles and transactions. The contract is discoverable but the program around it is not: there
+  is no developer portal, no pricing, no SDK, no sandbox, no status page and no changelog, and access is arranged through the dealer, OEM or partner
+  relationship.'
+
 url: https://raw.githubusercontent.com/api-evangelist/das-technology/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: vc-portfolio
+
 x-backed-by:
 - emergence-capital
+
 specificationVersion: '0.23'
+
 created: '2026-07-17'
+
 modified: '2026-08-12'
+
 tags:
 - Company
 - MarTech
@@ -64,6 +71,7 @@ tags:
 - Surveys
 - Customer Experience
 - Dealership
+
 tags_raw:
 - Company
 - Martech
@@ -77,6 +85,67 @@ tags_raw:
 - Surveys
 - Customer Experience
 - Dealership
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+- FN: APIs.json
+  email: info@apis.io
+
+common:
+- type: Pricing
+  url: https://dastechnology.com/download/pricing-transparency
+- type: AgenticAccess
+  url: agentic-access/das-technology-agentic-access.yml
+- type: Spectral
+  url: rules/das-technology-rules.yml
+- type: JSONLD
+  url: json-ld/das-technology-context.jsonld
+- type: Vocabulary
+  url: vocabulary/das-technology-vocabulary.yml
+- type: Deprecation
+  url: lifecycle/das-technology-lifecycle.yml
+- type: Hosts
+  url: hosts/das-technology-hosts.yml
+- type: Vendors
+  url: vendors/das-technology-vendors.yml
+- type: Newsroom
+  url: https://dastechnology.com/press
+- type: Plans
+  url: plans/das-technology-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/das-technology-rate-limits.yml
+- type: CapabilityMap
+  url: capabilities/das-technology-capability-edges.yml
+  name: DAS Technology Business Capability Map
+- type: Overlay
+  url: overlays/das-technology-daswebapi-v1-overlay.yaml
+- type: Overlay
+  url: overlays/das-technology-daswebapi-v2-overlay.yaml
+- type: Website
+  url: https://www.dastechnology.com
+- type: Blog
+  url: https://dastechnology.com/blog
+- type: Support
+  url: https://digitalairstrike.com/about-the-company/contact-digital-air-strike
+- type: Login
+  url: https://digitalairstrike.com
+- type: TermsOfService
+  url: https://digitalairstrike.com/terms-conditions/
+- type: PrivacyPolicy
+  url: https://digitalairstrike.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/dastechnology
+- type: DomainSecurity
+  url: security/das-technology-domain-security.yml
+- type: X-MCPServerCandidate
+  url: mcp/das-technology-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published
+    API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting
+    the artifact-type surfaces with a server that does not exist.'
+- type: AgentSkill
+  url: skills/_index.yml
+
 apis:
 - aid: das-technology:das-technology-account-api
   name: DAS Technology Account API
@@ -92,8 +161,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -108,6 +175,18 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-core-entity-framework-review-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-core-entity-framework-survey-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-enterprise-stats-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-core-entity-framework-employee-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-review-stats-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-survey-stats-v2-schema.json
 - aid: das-technology:das-technology-client-api
   name: DAS Technology Client API
   description: The Client API from DAS Technology — 2 operation(s) for client.
@@ -124,8 +203,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -154,8 +231,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -184,8 +259,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -200,6 +273,8 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-employee-model-schema.json
 - aid: das-technology:das-technology-hierarchyv2-api
   name: DAS Technology Hierarchy V2 API
   description: The HierarchyV2 API from DAS Technology — 1 operation(s) for hierarchyv2.
@@ -214,8 +289,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -230,6 +303,8 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-hierarchy-model-schema.json
 - aid: das-technology:das-technology-incentives-api
   name: DAS Technology Incentives API
   description: The Incentives API from DAS Technology — 2 operation(s) for incentives.
@@ -244,8 +319,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -274,8 +347,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -290,6 +361,8 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-envelope-schema.json
 - aid: das-technology:das-technology-media-api
   name: DAS Technology Media API
   description: The Media API from DAS Technology — 2 operation(s) for media.
@@ -304,8 +377,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -320,6 +391,8 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-dasweb-api-models-media-model-schema.json
 - aid: das-technology:das-technology-notification-api
   name: DAS Technology Notification API
   description: The Notification API from DAS Technology — 2 operation(s) for notification.
@@ -334,8 +407,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -350,6 +421,8 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-dasweb-api-controllers-sms-provision-request-info-schema.json
 - aid: das-technology:das-technology-promotions-api
   name: DAS Technology Promotions API
   description: The Promotions API from DAS Technology — 1 operation(s) for promotions.
@@ -364,8 +437,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -394,8 +465,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -410,6 +479,14 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-review-model-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-review-response-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-customer-review-site-info-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-review-department-disposition-model-schema.json
 - aid: das-technology:das-technology-rlcustomer-api
   name: DAS Technology RL Customer API
   description: The RLCustomer API from DAS Technology — 1 operation(s) for rlcustomer.
@@ -424,8 +501,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -440,6 +515,8 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-package-model-schema.json
 - aid: das-technology:das-technology-site-api
   name: DAS Technology Site API
   description: The Site API from DAS Technology — 2 operation(s) for site.
@@ -454,8 +531,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -470,6 +545,8 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-site-schema.json
 - aid: das-technology:das-technology-smartfacts-api
   name: DAS Technology Smart Facts API
   description: The SmartFacts API from DAS Technology — 1 operation(s) for smartfacts.
@@ -484,8 +561,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -514,8 +589,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -544,8 +617,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -574,8 +645,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -590,6 +659,14 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-enterprise-stats-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-review-stats-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-survey-stats-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-employee-stats-schema.json
 - aid: das-technology:das-technology-statsv2-api
   name: DAS Technology Stats V2 API
   description: The StatsV2 API from DAS Technology — 8 operation(s) for statsv2.
@@ -604,8 +681,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -620,6 +695,16 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-survey-method-stats-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-enterprise-stats-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-survey-stats-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-employee-stats-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-nps-stats-schema.json
 - aid: das-technology:das-technology-survey-api
   name: DAS Technology Survey API
   description: The Survey API from DAS Technology — 7 operation(s) for survey.
@@ -636,8 +721,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -652,6 +735,11 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-survey-response-v2-schema.json
+  - type: JSONSchema
+    url: >-
+      json-schema/das-technology-system-collections-generic-key-value-pair-system-string-system-string-schema.json
 - aid: das-technology:das-technology-surveyresponse-api
   name: DAS Technology Survey Response API
   description: The SurveyResponse API from DAS Technology — 5 operation(s) for surveyresponse.
@@ -666,8 +754,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -682,6 +768,12 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-survey-response-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-proposed-response-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-survey-dealer-comments-schema.json
 - aid: das-technology:das-technology-surveysv2-api
   name: DAS Technology Surveys V2 API
   description: The SurveysV2 API from DAS Technology — 2 operation(s) for surveysv2.
@@ -696,8 +788,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -726,8 +816,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -742,6 +830,8 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-transaction-schema.json
 - aid: das-technology:das-technology-user-api
   name: DAS Technology User API
   description: The User API from DAS Technology — 23 operation(s) for user.
@@ -756,8 +846,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -772,6 +860,14 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-user-model-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-report-settings-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-user-settings-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-notification-settings-schema.json
 - aid: das-technology:das-technology-vehicle-api
   name: DAS Technology Vehicle API
   description: The Vehicle API from DAS Technology — 2 operation(s) for vehicle.
@@ -788,8 +884,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -818,8 +912,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -840,8 +932,6 @@ apis:
   humanURL: https://api.digitalairstrike.com/swagger
   baseURL: https://api.digitalairstrike.com
   tags:
-  - AccountV2
-  tags_raw:
   - Account V2
   properties:
   - type: OpenAPI
@@ -850,8 +940,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -866,6 +954,21 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-reputation-statistics-root-model-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-portal-account-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-account-competitor-model-schema.json
+  - type: JSONSchema
+    url: >-
+      json-schema/das-technology-das-models-paged-result-das-models-survey-response-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-paged-result-das-models-review-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-user-model-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-paged-result-das-models-user-model-schema.json
 - aid: das-technology:das-technology-user-v2-api
   name: DAS Technology User v2 API
   description: The User v2 API from DAS Technology — 2 operation(s) for user v2.
@@ -880,8 +983,6 @@ apis:
     url: https://api.digitalairstrike.com/swagger
   - type: Documentation
     url: https://api.digitalairstrike.com/swagger
-  - type: Authentication
-    url: authentication/das-technology-authentication.yml
   - type: Conventions
     url: conventions/das-technology-conventions.yml
   - type: ErrorCatalog
@@ -896,48 +997,23 @@ apis:
     url: rate-limits/das-technology-rate-limits.yml
   - type: Plans
     url: plans/das-technology-plans-pricing.yml
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-- FN: APIs.json
-  email: info@apis.io
-common:
-- type: Plans
-  url: plans/das-technology-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/das-technology-rate-limits.yml
-- type: CapabilityMap
-  url: capabilities/das-technology-capability-edges.yml
-  name: DAS Technology Business Capability Map
-- type: Overlay
-  url: overlays/das-technology-daswebapi-v1-overlay.yaml
-- type: Overlay
-  url: overlays/das-technology-daswebapi-v2-overlay.yaml
-- type: Website
-  url: https://www.dastechnology.com
-- type: Blog
-  url: https://digitalairstrike.com/blog/
-- type: Support
-  url: https://digitalairstrike.com/about-the-company/contact-digital-air-strike
-- type: Login
-  url: https://digitalairstrike.com
-- type: TermsOfService
-  url: https://digitalairstrike.com/terms-conditions/
-- type: PrivacyPolicy
-  url: https://digitalairstrike.com/privacy
-- type: GitHubOrganization
-  url: https://github.com/dastechnology
-- type: DomainSecurity
-  url: security/das-technology-domain-security.yml
-- type: X-MCPServerCandidate
-  url: mcp/das-technology-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
-- type: AgentSkill
-  url: skills/_index.yml
-- type: LLMsTxt
-  url: llms/das-technology-llms.txt
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-reputation-statistics-root-model-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-portal-account-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-account-competitor-model-schema.json
+  - type: JSONSchema
+    url: >-
+      json-schema/das-technology-das-models-paged-result-das-models-survey-response-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-paged-result-das-models-review-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-user-model-schema.json
+  - type: JSONSchema
+    url: json-schema/das-technology-das-models-paged-result-das-models-user-model-schema.json
 x-enrichment:
-  date: '2026-08-12'
+  date: '2026-10-20'
   status: enriched
-  artifacts_added: 23
-  pass: local-v1
+  artifacts_added: 0
+  pass: local-v5

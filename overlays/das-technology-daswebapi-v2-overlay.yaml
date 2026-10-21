@@ -11,7 +11,7 @@ info:
   x-method: generated
   x-source: openapi/_original/das-technology-daswebapi-v2-swagger.json
   x-operations: 32
-extends: openapi/das-technology-daswebapi-v2-openapi.yml
+extends: ../openapi/_original/das-technology-daswebapi-v2-openapi.yml
 actions:
 - target: $.info
   description: Record the human documentation surface and the maintaining brand — the document ships with

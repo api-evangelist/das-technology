@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-employee-model-schema.json",
+  "title": "DAS.Models.EmployeeModel",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-employee-api-openapi.yml#/components/schemas/DAS.Models.EmployeeModel",
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "createdDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lastUpdatedDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lastUpdatedBy": {
+      "type": "string"
+    },
+    "token": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "accountToken": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "employeeNumber": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "employeeDepartment": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    }
+  }
+}

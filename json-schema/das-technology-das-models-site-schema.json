@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-site-schema.json",
+  "title": "DAS.Models.Site",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-site-api-openapi.yml#/components/schemas/DAS.Models.Site",
+  "type": "object",
+  "properties": {
+    "id": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "siteUrl": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "ratingMethod": {
+      "$ref": "#/$defs/DAS.Models.RatingMethod"
+    },
+    "logoUrl": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "slReporting": {
+      "type": "boolean"
+    },
+    "guid": {
+      "format": "uuid",
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "DAS.Models.RatingMethod": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "ratingDisplay": {
+          "type": "string"
+        },
+        "ratingMethodItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.RatingMethodItems"
+          }
+        }
+      }
+    },
+    "DAS.Models.RatingMethodItems": {
+      "type": "object",
+      "properties": {
+        "rating": {
+          "type": "string"
+        },
+        "orderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ratingValue": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

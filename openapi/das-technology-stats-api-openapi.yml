@@ -400,14 +400,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DAS.Models.ReviewStatsState:
-      type: object
-      properties:
-        stateName:
-          type: string
-        ratingAverage:
-          format: double
-          type: number
     DAS.Models.EmployeeStats:
       type: object
       properties:
@@ -429,6 +421,128 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DAS.Models.ReviewStatsSimple'
+    DAS.Models.ReviewStatsSource:
+      type: object
+      properties:
+        name:
+          type: string
+        count:
+          format: int32
+          type: integer
+        averageRating:
+          format: double
+          type: number
+        positiveCount:
+          format: int32
+          type: integer
+        averageTotalCount:
+          format: int32
+          type: integer
+        averageSite:
+          format: double
+          type: number
+    DAS.Models.SurveyStats:
+      type: object
+      properties:
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        transactions:
+          format: int32
+          type: integer
+        emailCapture:
+          format: int32
+          type: integer
+        surveysSent:
+          format: int32
+          type: integer
+        surveysOpened:
+          format: int32
+          type: integer
+        totalSurveysCompleted:
+          format: int32
+          type: integer
+        positiveSurveysCompleted:
+          format: int32
+          type: integer
+        negativeSurveysCompleted:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        averageLoyaltyScore:
+          format: double
+          type: number
+        nclReviewClicks:
+          format: int32
+          type: integer
+    DAS.Models.ReviewSiteRatings:
+      type: object
+      properties:
+        name:
+          type: string
+        averageRating:
+          format: double
+          type: number
+    DAS.Models.SurveyStatsV2:
+      type: object
+      properties:
+        clTotalSurveysCompleted:
+          format: int32
+          type: integer
+        clAverageStarRating:
+          format: double
+          type: number
+        clAverageLoyaltyScore:
+          format: double
+          type: number
+        clPositiveSurveysCompleted:
+          format: int32
+          type: integer
+        neutralSurveysCompleted:
+          format: int32
+          type: integer
+        positivePercentage:
+          format: int32
+          type: integer
+        accountGuid:
+          format: uuid
+          type: string
+        name:
+          type: string
+        transactions:
+          format: int32
+          type: integer
+        emailCapture:
+          format: int32
+          type: integer
+        surveysSent:
+          format: int32
+          type: integer
+        surveysOpened:
+          format: int32
+          type: integer
+        totalSurveysCompleted:
+          format: int32
+          type: integer
+        positiveSurveysCompleted:
+          format: int32
+          type: integer
+        negativeSurveysCompleted:
+          format: int32
+          type: integer
+        averageStarRating:
+          format: double
+          type: number
+        averageLoyaltyScore:
+          format: double
+          type: number
+        nclReviewClicks:
+          format: int32
+          type: integer
     DAS.Models.ReviewStatsSimple:
       type: object
       properties:
@@ -565,125 +679,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DAS.Models.ReviewSiteRatings'
-    DAS.Models.SurveyStatsV2:
+    DAS.Models.ReviewStatsState:
       type: object
       properties:
-        clTotalSurveysCompleted:
-          format: int32
-          type: integer
-        clAverageStarRating:
-          format: double
-          type: number
-        clAverageLoyaltyScore:
-          format: double
-          type: number
-        clPositiveSurveysCompleted:
-          format: int32
-          type: integer
-        neutralSurveysCompleted:
-          format: int32
-          type: integer
-        positivePercentage:
-          format: int32
-          type: integer
-        accountGuid:
-          format: uuid
+        stateName:
           type: string
-        name:
-          type: string
-        transactions:
-          format: int32
-          type: integer
-        emailCapture:
-          format: int32
-          type: integer
-        surveysSent:
-          format: int32
-          type: integer
-        surveysOpened:
-          format: int32
-          type: integer
-        totalSurveysCompleted:
-          format: int32
-          type: integer
-        positiveSurveysCompleted:
-          format: int32
-          type: integer
-        negativeSurveysCompleted:
-          format: int32
-          type: integer
-        averageStarRating:
-          format: double
-          type: number
-        averageLoyaltyScore:
-          format: double
-          type: number
-        nclReviewClicks:
-          format: int32
-          type: integer
-    DAS.Models.SurveyStats:
-      type: object
-      properties:
-        accountGuid:
-          format: uuid
-          type: string
-        name:
-          type: string
-        transactions:
-          format: int32
-          type: integer
-        emailCapture:
-          format: int32
-          type: integer
-        surveysSent:
-          format: int32
-          type: integer
-        surveysOpened:
-          format: int32
-          type: integer
-        totalSurveysCompleted:
-          format: int32
-          type: integer
-        positiveSurveysCompleted:
-          format: int32
-          type: integer
-        negativeSurveysCompleted:
-          format: int32
-          type: integer
-        averageStarRating:
-          format: double
-          type: number
-        averageLoyaltyScore:
-          format: double
-          type: number
-        nclReviewClicks:
-          format: int32
-          type: integer
-    DAS.Models.ReviewStatsSource:
-      type: object
-      properties:
-        name:
-          type: string
-        count:
-          format: int32
-          type: integer
-        averageRating:
-          format: double
-          type: number
-        positiveCount:
-          format: int32
-          type: integer
-        averageTotalCount:
-          format: int32
-          type: integer
-        averageSite:
-          format: double
-          type: number
-    DAS.Models.ReviewSiteRatings:
-      type: object
-      properties:
-        name:
-          type: string
-        averageRating:
+        ratingAverage:
           format: double
           type: number

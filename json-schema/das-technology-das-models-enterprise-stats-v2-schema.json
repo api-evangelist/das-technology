@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-enterprise-stats-v2-schema.json",
+  "title": "DAS.Models.EnterpriseStatsV2",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.EnterpriseStatsV2",
+  "type": "object",
+  "properties": {
+    "nclTotalSurveysCompleted": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "nclAverageStarRating": {
+      "format": "double",
+      "type": "number"
+    },
+    "nclPositiveSurveysCompleted": {
+      "format": "double",
+      "type": "number"
+    },
+    "clTotalSurveysCompleted": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "clAverageStarRating": {
+      "format": "double",
+      "type": "number"
+    },
+    "clAverageLoyaltyScore": {
+      "format": "double",
+      "type": "number"
+    },
+    "clPositiveSurveysCompleted": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "neutralSurveysCompleted": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "positivePercentage": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "accountGuid": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "transactions": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "emailCapture": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysSent": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveysOpened": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "totalSurveysCompleted": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "positiveSurveysCompleted": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "negativeSurveysCompleted": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "averageStarRating": {
+      "format": "double",
+      "type": "number"
+    },
+    "averageLoyaltyScore": {
+      "format": "double",
+      "type": "number"
+    },
+    "nclReviewClicks": {
+      "format": "int32",
+      "type": "integer"
+    }
+  }
+}

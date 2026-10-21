@@ -1,0 +1,90 @@
+generated: '2026-10-20'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 6
+  own: 3
+  other_domain: 2
+  platform: 1
+  roles:
+  - api
+  - identity
+  - marketing
+  - source
+  - website
+hosts:
+- host: api.dastechnology.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: dastechnology.com
+  role: api
+  relation: own
+- host: api.digitalairstrike.com
+  found_by:
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - api
+  - docs
+  registrable_domain: digitalairstrike.com
+  role: api
+  relation: other-domain
+- host: dastechnology.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types:
+  - Newsroom
+  - Blog
+  serves: []
+  registrable_domain: dastechnology.com
+  role: marketing
+  relation: own
+- host: digitalairstrike.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Support
+  - Login
+  - TermsOfService
+  - PrivacyPolicy
+  serves: []
+  registrable_domain: digitalairstrike.com
+  role: identity
+  relation: other-domain
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: www.dastechnology.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  serves:
+  - cdn
+  vendor: cloudflare
+  registrable_domain: dastechnology.com
+  role: website
+  relation: own

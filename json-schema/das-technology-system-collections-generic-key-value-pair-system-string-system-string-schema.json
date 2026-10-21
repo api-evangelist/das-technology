@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-system-collections-generic-key-value-pair-system-string-system-string-schema.json",
+  "title": "System.Collections.Generic.KeyValuePair_System.String_System.String",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-survey-api-openapi.yml#/components/schemas/System.Collections.Generic.KeyValuePair_System.String_System.String",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "readOnly": true
+    },
+    "value": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

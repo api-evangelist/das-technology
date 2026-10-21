@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-dasweb-api-models-media-model-schema.json",
+  "title": "DASWebAPI.Models.MediaModel",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-media-api-openapi.yml#/components/schemas/DASWebAPI.Models.MediaModel",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "dealerId": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "useremail": {
+      "type": "string"
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DASWebAPI.Models.MediaUploadError"
+      }
+    }
+  },
+  "$defs": {
+    "DASWebAPI.Models.MediaUploadError": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+generated: '2026-10-20'
+method: none
+source:
+- https://zapier.com/apps/das-technology/integrations
+- https://n8n.io/integrations/das-technology/
+- https://composio.dev/toolkits/das-technology
+- https://monid.ai/tools/das-technology
+checked:
+- https://composio.dev/toolkits/das-technology
+- https://monid.ai/tools/das-technology
+- https://n8n.io/integrations/das-technology/
+- https://zapier.com/apps/das-technology/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []

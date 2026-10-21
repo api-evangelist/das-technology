@@ -1,0 +1,2159 @@
+{
+  "@context": {
+    "@vocab": "https://dastechnology.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "das": "https://dastechnology.com/schema#",
+    "DAS.Core.EntityFramework.SociProject": "das:DAS.Core.EntityFramework.SociProject",
+    "accountsId": {
+      "@id": "das:accountsId",
+      "@type": "xsd:integer"
+    },
+    "sociProjectId": {
+      "@id": "das:sociProjectId",
+      "@type": "xsd:string"
+    },
+    "sociProjectActive": {
+      "@id": "das:sociProjectActive",
+      "@type": "xsd:boolean"
+    },
+    "account": {
+      "@id": "das:account",
+      "@type": "@id"
+    },
+    "DAS.Core.EntityFramework.SurveyDealerResponse": "das:DAS.Core.EntityFramework.SurveyDealerResponse",
+    "id": {
+      "@id": "das:id",
+      "@type": "xsd:integer"
+    },
+    "surveyId": {
+      "@id": "das:surveyId",
+      "@type": "xsd:integer"
+    },
+    "responseDate": {
+      "@id": "das:responseDate",
+      "@type": "xsd:dateTime"
+    },
+    "comments": {
+      "@id": "das:comments",
+      "@type": "xsd:string"
+    },
+    "survey": {
+      "@id": "das:survey",
+      "@type": "@id"
+    },
+    "DAS.Models.PortalAccountDetailed": "das:DAS.Models.PortalAccountDetailed",
+    "address": {
+      "@id": "das:address",
+      "@type": "@id"
+    },
+    "phone": {
+      "@id": "das:phone",
+      "@type": "xsd:string"
+    },
+    "website": {
+      "@id": "das:website",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "das:name",
+      "@type": "xsd:string"
+    },
+    "guid": {
+      "@id": "das:guid",
+      "@type": "xsd:string"
+    },
+    "parent": {
+      "@id": "das:parent",
+      "@container": "@list"
+    },
+    "child": {
+      "@id": "das:child",
+      "@container": "@list"
+    },
+    "DAS.Core.EntityFramework.Vehicle": "das:DAS.Core.EntityFramework.Vehicle",
+    "vehicleId": {
+      "@id": "das:vehicleId",
+      "@type": "xsd:integer"
+    },
+    "createdDate": {
+      "@id": "das:createdDate",
+      "@type": "xsd:dateTime"
+    },
+    "lastUpdatedDate": {
+      "@id": "das:lastUpdatedDate",
+      "@type": "xsd:dateTime"
+    },
+    "lastUpdatedBy": {
+      "@id": "das:lastUpdatedBy",
+      "@type": "xsd:string"
+    },
+    "year": {
+      "@id": "das:year",
+      "@type": "xsd:string"
+    },
+    "make": {
+      "@id": "das:make",
+      "@type": "xsd:string"
+    },
+    "model": {
+      "@id": "das:model",
+      "@type": "xsd:string"
+    },
+    "vehicleSaleTxns": {
+      "@id": "das:vehicleSaleTxns",
+      "@container": "@list"
+    },
+    "vehicleServiceTxns": {
+      "@id": "das:vehicleServiceTxns",
+      "@container": "@list"
+    },
+    "DAS.Models.PortalAccount": "das:DAS.Models.PortalAccount",
+    "DAS.Core.EntityFramework.VehicleServiceTxn": "das:DAS.Core.EntityFramework.VehicleServiceTxn",
+    "vehicleServiceTxnId": {
+      "@id": "das:vehicleServiceTxnId",
+      "@type": "xsd:integer"
+    },
+    "txnId": {
+      "@id": "das:txnId",
+      "@type": "xsd:integer"
+    },
+    "dmsTypeId": {
+      "@id": "das:dmsTypeId",
+      "@type": "xsd:integer"
+    },
+    "repairOrderNumber": {
+      "@id": "das:repairOrderNumber",
+      "@type": "xsd:string"
+    },
+    "openDate": {
+      "@id": "das:openDate",
+      "@type": "xsd:dateTime"
+    },
+    "closedDate": {
+      "@id": "das:closedDate",
+      "@type": "xsd:dateTime"
+    },
+    "individualBusinessFlag": {
+      "@id": "das:individualBusinessFlag",
+      "@type": "xsd:string"
+    },
+    "salesManId": {
+      "@id": "das:salesManId",
+      "@type": "xsd:integer"
+    },
+    "serviceAdvisorId": {
+      "@id": "das:serviceAdvisorId",
+      "@type": "xsd:integer"
+    },
+    "vin": {
+      "@id": "das:vin",
+      "@type": "xsd:string"
+    },
+    "odometer": {
+      "@id": "das:odometer",
+      "@type": "xsd:string"
+    },
+    "hasInternalPayLaborType": {
+      "@id": "das:hasInternalPayLaborType",
+      "@type": "xsd:boolean"
+    },
+    "hasCustomerPayLaborType": {
+      "@id": "das:hasCustomerPayLaborType",
+      "@type": "xsd:boolean"
+    },
+    "hasWarrantyLaborType": {
+      "@id": "das:hasWarrantyLaborType",
+      "@type": "xsd:boolean"
+    },
+    "hasUnknownLaborType": {
+      "@id": "das:hasUnknownLaborType",
+      "@type": "xsd:boolean"
+    },
+    "dmsType": {
+      "@id": "das:dmsType",
+      "@type": "@id"
+    },
+    "employee": {
+      "@id": "das:employee",
+      "@type": "@id"
+    },
+    "employee1": {
+      "@id": "das:employee1",
+      "@type": "@id"
+    },
+    "txn": {
+      "@id": "das:txn",
+      "@type": "@id"
+    },
+    "vehicle": {
+      "@id": "das:vehicle",
+      "@type": "@id"
+    },
+    "DAS.Models.SurveyTransaction": "das:DAS.Models.SurveyTransaction",
+    "type": {
+      "@id": "das:type",
+      "@type": "xsd:string"
+    },
+    "DAS.Core.EntityFramework.SurveyResponse": "das:DAS.Core.EntityFramework.SurveyResponse",
+    "npsScore": {
+      "@id": "das:npsScore",
+      "@type": "xsd:integer"
+    },
+    "rating": {
+      "@id": "das:rating",
+      "@type": "xsd:integer"
+    },
+    "feedback": {
+      "@id": "das:feedback",
+      "@type": "xsd:string"
+    },
+    "surveyResponseGuid": {
+      "@id": "das:surveyResponseGuid",
+      "@type": "xsd:string"
+    },
+    "publicationDate": {
+      "@id": "das:publicationDate",
+      "@type": "xsd:dateTime"
+    },
+    "publicationStatus": {
+      "@id": "das:publicationStatus",
+      "@type": "xsd:string"
+    },
+    "enablePartnerShare": {
+      "@id": "das:enablePartnerShare",
+      "@type": "xsd:boolean"
+    },
+    "displaySurvey": {
+      "@id": "das:displaySurvey",
+      "@type": "xsd:boolean"
+    },
+    "surveyAnsweredBy": {
+      "@id": "das:surveyAnsweredBy",
+      "@type": "xsd:string"
+    },
+    "publishedReviewSiteId": {
+      "@id": "das:publishedReviewSiteId",
+      "@type": "xsd:integer"
+    },
+    "publishedStatus": {
+      "@id": "das:publishedStatus",
+      "@type": "xsd:string"
+    },
+    "thankYouPageClick": {
+      "@id": "das:thankYouPageClick",
+      "@type": "xsd:boolean"
+    },
+    "surveyResponseResponses": {
+      "@id": "das:surveyResponseResponses",
+      "@container": "@list"
+    },
+    "reviews": {
+      "@id": "das:reviews",
+      "@container": "@list"
+    },
+    "DAS.Models.PortalAccountAddress": "das:DAS.Models.PortalAccountAddress",
+    "street": {
+      "@id": "das:street",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "das:city",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "das:state",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "das:postalCode",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "das:country",
+      "@type": "xsd:string"
+    },
+    "DAS.Core.EntityFramework.ReviewClassification": "das:DAS.Core.EntityFramework.ReviewClassification",
+    "reviewId": {
+      "@id": "das:reviewId",
+      "@type": "xsd:integer"
+    },
+    "label": {
+      "@id": "das:label",
+      "@type": "xsd:string"
+    },
+    "score": {
+      "@id": "das:score",
+      "@type": "xsd:decimal"
+    },
+    "created": {
+      "@id": "das:created",
+      "@type": "xsd:dateTime"
+    },
+    "review": {
+      "@id": "das:review",
+      "@type": "@id"
+    },
+    "DAS.Models.ReviewResponseV2": "das:DAS.Models.ReviewResponseV2",
+    "responderName": {
+      "@id": "das:responderName",
+      "@type": "xsd:string"
+    },
+    "responseTitle": {
+      "@id": "das:responseTitle",
+      "@type": "xsd:string"
+    },
+    "responseComment": {
+      "@id": "das:responseComment",
+      "@type": "xsd:string"
+    },
+    "canEditResponse": {
+      "@id": "das:canEditResponse",
+      "@type": "xsd:boolean"
+    },
+    "lastModified": {
+      "@id": "das:lastModified",
+      "@type": "xsd:dateTime"
+    },
+    "reviewResponseGuid": {
+      "@id": "das:reviewResponseGuid",
+      "@type": "xsd:string"
+    },
+    "proposed": {
+      "@id": "das:proposed",
+      "@type": "xsd:boolean"
+    },
+    "externalId": {
+      "@id": "das:externalId",
+      "@type": "xsd:string"
+    },
+    "DAS.Core.EntityFramework.DashboardClient": "das:DAS.Core.EntityFramework.DashboardClient",
+    "dashboardClientId": {
+      "@id": "das:dashboardClientId",
+      "@type": "xsd:integer"
+    },
+    "token": {
+      "@id": "das:token",
+      "@type": "xsd:string"
+    },
+    "accountId": {
+      "@id": "das:accountId",
+      "@type": "xsd:integer"
+    },
+    "klipfolioClientId": {
+      "@id": "das:klipfolioClientId",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.SurveyStatsByInterval": "das:DAS.Models.SurveyStatsByInterval",
+    "accountGuid": {
+      "@id": "das:accountGuid",
+      "@type": "xsd:string"
+    },
+    "intervalName": {
+      "@id": "das:intervalName",
+      "@type": "xsd:string"
+    },
+    "averageRating": {
+      "@id": "das:averageRating",
+      "@type": "xsd:decimal"
+    },
+    "totalCount": {
+      "@id": "das:totalCount",
+      "@type": "xsd:integer"
+    },
+    "averageTotalCount": {
+      "@id": "das:averageTotalCount",
+      "@type": "xsd:integer"
+    },
+    "DAS.Models.QuestionResponse": "das:DAS.Models.QuestionResponse",
+    "question": {
+      "@id": "das:question",
+      "@type": "xsd:string"
+    },
+    "answer": {
+      "@id": "das:answer",
+      "@type": "xsd:string"
+    },
+    "DAS.Core.EntityFramework.Address": "das:DAS.Core.EntityFramework.Address",
+    "DAS.Core.EntityFramework.SurveyDealerPendingResponse": "das:DAS.Core.EntityFramework.SurveyDealerPendingResponse",
+    "DAS.Core.EntityFramework.Rooftop": "das:DAS.Core.EntityFramework.Rooftop",
+    "rooftopName": {
+      "@id": "das:rooftopName",
+      "@type": "xsd:string"
+    },
+    "rooftopId": {
+      "@id": "das:rooftopId",
+      "@type": "xsd:string"
+    },
+    "rlCustomerInventorySourceGuid": {
+      "@id": "das:rlCustomerInventorySourceGuid",
+      "@type": "xsd:string"
+    },
+    "accounts": {
+      "@id": "das:accounts",
+      "@container": "@list"
+    },
+    "DAS.Models.ReviewStatsSimple": "das:DAS.Models.ReviewStatsSimple",
+    "reviewClicks": {
+      "@id": "das:reviewClicks",
+      "@type": "xsd:integer"
+    },
+    "reviewCount": {
+      "@id": "das:reviewCount",
+      "@type": "xsd:integer"
+    },
+    "averageStarRating": {
+      "@id": "das:averageStarRating",
+      "@type": "xsd:decimal"
+    },
+    "percentPositive": {
+      "@id": "das:percentPositive",
+      "@type": "xsd:decimal"
+    },
+    "DAS.Core.EntityFramework.RLCustomer": "das:DAS.Core.EntityFramework.RLCustomer",
+    "customerGUID": {
+      "@id": "das:customerGUID",
+      "@type": "xsd:string"
+    },
+    "oltpCustomerId": {
+      "@id": "das:oltpCustomerId",
+      "@type": "xsd:integer"
+    },
+    "DAS.Models.SurveyStats": "das:DAS.Models.SurveyStats",
+    "transactions": {
+      "@id": "das:transactions",
+      "@type": "xsd:integer"
+    },
+    "emailCapture": {
+      "@id": "das:emailCapture",
+      "@type": "xsd:integer"
+    },
+    "surveysSent": {
+      "@id": "das:surveysSent",
+      "@type": "xsd:integer"
+    },
+    "surveysOpened": {
+      "@id": "das:surveysOpened",
+      "@type": "xsd:integer"
+    },
+    "totalSurveysCompleted": {
+      "@id": "das:totalSurveysCompleted",
+      "@type": "xsd:integer"
+    },
+    "positiveSurveysCompleted": {
+      "@id": "das:positiveSurveysCompleted",
+      "@type": "xsd:integer"
+    },
+    "negativeSurveysCompleted": {
+      "@id": "das:negativeSurveysCompleted",
+      "@type": "xsd:integer"
+    },
+    "averageLoyaltyScore": {
+      "@id": "das:averageLoyaltyScore",
+      "@type": "xsd:decimal"
+    },
+    "nclReviewClicks": {
+      "@id": "das:nclReviewClicks",
+      "@type": "xsd:integer"
+    },
+    "DAS.Models.SurveyResponseLegacy": "das:DAS.Models.SurveyResponseLegacy",
+    "hasClosedLoopReview": {
+      "@id": "das:hasClosedLoopReview",
+      "@type": "xsd:boolean"
+    },
+    "district": {
+      "@id": "das:district",
+      "@type": "xsd:string"
+    },
+    "canRespond": {
+      "@id": "das:canRespond",
+      "@type": "xsd:boolean"
+    },
+    "canRespondInline": {
+      "@id": "das:canRespondInline",
+      "@type": "xsd:boolean"
+    },
+    "proposedResponses": {
+      "@id": "das:proposedResponses",
+      "@container": "@list"
+    },
+    "date": {
+      "@id": "das:date",
+      "@type": "xsd:dateTime"
+    },
+    "loyaltyScore": {
+      "@id": "das:loyaltyScore",
+      "@type": "xsd:integer"
+    },
+    "comment": {
+      "@id": "das:comment",
+      "@type": "xsd:string"
+    },
+    "suggestion": {
+      "@id": "das:suggestion",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "das:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "das:lastName",
+      "@type": "xsd:string"
+    },
+    "questionResponses": {
+      "@id": "das:questionResponses",
+      "@container": "@list"
+    },
+    "tags": {
+      "@id": "das:tags",
+      "@container": "@list"
+    },
+    "transaction": {
+      "@id": "das:transaction",
+      "@type": "@id"
+    },
+    "DAS.Core.EntityFramework.Txn": "das:DAS.Core.EntityFramework.Txn",
+    "txnDate": {
+      "@id": "das:txnDate",
+      "@type": "xsd:dateTime"
+    },
+    "txnTypeId": {
+      "@id": "das:txnTypeId",
+      "@type": "xsd:integer"
+    },
+    "accountToken": {
+      "@id": "das:accountToken",
+      "@type": "xsd:string"
+    },
+    "customerId": {
+      "@id": "das:customerId",
+      "@type": "xsd:integer"
+    },
+    "txnProviderId": {
+      "@id": "das:txnProviderId",
+      "@type": "xsd:integer"
+    },
+    "hasCustomerEmail": {
+      "@id": "das:hasCustomerEmail",
+      "@type": "xsd:boolean"
+    },
+    "customer": {
+      "@id": "das:customer",
+      "@type": "@id"
+    },
+    "surveys": {
+      "@id": "das:surveys",
+      "@container": "@list"
+    },
+    "txnProvider": {
+      "@id": "das:txnProvider",
+      "@type": "@id"
+    },
+    "txnType": {
+      "@id": "das:txnType",
+      "@type": "@id"
+    },
+    "DAS.Models.EnterpriseStatsV2": "das:DAS.Models.EnterpriseStatsV2",
+    "nclTotalSurveysCompleted": {
+      "@id": "das:nclTotalSurveysCompleted",
+      "@type": "xsd:integer"
+    },
+    "nclAverageStarRating": {
+      "@id": "das:nclAverageStarRating",
+      "@type": "xsd:decimal"
+    },
+    "nclPositiveSurveysCompleted": {
+      "@id": "das:nclPositiveSurveysCompleted",
+      "@type": "xsd:decimal"
+    },
+    "clTotalSurveysCompleted": {
+      "@id": "das:clTotalSurveysCompleted",
+      "@type": "xsd:integer"
+    },
+    "clAverageStarRating": {
+      "@id": "das:clAverageStarRating",
+      "@type": "xsd:decimal"
+    },
+    "clAverageLoyaltyScore": {
+      "@id": "das:clAverageLoyaltyScore",
+      "@type": "xsd:decimal"
+    },
+    "clPositiveSurveysCompleted": {
+      "@id": "das:clPositiveSurveysCompleted",
+      "@type": "xsd:integer"
+    },
+    "neutralSurveysCompleted": {
+      "@id": "das:neutralSurveysCompleted",
+      "@type": "xsd:integer"
+    },
+    "positivePercentage": {
+      "@id": "das:positivePercentage",
+      "@type": "xsd:integer"
+    },
+    "DAS.Core.EntityFramework.Package": "das:DAS.Core.EntityFramework.Package",
+    "sfdcId": {
+      "@id": "das:sfdcId",
+      "@type": "xsd:string"
+    },
+    "product": {
+      "@id": "das:product",
+      "@type": "xsd:string"
+    },
+    "packageName": {
+      "@id": "das:packageName",
+      "@type": "xsd:string"
+    },
+    "startDate": {
+      "@id": "das:startDate",
+      "@type": "xsd:dateTime"
+    },
+    "cancellationDate": {
+      "@id": "das:cancellationDate",
+      "@type": "xsd:dateTime"
+    },
+    "status": {
+      "@id": "das:status",
+      "@type": "xsd:string"
+    },
+    "mrr": {
+      "@id": "das:mrr",
+      "@type": "xsd:decimal"
+    },
+    "enhanced": {
+      "@id": "das:enhanced",
+      "@type": "xsd:boolean"
+    },
+    "DAS.Core.EntityFramework.Hierarchy": "das:DAS.Core.EntityFramework.Hierarchy",
+    "accountHierarchies": {
+      "@id": "das:accountHierarchies",
+      "@container": "@list"
+    },
+    "hierarchyLabels": {
+      "@id": "das:hierarchyLabels",
+      "@container": "@list"
+    },
+    "DAS.Core.EntityFramework.VehicleSaleTxn": "das:DAS.Core.EntityFramework.VehicleSaleTxn",
+    "vehicleSaleTxnId": {
+      "@id": "das:vehicleSaleTxnId",
+      "@type": "xsd:integer"
+    },
+    "dealNumber": {
+      "@id": "das:dealNumber",
+      "@type": "xsd:string"
+    },
+    "entryDate": {
+      "@id": "das:entryDate",
+      "@type": "xsd:dateTime"
+    },
+    "dealBookDate": {
+      "@id": "das:dealBookDate",
+      "@type": "xsd:dateTime"
+    },
+    "dealType": {
+      "@id": "das:dealType",
+      "@type": "xsd:string"
+    },
+    "salesMan1Id": {
+      "@id": "das:salesMan1Id",
+      "@type": "xsd:integer"
+    },
+    "salesMan2Id": {
+      "@id": "das:salesMan2Id",
+      "@type": "xsd:integer"
+    },
+    "vehicleType": {
+      "@id": "das:vehicleType",
+      "@type": "xsd:string"
+    },
+    "stockNumber": {
+      "@id": "das:stockNumber",
+      "@type": "xsd:string"
+    },
+    "DAS.Core.EntityFramework.Brand": "das:DAS.Core.EntityFramework.Brand",
+    "dynId": {
+      "@id": "das:dynId",
+      "@type": "xsd:string"
+    },
+    "accountBrands": {
+      "@id": "das:accountBrands",
+      "@container": "@list"
+    },
+    "DAS.Core.EntityFramework.Account": "das:DAS.Core.EntityFramework.Account",
+    "mySqlDealerId": {
+      "@id": "das:mySqlDealerId",
+      "@type": "xsd:integer"
+    },
+    "newSFDCId": {
+      "@id": "das:newSFDCId",
+      "@type": "xsd:string"
+    },
+    "oldSFDCId": {
+      "@id": "das:oldSFDCId",
+      "@type": "xsd:string"
+    },
+    "bacCode": {
+      "@id": "das:bacCode",
+      "@type": "xsd:string"
+    },
+    "rlCustomerId": {
+      "@id": "das:rlCustomerId",
+      "@type": "xsd:integer"
+    },
+    "rlName": {
+      "@id": "das:rlName",
+      "@type": "xsd:string"
+    },
+    "slName": {
+      "@id": "das:slName",
+      "@type": "xsd:string"
+    },
+    "ownerId": {
+      "@id": "das:ownerId",
+      "@type": "xsd:integer"
+    },
+    "kiaCode": {
+      "@id": "das:kiaCode",
+      "@type": "xsd:string"
+    },
+    "kiaDistrict": {
+      "@id": "das:kiaDistrict",
+      "@type": "xsd:string"
+    },
+    "sfdcParentAccountId": {
+      "@id": "das:sfdcParentAccountId",
+      "@type": "xsd:string"
+    },
+    "deleted": {
+      "@id": "das:deleted",
+      "@type": "xsd:boolean"
+    },
+    "slActive": {
+      "@id": "das:slActive",
+      "@type": "xsd:boolean"
+    },
+    "rsActive": {
+      "@id": "das:rsActive",
+      "@type": "xsd:boolean"
+    },
+    "parentAccountId": {
+      "@id": "das:parentAccountId",
+      "@type": "xsd:integer"
+    },
+    "oemProgram": {
+      "@id": "das:oemProgram",
+      "@type": "xsd:string"
+    },
+    "recordType": {
+      "@id": "das:recordType",
+      "@type": "xsd:string"
+    },
+    "alternativeGuid": {
+      "@id": "das:alternativeGuid",
+      "@type": "xsd:string"
+    },
+    "customPortalProspect": {
+      "@id": "das:customPortalProspect",
+      "@type": "xsd:boolean"
+    },
+    "brands": {
+      "@id": "das:brands",
+      "@type": "xsd:string"
+    },
+    "mcActive": {
+      "@id": "das:mcActive",
+      "@type": "xsd:boolean"
+    },
+    "flexTemplate": {
+      "@id": "das:flexTemplate",
+      "@type": "xsd:boolean"
+    },
+    "collectReviews": {
+      "@id": "das:collectReviews",
+      "@type": "xsd:boolean"
+    },
+    "oemPrograms": {
+      "@id": "das:oemPrograms",
+      "@type": "xsd:string"
+    },
+    "amrsActive": {
+      "@id": "das:amrsActive",
+      "@type": "xsd:boolean"
+    },
+    "dynParentAccountId": {
+      "@id": "das:dynParentAccountId",
+      "@type": "xsd:string"
+    },
+    "socialActive": {
+      "@id": "das:socialActive",
+      "@type": "xsd:boolean"
+    },
+    "reputationActive": {
+      "@id": "das:reputationActive",
+      "@type": "xsd:boolean"
+    },
+    "privacyPolicyUrl": {
+      "@id": "das:privacyPolicyUrl",
+      "@type": "xsd:string"
+    },
+    "facebookPageId": {
+      "@id": "das:facebookPageId",
+      "@type": "xsd:string"
+    },
+    "latitude": {
+      "@id": "das:latitude",
+      "@type": "xsd:string"
+    },
+    "longitude": {
+      "@id": "das:longitude",
+      "@type": "xsd:string"
+    },
+    "dealershipHours": {
+      "@id": "das:dealershipHours",
+      "@type": "xsd:string"
+    },
+    "dealershipLogo": {
+      "@id": "das:dealershipLogo",
+      "@type": "xsd:string"
+    },
+    "remoteTestDriveBadge": {
+      "@id": "das:remoteTestDriveBadge",
+      "@type": "xsd:boolean"
+    },
+    "conciergeServiceBadge": {
+      "@id": "das:conciergeServiceBadge",
+      "@type": "xsd:boolean"
+    },
+    "reviewScoreBadge": {
+      "@id": "das:reviewScoreBadge",
+      "@type": "xsd:boolean"
+    },
+    "buyFromHomeBadge": {
+      "@id": "das:buyFromHomeBadge",
+      "@type": "xsd:boolean"
+    },
+    "tekionId": {
+      "@id": "das:tekionId",
+      "@type": "xsd:string"
+    },
+    "accountCompetitors": {
+      "@id": "das:accountCompetitors",
+      "@container": "@list"
+    },
+    "competitorOfAccounts": {
+      "@id": "das:competitorOfAccounts",
+      "@container": "@list"
+    },
+    "childOfHierarchies": {
+      "@id": "das:childOfHierarchies",
+      "@container": "@list"
+    },
+    "parentOfHierarchies": {
+      "@id": "das:parentOfHierarchies",
+      "@container": "@list"
+    },
+    "childAccounts": {
+      "@id": "das:childAccounts",
+      "@container": "@list"
+    },
+    "parentAccount": {
+      "@id": "das:parentAccount",
+      "@type": "@id"
+    },
+    "rlCustomer": {
+      "@id": "das:rlCustomer",
+      "@type": "@id"
+    },
+    "sfdcUser": {
+      "@id": "das:sfdcUser",
+      "@type": "@id"
+    },
+    "hierarchies": {
+      "@id": "das:hierarchies",
+      "@container": "@list"
+    },
+    "rooftops": {
+      "@id": "das:rooftops",
+      "@container": "@list"
+    },
+    "packages": {
+      "@id": "das:packages",
+      "@container": "@list"
+    },
+    "addresses": {
+      "@id": "das:addresses",
+      "@container": "@list"
+    },
+    "dashboardClients": {
+      "@id": "das:dashboardClients",
+      "@container": "@list"
+    },
+    "accountIntegration": {
+      "@id": "das:accountIntegration",
+      "@type": "@id"
+    },
+    "accountInventories": {
+      "@id": "das:accountInventories",
+      "@container": "@list"
+    },
+    "sociProject": {
+      "@id": "das:sociProject",
+      "@type": "@id"
+    },
+    "oemCodes": {
+      "@id": "das:oemCodes",
+      "@container": "@list"
+    },
+    "oemPrograms1": {
+      "@id": "das:oemPrograms1",
+      "@container": "@list"
+    },
+    "facebookAdAccounts": {
+      "@id": "das:facebookAdAccounts",
+      "@container": "@list"
+    },
+    "DAS.Models.ReviewNotificationSettings": "das:DAS.Models.ReviewNotificationSettings",
+    "sales": {
+      "@id": "das:sales",
+      "@type": "@id"
+    },
+    "service": {
+      "@id": "das:service",
+      "@type": "@id"
+    },
+    "uncategorized": {
+      "@id": "das:uncategorized",
+      "@type": "@id"
+    },
+    "DAS.Core.EntityFramework.AccountBrand": "das:DAS.Core.EntityFramework.AccountBrand",
+    "brandId": {
+      "@id": "das:brandId",
+      "@type": "xsd:integer"
+    },
+    "brand": {
+      "@id": "das:brand",
+      "@type": "@id"
+    },
+    "DAS.Core.EntityFramework.ReviewSite": "das:DAS.Core.EntityFramework.ReviewSite",
+    "legacyId": {
+      "@id": "das:legacyId",
+      "@type": "xsd:integer"
+    },
+    "url": {
+      "@id": "das:url",
+      "@type": "xsd:string"
+    },
+    "manualListings": {
+      "@id": "das:manualListings",
+      "@container": "@list"
+    },
+    "DAS.Models.ReviewStatsByInterval": "das:DAS.Models.ReviewStatsByInterval",
+    "DAS.Core.EntityFramework.DMSType": "das:DAS.Core.EntityFramework.DMSType",
+    "dmsType1": {
+      "@id": "das:dmsType1",
+      "@type": "xsd:string"
+    },
+    "DAS.Core.EntityFramework.OemCode": "das:DAS.Core.EntityFramework.OemCode",
+    "codeType": {
+      "@id": "das:codeType",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "das:value",
+      "@type": "xsd:string"
+    },
+    "DAS.Core.EntityFramework.AccountIntegration": "das:DAS.Core.EntityFramework.AccountIntegration",
+    "smsPhoneNumber": {
+      "@id": "das:smsPhoneNumber",
+      "@type": "xsd:string"
+    },
+    "DAS.Core.EntityFramework.SurveyResponseResponse": "das:DAS.Core.EntityFramework.SurveyResponseResponse",
+    "surveyResponseId": {
+      "@id": "das:surveyResponseId",
+      "@type": "xsd:integer"
+    },
+    "surveyResponseResponseGuid": {
+      "@id": "das:surveyResponseResponseGuid",
+      "@type": "xsd:string"
+    },
+    "modified": {
+      "@id": "das:modified",
+      "@type": "xsd:dateTime"
+    },
+    "acceptedDate": {
+      "@id": "das:acceptedDate",
+      "@type": "xsd:dateTime"
+    },
+    "surveyResponse": {
+      "@id": "das:surveyResponse",
+      "@type": "@id"
+    },
+    "DAS.Core.EntityFramework.Review": "das:DAS.Core.EntityFramework.Review",
+    "reviewGuid": {
+      "@id": "das:reviewGuid",
+      "@type": "xsd:string"
+    },
+    "reviewSourceId": {
+      "@id": "das:reviewSourceId",
+      "@type": "xsd:integer"
+    },
+    "reviewSiteId": {
+      "@id": "das:reviewSiteId",
+      "@type": "xsd:integer"
+    },
+    "reviewDate": {
+      "@id": "das:reviewDate",
+      "@type": "xsd:dateTime"
+    },
+    "reviewScore": {
+      "@id": "das:reviewScore",
+      "@type": "xsd:decimal"
+    },
+    "reviewerName": {
+      "@id": "das:reviewerName",
+      "@type": "xsd:string"
+    },
+    "reviewerCity": {
+      "@id": "das:reviewerCity",
+      "@type": "xsd:string"
+    },
+    "reviewerState": {
+      "@id": "das:reviewerState",
+      "@type": "xsd:string"
+    },
+    "reviewerCountry": {
+      "@id": "das:reviewerCountry",
+      "@type": "xsd:string"
+    },
+    "reviewUrl": {
+      "@id": "das:reviewUrl",
+      "@type": "xsd:string"
+    },
+    "reviewTitle": {
+      "@id": "das:reviewTitle",
+      "@type": "xsd:string"
+    },
+    "reviewComment": {
+      "@id": "das:reviewComment",
+      "@type": "xsd:string"
+    },
+    "aylienException": {
+      "@id": "das:aylienException",
+      "@type": "xsd:boolean"
+    },
+    "isClosedLoop": {
+      "@id": "das:isClosedLoop",
+      "@type": "xsd:boolean"
+    },
+    "softDeleteDateUTC": {
+      "@id": "das:softDeleteDateUTC",
+      "@type": "xsd:dateTime"
+    },
+    "reviewSite": {
+      "@id": "das:reviewSite",
+      "@type": "@id"
+    },
+    "reviewSource": {
+      "@id": "das:reviewSource",
+      "@type": "@id"
+    },
+    "reviewClassifications": {
+      "@id": "das:reviewClassifications",
+      "@container": "@list"
+    },
+    "reviewResponses": {
+      "@id": "das:reviewResponses",
+      "@container": "@list"
+    },
+    "categories": {
+      "@id": "das:categories",
+      "@container": "@list"
+    },
+    "reviewCategoryDispositions": {
+      "@id": "das:reviewCategoryDispositions",
+      "@container": "@list"
+    },
+    "DAS.Models.SurveyResponseNotificationSettings": "das:DAS.Models.SurveyResponseNotificationSettings",
+    "DAS.Core.EntityFramework.TxnProvider": "das:DAS.Core.EntityFramework.TxnProvider",
+    "txnProvider1": {
+      "@id": "das:txnProvider1",
+      "@type": "xsd:string"
+    },
+    "txns": {
+      "@id": "das:txns",
+      "@container": "@list"
+    },
+    "DAS.Core.EntityFramework.ManualListing": "das:DAS.Core.EntityFramework.ManualListing",
+    "customerIdentifier": {
+      "@id": "das:customerIdentifier",
+      "@type": "xsd:string"
+    },
+    "siteId": {
+      "@id": "das:siteId",
+      "@type": "xsd:integer"
+    },
+    "DAS.Models.ActivityModel": "das:DAS.Models.ActivityModel",
+    "activityDate": {
+      "@id": "das:activityDate",
+      "@type": "xsd:dateTime"
+    },
+    "activityType": {
+      "@id": "das:activityType",
+      "@type": "xsd:string"
+    },
+    "activityDesc": {
+      "@id": "das:activityDesc",
+      "@type": "xsd:string"
+    },
+    "activitySites": {
+      "@id": "das:activitySites",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.SocialActivity": "das:DAS.Models.SocialActivity",
+    "clientGuid": {
+      "@id": "das:clientGuid",
+      "@type": "xsd:string"
+    },
+    "createdBy": {
+      "@id": "das:createdBy",
+      "@type": "xsd:string"
+    },
+    "activityDescription": {
+      "@id": "das:activityDescription",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.PortalAccountNotifySettings": "das:DAS.Models.PortalAccountNotifySettings",
+    "email": {
+      "@id": "das:email",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "das:title",
+      "@type": "xsd:string"
+    },
+    "timeZone": {
+      "@id": "das:timeZone",
+      "@type": "xsd:string"
+    },
+    "notification": {
+      "@id": "das:notification",
+      "@type": "@id"
+    },
+    "DAS.Models.NotificationSettings": "das:DAS.Models.NotificationSettings",
+    "DAS.Core.EntityFramework.AccountCompetitor": "das:DAS.Core.EntityFramework.AccountCompetitor",
+    "competitorAccountId": {
+      "@id": "das:competitorAccountId",
+      "@type": "xsd:integer"
+    },
+    "rank": {
+      "@id": "das:rank",
+      "@type": "xsd:integer"
+    },
+    "accountCompetitorGuid": {
+      "@id": "das:accountCompetitorGuid",
+      "@type": "xsd:string"
+    },
+    "competitorAccount": {
+      "@id": "das:competitorAccount",
+      "@type": "@id"
+    },
+    "DAS.Models.SurveyEmployee": "das:DAS.Models.SurveyEmployee",
+    "DAS.Core.EntityFramework.SurveyHistory": "das:DAS.Core.EntityFramework.SurveyHistory",
+    "actionId": {
+      "@id": "das:actionId",
+      "@type": "xsd:string"
+    },
+    "actionTime": {
+      "@id": "das:actionTime",
+      "@type": "xsd:dateTime"
+    },
+    "count": {
+      "@id": "das:count",
+      "@type": "xsd:integer"
+    },
+    "DAS.Core.EntityFramework.Customer": "das:DAS.Core.EntityFramework.Customer",
+    "customerNumber": {
+      "@id": "das:customerNumber",
+      "@type": "xsd:string"
+    },
+    "address1": {
+      "@id": "das:address1",
+      "@type": "xsd:string"
+    },
+    "address2": {
+      "@id": "das:address2",
+      "@type": "xsd:string"
+    },
+    "zip": {
+      "@id": "das:zip",
+      "@type": "xsd:string"
+    },
+    "homePhone": {
+      "@id": "das:homePhone",
+      "@type": "xsd:string"
+    },
+    "mobilePhone": {
+      "@id": "das:mobilePhone",
+      "@type": "xsd:string"
+    },
+    "workPhone": {
+      "@id": "das:workPhone",
+      "@type": "xsd:string"
+    },
+    "unsubscribedToPhone": {
+      "@id": "das:unsubscribedToPhone",
+      "@type": "xsd:boolean"
+    },
+    "unsubscribedToEmail": {
+      "@id": "das:unsubscribedToEmail",
+      "@type": "xsd:boolean"
+    },
+    "unsubscribedToMail": {
+      "@id": "das:unsubscribedToMail",
+      "@type": "xsd:boolean"
+    },
+    "mobilePhoneId": {
+      "@id": "das:mobilePhoneId",
+      "@type": "xsd:string"
+    },
+    "DAS.Core.EntityFramework.ReviewCategoryDisposition": "das:DAS.Core.EntityFramework.ReviewCategoryDisposition",
+    "categoryId": {
+      "@id": "das:categoryId",
+      "@type": "xsd:integer"
+    },
+    "category": {
+      "@id": "das:category",
+      "@type": "@id"
+    },
+    "DAS.Core.EntityFramework.TxnType": "das:DAS.Core.EntityFramework.TxnType",
+    "txnType1": {
+      "@id": "das:txnType1",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.ReviewStats": "das:DAS.Models.ReviewStats",
+    "positiveCount": {
+      "@id": "das:positiveCount",
+      "@type": "xsd:integer"
+    },
+    "neutralCount": {
+      "@id": "das:neutralCount",
+      "@type": "xsd:integer"
+    },
+    "negativeCount": {
+      "@id": "das:negativeCount",
+      "@type": "xsd:integer"
+    },
+    "positiveRespondedCount": {
+      "@id": "das:positiveRespondedCount",
+      "@type": "xsd:integer"
+    },
+    "positiveNotRespondedCount": {
+      "@id": "das:positiveNotRespondedCount",
+      "@type": "xsd:integer"
+    },
+    "negativeRespondedCount": {
+      "@id": "das:negativeRespondedCount",
+      "@type": "xsd:integer"
+    },
+    "negativeNotRespondedCount": {
+      "@id": "das:negativeNotRespondedCount",
+      "@type": "xsd:integer"
+    },
+    "neutralPercentage": {
+      "@id": "das:neutralPercentage",
+      "@type": "xsd:decimal"
+    },
+    "negativePercentage": {
+      "@id": "das:negativePercentage",
+      "@type": "xsd:decimal"
+    },
+    "reviewStatsSources": {
+      "@id": "das:reviewStatsSources",
+      "@container": "@list"
+    },
+    "reviewStatsStates": {
+      "@id": "das:reviewStatsStates",
+      "@container": "@list"
+    },
+    "siteRatings": {
+      "@id": "das:siteRatings",
+      "@container": "@list"
+    },
+    "DAS.Models.ReviewV2": "das:DAS.Models.ReviewV2",
+    "siteName": {
+      "@id": "das:siteName",
+      "@type": "xsd:string"
+    },
+    "isClosedLoopReview": {
+      "@id": "das:isClosedLoopReview",
+      "@type": "xsd:boolean"
+    },
+    "dealerName": {
+      "@id": "das:dealerName",
+      "@type": "xsd:string"
+    },
+    "department": {
+      "@id": "das:department",
+      "@type": "xsd:string"
+    },
+    "hasResponse": {
+      "@id": "das:hasResponse",
+      "@type": "xsd:boolean"
+    },
+    "canChangeDepartment": {
+      "@id": "das:canChangeDepartment",
+      "@type": "xsd:boolean"
+    },
+    "DAS.Core.EntityFramework.InventorySource": "das:DAS.Core.EntityFramework.InventorySource",
+    "sourceId": {
+      "@id": "das:sourceId",
+      "@type": "xsd:integer"
+    },
+    "sourceName": {
+      "@id": "das:sourceName",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.EnterpriseStats": "das:DAS.Models.EnterpriseStats",
+    "surveyStats": {
+      "@id": "das:surveyStats",
+      "@type": "@id"
+    },
+    "closedLoopStats": {
+      "@id": "das:closedLoopStats",
+      "@type": "@id"
+    },
+    "nonClosedLoopStats": {
+      "@id": "das:nonClosedLoopStats",
+      "@type": "@id"
+    },
+    "DAS.Models.ReviewStatsState": "das:DAS.Models.ReviewStatsState",
+    "stateName": {
+      "@id": "das:stateName",
+      "@type": "xsd:string"
+    },
+    "ratingAverage": {
+      "@id": "das:ratingAverage",
+      "@type": "xsd:decimal"
+    },
+    "DAS.Core.EntityFramework.Survey": "das:DAS.Core.EntityFramework.Survey",
+    "oldSurveyId": {
+      "@id": "das:oldSurveyId",
+      "@type": "xsd:string"
+    },
+    "sentDate": {
+      "@id": "das:sentDate",
+      "@type": "xsd:dateTime"
+    },
+    "txnNumber": {
+      "@id": "das:txnNumber",
+      "@type": "xsd:string"
+    },
+    "customerFirstName": {
+      "@id": "das:customerFirstName",
+      "@type": "xsd:string"
+    },
+    "customerLastName": {
+      "@id": "das:customerLastName",
+      "@type": "xsd:string"
+    },
+    "employeeFirstName": {
+      "@id": "das:employeeFirstName",
+      "@type": "xsd:string"
+    },
+    "employeeLastName": {
+      "@id": "das:employeeLastName",
+      "@type": "xsd:string"
+    },
+    "sentViaEmail": {
+      "@id": "das:sentViaEmail",
+      "@type": "xsd:boolean"
+    },
+    "sentViaSms": {
+      "@id": "das:sentViaSms",
+      "@type": "xsd:boolean"
+    },
+    "sentFirstVia": {
+      "@id": "das:sentFirstVia",
+      "@type": "xsd:string"
+    },
+    "isSurveyReminderEmailSent": {
+      "@id": "das:isSurveyReminderEmailSent",
+      "@type": "xsd:boolean"
+    },
+    "reviewSurgeConsumerId": {
+      "@id": "das:reviewSurgeConsumerId",
+      "@type": "xsd:string"
+    },
+    "method": {
+      "@id": "das:method",
+      "@type": "xsd:string"
+    },
+    "template": {
+      "@id": "das:template",
+      "@type": "xsd:string"
+    },
+    "dmsFeedType": {
+      "@id": "das:dmsFeedType",
+      "@type": "xsd:string"
+    },
+    "surveyOpenDate": {
+      "@id": "das:surveyOpenDate",
+      "@type": "xsd:dateTime"
+    },
+    "surveyDealerResponses": {
+      "@id": "das:surveyDealerResponses",
+      "@container": "@list"
+    },
+    "surveyHistories": {
+      "@id": "das:surveyHistories",
+      "@container": "@list"
+    },
+    "surveyResponses": {
+      "@id": "das:surveyResponses",
+      "@container": "@list"
+    },
+    "surveyDealerPendingResponses": {
+      "@id": "das:surveyDealerPendingResponses",
+      "@container": "@list"
+    },
+    "DAS.Models.Unsubscribe": "das:DAS.Models.Unsubscribe",
+    "dealershipName": {
+      "@id": "das:dealershipName",
+      "@type": "xsd:string"
+    },
+    "emailAddress": {
+      "@id": "das:emailAddress",
+      "@type": "xsd:string"
+    },
+    "unsubscribeDate": {
+      "@id": "das:unsubscribeDate",
+      "@type": "xsd:dateTime"
+    },
+    "DAS.Core.EntityFramework.AccountHierarchy": "das:DAS.Core.EntityFramework.AccountHierarchy",
+    "childAccountId": {
+      "@id": "das:childAccountId",
+      "@type": "xsd:integer"
+    },
+    "hierarchyId": {
+      "@id": "das:hierarchyId",
+      "@type": "xsd:integer"
+    },
+    "childAccount": {
+      "@id": "das:childAccount",
+      "@type": "@id"
+    },
+    "hierarchy": {
+      "@id": "das:hierarchy",
+      "@type": "@id"
+    },
+    "DAS.Models.AccountManager": "das:DAS.Models.AccountManager",
+    "DAS.Models.ReviewSiteRatings": "das:DAS.Models.ReviewSiteRatings",
+    "DAS.Core.EntityFramework.Category": "das:DAS.Core.EntityFramework.Category",
+    "DAS.Core.EntityFramework.OemProgram": "das:DAS.Core.EntityFramework.OemProgram",
+    "DAS.Models.SurveyResponseV2": "das:DAS.Models.SurveyResponseV2",
+    "dealership": {
+      "@id": "das:dealership",
+      "@type": "xsd:string"
+    },
+    "isGMSFEAccount": {
+      "@id": "das:isGMSFEAccount",
+      "@type": "xsd:boolean"
+    },
+    "transactionDate": {
+      "@id": "das:transactionDate",
+      "@type": "xsd:dateTime"
+    },
+    "cellPhone": {
+      "@id": "das:cellPhone",
+      "@type": "xsd:string"
+    },
+    "surveyVia": {
+      "@id": "das:surveyVia",
+      "@type": "xsd:string"
+    },
+    "vehicleYear": {
+      "@id": "das:vehicleYear",
+      "@type": "xsd:string"
+    },
+    "vehicleMake": {
+      "@id": "das:vehicleMake",
+      "@type": "xsd:string"
+    },
+    "vehicleModel": {
+      "@id": "das:vehicleModel",
+      "@type": "xsd:string"
+    },
+    "repairOrder": {
+      "@id": "das:repairOrder",
+      "@type": "xsd:string"
+    },
+    "customerResponseComment": {
+      "@id": "das:customerResponseComment",
+      "@type": "xsd:string"
+    },
+    "customerResponseImprovementComment": {
+      "@id": "das:customerResponseImprovementComment",
+      "@type": "xsd:string"
+    },
+    "dealerResponseDate": {
+      "@id": "das:dealerResponseDate",
+      "@type": "xsd:string"
+    },
+    "dealerResponseComment": {
+      "@id": "das:dealerResponseComment",
+      "@type": "xsd:string"
+    },
+    "responded": {
+      "@id": "das:responded",
+      "@type": "xsd:boolean"
+    },
+    "published": {
+      "@id": "das:published",
+      "@type": "xsd:boolean"
+    },
+    "daysUntilPublication": {
+      "@id": "das:daysUntilPublication",
+      "@type": "xsd:integer"
+    },
+    "daysUntilResponseLocked": {
+      "@id": "das:daysUntilResponseLocked",
+      "@type": "xsd:integer"
+    },
+    "DAS.Models.ReviewStatsSource": "das:DAS.Models.ReviewStatsSource",
+    "averageSite": {
+      "@id": "das:averageSite",
+      "@type": "xsd:decimal"
+    },
+    "DAS.Core.EntityFramework.Employee": "das:DAS.Core.EntityFramework.Employee",
+    "employeeId": {
+      "@id": "das:employeeId",
+      "@type": "xsd:integer"
+    },
+    "employeeNumber": {
+      "@id": "das:employeeNumber",
+      "@type": "xsd:string"
+    },
+    "employeeDepartmentId": {
+      "@id": "das:employeeDepartmentId",
+      "@type": "xsd:integer"
+    },
+    "employeeStatus": {
+      "@id": "das:employeeStatus",
+      "@type": "xsd:boolean"
+    },
+    "terminationDate": {
+      "@id": "das:terminationDate",
+      "@type": "xsd:dateTime"
+    },
+    "updatedBy": {
+      "@id": "das:updatedBy",
+      "@type": "xsd:string"
+    },
+    "employeeDepartment": {
+      "@id": "das:employeeDepartment",
+      "@type": "@id"
+    },
+    "vehicleSaleTxns1": {
+      "@id": "das:vehicleSaleTxns1",
+      "@container": "@list"
+    },
+    "vehicleServiceTxns1": {
+      "@id": "das:vehicleServiceTxns1",
+      "@container": "@list"
+    },
+    "DAS.Core.EntityFramework.ReviewResponse": "das:DAS.Core.EntityFramework.ReviewResponse",
+    "DAS.Models.RatingNotificationSettings": "das:DAS.Models.RatingNotificationSettings",
+    "negative": {
+      "@id": "das:negative",
+      "@type": "xsd:string"
+    },
+    "positive": {
+      "@id": "das:positive",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.SurveyV2Response": "das:DAS.Models.SurveyV2Response",
+    "data": {
+      "@id": "das:data",
+      "@container": "@list"
+    },
+    "DAS.Core.EntityFramework.HierarchyLabel": "das:DAS.Core.EntityFramework.HierarchyLabel",
+    "hierarchyLevel": {
+      "@id": "das:hierarchyLevel",
+      "@type": "xsd:integer"
+    },
+    "isLeafDefault": {
+      "@id": "das:isLeafDefault",
+      "@type": "xsd:boolean"
+    },
+    "isInternalDefault": {
+      "@id": "das:isInternalDefault",
+      "@type": "xsd:boolean"
+    },
+    "DAS.Core.EntityFramework.FacebookAdAccount": "das:DAS.Core.EntityFramework.FacebookAdAccount",
+    "facebookAdAccountId": {
+      "@id": "das:facebookAdAccountId",
+      "@type": "xsd:string"
+    },
+    "offlineEventSetId": {
+      "@id": "das:offlineEventSetId",
+      "@type": "xsd:string"
+    },
+    "enableConversions": {
+      "@id": "das:enableConversions",
+      "@type": "xsd:boolean"
+    },
+    "offlineConversionsLastUpload": {
+      "@id": "das:offlineConversionsLastUpload",
+      "@type": "xsd:dateTime"
+    },
+    "DAS.Core.EntityFramework.ReviewSource": "das:DAS.Core.EntityFramework.ReviewSource",
+    "DAS.Core.EntityFramework.EmployeeDepartment": "das:DAS.Core.EntityFramework.EmployeeDepartment",
+    "employeeDepartment1": {
+      "@id": "das:employeeDepartment1",
+      "@type": "xsd:string"
+    },
+    "employees": {
+      "@id": "das:employees",
+      "@container": "@list"
+    },
+    "DAS.Models.EmployeeStats": "das:DAS.Models.EmployeeStats",
+    "employeeName": {
+      "@id": "das:employeeName",
+      "@type": "xsd:string"
+    },
+    "dealershipGuid": {
+      "@id": "das:dealershipGuid",
+      "@type": "xsd:string"
+    },
+    "DAS.Core.EntityFramework.AccountInventory": "das:DAS.Core.EntityFramework.AccountInventory",
+    "inventoryId": {
+      "@id": "das:inventoryId",
+      "@type": "xsd:string"
+    },
+    "active": {
+      "@id": "das:active",
+      "@type": "xsd:boolean"
+    },
+    "inventorySource": {
+      "@id": "das:inventorySource",
+      "@type": "@id"
+    },
+    "DAS.Models.ProposedResponse": "das:DAS.Models.ProposedResponse",
+    "accepted": {
+      "@id": "das:accepted",
+      "@type": "xsd:boolean"
+    },
+    "DAS.Models.SurveyStatsV2": "das:DAS.Models.SurveyStatsV2",
+    "DAS.Core.EntityFramework.SFDCUser": "das:DAS.Core.EntityFramework.SFDCUser",
+    "DAS.Models.ReputationStatisticsSiteDetailsModelAllTime": "das:DAS.Models.ReputationStatisticsSiteDetailsModelAllTime",
+    "site": {
+      "@id": "das:site",
+      "@type": "xsd:string"
+    },
+    "averageScore": {
+      "@id": "das:averageScore",
+      "@type": "xsd:decimal"
+    },
+    "DAS.Models.ReputationStatisticsSummaryModel": "das:DAS.Models.ReputationStatisticsSummaryModel",
+    "total": {
+      "@id": "das:total",
+      "@type": "xsd:integer"
+    },
+    "average": {
+      "@id": "das:average",
+      "@type": "xsd:decimal"
+    },
+    "DAS.Models.ReputationStatisticsSiteDetailsModel": "das:DAS.Models.ReputationStatisticsSiteDetailsModel",
+    "positiveReviews": {
+      "@id": "das:positiveReviews",
+      "@type": "xsd:integer"
+    },
+    "negativeReviews": {
+      "@id": "das:negativeReviews",
+      "@type": "xsd:integer"
+    },
+    "dealerResponses": {
+      "@id": "das:dealerResponses",
+      "@type": "xsd:integer"
+    },
+    "DAS.Models.AccountCompetitorModel": "das:DAS.Models.AccountCompetitorModel",
+    "competitorAccountGuid": {
+      "@id": "das:competitorAccountGuid",
+      "@type": "xsd:string"
+    },
+    "competitorAccountName": {
+      "@id": "das:competitorAccountName",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.PagedResult_DAS.Models.SurveyResponseV2": "das:DAS.Models.PagedResult_DAS.Models.SurveyResponseV2",
+    "DAS.Models.ReputationStatisticsRootModel": "das:DAS.Models.ReputationStatisticsRootModel",
+    "endDate": {
+      "@id": "das:endDate",
+      "@type": "xsd:dateTime"
+    },
+    "statistics": {
+      "@id": "das:statistics",
+      "@container": "@list"
+    },
+    "statisticsAllTime": {
+      "@id": "das:statisticsAllTime",
+      "@container": "@list"
+    },
+    "summaries": {
+      "@id": "das:summaries",
+      "@container": "@list"
+    },
+    "DAS.Models.PortalAccountV2": "das:DAS.Models.PortalAccountV2",
+    "level": {
+      "@id": "das:level",
+      "@type": "xsd:integer"
+    },
+    "features": {
+      "@id": "das:features",
+      "@container": "@list"
+    },
+    "DAS.Models.PagedResult_DAS.Models.ReviewV2": "das:DAS.Models.PagedResult_DAS.Models.ReviewV2",
+    "DAS.Models.EmployeeModel": "das:DAS.Models.EmployeeModel",
+    "DAS.Models.HierarchyModel": "das:DAS.Models.HierarchyModel",
+    "DAS.Models.EnvelopeAttachment": "das:DAS.Models.EnvelopeAttachment",
+    "content": {
+      "@id": "das:content",
+      "@type": "xsd:string"
+    },
+    "contentId": {
+      "@id": "das:contentId",
+      "@type": "xsd:string"
+    },
+    "contentType": {
+      "@id": "das:contentType",
+      "@type": "xsd:string"
+    },
+    "dispositionType": {
+      "@id": "das:dispositionType",
+      "@type": "xsd:string"
+    },
+    "nameEncoding": {
+      "@id": "das:nameEncoding",
+      "@type": "xsd:integer"
+    },
+    "transferEncoding": {
+      "@id": "das:transferEncoding",
+      "@type": "xsd:integer"
+    },
+    "DAS.Models.Envelope": "das:DAS.Models.Envelope",
+    "mailType": {
+      "@id": "das:mailType",
+      "@type": "xsd:string"
+    },
+    "entity": {
+      "@id": "das:entity",
+      "@type": "xsd:string"
+    },
+    "messageId": {
+      "@id": "das:messageId",
+      "@type": "xsd:string"
+    },
+    "inReplyTo": {
+      "@id": "das:inReplyTo",
+      "@type": "xsd:string"
+    },
+    "references": {
+      "@id": "das:references",
+      "@type": "xsd:string"
+    },
+    "listUnsubscribe": {
+      "@id": "das:listUnsubscribe",
+      "@type": "xsd:string"
+    },
+    "from": {
+      "@id": "das:from",
+      "@type": "xsd:string"
+    },
+    "replyTo": {
+      "@id": "das:replyTo",
+      "@container": "@list"
+    },
+    "to": {
+      "@id": "das:to",
+      "@container": "@list"
+    },
+    "cc": {
+      "@id": "das:cc",
+      "@container": "@list"
+    },
+    "bcc": {
+      "@id": "das:bcc",
+      "@container": "@list"
+    },
+    "subject": {
+      "@id": "das:subject",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "das:text",
+      "@type": "xsd:string"
+    },
+    "html": {
+      "@id": "das:html",
+      "@type": "xsd:string"
+    },
+    "oneClickUnsubscribe": {
+      "@id": "das:oneClickUnsubscribe",
+      "@type": "xsd:boolean"
+    },
+    "showUnsubscribe": {
+      "@id": "das:showUnsubscribe",
+      "@type": "xsd:boolean"
+    },
+    "disableOpenTracking": {
+      "@id": "das:disableOpenTracking",
+      "@type": "xsd:boolean"
+    },
+    "disableClickTracking": {
+      "@id": "das:disableClickTracking",
+      "@type": "xsd:boolean"
+    },
+    "bypassListManagement": {
+      "@id": "das:bypassListManagement",
+      "@type": "xsd:boolean"
+    },
+    "attachments": {
+      "@id": "das:attachments",
+      "@container": "@list"
+    },
+    "DASWebAPI.Models.MediaModel": "das:DASWebAPI.Models.MediaModel",
+    "message": {
+      "@id": "das:message",
+      "@type": "xsd:string"
+    },
+    "dealerId": {
+      "@id": "das:dealerId",
+      "@type": "xsd:string"
+    },
+    "useremail": {
+      "@id": "das:useremail",
+      "@type": "xsd:string"
+    },
+    "files": {
+      "@id": "das:files",
+      "@container": "@list"
+    },
+    "errors": {
+      "@id": "das:errors",
+      "@container": "@list"
+    },
+    "DASWebAPI.Models.MediaUploadError": "das:DASWebAPI.Models.MediaUploadError",
+    "file": {
+      "@id": "das:file",
+      "@type": "xsd:string"
+    },
+    "errorMessage": {
+      "@id": "das:errorMessage",
+      "@type": "xsd:string"
+    },
+    "DASWebAPI.Controllers.SmsProvisionRequestInfo": "das:DASWebAPI.Controllers.SmsProvisionRequestInfo",
+    "DAS.Models.ReviewDepartmentDispositionModel": "das:DAS.Models.ReviewDepartmentDispositionModel",
+    "logon": {
+      "@id": "das:logon",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.ReviewModel": "das:DAS.Models.ReviewModel",
+    "reviewType": {
+      "@id": "das:reviewType",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "das:source",
+      "@type": "xsd:string"
+    },
+    "dealerGuid": {
+      "@id": "das:dealerGuid",
+      "@type": "xsd:string"
+    },
+    "reviewSurgeResponseId": {
+      "@id": "das:reviewSurgeResponseId",
+      "@type": "xsd:string"
+    },
+    "disputedReview": {
+      "@id": "das:disputedReview",
+      "@type": "xsd:boolean"
+    },
+    "DAS.Models.CustomerReviewSiteInfo": "das:DAS.Models.CustomerReviewSiteInfo",
+    "dealerPage": {
+      "@id": "das:dealerPage",
+      "@type": "xsd:string"
+    },
+    "siteHome": {
+      "@id": "das:siteHome",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.ReviewResponseModel": "das:DAS.Models.ReviewResponseModel",
+    "DAS.Models.PackageModel": "das:DAS.Models.PackageModel",
+    "DAS.Models.RatingMethod": "das:DAS.Models.RatingMethod",
+    "description": {
+      "@id": "das:description",
+      "@type": "xsd:string"
+    },
+    "ratingDisplay": {
+      "@id": "das:ratingDisplay",
+      "@type": "xsd:string"
+    },
+    "ratingMethodItems": {
+      "@id": "das:ratingMethodItems",
+      "@container": "@list"
+    },
+    "DAS.Models.Site": "das:DAS.Models.Site",
+    "siteUrl": {
+      "@id": "das:siteUrl",
+      "@type": "xsd:string"
+    },
+    "ratingMethod": {
+      "@id": "das:ratingMethod",
+      "@type": "@id"
+    },
+    "logoUrl": {
+      "@id": "das:logoUrl",
+      "@type": "xsd:string"
+    },
+    "slReporting": {
+      "@id": "das:slReporting",
+      "@type": "xsd:boolean"
+    },
+    "DAS.Models.RatingMethodItems": "das:DAS.Models.RatingMethodItems",
+    "orderId": {
+      "@id": "das:orderId",
+      "@type": "xsd:integer"
+    },
+    "ratingValue": {
+      "@id": "das:ratingValue",
+      "@type": "xsd:integer"
+    },
+    "DAS.Models.NpsStats": "das:DAS.Models.NpsStats",
+    "npsNodes": {
+      "@id": "das:npsNodes",
+      "@container": "@list"
+    },
+    "DAS.Models.NpsNode": "das:DAS.Models.NpsNode",
+    "timespan": {
+      "@id": "das:timespan",
+      "@type": "xsd:string"
+    },
+    "month": {
+      "@id": "das:month",
+      "@type": "xsd:integer"
+    },
+    "npsRating": {
+      "@id": "das:npsRating",
+      "@type": "xsd:decimal"
+    },
+    "npsPromoters": {
+      "@id": "das:npsPromoters",
+      "@type": "xsd:integer"
+    },
+    "npsPassives": {
+      "@id": "das:npsPassives",
+      "@type": "xsd:integer"
+    },
+    "npsDetractors": {
+      "@id": "das:npsDetractors",
+      "@type": "xsd:integer"
+    },
+    "DAS.Models.SurveyMethodStatsV2": "das:DAS.Models.SurveyMethodStatsV2",
+    "surveysSentTotal": {
+      "@id": "das:surveysSentTotal",
+      "@type": "xsd:integer"
+    },
+    "surveysSentEmail": {
+      "@id": "das:surveysSentEmail",
+      "@type": "xsd:integer"
+    },
+    "surveysSentSMS": {
+      "@id": "das:surveysSentSMS",
+      "@type": "xsd:integer"
+    },
+    "surveysReminderSentTotal": {
+      "@id": "das:surveysReminderSentTotal",
+      "@type": "xsd:integer"
+    },
+    "surveysReminderSentEmail": {
+      "@id": "das:surveysReminderSentEmail",
+      "@type": "xsd:integer"
+    },
+    "surveysReminderSentSMS": {
+      "@id": "das:surveysReminderSentSMS",
+      "@type": "xsd:integer"
+    },
+    "surveysCompletedTotal": {
+      "@id": "das:surveysCompletedTotal",
+      "@type": "xsd:integer"
+    },
+    "surveysCompletedEmail": {
+      "@id": "das:surveysCompletedEmail",
+      "@type": "xsd:integer"
+    },
+    "surveysCompletedSMS": {
+      "@id": "das:surveysCompletedSMS",
+      "@type": "xsd:integer"
+    },
+    "overallResponseRate": {
+      "@id": "das:overallResponseRate",
+      "@type": "xsd:decimal"
+    },
+    "responseRateEmail": {
+      "@id": "das:responseRateEmail",
+      "@type": "xsd:decimal"
+    },
+    "responseRateSMS": {
+      "@id": "das:responseRateSMS",
+      "@type": "xsd:decimal"
+    },
+    "System.Collections.Generic.KeyValuePair_System.String_System.String": "das:System.Collections.Generic.KeyValuePair_System.String_System.String",
+    "key": {
+      "@id": "das:key",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.SurveyDealerComments": "das:DAS.Models.SurveyDealerComments",
+    "DAS.Models.CustomerModel": "das:DAS.Models.CustomerModel",
+    "customerGuid": {
+      "@id": "das:customerGuid",
+      "@type": "xsd:string"
+    },
+    "number": {
+      "@id": "das:number",
+      "@type": "xsd:string"
+    },
+    "streetAddress": {
+      "@id": "das:streetAddress",
+      "@type": "xsd:string"
+    },
+    "streetAddress2": {
+      "@id": "das:streetAddress2",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.VehicleModel": "das:DAS.Models.VehicleModel",
+    "DAS.Models.Transaction": "das:DAS.Models.Transaction",
+    "transactionId": {
+      "@id": "das:transactionId",
+      "@type": "xsd:integer"
+    },
+    "transactionGuid": {
+      "@id": "das:transactionGuid",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.AccountAccessModel": "das:DAS.Models.AccountAccessModel",
+    "accessLevel": {
+      "@id": "das:accessLevel",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.UserModel": "das:DAS.Models.UserModel",
+    "password": {
+      "@id": "das:password",
+      "@type": "xsd:string"
+    },
+    "updated": {
+      "@id": "das:updated",
+      "@type": "xsd:dateTime"
+    },
+    "lastLogin": {
+      "@id": "das:lastLogin",
+      "@type": "xsd:dateTime"
+    },
+    "accountAccess": {
+      "@id": "das:accountAccess",
+      "@container": "@list"
+    },
+    "settings": {
+      "@id": "das:settings",
+      "@container": "@list"
+    },
+    "portalStyle": {
+      "@id": "das:portalStyle",
+      "@type": "xsd:string"
+    },
+    "portalFeatures": {
+      "@id": "das:portalFeatures",
+      "@container": "@list"
+    },
+    "accountHierarchyViews": {
+      "@id": "das:accountHierarchyViews",
+      "@container": "@list"
+    },
+    "advocateName": {
+      "@id": "das:advocateName",
+      "@type": "xsd:string"
+    },
+    "advocateMail": {
+      "@id": "das:advocateMail",
+      "@type": "xsd:string"
+    },
+    "advocatePhone": {
+      "@id": "das:advocatePhone",
+      "@type": "xsd:string"
+    },
+    "DAS.Models.UserSettings": "das:DAS.Models.UserSettings",
+    "report": {
+      "@id": "das:report",
+      "@type": "@id"
+    },
+    "DAS.Models.AccountHierarchyView": "das:DAS.Models.AccountHierarchyView",
+    "hierarchyName": {
+      "@id": "das:hierarchyName",
+      "@type": "xsd:string"
+    },
+    "hierarchyGuid": {
+      "@id": "das:hierarchyGuid",
+      "@type": "xsd:string"
+    },
+    "accountName": {
+      "@id": "das:accountName",
+      "@type": "xsd:string"
+    },
+    "root": {
+      "@id": "das:root",
+      "@type": "@id"
+    },
+    "isDefault": {
+      "@id": "das:isDefault",
+      "@type": "xsd:boolean"
+    },
+    "DAS.Models.ReportSettings": "das:DAS.Models.ReportSettings",
+    "enterprise": {
+      "@id": "das:enterprise",
+      "@container": "@list"
+    },
+    "unsubscribe": {
+      "@id": "das:unsubscribe",
+      "@container": "@list"
+    },
+    "bounce": {
+      "@id": "das:bounce",
+      "@container": "@list"
+    },
+    "DAS.Models.ReportSettingDetails": "das:DAS.Models.ReportSettingDetails",
+    "frequency": {
+      "@id": "das:frequency",
+      "@type": "xsd:string"
+    },
+    "format": {
+      "@id": "das:format",
+      "@type": "xsd:string"
+    },
+    "expandTable": {
+      "@id": "das:expandTable",
+      "@type": "xsd:boolean"
+    },
+    "DAS.Models.PagedResult_DAS.Models.UserModel": "das:DAS.Models.PagedResult_DAS.Models.UserModel"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "DAS Technology API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects DAS Technology's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-20) from openapi/das-technology-account-api-openapi.yml, openapi/das-technology-account-v2-api-openapi.yml, openapi/das-technology-client-api-openapi.yml.",
+  "dcterms:created": "2026-10-20",
+  "dcterms:source": [
+    "openapi/das-technology-account-api-openapi.yml",
+    "openapi/das-technology-account-v2-api-openapi.yml",
+    "openapi/das-technology-client-api-openapi.yml",
+    "openapi/das-technology-configuration-api-openapi.yml",
+    "openapi/das-technology-employee-api-openapi.yml"
+  ]
+}

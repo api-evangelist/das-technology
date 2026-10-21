@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-portal-account-v2-schema.json",
+  "title": "DAS.Models.PortalAccountV2",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-account-v2-api-openapi.yml#/components/schemas/DAS.Models.PortalAccountV2",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "guid": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "parent": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Models.PortalAccountV2"
+      }
+    },
+    "child": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Models.PortalAccountV2"
+      }
+    },
+    "level": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "label": {
+      "type": "string"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "brands": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "DAS.Models.PortalAccountV2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "guid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "parent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.PortalAccountV2"
+          }
+        },
+        "child": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.PortalAccountV2"
+          }
+        },
+        "level": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "brands": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

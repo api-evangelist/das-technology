@@ -1,0 +1,2078 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-core-entity-framework-employee-schema.json",
+  "title": "DAS.Core.EntityFramework.Employee",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Employee",
+  "type": "object",
+  "properties": {
+    "employeeId": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "createdDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lastUpdatedDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "lastUpdatedBy": {
+      "type": "string"
+    },
+    "token": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "accountToken": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "employeeNumber": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "employeeDepartmentId": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "employeeStatus": {
+      "type": "boolean"
+    },
+    "terminationDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "updatedBy": {
+      "type": "string"
+    },
+    "employeeDepartment": {
+      "$ref": "#/$defs/DAS.Core.EntityFramework.EmployeeDepartment"
+    },
+    "vehicleSaleTxns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleSaleTxn"
+      }
+    },
+    "vehicleSaleTxns1": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleSaleTxn"
+      }
+    },
+    "vehicleServiceTxns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleServiceTxn"
+      }
+    },
+    "vehicleServiceTxns1": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleServiceTxn"
+      }
+    }
+  },
+  "$defs": {
+    "DAS.Core.EntityFramework.Account": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "token": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "mySqlDealerId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "newSFDCId": {
+          "type": "string"
+        },
+        "oldSFDCId": {
+          "type": "string"
+        },
+        "bacCode": {
+          "type": "string"
+        },
+        "rlCustomerId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "rlName": {
+          "type": "string"
+        },
+        "slName": {
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "website": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "kiaCode": {
+          "type": "string"
+        },
+        "kiaDistrict": {
+          "type": "string"
+        },
+        "sfdcParentAccountId": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "slActive": {
+          "type": "boolean"
+        },
+        "rsActive": {
+          "type": "boolean"
+        },
+        "parentAccountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "oemProgram": {
+          "type": "string"
+        },
+        "recordType": {
+          "type": "string"
+        },
+        "alternativeGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "customPortalProspect": {
+          "type": "boolean"
+        },
+        "brands": {
+          "type": "string"
+        },
+        "mcActive": {
+          "type": "boolean"
+        },
+        "flexTemplate": {
+          "type": "boolean"
+        },
+        "collectReviews": {
+          "type": "boolean"
+        },
+        "oemPrograms": {
+          "type": "string"
+        },
+        "amrsActive": {
+          "type": "boolean"
+        },
+        "dynParentAccountId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "dynId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "socialActive": {
+          "type": "boolean"
+        },
+        "reputationActive": {
+          "type": "boolean"
+        },
+        "privacyPolicyUrl": {
+          "type": "string"
+        },
+        "facebookPageId": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "dealershipHours": {
+          "type": "string"
+        },
+        "dealershipLogo": {
+          "type": "string"
+        },
+        "remoteTestDriveBadge": {
+          "type": "boolean"
+        },
+        "conciergeServiceBadge": {
+          "type": "boolean"
+        },
+        "reviewScoreBadge": {
+          "type": "boolean"
+        },
+        "buyFromHomeBadge": {
+          "type": "boolean"
+        },
+        "tekionId": {
+          "type": "string"
+        },
+        "accountCompetitors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.AccountCompetitor"
+          }
+        },
+        "competitorOfAccounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.AccountCompetitor"
+          }
+        },
+        "childOfHierarchies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.AccountHierarchy"
+          }
+        },
+        "parentOfHierarchies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.AccountHierarchy"
+          }
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Review"
+          }
+        },
+        "childAccounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+          }
+        },
+        "parentAccount": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        },
+        "rlCustomer": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.RLCustomer"
+        },
+        "sfdcUser": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.SFDCUser"
+        },
+        "hierarchies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Hierarchy"
+          }
+        },
+        "rooftops": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Rooftop"
+          }
+        },
+        "packages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Package"
+          }
+        },
+        "surveys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Survey"
+          }
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Address"
+          }
+        },
+        "dashboardClients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.DashboardClient"
+          }
+        },
+        "accountIntegration": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.AccountIntegration"
+        },
+        "accountBrands": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.AccountBrand"
+          }
+        },
+        "accountInventories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.AccountInventory"
+          }
+        },
+        "sociProject": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.SociProject"
+        },
+        "oemCodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.OemCode"
+          }
+        },
+        "oemPrograms1": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.OemProgram"
+          }
+        },
+        "facebookAdAccounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.FacebookAdAccount"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.AccountBrand": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "brandId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dynId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        },
+        "brand": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Brand"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.AccountCompetitor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "competitorAccountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "rank": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accountCompetitorGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        },
+        "competitorAccount": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.AccountHierarchy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "parentAccountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "childAccountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "hierarchyId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "childAccount": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        },
+        "parentAccount": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        },
+        "hierarchy": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Hierarchy"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.AccountIntegration": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "smsPhoneNumber": {
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.AccountInventory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "inventoryId": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "sourceId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        },
+        "inventorySource": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.InventorySource"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Address": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "street": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "type": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Brand": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sfdcId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "dynId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accountBrands": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.AccountBrand"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Review"
+          }
+        },
+        "reviewCategoryDispositions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.ReviewCategoryDisposition"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Customer": {
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedBy": {
+          "type": "string"
+        },
+        "token": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accountToken": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "customerNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        },
+        "mobilePhone": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "unsubscribedToPhone": {
+          "type": "boolean"
+        },
+        "unsubscribedToEmail": {
+          "type": "boolean"
+        },
+        "unsubscribedToMail": {
+          "type": "boolean"
+        },
+        "mobilePhoneId": {
+          "type": "string"
+        },
+        "txns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Txn"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.DMSType": {
+      "type": "object",
+      "properties": {
+        "dmsTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dmsType1": {
+          "type": "string"
+        },
+        "vehicleSaleTxns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleSaleTxn"
+          }
+        },
+        "vehicleServiceTxns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleServiceTxn"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.DashboardClient": {
+      "type": "object",
+      "properties": {
+        "dashboardClientId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedBy": {
+          "type": "string"
+        },
+        "token": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "klipfolioClientId": {
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Employee": {
+      "type": "object",
+      "properties": {
+        "employeeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedBy": {
+          "type": "string"
+        },
+        "token": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accountToken": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "employeeDepartmentId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "employeeStatus": {
+          "type": "boolean"
+        },
+        "terminationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "employeeDepartment": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.EmployeeDepartment"
+        },
+        "vehicleSaleTxns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleSaleTxn"
+          }
+        },
+        "vehicleSaleTxns1": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleSaleTxn"
+          }
+        },
+        "vehicleServiceTxns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleServiceTxn"
+          }
+        },
+        "vehicleServiceTxns1": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleServiceTxn"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.EmployeeDepartment": {
+      "type": "object",
+      "properties": {
+        "employeeDepartmentId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "employeeDepartment1": {
+          "type": "string"
+        },
+        "employees": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Employee"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.FacebookAdAccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "facebookAdAccountId": {
+          "type": "string"
+        },
+        "offlineEventSetId": {
+          "type": "string"
+        },
+        "enableConversions": {
+          "type": "boolean"
+        },
+        "offlineConversionsLastUpload": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Hierarchy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "guid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accountHierarchies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.AccountHierarchy"
+          }
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        },
+        "hierarchyLabels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.HierarchyLabel"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.HierarchyLabel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "hierarchyId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "hierarchyLevel": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isLeafDefault": {
+          "type": "boolean"
+        },
+        "isInternalDefault": {
+          "type": "boolean"
+        },
+        "hierarchy": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Hierarchy"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.InventorySource": {
+      "type": "object",
+      "properties": {
+        "sourceId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sourceName": {
+          "type": "string"
+        },
+        "accountInventories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.AccountInventory"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.ManualListing": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "customerIdentifier": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "siteId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "reviewSite": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.ReviewSite"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.OemCode": {
+      "type": "object",
+      "properties": {
+        "accountsId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "codeType": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "dynId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.OemProgram": {
+      "type": "object",
+      "properties": {
+        "accountsId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dynId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Package": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sfdcId": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "packageName": {
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "cancellationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "mrr": {
+          "format": "double",
+          "type": "number"
+        },
+        "enhanced": {
+          "type": "boolean"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.RLCustomer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "customerGUID": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "oltpCustomerId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Review": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "reviewGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "reviewSourceId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accountGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "reviewSiteId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "modified": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "reviewDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "reviewScore": {
+          "format": "double",
+          "type": "number"
+        },
+        "reviewerName": {
+          "type": "string"
+        },
+        "reviewerCity": {
+          "type": "string"
+        },
+        "reviewerState": {
+          "type": "string"
+        },
+        "reviewerCountry": {
+          "type": "string"
+        },
+        "reviewUrl": {
+          "type": "string"
+        },
+        "reviewTitle": {
+          "type": "string"
+        },
+        "reviewComment": {
+          "type": "string"
+        },
+        "aylienException": {
+          "type": "boolean"
+        },
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "isClosedLoop": {
+          "type": "boolean"
+        },
+        "surveyResponseId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "softDeleteDateUTC": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        },
+        "reviewSite": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.ReviewSite"
+        },
+        "reviewSource": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.ReviewSource"
+        },
+        "reviewClassifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.ReviewClassification"
+          }
+        },
+        "reviewResponses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.ReviewResponse"
+          }
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Category"
+          }
+        },
+        "surveyResponse": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.SurveyResponse"
+        },
+        "reviewCategoryDispositions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.ReviewCategoryDisposition"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.ReviewCategoryDisposition": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "reviewId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "categoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "category": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Category"
+        },
+        "review": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Review"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.ReviewClassification": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "reviewId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        },
+        "score": {
+          "format": "double",
+          "type": "number"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "review": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Review"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.ReviewResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "reviewId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "modified": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "responseDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "responderName": {
+          "type": "string"
+        },
+        "responseTitle": {
+          "type": "string"
+        },
+        "responseComment": {
+          "type": "string"
+        },
+        "reviewResponseGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "proposed": {
+          "type": "boolean"
+        },
+        "reviewSourceId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "review": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Review"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.ReviewSite": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "legacyId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Review"
+          }
+        },
+        "manualListings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.ManualListing"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.ReviewSource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Review"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Rooftop": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "rooftopName": {
+          "type": "string"
+        },
+        "rooftopId": {
+          "type": "string"
+        },
+        "rlCustomerInventorySourceGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.SFDCUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sfdcId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "mobilePhone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "dynId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.SociProject": {
+      "type": "object",
+      "properties": {
+        "accountsId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sociProjectId": {
+          "type": "string"
+        },
+        "sociProjectActive": {
+          "type": "boolean"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Survey": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "txnId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "oldSurveyId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accountToken": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "sentDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "vin": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "txnNumber": {
+          "type": "string"
+        },
+        "txnDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "customerFirstName": {
+          "type": "string"
+        },
+        "customerLastName": {
+          "type": "string"
+        },
+        "employeeFirstName": {
+          "type": "string"
+        },
+        "employeeLastName": {
+          "type": "string"
+        },
+        "txnTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "sentViaEmail": {
+          "type": "boolean"
+        },
+        "sentViaSms": {
+          "type": "boolean"
+        },
+        "sentFirstVia": {
+          "type": "string"
+        },
+        "isSurveyReminderEmailSent": {
+          "type": "boolean"
+        },
+        "mobilePhone": {
+          "type": "string"
+        },
+        "reviewSurgeConsumerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "template": {
+          "type": "string"
+        },
+        "dmsFeedType": {
+          "type": "string"
+        },
+        "surveyOpenDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "surveyDealerResponses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.SurveyDealerResponse"
+          }
+        },
+        "surveyHistories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.SurveyHistory"
+          }
+        },
+        "surveyResponses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.SurveyResponse"
+          }
+        },
+        "txn": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Txn"
+        },
+        "account": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Account"
+        },
+        "surveyDealerPendingResponses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.SurveyDealerPendingResponse"
+          }
+        },
+        "txnType": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.TxnType"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.SurveyDealerPendingResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "surveyId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "responseDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "survey": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Survey"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.SurveyDealerResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "surveyId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "responseDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "survey": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Survey"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.SurveyHistory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "surveyId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "actionId": {
+          "enum": [
+            "SurveySent",
+            "SurveyOpened",
+            "SurveyCompleted",
+            "SiteClicked",
+            "ReviewSubmmited",
+            "Bounced",
+            "Unsubscribed",
+            "PublicationStatusChanged"
+          ],
+          "type": "string"
+        },
+        "actionTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "siteId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "survey": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Survey"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.SurveyResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "surveyId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "responseDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "npsScore": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "rating": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "feedback": {
+          "type": "string"
+        },
+        "surveyResponseGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "publicationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "publicationStatus": {
+          "enum": [
+            "None",
+            "Pending",
+            "Filtered",
+            "OptedOut",
+            "Published",
+            "NotPublished",
+            "PendingUnpublish",
+            "Completed"
+          ],
+          "type": "string"
+        },
+        "enablePartnerShare": {
+          "type": "boolean"
+        },
+        "displaySurvey": {
+          "type": "boolean"
+        },
+        "surveyAnsweredBy": {
+          "type": "string"
+        },
+        "make": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "publishedReviewSiteId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "publishedStatus": {
+          "type": "string"
+        },
+        "thankYouPageClick": {
+          "type": "boolean"
+        },
+        "survey": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Survey"
+        },
+        "surveyResponseResponses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.SurveyResponseResponse"
+          }
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Review"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.SurveyResponseResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "surveyResponseId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "surveyResponseResponseGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "responseDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "responderName": {
+          "type": "string"
+        },
+        "responseTitle": {
+          "type": "string"
+        },
+        "responseComment": {
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "modified": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "acceptedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "surveyResponse": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.SurveyResponse"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Txn": {
+      "type": "object",
+      "properties": {
+        "txnId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "token": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "txnDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "txnTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accountToken": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "customerId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "txnProviderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "hasCustomerEmail": {
+          "type": "boolean"
+        },
+        "customer": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Customer"
+        },
+        "surveys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Survey"
+          }
+        },
+        "txnProvider": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.TxnProvider"
+        },
+        "txnType": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.TxnType"
+        },
+        "vehicleSaleTxns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleSaleTxn"
+          }
+        },
+        "vehicleServiceTxns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleServiceTxn"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.TxnProvider": {
+      "type": "object",
+      "properties": {
+        "txnProviderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "txnProvider1": {
+          "type": "string"
+        },
+        "txns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Txn"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.TxnType": {
+      "type": "object",
+      "properties": {
+        "txnTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "txnType1": {
+          "type": "string"
+        },
+        "txns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Txn"
+          }
+        },
+        "surveys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.Survey"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.Vehicle": {
+      "type": "object",
+      "properties": {
+        "vehicleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedBy": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        },
+        "make": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "vehicleSaleTxns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleSaleTxn"
+          }
+        },
+        "vehicleServiceTxns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Core.EntityFramework.VehicleServiceTxn"
+          }
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.VehicleSaleTxn": {
+      "type": "object",
+      "properties": {
+        "vehicleSaleTxnId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "txnId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dmsTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dealNumber": {
+          "type": "string"
+        },
+        "entryDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dealBookDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dealType": {
+          "type": "string"
+        },
+        "individualBusinessFlag": {
+          "type": "string"
+        },
+        "salesMan1Id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "salesMan2Id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "vehicleType": {
+          "type": "string"
+        },
+        "vehicleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "stockNumber": {
+          "type": "string"
+        },
+        "vin": {
+          "type": "string"
+        },
+        "dmsType": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.DMSType"
+        },
+        "employee": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Employee"
+        },
+        "employee1": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Employee"
+        },
+        "txn": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Txn"
+        },
+        "vehicle": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Vehicle"
+        }
+      }
+    },
+    "DAS.Core.EntityFramework.VehicleServiceTxn": {
+      "type": "object",
+      "properties": {
+        "vehicleServiceTxnId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "txnId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dmsTypeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "repairOrderNumber": {
+          "type": "string"
+        },
+        "openDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "closedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "individualBusinessFlag": {
+          "type": "string"
+        },
+        "salesManId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "serviceAdvisorId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "vehicleId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "vin": {
+          "type": "string"
+        },
+        "odometer": {
+          "type": "string"
+        },
+        "hasInternalPayLaborType": {
+          "type": "boolean"
+        },
+        "hasCustomerPayLaborType": {
+          "type": "boolean"
+        },
+        "hasWarrantyLaborType": {
+          "type": "boolean"
+        },
+        "hasUnknownLaborType": {
+          "type": "boolean"
+        },
+        "dmsType": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.DMSType"
+        },
+        "employee": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Employee"
+        },
+        "employee1": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Employee"
+        },
+        "txn": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Txn"
+        },
+        "vehicle": {
+          "$ref": "#/$defs/DAS.Core.EntityFramework.Vehicle"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-survey-response-v2-schema.json",
+  "title": "DAS.Models.SurveyResponseV2",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-survey-api-openapi.yml#/components/schemas/DAS.Models.SurveyResponseV2",
+  "type": "object",
+  "properties": {
+    "accountGuid": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "dealership": {
+      "type": "string"
+    },
+    "isClosedLoopReview": {
+      "type": "boolean"
+    },
+    "isGMSFEAccount": {
+      "type": "boolean"
+    },
+    "npsScore": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "rating": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "date": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "transactionDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "department": {
+      "type": "string"
+    },
+    "employee": {
+      "type": "string"
+    },
+    "surveyId": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "homePhone": {
+      "type": "string"
+    },
+    "workPhone": {
+      "type": "string"
+    },
+    "cellPhone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "surveyVia": {
+      "type": "string"
+    },
+    "vehicleYear": {
+      "type": "string"
+    },
+    "vehicleMake": {
+      "type": "string"
+    },
+    "vehicleModel": {
+      "type": "string"
+    },
+    "vin": {
+      "type": "string"
+    },
+    "stockNumber": {
+      "type": "string"
+    },
+    "repairOrder": {
+      "type": "string"
+    },
+    "customerResponseComment": {
+      "type": "string"
+    },
+    "customerResponseImprovementComment": {
+      "type": "string"
+    },
+    "dealerResponseDate": {
+      "type": "string"
+    },
+    "dealerResponseComment": {
+      "type": "string"
+    },
+    "canRespondInline": {
+      "type": "boolean"
+    },
+    "proposedResponses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Models.ProposedResponse"
+      }
+    },
+    "surveyResponseId": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "publicationDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "publicationStatus": {
+      "type": "string"
+    },
+    "responded": {
+      "type": "boolean"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "daysUntilPublication": {
+      "format": "int32",
+      "type": "integer",
+      "readOnly": true
+    },
+    "daysUntilResponseLocked": {
+      "format": "int32",
+      "type": "integer",
+      "readOnly": true
+    },
+    "canRespond": {
+      "type": "boolean",
+      "readOnly": true
+    }
+  },
+  "$defs": {
+    "DAS.Models.ProposedResponse": {
+      "type": "object",
+      "properties": {
+        "responseDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "responderName": {
+          "type": "string"
+        },
+        "responseTitle": {
+          "type": "string"
+        },
+        "responseComment": {
+          "type": "string"
+        },
+        "canEditResponse": {
+          "type": "boolean"
+        },
+        "accepted": {
+          "type": "boolean"
+        },
+        "acceptedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastModified": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "surveyResponseResponseGuid": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

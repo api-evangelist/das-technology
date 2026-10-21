@@ -3,10 +3,17 @@
   "feeds": [
     {
       "source": "https://digitalairstrike.com/blog/",
+      "feed_url": "https://digitalairstrike.com/blog/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://digitalairstrike.com/blog/feed/",
       "feed_url": "https://digitalairstrike.com/blog/feed/",
       "title": "",
       "saved": 0,
-      "method": "discovered"
+      "method": "none"
     },
     {
       "source": "https://www.dastechnology.com",
@@ -17,5 +24,5 @@
     }
   ],
   "post_count": 0,
-  "fetched": "2026-10-10T13:15:00Z"
+  "fetched": "2026-10-17T14:53:57Z"
 }

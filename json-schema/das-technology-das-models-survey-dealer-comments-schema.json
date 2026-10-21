@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-survey-dealer-comments-schema.json",
+  "title": "DAS.Models.SurveyDealerComments",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-surveyresponse-api-openapi.yml#/components/schemas/DAS.Models.SurveyDealerComments",
+  "type": "object",
+  "properties": {
+    "surveyId": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "surveyResponseId": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "date": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    }
+  }
+}

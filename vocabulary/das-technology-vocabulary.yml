@@ -1,0 +1,443 @@
+generated: '2026-10-20'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/das-technology-account-api-openapi.yml
+- openapi/das-technology-account-v2-api-openapi.yml
+- openapi/das-technology-client-api-openapi.yml
+- openapi/das-technology-configuration-api-openapi.yml
+- openapi/das-technology-employee-api-openapi.yml
+vocabulary:
+  name: DAS Technology Domain Vocabulary
+  description: 'Terms declared by DAS Technology''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-20'
+  terms:
+  - term: DAS.Core.EntityFramework.SociProject
+    definition: 'Object declared by the contract with fields: accountsId, sociProjectId, sociProjectActive, account.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.SociProject
+  - term: DAS.Core.EntityFramework.SurveyDealerResponse
+    definition: 'Object declared by the contract with fields: id, surveyId, responseDate, comments, survey.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.SurveyDealerResponse
+  - term: DAS.Models.PortalAccountDetailed
+    definition: 'Object declared by the contract with fields: address, phone, website, name, guid, parent, child.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.PortalAccountDetailed
+  - term: DAS.Core.EntityFramework.Vehicle
+    definition: 'Object declared by the contract with fields: vehicleId, createdDate, lastUpdatedDate, lastUpdatedBy, year, make, model, vehicleSaleTxns,
+      vehicleServiceTxns.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Vehicle
+  - term: DAS.Models.PortalAccount
+    definition: 'Object declared by the contract with fields: name, guid, parent, child.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.PortalAccount
+  - term: DAS.Core.EntityFramework.VehicleServiceTxn
+    definition: 'Object declared by the contract with fields: vehicleServiceTxnId, txnId, dmsTypeId, repairOrderNumber, openDate, closedDate,
+      individualBusinessFlag, salesManId, serviceAdvisorId, vehicleId, vin, odometer. (9 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.VehicleServiceTxn
+  - term: DAS.Models.SurveyTransaction
+    definition: 'Object declared by the contract with fields: id, type, employee.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.SurveyTransaction
+  - term: DAS.Core.EntityFramework.SurveyResponse
+    definition: 'Object declared by the contract with fields: id, surveyId, responseDate, npsScore, rating, comments, feedback, surveyResponseGuid,
+      publicationDate, publicationStatus, enablePartnerShare, displaySurvey. (10 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.SurveyResponse
+  - term: DAS.Models.PortalAccountAddress
+    definition: 'Object declared by the contract with fields: street, city, state, postalCode, country.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.PortalAccountAddress
+  - term: DAS.Core.EntityFramework.ReviewClassification
+    definition: 'Object declared by the contract with fields: id, reviewId, label, score, created, review.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.ReviewClassification
+  - term: DAS.Models.ReviewResponseV2
+    definition: 'Object declared by the contract with fields: responseDate, responderName, responseTitle, responseComment, canEditResponse, lastModified,
+      reviewResponseGuid, proposed, externalId.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ReviewResponseV2
+  - term: DAS.Core.EntityFramework.DashboardClient
+    definition: 'Object declared by the contract with fields: dashboardClientId, createdDate, lastUpdatedDate, lastUpdatedBy, token, accountId,
+      klipfolioClientId, account.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.DashboardClient
+  - term: DAS.Models.SurveyStatsByInterval
+    definition: 'Object declared by the contract with fields: accountGuid, intervalName, averageRating, totalCount, averageTotalCount.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.SurveyStatsByInterval
+  - term: DAS.Models.QuestionResponse
+    definition: 'Object declared by the contract with fields: question, answer.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.QuestionResponse
+  - term: DAS.Core.EntityFramework.Address
+    definition: 'Object declared by the contract with fields: id, street, city, state, country, postalCode, type, accountId, account.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Address
+  - term: DAS.Core.EntityFramework.SurveyDealerPendingResponse
+    definition: 'Object declared by the contract with fields: id, surveyId, responseDate, comments, survey.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.SurveyDealerPendingResponse
+  - term: DAS.Core.EntityFramework.Rooftop
+    definition: 'Object declared by the contract with fields: id, rooftopName, rooftopId, rlCustomerInventorySourceGuid, accounts.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Rooftop
+  - term: DAS.Models.ReviewStatsSimple
+    definition: 'Object declared by the contract with fields: name, reviewClicks, reviewCount, averageStarRating, percentPositive.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ReviewStatsSimple
+  - term: DAS.Core.EntityFramework.RLCustomer
+    definition: 'Object declared by the contract with fields: id, name, customerGUID, oltpCustomerId, accounts.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.RLCustomer
+  - term: DAS.Models.SurveyStats
+    definition: 'Object declared by the contract with fields: accountGuid, name, transactions, emailCapture, surveysSent, surveysOpened, totalSurveysCompleted,
+      positiveSurveysCompleted, negativeSurveysCompleted, averageStarRating, averageLoyaltyScore, nclReviewClicks.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.SurveyStats
+  - term: DAS.Models.SurveyResponseLegacy
+    definition: 'Object declared by the contract with fields: hasClosedLoopReview, accountGuid, name, district, canRespond, canRespondInline,
+      proposedResponses, id, date, rating, loyaltyScore, comment. (8 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.SurveyResponseLegacy
+  - term: DAS.Core.EntityFramework.Txn
+    definition: 'Object declared by the contract with fields: txnId, createdDate, token, txnDate, txnTypeId, accountToken, customerId, txnProviderId,
+      hasCustomerEmail, customer, surveys, txnProvider. (3 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Txn
+  - term: DAS.Models.EnterpriseStatsV2
+    definition: 'Object declared by the contract with fields: nclTotalSurveysCompleted, nclAverageStarRating, nclPositiveSurveysCompleted, clTotalSurveysCompleted,
+      clAverageStarRating, clAverageLoyaltyScore, clPositiveSurveysCompleted, neutralSurveysCompleted, positivePercentage, accountGuid, name,
+      transactions. (9 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.EnterpriseStatsV2
+  - term: DAS.Core.EntityFramework.Package
+    definition: 'Object declared by the contract with fields: id, accountId, sfdcId, product, packageName, startDate, cancellationDate, status,
+      mrr, enhanced, account.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Package
+  - term: DAS.Core.EntityFramework.Hierarchy
+    definition: 'Object declared by the contract with fields: id, name, accountId, guid, accountHierarchies, account, hierarchyLabels.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Hierarchy
+  - term: DAS.Core.EntityFramework.VehicleSaleTxn
+    definition: 'Object declared by the contract with fields: vehicleSaleTxnId, txnId, dmsTypeId, dealNumber, entryDate, dealBookDate, dealType,
+      individualBusinessFlag, salesMan1Id, salesMan2Id, vehicleType, vehicleId. (7 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.VehicleSaleTxn
+  - term: DAS.Core.EntityFramework.Brand
+    definition: 'Object declared by the contract with fields: id, sfdcId, name, dynId, accountBrands.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Brand
+  - term: DAS.Core.EntityFramework.Account
+    definition: 'Object declared by the contract with fields: id, name, token, mySqlDealerId, newSFDCId, oldSFDCId, bacCode, rlCustomerId, rlName,
+      slName, ownerId, website. (55 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Account
+  - term: DAS.Models.ReviewNotificationSettings
+    definition: 'Object declared by the contract with fields: sales, service, uncategorized.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ReviewNotificationSettings
+  - term: DAS.Core.EntityFramework.AccountBrand
+    definition: 'Object declared by the contract with fields: id, accountId, brandId, dynId, account, brand.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.AccountBrand
+  - term: DAS.Core.EntityFramework.ReviewSite
+    definition: 'Object declared by the contract with fields: id, name, legacyId, url, reviews, manualListings.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.ReviewSite
+  - term: DAS.Models.ReviewStatsByInterval
+    definition: 'Object declared by the contract with fields: accountGuid, intervalName, averageRating, totalCount, averageTotalCount.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ReviewStatsByInterval
+  - term: DAS.Core.EntityFramework.DMSType
+    definition: 'Object declared by the contract with fields: dmsTypeId, dmsType1, vehicleSaleTxns, vehicleServiceTxns.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.DMSType
+  - term: DAS.Core.EntityFramework.OemCode
+    definition: 'Object declared by the contract with fields: accountsId, codeType, value, dynId, account.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.OemCode
+  - term: DAS.Core.EntityFramework.AccountIntegration
+    definition: 'Object declared by the contract with fields: accountId, smsPhoneNumber, account.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.AccountIntegration
+  - term: DAS.Core.EntityFramework.SurveyResponseResponse
+    definition: 'Object declared by the contract with fields: id, surveyResponseId, surveyResponseResponseGuid, responseDate, responderName, responseTitle,
+      responseComment, created, modified, acceptedDate, surveyResponse.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.SurveyResponseResponse
+  - term: DAS.Core.EntityFramework.Review
+    definition: 'Object declared by the contract with fields: id, reviewGuid, reviewSourceId, accountGuid, externalId, reviewSiteId, created,
+      modified, reviewDate, reviewScore, reviewerName, reviewerCity. (18 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Review
+  - term: DAS.Models.SurveyResponseNotificationSettings
+    definition: 'Object declared by the contract with fields: sales, service.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.SurveyResponseNotificationSettings
+  - term: DAS.Core.EntityFramework.TxnProvider
+    definition: 'Object declared by the contract with fields: txnProviderId, txnProvider1, txns.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.TxnProvider
+  - term: DAS.Core.EntityFramework.ManualListing
+    definition: 'Object declared by the contract with fields: id, customerIdentifier, externalId, url, siteId, reviewSite.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.ManualListing
+  - term: DAS.Models.ActivityModel
+    definition: 'Object declared by the contract with fields: activityDate, activityType, activityDesc, activitySites.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ActivityModel
+  - term: DAS.Models.SocialActivity
+    definition: 'Object declared by the contract with fields: id, clientGuid, createdBy, activityType, createdDate, activityDate, activityDescription.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.SocialActivity
+  - term: DAS.Models.PortalAccountNotifySettings
+    definition: 'Object declared by the contract with fields: firstName, lastName, email, title, timeZone, notification.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.PortalAccountNotifySettings
+  - term: DAS.Models.NotificationSettings
+    definition: 'Object declared by the contract with fields: review, surveyResponse.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.NotificationSettings
+  - term: DAS.Core.EntityFramework.AccountCompetitor
+    definition: 'Object declared by the contract with fields: id, accountId, competitorAccountId, rank, accountCompetitorGuid, account, competitorAccount.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.AccountCompetitor
+  - term: DAS.Models.SurveyEmployee
+    definition: 'Object declared by the contract with fields: firstName, lastName.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.SurveyEmployee
+  - term: DAS.Core.EntityFramework.SurveyHistory
+    definition: 'Object declared by the contract with fields: id, surveyId, actionId, actionTime, siteId, count, survey.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.SurveyHistory
+  - term: DAS.Core.EntityFramework.Customer
+    definition: 'Object declared by the contract with fields: customerId, createdDate, lastUpdatedDate, lastUpdatedBy, token, accountToken, customerNumber,
+      email, name, firstName, lastName, address1. (13 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Customer
+  - term: DAS.Core.EntityFramework.ReviewCategoryDisposition
+    definition: 'Object declared by the contract with fields: id, createdDate, createdBy, reviewId, categoryId, category, review.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.ReviewCategoryDisposition
+  - term: DAS.Core.EntityFramework.TxnType
+    definition: 'Object declared by the contract with fields: txnTypeId, txnType1, txns, surveys.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.TxnType
+  - term: DAS.Models.ReviewStats
+    definition: 'Object declared by the contract with fields: accountGuid, averageRating, averageTotalCount, positiveCount, neutralCount, negativeCount,
+      positiveRespondedCount, positiveNotRespondedCount, negativeRespondedCount, negativeNotRespondedCount, positivePercentage, neutralPercentage.
+      (4 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ReviewStats
+  - term: DAS.Models.ReviewV2
+    definition: 'Object declared by the contract with fields: id, comment, accountGuid, reviewerName, siteName, rating, isClosedLoopReview, reviewDate,
+      district, dealerName, department, hasResponse. (8 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ReviewV2
+  - term: DAS.Core.EntityFramework.InventorySource
+    definition: 'Object declared by the contract with fields: sourceId, sourceName, accountInventories.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.InventorySource
+  - term: DAS.Models.EnterpriseStats
+    definition: 'Object declared by the contract with fields: surveyStats, closedLoopStats, nonClosedLoopStats.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.EnterpriseStats
+  - term: DAS.Models.ReviewStatsState
+    definition: 'Object declared by the contract with fields: stateName, ratingAverage.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ReviewStatsState
+  - term: DAS.Core.EntityFramework.Survey
+    definition: 'Object declared by the contract with fields: id, txnId, oldSurveyId, accountToken, sentDate, type, vin, email, accountId, txnNumber,
+      txnDate, customerFirstName. (21 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Survey
+  - term: DAS.Models.Unsubscribe
+    definition: 'Object declared by the contract with fields: dealershipName, firstName, lastName, emailAddress, unsubscribeDate, surveyId.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.Unsubscribe
+  - term: DAS.Core.EntityFramework.AccountHierarchy
+    definition: 'Object declared by the contract with fields: id, parentAccountId, childAccountId, hierarchyId, childAccount, parentAccount, hierarchy.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.AccountHierarchy
+  - term: DAS.Models.AccountManager
+    definition: 'Object declared by the contract with fields: firstName, lastName, name, email, phone, mobilePhone, title, department.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.AccountManager
+  - term: DAS.Models.ReviewSiteRatings
+    definition: 'Object declared by the contract with fields: name, averageRating.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ReviewSiteRatings
+  - term: DAS.Core.EntityFramework.Category
+    definition: 'Object declared by the contract with fields: id, name, reviews, reviewCategoryDispositions.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Category
+  - term: DAS.Core.EntityFramework.OemProgram
+    definition: 'Object declared by the contract with fields: accountsId, dynId, value, account.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.OemProgram
+  - term: DAS.Models.SurveyResponseV2
+    definition: 'Object declared by the contract with fields: accountGuid, name, district, dealership, isClosedLoopReview, isGMSFEAccount, npsScore,
+      rating, date, transactionDate, department, employee. (29 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.SurveyResponseV2
+  - term: DAS.Models.ReviewStatsSource
+    definition: 'Object declared by the contract with fields: name, count, averageRating, positiveCount, averageTotalCount, averageSite.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ReviewStatsSource
+  - term: DAS.Core.EntityFramework.Employee
+    definition: 'Object declared by the contract with fields: employeeId, createdDate, lastUpdatedDate, lastUpdatedBy, token, accountToken, employeeNumber,
+      name, firstName, lastName, employeeDepartmentId, employeeStatus. (7 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.Employee
+  - term: DAS.Core.EntityFramework.ReviewResponse
+    definition: 'Object declared by the contract with fields: id, reviewId, externalId, created, modified, responseDate, responderName, responseTitle,
+      responseComment, reviewResponseGuid, proposed, reviewSourceId. (1 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.ReviewResponse
+  - term: DAS.Models.RatingNotificationSettings
+    definition: 'Object declared by the contract with fields: negative, positive.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.RatingNotificationSettings
+  - term: DAS.Models.SurveyV2Response
+    definition: 'Object declared by the contract with fields: data, count.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.SurveyV2Response
+  - term: DAS.Core.EntityFramework.HierarchyLabel
+    definition: 'Object declared by the contract with fields: id, name, hierarchyId, hierarchyLevel, isLeafDefault, isInternalDefault, hierarchy.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.HierarchyLabel
+  - term: DAS.Core.EntityFramework.FacebookAdAccount
+    definition: 'Object declared by the contract with fields: id, accountId, facebookAdAccountId, offlineEventSetId, enableConversions, offlineConversionsLastUpload,
+      account.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.FacebookAdAccount
+  - term: DAS.Core.EntityFramework.ReviewSource
+    definition: 'Object declared by the contract with fields: id, name, reviews.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.ReviewSource
+  - term: DAS.Core.EntityFramework.EmployeeDepartment
+    definition: 'Object declared by the contract with fields: employeeDepartmentId, employeeDepartment1, employees.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.EmployeeDepartment
+  - term: DAS.Models.EmployeeStats
+    definition: 'Object declared by the contract with fields: employeeId, employeeName, employeeDepartment, dealershipName, dealershipGuid, surveyStats,
+      closedLoopStats.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.EmployeeStats
+  - term: DAS.Core.EntityFramework.AccountInventory
+    definition: 'Object declared by the contract with fields: id, accountId, inventoryId, active, sourceId, account, inventorySource.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.AccountInventory
+  - term: DAS.Models.ProposedResponse
+    definition: 'Object declared by the contract with fields: responseDate, responderName, responseTitle, responseComment, canEditResponse, accepted,
+      acceptedDate, lastModified, surveyResponseResponseGuid.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.ProposedResponse
+  - term: DAS.Models.SurveyStatsV2
+    definition: 'Object declared by the contract with fields: clTotalSurveysCompleted, clAverageStarRating, clAverageLoyaltyScore, clPositiveSurveysCompleted,
+      neutralSurveysCompleted, positivePercentage, accountGuid, name, transactions, emailCapture, surveysSent, surveysOpened. (6 more)'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Models.SurveyStatsV2
+  - term: DAS.Core.EntityFramework.SFDCUser
+    definition: 'Object declared by the contract with fields: id, sfdcId, name, firstName, lastName, department, title, phone, mobilePhone, email,
+      dynId, accounts.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-api-openapi.yml#/components/schemas/DAS.Core.EntityFramework.SFDCUser
+  - term: DAS.Models.ReputationStatisticsSiteDetailsModelAllTime
+    definition: 'Object declared by the contract with fields: site, averageScore.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-v2-api-openapi.yml#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModelAllTime
+  - term: DAS.Models.ReputationStatisticsSummaryModel
+    definition: 'Object declared by the contract with fields: date, total, average.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-v2-api-openapi.yml#/components/schemas/DAS.Models.ReputationStatisticsSummaryModel
+  - term: DAS.Models.ReputationStatisticsSiteDetailsModel
+    definition: 'Object declared by the contract with fields: date, site, reviewCount, positiveReviews, negativeReviews, dealerResponses, averageScore.'
+    tags:
+    - Object
+    source: openapi/das-technology-account-v2-api-openapi.yml#/components/schemas/DAS.Models.ReputationStatisticsSiteDetailsModel

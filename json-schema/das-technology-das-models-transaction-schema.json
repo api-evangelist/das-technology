@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-transaction-schema.json",
+  "title": "DAS.Models.Transaction",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-transaction-api-openapi.yml#/components/schemas/DAS.Models.Transaction",
+  "type": "object",
+  "properties": {
+    "transactionId": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "transactionGuid": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "openDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "closedDate": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "customer": {
+      "$ref": "#/$defs/DAS.Models.CustomerModel"
+    },
+    "employee": {
+      "$ref": "#/$defs/DAS.Models.EmployeeModel"
+    },
+    "vehicle": {
+      "$ref": "#/$defs/DAS.Models.VehicleModel"
+    }
+  },
+  "$defs": {
+    "DAS.Models.CustomerModel": {
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "customerGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "streetAddress": {
+          "type": "string"
+        },
+        "streetAddress2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        },
+        "cellPhone": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        }
+      }
+    },
+    "DAS.Models.EmployeeModel": {
+      "type": "object",
+      "properties": {
+        "employeeId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdatedBy": {
+          "type": "string"
+        },
+        "token": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accountToken": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "employeeDepartment": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      }
+    },
+    "DAS.Models.VehicleModel": {
+      "type": "object",
+      "properties": {
+        "vin": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        },
+        "make": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "odometer": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

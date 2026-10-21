@@ -1,0 +1,334 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/das-technology/main/json-schema/das-technology-das-models-paged-result-das-models-user-model-schema.json",
+  "title": "DAS.Models.PagedResult_DAS.Models.UserModel",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/das-technology-user-v2-api-openapi.yml#/components/schemas/DAS.Models.PagedResult_DAS.Models.UserModel",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DAS.Models.UserModel"
+      }
+    },
+    "count": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "$defs": {
+    "DAS.Models.AccountAccessModel": {
+      "type": "object",
+      "properties": {
+        "accountGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accessLevel": {
+          "enum": [
+            "Hidden",
+            "None",
+            "User",
+            "Administrator"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "DAS.Models.AccountHierarchyView": {
+      "type": "object",
+      "properties": {
+        "hierarchyName": {
+          "type": "string"
+        },
+        "hierarchyGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "accountName": {
+          "type": "string"
+        },
+        "accountGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "root": {
+          "$ref": "#/$defs/DAS.Models.PortalAccountV2"
+        },
+        "isDefault": {
+          "type": "boolean"
+        }
+      }
+    },
+    "DAS.Models.NotificationSettings": {
+      "type": "object",
+      "properties": {
+        "review": {
+          "$ref": "#/$defs/DAS.Models.ReviewNotificationSettings"
+        },
+        "surveyResponse": {
+          "$ref": "#/$defs/DAS.Models.SurveyResponseNotificationSettings"
+        }
+      }
+    },
+    "DAS.Models.PortalAccountV2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "guid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "parent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.PortalAccountV2"
+          }
+        },
+        "child": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.PortalAccountV2"
+          }
+        },
+        "level": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "brands": {
+          "type": "string"
+        }
+      }
+    },
+    "DAS.Models.RatingNotificationSettings": {
+      "type": "object",
+      "properties": {
+        "negative": {
+          "enum": [
+            "None",
+            "Email",
+            "Mobile"
+          ],
+          "type": "string"
+        },
+        "positive": {
+          "enum": [
+            "None",
+            "Email",
+            "Mobile"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "DAS.Models.ReportSettingDetails": {
+      "type": "object",
+      "properties": {
+        "frequency": {
+          "enum": [
+            "Never",
+            "Daily",
+            "Weekly",
+            "Monthly"
+          ],
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "Default",
+            "CSV",
+            "XLS",
+            "PDF"
+          ],
+          "type": "string"
+        },
+        "method": {
+          "enum": [
+            "None",
+            "Email",
+            "Mobile"
+          ],
+          "type": "string"
+        },
+        "expandTable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "DAS.Models.ReportSettings": {
+      "type": "object",
+      "properties": {
+        "enterprise": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.ReportSettingDetails"
+          }
+        },
+        "unsubscribe": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.ReportSettingDetails"
+          }
+        },
+        "bounce": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.ReportSettingDetails"
+          }
+        }
+      }
+    },
+    "DAS.Models.ReviewNotificationSettings": {
+      "type": "object",
+      "properties": {
+        "sales": {
+          "$ref": "#/$defs/DAS.Models.RatingNotificationSettings"
+        },
+        "service": {
+          "$ref": "#/$defs/DAS.Models.RatingNotificationSettings"
+        },
+        "uncategorized": {
+          "$ref": "#/$defs/DAS.Models.RatingNotificationSettings"
+        }
+      }
+    },
+    "DAS.Models.SurveyResponseNotificationSettings": {
+      "type": "object",
+      "properties": {
+        "sales": {
+          "$ref": "#/$defs/DAS.Models.RatingNotificationSettings"
+        },
+        "service": {
+          "$ref": "#/$defs/DAS.Models.RatingNotificationSettings"
+        }
+      }
+    },
+    "DAS.Models.UserModel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "guid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "externalId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "accessLevel": {
+          "enum": [
+            "Hidden",
+            "None",
+            "User",
+            "Administrator"
+          ],
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "updated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastLogin": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        },
+        "accountAccess": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.AccountAccessModel"
+          }
+        },
+        "settings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.UserSettings"
+          }
+        },
+        "portalStyle": {
+          "type": "string"
+        },
+        "portalFeatures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "accountHierarchyViews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DAS.Models.AccountHierarchyView"
+          }
+        },
+        "advocateName": {
+          "type": "string"
+        },
+        "advocateMail": {
+          "type": "string"
+        },
+        "advocatePhone": {
+          "type": "string"
+        }
+      }
+    },
+    "DAS.Models.UserSettings": {
+      "type": "object",
+      "properties": {
+        "accountGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "notification": {
+          "$ref": "#/$defs/DAS.Models.NotificationSettings"
+        },
+        "report": {
+          "$ref": "#/$defs/DAS.Models.ReportSettings"
+        }
+      }
+    }
+  }
+}
